@@ -4,8 +4,7 @@
   "description": "Interactive quiz application for primary school students with remote data storage",
   "type": "module",
   "scripts": {
-    "deploy": "netlify deploy --prod",
-    "dev": "netlify dev",
+    "deploy:gh-pages": "echo \"Deployed via GitHub Actions\"",
     "build": "echo 'No build step needed - static files only'"
   },
   "keywords": [
@@ -15,17 +14,5 @@
     "interactive"
   ],
   "author": "Quiz Team",
-  "license": "MIT",
-  "devDependencies": {
-    "@netlify/blobs": "^6.0.0",
-    "netlify-cli": "^17.0.0"
-  },
-  "netlify": {
-    "blobs": {
-      "stores": [
-        "users",
-        "quiz-results"
-      ]
-    }
-  }
+  "license": "MIT"
 }

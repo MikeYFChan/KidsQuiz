@@ -1,40 +1,7 @@
 <!-- Archived: tools/mcq-review.html moved to archive/tools/mcq-review.html -->
 <html><body><p>This review tool was archived. See <code>archive/tools/mcq-review.html</code>.</p></body></html>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MCQ Manual Review</title>
-  <style>
-    body { font-family: system-ui, -apple-system,Segoe UI, Roboto, Arial; padding: 24px; max-width: 980px; margin: auto; color: #111 }
-    h1 { margin-bottom: 8px }
-    .item { border: 1px solid #e6e6e6; padding: 12px; margin: 12px 0; border-radius: 6px; }
-    .meta { font-size: 13px; color: #555 }
-    textarea { width: 100%; min-height: 64px; font-size: 14px; margin-top:6px }
-    label { font-weight: 600 }
-    .controls { margin-top: 8px }
-    .btn { display:inline-block; padding:8px 12px; border-radius:6px; background:#0366d6; color:#fff; text-decoration:none; border:none; cursor:pointer }
-    .btn.secondary { background:#6a737d }
-    .btn.ghost { background: #fff; color: #0366d6; border: 1px solid #0366d6 }
-    .row { display:flex; gap:8px; align-items:center }
-    .small { font-size:13px; color:#666 }
-    .checked { background:#e6ffed; }
-    .search { margin-bottom: 12px }
-    .toolbar { margin-bottom: 12px }
-  </style>
-</head>
-<body>
-  <h1>MCQ Manual Review ✅</h1>
-  <p class="small">Load and review the items flagged in <code>data/mcq-manual-review.json</code>. Edit the reason or provide a suggested corrected question/notes, mark as reviewed, then download the JSON of reviewed items to apply updates.</p>
 
-  <div class="toolbar">
-    <input id="filter-input" class="search" placeholder="Filter by subject/year/question text" style="width:60%" />
-    <button id="download-reviewed" class="btn">Download reviewed JSON</button>
-    <button id="download-full" class="btn secondary">Download full manual list</button>
-  </div>
-
-  <div id="list"></div>
-
-  <script>
     async function loadList() {
       try {
         const res = await fetch('/data/mcq-manual-review.json', { cache: 'no-cache' });
@@ -149,7 +116,3 @@
         URL.revokeObjectURL(url);
       });
 
-    })();
-  </script>
-</body>
-</html>

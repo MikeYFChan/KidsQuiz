@@ -1,149 +1,60 @@
-# Primary School Quiz - Setup Guide
+# Primary School Quiz - Setup & Deployment
 
-## Overview
-This is an interactive quiz application for primary school students with the following features:
-- User management with persistent storage (local + remote)
-- Multiple subjects and year levels
-- Quiz progress tracking and scoring
-- History of quiz results
-- Remote data backup using Netlify Blobs
+## 概述
 
-## Features
-✅ **Local Storage**: User data and quiz results are saved locally (browser localStorage)  
-✅ **Remote Sync**: Data automatically syncs to Netlify Functions when online  
-✅ **Offline Support**: Works offline with localStorage fallback  
-✅ **Better Color Contrast**: Enhanced visibility for grade displays  
+此專案為一個互動式的小學測驗應用，支援本地儲存與（選用的）遠端同步。若想要公開站點，建議將靜態前端發佈到 GitHub Pages；如果需要保留伺服器函式（遠端備份），可選擇將函式移至 Vercel 或其他 serverless 提供者。
 
-## Deployment Instructions
+## 部署快速指南（推薦）
 
-### Prerequisites
-- Node.js 14+ installed
-- Git account
-- Netlify account (free tier is fine)
+### 1) 發佈前端到 GitHub Pages（推薦）
 
-### Steps to Deploy
+1. 建立 GitHub 倉庫並推送程式碼
+2. 啟用 GitHub Actions：本專案內已包含範例 workflow，推送至 `main` 分支會自動將網站發佈到 GitHub Pages
 
-#### 1. Prepare the Repository
-```bash
-cd /Users/mike/Documents/Code/Quiz
-git init
-git add .
-git commit -m "Initial commit"
-```
+> 無需建構步驟，發布目錄為專案根目錄。
 
-#### 2. Create a Git Repository on GitHub
-1. Go to https://github.com/new
-2. Create a new repository (e.g., `primary-school-quiz`)
-3. Follow the instructions to push your local repo
+### 2) 選擇遠端函式（可選）
 
-#### 3. Deploy to Netlify
-**Option A: Using Netlify CLI (Recommended)**
-```bash
-npm install -g netlify-cli
-netlify login
-netlify deploy --prod
-```
+- 如果需要保留遠端備份（使用者/成績），建議將 `archive/functions/*`（範例函式）的程式碼遷移到 **Vercel Functions**（或 Cloudflare Workers、AWS Lambda）。
+- 若您不需要遠端備份，可直接停用遠端同步（詳見下方）並保留純本地功能。
 
-**Option B: Using Netlify Web UI**
-1. Go to https://netlify.com
-2. Click "Add new site" → "Import an existing project"
-3. Connect your GitHub repository
-4. Configure build settings:
-   - Build command: (leave empty)
-   - Publish directory: `.`
-5. Click "Deploy site"
+## 關於前端的遠端同步設定
 
-### Configuration
+- 本專案已改為可配置：在瀏覽器環境中設定全域 `window.REMOTE_API_BASE`（例如 `https://your-vercel-app.vercel.app/api`）會使遠端請求導向該基底 URL。
+- 若想完全停用遠端同步，設定 `window.REMOTE_SYNC_ENABLED = false`。
+- 預設行為：遠端同步預設為停用；如需使用，請設置 `REMOTE_API_BASE` 並同時啟用 `window.REMOTE_SYNC_ENABLED = true`。
 
-#### Enable Netlify Blobs (for remote storage)
-1. Go to your Netlify site dashboard
-2. Click "Site settings" → "Functions"
-3. Ensure Functions are enabled
-4. The Netlify Blobs setup is automatic (no additional configuration needed)
+## 將函式遷移到 Vercel（簡要）
 
-#### Update netlify.toml (if needed)
-The `netlify.toml` file is already configured to:
-- Serve the current directory as the publish folder
-- Set proper CORS headers for JSON files
-- Enable security headers
+1. 在 Vercel 建立新專案並連結此 GitHub 倉庫
+2. 將 `archive/functions/*.js` 中的 handler 程式碼轉為 Vercel Serverless function（放置於 `api/` 目錄）
+3. 轉換任何專案內使用的專屬儲存依賴（例如 `@netlify/blobs`）為目標平台支援的儲存類型，例如 Vercel KV、Supabase、或 S3
+4. 在前端環境中設定 `REMOTE_API_BASE` 為 Vercel 部署的基底 URL
 
-### Environment Variables (Optional)
-If you want to customize the application, you can set environment variables in Netlify:
-1. Go to Site settings → Build & deploy → Environment
-2. Add any custom variables needed
+詳盡遷移步驟請參考 `MIGRATING_FUNCTIONS.md`。
 
-## Usage
+## 停用遠端同步（只用 localStorage）
 
-### For Teachers/Administrators
-1. Open the application in your browser
-2. Click "Add User" to create student profiles (Year 3 or Year 6)
-3. Select a student from the dropdown
-4. View their quiz history by clicking "View History"
+1. 在部署或頁面設定中加入 `window.REMOTE_SYNC_ENABLED = false` 或把 `REMOTE_API_BASE` 設為空字串
+2. 瀏覽器端會自動僅使用 localStorage 儲存使用者與成績
 
-### For Students
-1. Select your name from the dropdown (or ask teacher to add you)
-2. Choose a subject (Maths, English, Science)
-3. Select your year level
-4. Answer the quiz questions
-5. View your results and explanations
+## 檔案結構（重點）
 
-### Remote Data Sync
-- User data and quiz results automatically sync to Netlify Blobs when online
-- If offline, data saves locally and syncs when connection returns
-- Check browser console for sync status messages
-
-## File Structure
 ```
 Quiz/
-├── index.html                 # Main application
-├── Quiz.css                   # Styling (updated colors for better contrast)
-├── questions.json             # Quiz questions database
-├── netlify.toml              # Netlify configuration
-├── _headers                  # Custom HTTP headers
-└── netlify/functions/         # Serverless functions
-    ├── saveUser.js           # Save user data to remote
-    ├── saveQuizResult.js     # Save quiz results to remote
-    └── getUserResults.js     # Retrieve user results
+├── index.html                 # Main application (static)
+├── Quiz.css
+├── questions.json
+├── .github/workflows/gh-pages.yml  # GitHub Actions workflow
+└── archive/functions/ (範例，遷移指南在 MIGRATING_FUNCTIONS.md)
 ```
 
-## Recent Updates
+## 故障排除
 
-### Color Contrast Improvements
-- Changed percentage text color to bright gold (#FFD700)
-- Changed correct answer indicators to bright green (#00FF00)
-- Changed incorrect answer indicators to bright red (#FF0000)
-- Added text shadows for better readability
-- Increased background opacity for better contrast
+- 前端載入題目失敗：檢查 `questions.json` 是否存在於網站根目錄
+- 若使用遠端函式：檢查 `REMOTE_API_BASE` 是否正確，以及該服務是否回應
+- 如果發生同步錯誤，資料仍會保存在 localStorage
 
-### Remote Storage Implementation
-- Added Netlify Functions for saving user data
-- Added Netlify Functions for saving quiz results
-- Integrated automatic syncing from the web interface
-- Maintained local storage fallback for offline support
+---
 
-## Troubleshooting
-
-### Functions Not Working
-- Check browser console for error messages (F12 → Console tab)
-- Verify Netlify Functions are deployed: Check site dashboard → Functions
-- Ensure `netlify.toml` is in the root directory
-
-### Data Not Syncing
-- Check internet connection
-- Open browser developer tools (F12) to see network requests
-- Check console for error messages
-- Local data is still saved even if remote sync fails
-
-### Questions.json Not Loading
-- Verify file is in root directory of Netlify deployment
-- Check `netlify.toml` header configuration
-- Clear browser cache and reload
-
-## Support
-For issues with:
-- **Netlify Deployment**: https://docs.netlify.com
-- **Netlify Functions**: https://docs.netlify.com/functions/overview
-- **Netlify Blobs**: https://docs.netlify.com/blobs/overview
-
-## License
-Free to use for educational purposes.
+此文件已更新為以 GitHub Pages 為預設部署方式，並提供函式遷移與停用遠端同步的說明。

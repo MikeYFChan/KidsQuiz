@@ -166,6 +166,16 @@
         let users = [];
         let currentUser = null;
 
+        // Remote sync configuration: set REMOTE_API_BASE to a full URL (no trailing slash) to use that server (e.g., Vercel endpoint).
+        // Set window.REMOTE_SYNC_ENABLED = false to disable remote sync entirely.
+        const REMOTE_API_BASE = (window.REMOTE_API_BASE && window.REMOTE_API_BASE.trim()) || '';
+        // Default: remote sync is disabled unless explicitly enabled by setting window.REMOTE_SYNC_ENABLED = true
+        const REMOTE_SYNC_ENABLED = (typeof window.REMOTE_SYNC_ENABLED === 'boolean') ? window.REMOTE_SYNC_ENABLED : false;
+        function apiUrl(funcName) {
+            if (!REMOTE_API_BASE) return null;
+            return `${REMOTE_API_BASE.replace(/\/$/, '')}/${funcName}`;
+        }
+
         function loadUsersFromStorage() {
             try {
                 const raw = localStorage.getItem('quiz_users');
@@ -177,7 +187,7 @@
 
         function saveUsersToStorage() {
             localStorage.setItem('quiz_users', JSON.stringify(users));
-            // Also sync to remote Netlify function
+            // Also sync to remote (if enabled)
             users.forEach(user => {
                 saveUserToRemote(user).catch(err => {
                     console.warn('Failed to save user to remote:', err);
@@ -186,8 +196,14 @@
         }
 
         async function saveUserToRemote(user) {
+            if (!REMOTE_SYNC_ENABLED) return;
+            const url = apiUrl('saveUser');
+            if (!url) {
+                console.warn('REMOTE_API_BASE not set; remote sync disabled');
+                return;
+            }
             try {
-                const response = await fetch('/.netlify/functions/saveUser', {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -297,8 +313,14 @@
         }
 
         async function saveQuizResultToRemote(result) {
+            if (!REMOTE_SYNC_ENABLED) return;
+            const url = apiUrl('saveQuizResult');
+            if (!url) {
+                console.warn('REMOTE_API_BASE not set; remote sync disabled');
+                return;
+            }
             try {
-                const response = await fetch('/.netlify/functions/saveQuizResult', {
+                const response = await fetch(url, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -408,7 +430,7 @@
         let questionsLoaded = false;
         async function loadQuestions() {
             try {
-                // Try multiple paths for Netlify compatibility
+                    // Try multiple paths in case files are placed in different deployment layouts
                 const paths = [
                     './data/questions_mcq.json',
                     './questions_mcq.json',
@@ -485,7 +507,7 @@
                     message: error.message,
                     name: error.name
                 });
-                alert('無法載入題目檔案 (questions.json)。\n\n請檢查：\n1. questions.json 是否已上傳到 Netlify\n2. 檔案是否在根目錄\n3. 檔案名稱是否正確\n\n錯誤: ' + error.message);
+                alert('無法載入題目檔案 (questions.json)。\n\n請檢查：\n1. questions.json 是否已包含於網站根目錄\n2. 檔案是否在根目錄\n3. 檔案名稱是否正確\n\n錯誤: ' + error.message);
                 questionsLoaded = false;
             }
         }

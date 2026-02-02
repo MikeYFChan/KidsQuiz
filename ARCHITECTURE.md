@@ -25,10 +25,10 @@
 └──────────────────────────────────────┼─────────────────────┘
                                        │
                           ┌────────────▼──────────────┐
-                          │    Netlify Platform       │
+                          │    Serverless Provider    │
                           │  ┌──────────────────────┐ │
                           │  │  Functions Runtime   │ │
-                          │  │  (Node.js)           │ │
+                          │  │  (Node.js / Edge)    │ │
                           │  ├──────────────────────┤ │
                           │  │ ✓ saveUser.js        │ │
                           │  │ ✓ saveQuizResult.js  │ │
@@ -36,12 +36,9 @@
                           │  └──────┬───────────────┘ │
                           │         │                 │
                           │  ┌──────▼──────────────┐ │
-                          │  │  Netlify Blobs      │ │
-                          │  │  (Cloud Storage)    │ │
-                          │  │  ┌────────────────┐ │ │
-                          │  │  │ Store: users   │ │ │
-                          │  │  │ Store: results │ │ │
-                          │  │  └────────────────┘ │ │
+                          │  │  Storage Backend    │ │
+                          │  │  (Vercel KV / S3 /  │ │
+                          │  │   Supabase / etc.)  │ │
                           │  └──────────────────────┘ │
                           └───────────────────────────┘
 ```
@@ -49,6 +46,7 @@
 ## Component Overview
 
 ### Frontend Components
+
 - **Quiz Interface**: Handle quiz questions and user answers
 - **Results Display**: Show grades with improved color contrast
 - **User Management**: Add/select students
@@ -58,26 +56,29 @@
 ### Backend (Serverless Functions)
 
 #### saveUser.js
+
 - **Purpose**: Save user profile data
 - **Triggered By**: User creation/update
-- **Stores To**: `users` Blob Store
+- **Stores To**: `users` (storage backend)
 - **Data**: `{ id, name, grade, savedAt }`
 
 #### saveQuizResult.js
+
 - **Purpose**: Save quiz completion record
 - **Triggered By**: Quiz finish
-- **Stores To**: `quiz-results` Blob Store
+- **Stores To**: `quiz-results` (storage backend)
 - **Data**: `{ userId, subject, year, correct, total, percentage, date }`
 
 #### getUserResults.js
+
 - **Purpose**: Retrieve user's quiz history
 - **Triggered By**: Manual request (not yet used)
-- **Returns From**: `quiz-results` Blob Store
+- **Returns From**: `quiz-results` (storage backend)
 
 ### Storage Architecture
 
 ```
-Netlify Blobs
+Storage Backend (example)
 │
 ├── users Store
 │   ├── user_1704067200000
@@ -114,7 +115,7 @@ User Creates Profile
         │
         ├─► Validates data
         │
-        ├─► Saves to Netlify Blobs
+        ├─► Saves to storage backend
         │
         └─► Returns success/error
             (Fails gracefully if offline)
@@ -143,17 +144,17 @@ Quiz Completed
 
 ```
 Online Mode:
-  Local Storage ────► Netlify Blobs
+  Local Storage ────► Storage Backend
       ✓ Fast           ✓ Persistent
       ✓ Immediate      ✓ Backed up
 
 Offline Mode:
-  Local Storage ──X──► Netlify Blobs
+  Local Storage ──X──► Storage Backend
       ✓ Works           (Retries on reconnect)
       ✓ Functional
-  
+
 Back Online:
-  Local Storage ────► Netlify Blobs
+  Local Storage ────► Storage Backend
       ✓ Auto-syncs      ✓ Data restored
       ✓ No data loss
 ```
@@ -163,6 +164,7 @@ Back Online:
 ### Display Enhancement
 
 **Before (Hard to Read):**
+
 ```
 Percentage: Yellow (#f1c40f) on gradient → Low contrast
 Correct: Light Green (#90ee90) on semi-transparent → Blends in
@@ -170,6 +172,7 @@ Incorrect: Light Red (#ff6b6b) on semi-transparent → Barely visible
 ```
 
 **After (Easy to Read):**
+
 ```
 Percentage: Bright Gold (#FFD700) + shadow on gradient → HIGH contrast
 Correct: Bright Green (#00FF00) + shadow on semi-transparent → VERY clear
@@ -179,20 +182,20 @@ Incorrect: Bright Red (#FF0000) + shadow on semi-transparent → STANDS OUT
 ## Security Considerations
 
 ✓ **Client-Side Data**: All sensitive data stays on user's browser
-✓ **Function Security**: Netlify Functions have built-in DDoS protection
+✓ **Function Security**: Serverless platforms typically provide DDoS protection and platform-level security features
 ✓ **CORS Configured**: Only necessary cross-origin requests allowed
 ✓ **No Authentication**: Simple blob storage (suitable for quiz app)
 ✓ **No Database Injections**: No SQL, NoSQL, or code injection risks
 
 ## Performance Characteristics
 
-| Operation | Time | Storage |
-|-----------|------|---------|
-| Save user locally | <1ms | ~200 bytes |
-| Save quiz result locally | <5ms | ~300 bytes |
-| Save user remotely | 200-500ms | Unlimited |
-| Save quiz result remotely | 200-500ms | Unlimited |
-| Sync 100 results | <10s | Unlimited |
+| Operation                 | Time      | Storage    |
+| ------------------------- | --------- | ---------- |
+| Save user locally         | <1ms      | ~200 bytes |
+| Save quiz result locally  | <5ms      | ~300 bytes |
+| Save user remotely        | 200-500ms | Unlimited  |
+| Save quiz result remotely | 200-500ms | Unlimited  |
+| Sync 100 results          | <10s      | Unlimited  |
 
 ## Deployment Architecture
 
@@ -201,26 +204,22 @@ GitHub
    │
    ├─► Push code
    │
-   └─► Netlify
+   └─► GitHub Pages (frontend) & Optional Serverless (functions)
        │
-       ├─► Build
-       │   ├─ Copy files
-       │   └─ Validate config
-       │
-       ├─► Deploy
-       │   ├─ Publish HTML/CSS/JS
-       │   ├─ Deploy Functions (Node.js)
-       │   └─ Configure Blobs
+       ├─► Build/Publish
+       │   ├─ Publish HTML/CSS/JS to Pages
+       │   └─ Deploy Functions to chosen provider (Vercel/Cloudflare/etc.)
        │
        └─► Live Site
-           ├─ index.html (served globally)
-           ├─ Functions (available via /.netlify/functions/*)
-           └─ Blobs (auto-managed)
+           ├─ index.html (served globally via Pages)
+           ├─ Functions (available via configured base URL)
+           └─ Storage (Vercel KV / S3 / Supabase / etc.)
 ```
 
 ---
 
 This architecture provides:
+
 - ✅ Fast local performance
 - ✅ Cloud backup for data persistence
 - ✅ Offline capability

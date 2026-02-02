@@ -50,14 +50,14 @@
 
 ---
 
-## After Deployment to Netlify
+## After Deployment (with remote functions)
 
-### ✅ Remote Storage Testing
+### ✅ Remote Storage Testing (if using functions)
 
-- [ ] **Deploy to Netlify**
+- [ ] **Deploy to chosen provider**
   - [ ] Push code to GitHub
-  - [ ] Deploy via Netlify CLI or web UI
-  - [ ] Verify site is live and accessible
+  - [ ] Deploy frontend (GitHub Pages) and/or deploy functions (Vercel etc.)
+  - [ ] Verify site and functions are live and accessible
 
 - [ ] **Test Color Improvements (Remote)**
   - [ ] Open deployed site in browser
@@ -69,18 +69,16 @@
 - [ ] **Test Remote Storage**
   - [ ] Add a new user via deployed site
   - [ ] Check browser console (F12 → Console)
-  - [ ] Look for "User saved to remote successfully" message
+  - [ ] Look for "User saved to remote successfully" message (if enabled)
   - [ ] Complete a quiz
-  - [ ] Check for "Quiz result saved to remote successfully" message
-  - [ ] Open Netlify dashboard
-  - [ ] Check Functions logs (optional)
+  - [ ] Check for "Quiz result saved to remote successfully" message (if enabled)
+  - [ ] Check serverless provider logs (optional)
 
 - [ ] **Test Sync Verification**
   - [ ] Add user "TestUser1"
   - [ ] Complete a quiz with 8/10 score
   - [ ] Open DevTools Console
-  - [ ] Verify fetch calls to `/.netlify/functions/saveUser`
-  - [ ] Verify fetch calls to `/.netlify/functions/saveQuizResult`
+  - [ ] Verify fetch calls to the configured endpoint (check `window.REMOTE_API_BASE` or legacy `/.netlify/functions/*`)
   - [ ] Check Network tab for successful responses (200 OK)
 
 - [ ] **Test Multi-Browser Persistence**
@@ -110,6 +108,7 @@ Test on these browsers if possible:
 - [ ] **Chrome Mobile** (Android)
 
 Expected results:
+
 - ✅ All features working
 - ✅ Colors displaying correctly
 - ✅ Local storage functioning
@@ -144,7 +143,7 @@ Expected results:
   - [ ] Open site in new tab
   - [ ] Measure time until interactive (DevTools → Performance)
   - [ ] Should be < 2 seconds
-  - [ ] Should be < 1 second on Netlify
+  - [ ] Should be < 1 second on Pages (or similar static host)
 
 - [ ] **Quiz Responsiveness**
   - [ ] Complete quiz quickly (click next rapidly)
@@ -161,19 +160,18 @@ Expected results:
 
 ## Data Backup Verification
 
-After deploying to Netlify:
+After deployment (if using functions):
 
-- [ ] **Check Netlify Blobs Storage**
-  - [ ] Go to Netlify Site Dashboard
-  - [ ] Navigate to any section (Blobs should be visible)
-  - [ ] Verify data is being stored
-  - [ ] (Note: Full UI may not be available in all Netlify tiers)
+- [ ] **Check storage backend (if using functions)**
+  - [ ] Go to your provider dashboard (Vercel / Supabase / S3 console)
+  - [ ] Navigate to the storage section and verify data is being stored
+  - [ ] (Note: Provider UI/permissions may vary)
 
 - [ ] **Verify Data Persistence**
   - [ ] Clear browser cache and cookies
   - [ ] Reload site
-  - [ ] Verify users still appear (from Netlify Blobs if available)
-  - [ ] Note: This requires user re-fetch implementation (currently one-way sync)
+  - [ ] Verify users still appear (from remote backend if you implemented server-side reads)
+  - [ ] Note: This may require implementing a fetch endpoint to rehydrate local data from the backend
 
 ---
 
@@ -232,23 +230,26 @@ These could be added in future versions if needed.
 ## Troubleshooting Common Issues
 
 ### Issue: Colors not bright enough
+
 - **Solution**: Clear cache (Ctrl+F5), verify CSS changes in Quiz.css
 
 ### Issue: Remote sync not working
+
 - **Solution**: Check DevTools Console for errors, ensure Netlify Functions are deployed
 
 ### Issue: Users not appearing after browser close
+
 - **Solution**: Check localStorage in DevTools, verify local storage is enabled
 
 ### Issue: Mobile display broken
+
 - **Solution**: Check viewport meta tag in HTML, test on actual device
 
 ---
 
-**Testing Date**: ________________
-**Tester Name**: ________________
-**Browser/Device**: ________________
+**Testing Date**: **\*\***\_\_\_\_**\*\***
+**Tester Name**: **\*\***\_\_\_\_**\*\***
+**Browser/Device**: **\*\***\_\_\_\_**\*\***
 **Result**: ✅ PASS / ❌ FAIL
 
-Comments: _________________________________________________________________
-
+Comments: **************\*\*\*\***************\_**************\*\*\*\***************

@@ -1882,4 +1882,1180 @@
     ],
     "correctIndex": 2,
     "answer": "have",
-    
+    "explanation": "'Have' is correct. 'Of' is incorrect here.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is the past perfect tense of 'eat'?",
+    "choices": [
+      "had eatened",
+      "had eaten",
+      "no",
+      "had eatens"
+    ],
+    "correctIndex": 1,
+    "answer": "had eaten",
+    "explanation": "Past perfect uses 'had' + past participle.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Identify the subject: 'The noisy crowd cheered loudly.'",
+    "choices": [
+      "the noisy crowds",
+      "no",
+      "the noisy crowded",
+      "The noisy crowd"
+    ],
+    "correctIndex": 3,
+    "answer": "The noisy crowd",
+    "explanation": "The subject tells who or what does the action.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What does the suffix '-less' mean?",
+    "choices": [
+      "no",
+      "without",
+      "withouted",
+      "withouts"
+    ],
+    "correctIndex": 1,
+    "answer": "without",
+    "explanation": "'-less' means without, for example 'hopeless'.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What type of sentence is: 'Please sit down.'?",
+    "choices": [
+      "command",
+      "no",
+      "commanded",
+      "commands"
+    ],
+    "correctIndex": 0,
+    "answer": "command",
+    "explanation": "It gives an instruction.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Choose the correct word: 'Their / There / They're books are new.'",
+    "choices": [
+      "Their",
+      "theirs",
+      "theired",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "Their",
+    "explanation": "'Their' shows possession.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a synonym for 'brave'?",
+    "choices": [
+      "no",
+      "courageous",
+      "courageoused",
+      "courageouss"
+    ],
+    "correctIndex": 1,
+    "answer": "courageous",
+    "explanation": "'Courageous' means brave.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Identify the verb: 'He quickly finished the race.'",
+    "choices": [
+      "finisheds",
+      "finisheded",
+      "finished",
+      "no"
+    ],
+    "correctIndex": 2,
+    "answer": "finished",
+    "explanation": "'Finished' is the action word.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What punctuation mark can replace brackets?",
+    "choices": [
+      "commas",
+      "commass",
+      "commased",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "commas",
+    "explanation": "Commas can replace brackets in some sentences.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a homophone for 'sea'?",
+    "choices": [
+      "sees",
+      "see",
+      "seeed",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "see",
+    "explanation": "Homophones sound the same but have different meanings.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Choose the correct form: 'Neither answer ___ correct.' (is / are)",
+    "choices": [
+      "is",
+      "no",
+      "iss",
+      "ised"
+    ],
+    "correctIndex": 0,
+    "answer": "is",
+    "explanation": "'Neither' takes a singular verb.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a synonym for 'difficult'?",
+    "choices": [
+      "challenginged",
+      "challenging",
+      "no",
+      "challengings"
+    ],
+    "correctIndex": 1,
+    "answer": "challenging",
+    "explanation": "'Challenging' means difficult.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Identify the conjunction: 'I stayed home because it was raining.'",
+    "choices": [
+      "because",
+      "no",
+      "becauseed",
+      "becauses"
+    ],
+    "correctIndex": 0,
+    "answer": "because",
+    "explanation": "'Because' joins two ideas.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What type of word is 'carefully'?",
+    "choices": [
+      "adverbed",
+      "no",
+      "adverb",
+      "adverbs"
+    ],
+    "correctIndex": 2,
+    "answer": "adverb",
+    "explanation": "'Carefully' describes how something is done.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is the plural of 'analysis'?",
+    "choices": [
+      "analyses",
+      "analysess",
+      "analysesed",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "analyses",
+    "explanation": "'Analysis' changes to 'analyses' in plural.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What does the prefix 're-' mean?",
+    "choices": [
+      "agains",
+      "again",
+      "agained",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "again",
+    "explanation": "'Re-' means again, like 'rewrite'.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a synonym for 'silent'?",
+    "choices": [
+      "quiet",
+      "quieted",
+      "quiets",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "quiet",
+    "explanation": "'Quiet' means silent.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Identify the object: 'She gave Tom a gift.'",
+    "choices": [
+      "a gifts",
+      "a gifted",
+      "no",
+      "a gift"
+    ],
+    "correctIndex": 3,
+    "answer": "a gift",
+    "explanation": "The object receives the action.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Choose the correct word: 'I had ___ finished.' (already / all ready)",
+    "choices": [
+      "alreadies",
+      "already",
+      "alreadys",
+      "alreadyed"
+    ],
+    "correctIndex": 1,
+    "answer": "already",
+    "explanation": "'Already' means before now.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a subordinate clause?",
+    "choices": [
+      "a clause that cannot stand alone",
+      "a clause that cannot stand aloneed",
+      "a clause that cannot stand alones",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "a clause that cannot stand alone",
+    "explanation": "It depends on a main clause.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What type of sentence uses 'and', 'but', or 'so'?",
+    "choices": [
+      "compound sentenceed",
+      "compound sentences",
+      "compound sentence",
+      "no"
+    ],
+    "correctIndex": 2,
+    "answer": "compound sentence",
+    "explanation": "Compound sentences join ideas together.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a synonym for 'tiny'?",
+    "choices": [
+      "minutes",
+      "minuteed",
+      "minute",
+      "no"
+    ],
+    "correctIndex": 2,
+    "answer": "minute",
+    "explanation": "'Minute' means very small.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Identify the tense: 'She will have finished by noon.'",
+    "choices": [
+      "future perfected",
+      "future perfects",
+      "future perfect",
+      "no"
+    ],
+    "correctIndex": 2,
+    "answer": "future perfect",
+    "explanation": "It shows something completed in the future.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What punctuation mark is used before a list?",
+    "choices": [
+      "coloned",
+      "colon",
+      "colons",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "colon",
+    "explanation": "A colon introduces a list.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is an antonym for 'victory'?",
+    "choices": [
+      "defeats",
+      "no",
+      "defeat",
+      "defeated"
+    ],
+    "correctIndex": 2,
+    "answer": "defeat",
+    "explanation": "'Defeat' is the opposite of 'victory'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a complex sentence?",
+    "choices": [
+      "a sentence with a main clause and a subordinate clauseed",
+      "no",
+      "a sentence with a main clause and a subordinate clauses",
+      "a sentence with a main clause and a subordinate clause"
+    ],
+    "correctIndex": 3,
+    "answer": "a sentence with a main clause and a subordinate clause",
+    "explanation": "Complex sentences combine main and subordinate clauses.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What are the three states of matter? Enter them separated by commas (e.g., solid, liquid, gas)",
+    "choices": [
+      "solid, liquid, water",
+      "plasma, liquid, gas",
+      "gas, liquid, solid",
+      "solid, liquid, gas"
+    ],
+    "correctIndex": 3,
+    "answer": "solid, liquid, gas",
+    "explanation": "The three states of matter are solid, liquid, and gas. Everything around us exists in one of these states.",
+    "needsReview": true,
+    "meta": {
+      "generator": "list"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "Which planet do we live on?",
+    "choices": [
+      "no",
+      "earthed",
+      "earths",
+      "Earth"
+    ],
+    "correctIndex": 3,
+    "answer": "Earth",
+    "explanation": "We live on Earth, the third planet from the Sun and the only known planet with life.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What do plants need to make their own food? Enter the process name",
+    "choices": [
+      "photosynthesised",
+      "photosynthesis",
+      "photosynthesiss",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "photosynthesis",
+    "explanation": "Plants use photosynthesis to make their own food. They need sunlight, water, and carbon dioxide.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "How many legs does a spider have? Enter the number",
+    "choices": [
+      "11",
+      "7",
+      "9",
+      "8"
+    ],
+    "correctIndex": 3,
+    "answer": "8",
+    "explanation": "Spiders have 8 legs. Insects have 6 legs, but spiders are arachnids, not insects.",
+    "needsReview": true,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What gas do we breathe in? Enter: oxygen or carbon dioxide",
+    "choices": [
+      "no",
+      "oxygened",
+      "oxygen",
+      "oxygens"
+    ],
+    "correctIndex": 2,
+    "answer": "oxygen",
+    "explanation": "We breathe in oxygen from the air. Our bodies use it to release energy from food.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What is the name of the star closest to Earth?",
+    "choices": [
+      "suns",
+      "Sun",
+      "no",
+      "suned"
+    ],
+    "correctIndex": 1,
+    "answer": "Sun",
+    "explanation": "The Sun is the star closest to Earth. It provides light and heat for our planet.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "Which animal is a mammal? Enter: fish, bird, or cat",
+    "choices": [
+      "no",
+      "cat",
+      "cated",
+      "cats"
+    ],
+    "correctIndex": 1,
+    "answer": "cat",
+    "explanation": "A cat is a mammal. Mammals are warm-blooded, have fur or hair, and feed their babies milk.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What happens to water when you freeze it?",
+    "choices": [
+      "ices",
+      "iceed",
+      "no",
+      "ice"
+    ],
+    "correctIndex": 3,
+    "answer": "ice",
+    "explanation": "When you freeze water, it turns into ice. This is a change from liquid to solid.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What sense do we use to hear sounds?",
+    "choices": [
+      "hearinged",
+      "no",
+      "hearings",
+      "hearing"
+    ],
+    "correctIndex": 3,
+    "answer": "hearing",
+    "explanation": "We use our sense of hearing to hear sounds. Our ears help us detect different noises.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "Which part of the plant absorbs water from the soil?",
+    "choices": [
+      "rootsed",
+      "roots",
+      "rootss",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "roots",
+    "explanation": "Roots absorb water and nutrients from the soil to help the plant grow.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What force pulls objects towards the Earth?",
+    "choices": [
+      "gravitys",
+      "gravityed",
+      "gravity",
+      "gravities"
+    ],
+    "correctIndex": 2,
+    "answer": "gravity",
+    "explanation": "Gravity is a force that pulls objects towards the Earth.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What material is attracted to a magnet? Enter one example",
+    "choices": [
+      "no",
+      "iron",
+      "ironed",
+      "irons"
+    ],
+    "correctIndex": 1,
+    "answer": "iron",
+    "explanation": "Iron is attracted to magnets. Steel also contains iron and is magnetic.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What do we call animals that eat only plants?",
+    "choices": [
+      "herbivoress",
+      "herbivores",
+      "herbivoresed",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "herbivores",
+    "explanation": "Herbivores are animals that eat only plants, such as cows and rabbits.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What do we call animals that eat meat?",
+    "choices": [
+      "no",
+      "carnivoress",
+      "carnivores",
+      "carnivoresed"
+    ],
+    "correctIndex": 2,
+    "answer": "carnivores",
+    "explanation": "Carnivores are animals that eat other animals for food.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What do we call animals that eat plants and meat?",
+    "choices": [
+      "no",
+      "omnivoresed",
+      "omnivoress",
+      "omnivores"
+    ],
+    "correctIndex": 3,
+    "answer": "omnivores",
+    "explanation": "Omnivores eat both plants and animals, such as humans and bears.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What is the hard outer layer of the Earth called?",
+    "choices": [
+      "crust",
+      "crusts",
+      "no",
+      "crusted"
+    ],
+    "correctIndex": 0,
+    "answer": "crust",
+    "explanation": "The Earth's crust is the hard outer layer where we live.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What is a shadow?",
+    "choices": [
+      "a dark shape made when light is blockeded",
+      "a dark shape made when light is blockeds",
+      "no",
+      "a dark shape made when light is blocked"
+    ],
+    "correctIndex": 3,
+    "answer": "a dark shape made when light is blocked",
+    "explanation": "A shadow is formed when an object blocks light from a light source.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What do living things need to survive? Enter one example",
+    "choices": [
+      "water",
+      "watered",
+      "no",
+      "waters"
+    ],
+    "correctIndex": 0,
+    "answer": "water",
+    "explanation": "Living things need water to survive. They also need food and air.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What is the name of the tool used to measure temperature?",
+    "choices": [
+      "no",
+      "thermometered",
+      "thermometers",
+      "thermometer"
+    ],
+    "correctIndex": 3,
+    "answer": "thermometer",
+    "explanation": "A thermometer is used to measure temperature.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What do muscles help us do?",
+    "choices": [
+      "no",
+      "move",
+      "moves",
+      "moveed"
+    ],
+    "correctIndex": 1,
+    "answer": "move",
+    "explanation": "Muscles work with bones to help us move.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is the circulatory system?",
+    "choices": [
+      "the system that moves blood around the bodyed",
+      "the system that moves blood around the bodies",
+      "the system that moves blood around the bodys",
+      "the system that moves blood around the body"
+    ],
+    "correctIndex": 3,
+    "answer": "the system that moves blood around the body",
+    "explanation": "The circulatory system transports blood, oxygen, and nutrients around the body.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "Which organ pumps blood around the body?",
+    "choices": [
+      "hearted",
+      "hearts",
+      "no",
+      "heart"
+    ],
+    "correctIndex": 3,
+    "answer": "heart",
+    "explanation": "The heart pumps blood through blood vessels to all parts of the body.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What are blood vessels?",
+    "choices": [
+      "no",
+      "tubes that carry bloods",
+      "tubes that carry blood",
+      "tubes that carry blooded"
+    ],
+    "correctIndex": 2,
+    "answer": "tubes that carry blood",
+    "explanation": "Blood vessels carry blood to and from the heart.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "Name one main component of blood",
+    "choices": [
+      "no",
+      "red blood cellss",
+      "red blood cells",
+      "red blood cellsed"
+    ],
+    "correctIndex": 2,
+    "answer": "red blood cells",
+    "explanation": "Red blood cells carry oxygen around the body.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What gas is carried by red blood cells?",
+    "choices": [
+      "oxygens",
+      "oxygen",
+      "oxygened",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "oxygen",
+    "explanation": "Red blood cells carry oxygen from the lungs to the rest of the body.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is a balanced diet?",
+    "choices": [
+      "no",
+      "a diet with all nutrients in the right amountsed",
+      "a diet with all nutrients in the right amountss",
+      "a diet with all nutrients in the right amounts"
+    ],
+    "correctIndex": 3,
+    "answer": "a diet with all nutrients in the right amounts",
+    "explanation": "A balanced diet includes carbohydrates, proteins, fats, vitamins, minerals, and water.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "Why is exercise important?",
+    "choices": [
+      "to keep the body healthies",
+      "to keep the body healthyed",
+      "to keep the body healthy",
+      "to keep the body healthys"
+    ],
+    "correctIndex": 2,
+    "answer": "to keep the body healthy",
+    "explanation": "Exercise helps keep the heart, muscles, and bones strong.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is an adaptation?",
+    "choices": [
+      "a feature that helps an organism surviveed",
+      "no",
+      "a feature that helps an organism survives",
+      "a feature that helps an organism survive"
+    ],
+    "correctIndex": 3,
+    "answer": "a feature that helps an organism survive",
+    "explanation": "Adaptations help plants and animals live in their environments.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is inheritance?",
+    "choices": [
+      "the passing of traits from parents to offsprings",
+      "the passing of traits from parents to offspringed",
+      "the passing of traits from parents to offspring",
+      "no"
+    ],
+    "correctIndex": 2,
+    "answer": "the passing of traits from parents to offspring",
+    "explanation": "Inheritance explains why children look similar to their parents.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is variation?",
+    "choices": [
+      "differences between living things",
+      "differences between living thingss",
+      "no",
+      "differences between living thingsed"
+    ],
+    "correctIndex": 0,
+    "answer": "differences between living things",
+    "explanation": "Variation means that individuals of the same species are not identical.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is a microorganism?",
+    "choices": [
+      "no",
+      "a very small living organisms",
+      "a very small living organismed",
+      "a very small living organism"
+    ],
+    "correctIndex": 3,
+    "answer": "a very small living organism",
+    "explanation": "Microorganisms are so small they can only be seen with a microscope.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "Name one type of microorganism",
+    "choices": [
+      "bacteria",
+      "bacterias",
+      "bacteriaed",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "bacteria",
+    "explanation": "Bacteria are a type of microorganism found almost everywhere.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "Are all microorganisms harmful?",
+    "choices": [
+      "alt4",
+      "noed",
+      "nos",
+      "no"
+    ],
+    "correctIndex": 3,
+    "answer": "no",
+    "explanation": "Some microorganisms are helpful, such as those used in making food.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is a food chain?",
+    "choices": [
+      "a sequence showing how energy passes between living thingsed",
+      "a sequence showing how energy passes between living thingss",
+      "no",
+      "a sequence showing how energy passes between living things"
+    ],
+    "correctIndex": 3,
+    "answer": "a sequence showing how energy passes between living things",
+    "explanation": "A food chain shows who eats whom in an ecosystem.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What do producers do in a food chain?",
+    "choices": [
+      "make their own foods",
+      "make their own fooded",
+      "make their own food",
+      "no"
+    ],
+    "correctIndex": 2,
+    "answer": "make their own food",
+    "explanation": "Producers, like plants, make food using sunlight.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is a predator?",
+    "choices": [
+      "an animal that hunts other animalss",
+      "an animal that hunts other animalsed",
+      "no",
+      "an animal that hunts other animals"
+    ],
+    "correctIndex": 3,
+    "answer": "an animal that hunts other animals",
+    "explanation": "Predators hunt prey for food.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is a habitat?",
+    "choices": [
+      "the natural home of an organisms",
+      "the natural home of an organism",
+      "the natural home of an organismed",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "the natural home of an organism",
+    "explanation": "A habitat provides food, water, shelter, and space.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is electricity?",
+    "choices": [
+      "a form of energys",
+      "a form of energyed",
+      "a form of energy",
+      "a form of energies"
+    ],
+    "correctIndex": 2,
+    "answer": "a form of energy",
+    "explanation": "Electricity powers many devices we use every day.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is a circuit?",
+    "choices": [
+      "a complete path for electricity to flow",
+      "a complete path for electricity to flowed",
+      "no",
+      "a complete path for electricity to flows"
+    ],
+    "correctIndex": 0,
+    "answer": "a complete path for electricity to flow",
+    "explanation": "A circuit must be complete for electricity to work.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What does a switch do in a circuit?",
+    "choices": [
+      "no",
+      "opens or closes the circuit",
+      "opens or closes the circuited",
+      "opens or closes the circuits"
+    ],
+    "correctIndex": 1,
+    "answer": "opens or closes the circuit",
+    "explanation": "A switch controls the flow of electricity.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  }
+]

@@ -115,7 +115,7 @@
   {
     "subject": "English",
     "year": "Year 3",
-    "question": "What is the past tense of 'have'?,
+    "question": "What is the past tense of 'have'?",
     "reason": "list/definition/free-text or format sensitive"
   },
   {
@@ -308,12 +308,6 @@
     "subject": "Science",
     "year": "Year 6",
     "question": "What is a food chain?",
-    "reason": "list/definition/free-text or format sensitive"
-  },
-  {
-    "subject": "Science",
-    "year": "Year 6",
-    "question": "What do producers do in a food chain?",
     "reason": "list/definition/free-text or format sensitive"
   },
   {

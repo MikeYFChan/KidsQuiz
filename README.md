@@ -11,14 +11,14 @@ Your grades are now much easier to read with brighter colors:
 - **Incorrect answers**: Bright red (#FF0000) instead of light red
 - Added shadows for even better visibility
 
-### ☁️ Remote Storage Added
+### ☁️ Remote Storage Added (可選)
 
-User data and quiz scores now automatically sync to the cloud:
+User data and quiz scores can optionally備份到遠端（由您選擇的 Serverless 提供者）：
 
-- User names and grades backup to Netlify
-- Quiz results automatically saved to remote
-- Still works offline with local storage
-- Seamless syncing when back online
+- 使用者名稱與成績可備份到遠端函式，例如 Vercel（或 Netlify 的過渡模式）
+- 測驗結果可自動保存到遠端
+- 若無網路，仍會以 localStorage 作為後備
+- 連回線後會嘗試同步
 
 ---
 
@@ -31,17 +31,13 @@ User data and quiz scores now automatically sync to the cloud:
 
 ---
 
-## Deployment to Netlify
+## Deployment (recommended: GitHub Pages)
 
 ```bash
-# 1. Install Netlify CLI
-npm install -g netlify-cli
-
-# 2. Login to your Netlify account
-netlify login
-
-# 3. Deploy to production
-netlify deploy --prod
+# 1. Create a GitHub repository and push your code
+# 2. This repository includes a GitHub Actions workflow that will publish
+#    the site to GitHub Pages when you push to the `main` branch.
+# 3. No build step required for this static site.
 ```
 
 See `DEPLOYMENT.md` for detailed instructions.
@@ -66,38 +62,33 @@ Quiz/
 ├── index.html              ← Main app (updated with remote sync)
 ├── Quiz.css                ← Styles (colors improved)
 ├── questions.json          ← Quiz questions
-├── netlify.toml            ← Netlify config (updated)
+├── netlify.toml            ← (legacy) Netlify config (optional)
 ├── package.json            ← Dependencies (new)
 ├── DEPLOYMENT.md           ← Setup guide (new)
 ├── CHANGES.md              ← What changed (new)
-└── netlify/functions/
-    ├── saveUser.js         ← Save users to cloud (new)
-    ├── saveQuizResult.js   ← Save scores to cloud (new)
-    └── getUserResults.js   ← Retrieve scores (new)
+└── netlify/functions/ (example serverless functions - migrate as needed)
+    ├── saveUser.js         ← Save users to cloud (example)
+    ├── saveQuizResult.js   ← Save scores to cloud (example)
+    └── getUserResults.js   ← Retrieve scores (example)
 ```
 
 ---
 
-## API Endpoints (After Deployment)
+## API Endpoints (After Deployment / Optional)
 
-The following APIs are available automatically:
+This project uses a configurable remote functions base:
 
-**POST** `/.netlify/functions/saveUser`
+- Configurable base: `${REMOTE_API_BASE}/<name>` — set `window.REMOTE_API_BASE` to the deployed functions base URL (e.g., a Vercel project). Example serverless functions are archived in `archive/functions/` for migration reference.
 
-- Saves user data to remote
-- Called automatically
+Example endpoints (when using a configured base):
 
-**POST** `/.netlify/functions/saveQuizResult`
+**POST** `${REMOTE_API_BASE}/saveUser` — Saves user data to remote
 
-- Saves quiz results to remote
-- Called automatically
+**POST** `${REMOTE_API_BASE}/saveQuizResult` — Saves quiz results to remote
 
-**GET** `/.netlify/functions/getUserResults`
+**GET** `${REMOTE_API_BASE}/getUserResults` — Retrieves user quiz history
 
-- Retrieves user quiz history
-- Called automatically
-
-No configuration needed - they work out of the box!
+If you do not want remote backups, set `window.REMOTE_SYNC_ENABLED = false` and the app will use localStorage only.
 
 ---
 
@@ -111,7 +102,7 @@ No configuration needed - they work out of the box!
 ### Data not saving to remote?
 
 - Check browser console (F12) for errors
-- Verify site is deployed to Netlify
+- Verify site and functions are deployed (Pages, Vercel, etc.)
 - Local storage still works as fallback
 
 ### Questions not loading?
@@ -124,9 +115,7 @@ No configuration needed - they work out of the box!
 
 ## Support Resources
 
-- **Netlify Docs**: https://docs.netlify.com
-- **Netlify Functions**: https://docs.netlify.com/functions/overview
-- **Netlify Blobs**: https://docs.netlify.com/blobs/overview
+- **Hosting & Functions Docs**: See your provider docs (e.g., Vercel: https://vercel.com/docs, Netlify docs if you are using Netlify)
 
 ---
 

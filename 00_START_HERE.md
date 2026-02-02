@@ -7,15 +7,19 @@ Welcome to the updated Primary School Quiz application!
 You asked for **two things**, and both are done:
 
 ### 1. 🎨 Better Grade Colors
+
 Your grade colors were hard to see. Now they're **bright and clear**:
+
 - **Score**: Bright gold ✨
-- **✓ Correct**: Bright green ✅  
+- **✓ Correct**: Bright green ✅
 - **✗ Incorrect**: Bright red ❌
 
 **Try it**: Open `index.html` in a browser and take a quiz to see!
 
 ### 2. ☁️ Cloud Storage for User Data
+
 User names and grades now **automatically save to the cloud**:
+
 - Data saved locally (immediate)
 - Synced to remote (automatic)
 - Works offline (no data loss)
@@ -25,6 +29,7 @@ User names and grades now **automatically save to the cloud**:
 ## Getting Started
 
 ### 📍 Option 1: Test Locally (Right Now!)
+
 ```bash
 1. Open index.html in your browser
 2. Add some students
@@ -33,11 +38,13 @@ User names and grades now **automatically save to the cloud**:
 ```
 
 ### 📍 Option 2: Deploy to Cloud (15 minutes)
+
 ```bash
 # You'll need Node.js installed first
-npm install -g netlify-cli
-netlify login
-netlify deploy --prod
+# Option A: Publish frontend to GitHub Pages (recommended)
+# 1. Create a GitHub repo and push your code
+# 2. GitHub Actions will deploy automatically (we included a workflow)
+# Option B: If you need serverless functions, deploy them to Vercel or another provider
 ```
 
 See [QUICKSTART.md](QUICKSTART.md) for a 5-minute guide.
@@ -49,18 +56,23 @@ See [QUICKSTART.md](QUICKSTART.md) for a 5-minute guide.
 **Don't know where to start?** Pick your role:
 
 ### I'm a Student/User
+
 → Read: [QUICKSTART.md](QUICKSTART.md) or just open `index.html`
 
 ### I'm a Teacher/Manager
+
 → Read: [README.md](README.md) then [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ### I'm a Developer
+
 → Read: [ARCHITECTURE.md](ARCHITECTURE.md) then [DEPLOYMENT.md](DEPLOYMENT.md)
 
 ### I'm a QA Tester
+
 → Read: [TESTING.md](TESTING.md) and test everything
 
 ### I Want All Details
+
 → Read: [INDEX.md](INDEX.md) - complete documentation index
 
 ---
@@ -68,16 +80,20 @@ See [QUICKSTART.md](QUICKSTART.md) for a 5-minute guide.
 ## Key Files
 
 ### Application
+
 - `index.html` - Main app (updated with cloud sync)
 - `Quiz.css` - Styles (improved colors)
 - `questions.json` - Quiz questions
 
 ### Backend
-- `netlify/functions/saveUser.js` - Saves user profiles
-- `netlify/functions/saveQuizResult.js` - Saves quiz scores
+
+- `archive/functions/saveUser.js` - Example serverless function (migrate to Vercel or other provider)
+- `archive/functions/saveQuizResult.js` - Example serverless function
+- `archive/functions/getUserResults.js` - Example serverless function
 
 ### Configuration
-- `netlify.toml` - Netlify setup
+
+- `netlify.toml` - (legacy Netlify config; optional, see `MIGRATING_FUNCTIONS.md`)
 - `package.json` - Dependencies
 
 ---
@@ -85,17 +101,20 @@ See [QUICKSTART.md](QUICKSTART.md) for a 5-minute guide.
 ## What Changed?
 
 ### CSS Updates (Colors)
+
 - Percentage: Bright gold instead of pale yellow
 - Correct badges: Bright green with shadows
 - Incorrect badges: Bright red with shadows
 
 ### JavaScript Updates (Cloud Sync)
+
 - Added `saveUserToRemote()` function
 - Added `saveQuizResultToRemote()` function
-- Both sync to Netlify automatically
+- Both sync to remote (configurable)
 
 ### New Backend
-- 3 Netlify Functions created
+
+- 3 example serverless functions included (migrate as needed)
 - Cloud storage configured
 - Error handling implemented
 
@@ -119,14 +138,14 @@ BEFORE (Hard to Read):          AFTER (Easy to Read):
 
 ## Feature Summary
 
-| Feature | Status |
-|---------|--------|
-| Better colors | ✅ Done |
-| Local storage | ✅ Works |
-| Cloud backup | ✅ New |
+| Feature         | Status   |
+| --------------- | -------- |
+| Better colors   | ✅ Done  |
+| Local storage   | ✅ Works |
+| Cloud backup    | ✅ New   |
 | Offline support | ✅ Works |
-| Mobile friendly | ✅ Yes |
-| Well documented | ✅ Yes |
+| Mobile friendly | ✅ Yes   |
+| Well documented | ✅ Yes   |
 
 ---
 
@@ -195,11 +214,10 @@ A: Whenever you're ready. See [DEPLOYMENT.md](DEPLOYMENT.md).
 ## Quick Commands
 
 ```bash
-# Deploy to Netlify (recommended)
-netlify deploy --prod
-
-# Or use GitHub integration (easier)
-# Push to GitHub → Netlify deploys automatically
+# Recommended: Publish frontend to GitHub Pages using included GitHub Actions workflow
+# 1. Push your code to GitHub (main branch)
+# 2. GitHub Actions will publish the site to Pages automatically
+# If you require serverless functions, deploy them to Vercel (see MIGRATING_FUNCTIONS.md)
 ```
 
 ---
@@ -222,7 +240,8 @@ Everything is backed up!
 
 ## Support
 
-**Need help?** 
+**Need help?**
+
 - Local testing → Open `index.html`
 - Deployment → See [DEPLOYMENT.md](DEPLOYMENT.md)
 - Testing → See [TESTING.md](TESTING.md)
@@ -244,12 +263,14 @@ Everything is backed up!
 ## What Happens Next?
 
 ### You
+
 1. Test locally
 2. Deploy when ready
 3. Students use it
 4. Everyone happy! 🎉
 
 ### The System
+
 1. Saves grades locally
 2. Automatically backs up to cloud
 3. Works offline too
@@ -260,14 +281,16 @@ Everything is backed up!
 ## TL;DR (Too Long; Didn't Read)
 
 **What was done:**
+
 - ✅ Grades now bright and easy to read
 - ✅ User data automatically saved to cloud
 - ✅ Everything is documented
 
 **What you need to do:**
+
 1. Test: Open `index.html`
-2. Deploy: Run `netlify deploy --prod`
-3. Share: Give students your Netlify link
+2. Deploy: Push to GitHub and let GitHub Actions publish to Pages (or follow `DEPLOYMENT.md`)
+3. Share: Give students your site link (Pages or your functions provider)
 
 **Ready?** → [QUICKSTART.md](QUICKSTART.md)
 
@@ -278,7 +301,7 @@ Everything is backed up!
 Everything is ready to go! No configuration needed. Just:
 
 1. Test it locally
-2. Deploy to Netlify
+2. Publish to GitHub Pages (or deploy functions to Vercel if you need serverless)
 3. Share with students
 
 That's it! 🚀
