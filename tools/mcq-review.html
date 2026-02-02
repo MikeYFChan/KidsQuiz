@@ -1,0 +1,155 @@
+<!-- Archived: tools/mcq-review.html moved to archive/tools/mcq-review.html -->
+<html><body><p>This review tool was archived. See <code>archive/tools/mcq-review.html</code>.</p></body></html>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MCQ Manual Review</title>
+  <style>
+    body { font-family: system-ui, -apple-system,Segoe UI, Roboto, Arial; padding: 24px; max-width: 980px; margin: auto; color: #111 }
+    h1 { margin-bottom: 8px }
+    .item { border: 1px solid #e6e6e6; padding: 12px; margin: 12px 0; border-radius: 6px; }
+    .meta { font-size: 13px; color: #555 }
+    textarea { width: 100%; min-height: 64px; font-size: 14px; margin-top:6px }
+    label { font-weight: 600 }
+    .controls { margin-top: 8px }
+    .btn { display:inline-block; padding:8px 12px; border-radius:6px; background:#0366d6; color:#fff; text-decoration:none; border:none; cursor:pointer }
+    .btn.secondary { background:#6a737d }
+    .btn.ghost { background: #fff; color: #0366d6; border: 1px solid #0366d6 }
+    .row { display:flex; gap:8px; align-items:center }
+    .small { font-size:13px; color:#666 }
+    .checked { background:#e6ffed; }
+    .search { margin-bottom: 12px }
+    .toolbar { margin-bottom: 12px }
+  </style>
+</head>
+<body>
+  <h1>MCQ Manual Review ✅</h1>
+  <p class="small">Load and review the items flagged in <code>data/mcq-manual-review.json</code>. Edit the reason or provide a suggested corrected question/notes, mark as reviewed, then download the JSON of reviewed items to apply updates.</p>
+
+  <div class="toolbar">
+    <input id="filter-input" class="search" placeholder="Filter by subject/year/question text" style="width:60%" />
+    <button id="download-reviewed" class="btn">Download reviewed JSON</button>
+    <button id="download-full" class="btn secondary">Download full manual list</button>
+  </div>
+
+  <div id="list"></div>
+
+  <script>
+    async function loadList() {
+      try {
+        const res = await fetch('/data/mcq-manual-review.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Failed to fetch manual review list');
+        const json = await res.json();
+        return json;
+      } catch (err) {
+        console.error(err);
+        // fallback: try relative path
+        try {
+          const res2 = await fetch('data/mcq-manual-review.json');
+          if (!res2.ok) throw new Error('fallback failed');
+          return res2.json();
+        } catch (e) {
+          return [];
+        }
+      }
+    }
+
+    function createItemEl(item, idx) {
+      const el = document.createElement('div');
+      el.className = 'item';
+      el.innerHTML = `
+        <div class="meta">${item.subject} — ${item.year}</div>
+        <div style="margin-top:6px"><label>Question:</label>
+          <div style="margin-top:6px">${escapeHtml(item.question)}</div>
+        </div>
+        <div style="margin-top:8px"><label>Reason:</label>
+          <textarea data-field="reason" data-idx="${idx}">${escapeHtml(item.reason||'')}</textarea>
+        </div>
+        <div style="margin-top:8px"><label>Notes / Correction (optional):</label>
+          <textarea data-field="correction" data-idx="${idx}" placeholder="Type suggested correction, new canonical question text, or notes"></textarea>
+        </div>
+        <div class="controls row" style="margin-top:10px">
+          <label><input type="checkbox" data-field="reviewed" data-idx="${idx}" /> Mark reviewed</label>
+          <button class="btn ghost" data-action="preview" data-idx="${idx}">Preview changes</button>
+        </div>
+      `;
+      return el;
+    }
+
+    function escapeHtml(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/\'/g, '&#039;');
+    }
+
+    (async function() {
+      const listEl = document.getElementById('list');
+      const data = await loadList();
+      if (!data || !data.length) {
+        listEl.innerHTML = '<p>No manual-review items found.</p>';
+        return;
+      }
+
+      // render all
+      data.forEach((it, i) => {
+        const el = createItemEl(it, i);
+        listEl.appendChild(el);
+      });
+
+      // add interaction
+      listEl.addEventListener('click', (ev) => {
+        const btn = ev.target.closest('button');
+        if (!btn) return;
+        const action = btn.dataset.action;
+        const idx = Number(btn.dataset.idx);
+        if (action === 'preview') {
+          const reason = document.querySelector(`textarea[data-field=reason][data-idx='${idx}']`).value;
+          const corr = document.querySelector(`textarea[data-field=correction][data-idx='${idx}']`).value;
+          alert('Preview for item ' + (idx+1) + '\n\nReason: ' + reason + '\nCorrection: ' + corr);
+        }
+      });
+
+      // filter
+      const filter = document.getElementById('filter-input');
+      filter.addEventListener('input', () => {
+        const q = filter.value.trim().toLowerCase();
+        listEl.querySelectorAll('.item').forEach((el, i) => {
+          const it = data[i];
+          const match = (it.subject + ' ' + it.year + ' ' + it.question + ' ' + (it.reason||'')).toLowerCase().indexOf(q) !== -1;
+          el.style.display = match ? '' : 'none';
+        });
+      });
+
+      document.getElementById('download-reviewed').addEventListener('click', () => {
+        const reviewed = [];
+        listEl.querySelectorAll('.item').forEach((el, i) => {
+          const reviewedBox = el.querySelector(`input[data-field=reviewed][data-idx='${i}']`);
+          if (reviewedBox && reviewedBox.checked) {
+            const reason = el.querySelector(`textarea[data-field=reason][data-idx='${i}']`).value;
+            const corr = el.querySelector(`textarea[data-field=correction][data-idx='${i}']`).value;
+            reviewed.push(Object.assign({}, data[i], { reviewed: true, reason: reason, correction: corr }));
+          }
+        });
+        if (!reviewed.length) return alert('No items marked as reviewed. Please check the boxes for items you reviewed.');
+        const blob = new Blob([JSON.stringify(reviewed, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'mcq-manual-reviewed.json'; a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById('download-full').addEventListener('click', () => {
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'mcq-manual-review-full.json'; a.click();
+        URL.revokeObjectURL(url);
+      });
+
+    })();
+  </script>
+</body>
+</html>

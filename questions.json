@@ -1,0 +1,870 @@
+{
+  "Maths": {
+    "Year 3": [
+      {
+        "question": "What is 14 + 26?",
+        "answer": "40",
+        "explanation": "14 + 26 = 40"
+      },
+      {
+        "question": "What is 50 - 18?",
+        "answer": "32",
+        "explanation": "50 - 18 = 32"
+      },
+      {
+        "question": "What is 6 × 4?",
+        "answer": "24",
+        "explanation": "6 × 4 = 24"
+      },
+      {
+        "question": "What is 21 ÷ 3?",
+        "answer": "7",
+        "explanation": "21 ÷ 3 = 7"
+      },
+      {
+        "question": "What is double 18?",
+        "answer": "36",
+        "explanation": "Double 18 = 18 × 2 = 36"
+      },
+      {
+        "question": "What is half of 40?",
+        "answer": "20",
+        "explanation": "40 ÷ 2 = 20"
+      },
+      {
+        "question": "Which number is greater: 92 or 29?",
+        "answer": "92",
+        "explanation": "92 is greater than 29"
+      },
+      {
+        "question": "What is 9 × 3?",
+        "answer": "27",
+        "explanation": "9 × 3 = 27"
+      },
+      {
+        "question": "What is 45 + 15?",
+        "answer": "60",
+        "explanation": "45 + 15 = 60"
+      },
+      {
+        "question": "What is 72 - 30?",
+        "answer": "42",
+        "explanation": "72 - 30 = 42"
+      },
+      {
+        "question": "How many sides does a rectangle have?",
+        "answer": "4",
+        "explanation": "A rectangle has 4 sides."
+      },
+      {
+        "question": "What is 8 × 5?",
+        "answer": "40",
+        "explanation": "8 × 5 = 40"
+      },
+      {
+        "question": "What is 63 ÷ 9?",
+        "answer": "7",
+        "explanation": "63 ÷ 9 = 7"
+      },
+      {
+        "question": "What number comes before 100?",
+        "answer": "99",
+        "explanation": "The number before 100 is 99"
+      },
+      {
+        "question": "What is 17 + 19?",
+        "answer": "36",
+        "explanation": "17 + 19 = 36"
+      },
+      {
+        "question": "What is 90 - 47?",
+        "answer": "43",
+        "explanation": "90 - 47 = 43"
+      },
+      {
+        "question": "What is 7 × 6?",
+        "answer": "42",
+        "explanation": "7 × 6 = 42"
+      },
+      {
+        "question": "What is 24 ÷ 6?",
+        "answer": "4",
+        "explanation": "24 ÷ 6 = 4"
+      },
+      {
+        "question": "What is quarter of 20?",
+        "answer": "5",
+        "explanation": "20 ÷ 4 = 5"
+      },
+      {
+        "question": "Which number is smaller: 34 or 43?",
+        "answer": "34",
+        "explanation": "34 is smaller than 43"
+      },
+      {
+        "question": "What is 11 + 29?",
+        "answer": "40",
+        "explanation": "11 + 29 = 40"
+      },
+      {
+        "question": "What is 64 - 28?",
+        "answer": "36",
+        "explanation": "64 - 28 = 36"
+      },
+      {
+        "question": "What is 3 × 8?",
+        "answer": "24",
+        "explanation": "3 × 8 = 24"
+      },
+      {
+        "question": "What is 48 ÷ 8?",
+        "answer": "6",
+        "explanation": "48 ÷ 8 = 6"
+      },
+      {
+        "question": "How many minutes are in 1 hour?",
+        "answer": "60",
+        "explanation": "1 hour = 60 minutes"
+      },
+      {
+        "question": "What is double 25?",
+        "answer": "50",
+        "explanation": "25 × 2 = 50"
+      },
+      {
+        "question": "What is half of 18?",
+        "answer": "9",
+        "explanation": "18 ÷ 2 = 9"
+      },
+      {
+        "question": "What is 5 × 9?",
+        "answer": "45",
+        "explanation": "5 × 9 = 45"
+      },
+      {
+        "question": "What is 81 ÷ 9?",
+        "answer": "9",
+        "explanation": "81 ÷ 9 = 9"
+      },
+      {
+        "question": "What number comes after 199?",
+        "answer": "200",
+        "explanation": "The number after 199 is 200"
+      },
+      {
+        "question": "What is 30 + 45?",
+        "answer": "75",
+        "explanation": "30 + 45 = 75"
+      },
+      {
+        "question": "What is 100 - 56?",
+        "answer": "44",
+        "explanation": "100 - 56 = 44"
+      },
+      {
+        "question": "What is 4 × 9?",
+        "answer": "36",
+        "explanation": "4 × 9 = 36"
+      },
+      {
+        "question": "What is 36 ÷ 4?",
+        "answer": "9",
+        "explanation": "36 ÷ 4 = 9"
+      },
+      {
+        "question": "How many days are in 3 weeks?",
+        "answer": "21",
+        "explanation": "3 × 7 = 21 days"
+      },
+      {
+        "question": "What is triple 7?",
+        "answer": "21",
+        "explanation": "7 × 3 = 21"
+      },
+      {
+        "question": "What is 2 × 12?",
+        "answer": "24",
+        "explanation": "2 × 12 = 24"
+      },
+      {
+        "question": "What is 60 ÷ 5?",
+        "answer": "12",
+        "explanation": "60 ÷ 5 = 12"
+      },
+      {
+        "question": "Which number is greater: 145 or 154?",
+        "answer": "154",
+        "explanation": "154 is greater than 145"
+      },
+      {
+        "question": "What is 10 more than 89?",
+        "answer": "99",
+        "explanation": "89 + 10 = 99"
+      }
+    ],
+    "Year 6": [
+      {
+        "question": "Calculate: 480 ÷ 6",
+        "answer": "80",
+        "explanation": "480 ÷ 6 = 80"
+      },
+      {
+        "question": "What is 35% of 200?",
+        "answer": "70",
+        "explanation": "0.35 × 200 = 70"
+      },
+      {
+        "question": "What is 0.4 as a fraction?",
+        "answer": "2/5",
+        "explanation": "0.4 = 4/10 = 2/5"
+      },
+      {
+        "question": "Calculate: 7.2 + 3.85",
+        "answer": "11.05",
+        "explanation": "7.2 + 3.85 = 11.05"
+      },
+      {
+        "question": "If 6x = 54, what is x?",
+        "answer": "9",
+        "explanation": "54 ÷ 6 = 9"
+      },
+      {
+        "question": "Calculate: 900 - 378",
+        "answer": "522",
+        "explanation": "900 - 378 = 522"
+      },
+      {
+        "question": "What is 5/8 of 64?",
+        "answer": "40",
+        "explanation": "64 ÷ 8 × 5 = 40"
+      },
+      {
+        "question": "What is 12²?",
+        "answer": "144",
+        "explanation": "12 × 12 = 144"
+      },
+      {
+        "question": "Calculate: 3.6 × 4",
+        "answer": "14.4",
+        "explanation": "3.6 × 4 = 14.4"
+      },
+      {
+        "question": "What is 1/4 as a decimal?",
+        "answer": "0.25",
+        "explanation": "1 ÷ 4 = 0.25"
+      },
+      {
+        "question": "If x + 19 = 52, what is x?",
+        "answer": "33",
+        "explanation": "52 - 19 = 33"
+      },
+      {
+        "question": "What is the mean of 4, 6, and 8?",
+        "answer": "6",
+        "explanation": "(4 + 6 + 8) ÷ 3 = 6"
+      },
+      {
+        "question": "What is 60% of 90?",
+        "answer": "54",
+        "explanation": "0.6 × 90 = 54"
+      },
+      {
+        "question": "Calculate: 125 ÷ 0.5",
+        "answer": "250",
+        "explanation": "Dividing by 0.5 doubles the number"
+      },
+      {
+        "question": "What is the perimeter of a rectangle with sides 9 cm and 4 cm?",
+        "answer": "26",
+        "explanation": "2 × (9 + 4) = 26 cm"
+      },
+      {
+        "question": "Simplify: 18/24",
+        "answer": "3/4",
+        "explanation": "Divide top and bottom by 6"
+      },
+      {
+        "question": "What is 0.125 as a fraction?",
+        "answer": "1/8",
+        "explanation": "0.125 = 125/1000 = 1/8"
+      },
+      {
+        "question": "Calculate: 14.5 - 6.75",
+        "answer": "7.75",
+        "explanation": "14.5 - 6.75 = 7.75"
+      },
+      {
+        "question": "If 9y = 81, what is y?",
+        "answer": "9",
+        "explanation": "81 ÷ 9 = 9"
+      },
+      {
+        "question": "What is the area of a rectangle 12 cm by 7 cm?",
+        "answer": "84",
+        "explanation": "12 × 7 = 84 cm²"
+      }
+    ]
+  },
+  "English": {
+    "Year 3": [
+      {
+        "question": "What is the plural of 'foot'?",
+        "answer": "feet",
+        "explanation": "'Foot' becomes 'feet' in the plural form."
+      },
+      {
+        "question": "Choose the correct word: The boys ___ playing outside. (is / are)",
+        "answer": "are",
+        "explanation": "'Are' is correct because 'boys' is plural."
+      },
+      {
+        "question": "What punctuation mark ends an exclamation?",
+        "answer": "!",
+        "explanation": "An exclamation mark (!) is used to show strong feeling."
+      },
+      {
+        "question": "What is the past tense of 'jump'?",
+        "answer": "jumped",
+        "explanation": "The past tense of 'jump' is 'jumped'."
+      },
+      {
+        "question": "Which word is an adjective: happy, run, or quickly?",
+        "answer": "happy",
+        "explanation": "'Happy' is an adjective because it describes a noun."
+      },
+      {
+        "question": "What is the opposite of 'hot'?",
+        "answer": "cold",
+        "explanation": "'Cold' is the opposite of 'hot'."
+      },
+      {
+        "question": "Choose the correct word: She ___ a book. (read / reads)",
+        "answer": "reads",
+        "explanation": "'Reads' is correct because 'she' is singular."
+      },
+      {
+        "question": "What is the plural of 'man'?",
+        "answer": "men",
+        "explanation": "'Man' becomes 'men' in the plural form."
+      },
+      {
+        "question": "What is a synonym for 'small'?",
+        "answer": "tiny",
+        "explanation": "'Tiny' means the same as 'small'."
+      },
+      {
+        "question": "Which word is a noun: dog, run, or blue?",
+        "answer": "dog",
+        "explanation": "'Dog' is a noun because it is a thing."
+      },
+      {
+        "question": "What punctuation mark is used in a list?",
+        "answer": "comma",
+        "explanation": "Commas are used to separate items in a list."
+      },
+      {
+        "question": "What is the past tense of 'see'?",
+        "answer": "saw",
+        "explanation": "The past tense of 'see' is 'saw'."
+      },
+      {
+        "question": "Choose the correct word: I ___ my homework yesterday. (do / did)",
+        "answer": "did",
+        "explanation": "'Did' is the past tense of 'do'."
+      },
+      {
+        "question": "What is the plural of 'leaf'?",
+        "answer": "leaves",
+        "explanation": "'Leaf' changes to 'leaves' in the plural form."
+      },
+      {
+        "question": "What is the opposite of 'up'?",
+        "answer": "down",
+        "explanation": "'Down' is the opposite of 'up'."
+      },
+      {
+        "question": "Which sentence is a question? Enter: 'Where are you?' or 'I like apples.'",
+        "answer": "Where are you?",
+        "explanation": "Questions ask something and end with a question mark."
+      },
+      {
+        "question": "What is a synonym for 'happy'?",
+        "answer": "glad",
+        "explanation": "'Glad' means the same as 'happy'."
+      },
+      {
+        "question": "Choose the correct word: The cat ___ sleeping. (is / are)",
+        "answer": "is",
+        "explanation": "'Is' is correct because 'cat' is singular."
+      },
+      {
+        "question": "What type of word is 'slowly'?",
+        "answer": "adverb",
+        "explanation": "'Slowly' describes how something happens."
+      },
+      {
+        "question": "What punctuation mark ends a command?",
+        "answer": ".",
+        "explanation": "Commands often end with a full stop."
+      },
+      {
+        "question": "What is the plural of 'baby'?",
+        "answer": "babies",
+        "explanation": "'Baby' changes to 'babies' in the plural form."
+      },
+      {
+        "question": "What is the past tense of 'go'?",
+        "answer": "went",
+        "explanation": "The past tense of 'go' is 'went'."
+      },
+      {
+        "question": "Which word describes a noun?",
+        "answer": "adjective",
+        "explanation": "An adjective describes a noun."
+      },
+      {
+        "question": "What is a synonym for 'fast'?",
+        "answer": "quick",
+        "explanation": "'Quick' means the same as 'fast'."
+      },
+      {
+        "question": "Which word is a verb: eat, red, chair?",
+        "answer": "eat",
+        "explanation": "'Eat' is a verb because it is an action."
+      },
+      {
+        "question": "What punctuation mark shows possession?",
+        "answer": "apostrophe",
+        "explanation": "An apostrophe (') shows possession."
+      },
+      {
+        "question": "What is the opposite of 'early'?",
+        "answer": "late",
+        "explanation": "'Late' is the opposite of 'early'."
+      },
+      {
+        "question": "Choose the correct word: We ___ to the park. (go / goes)",
+        "answer": "go",
+        "explanation": "'Go' is correct because 'we' is plural."
+      },
+      {
+        "question": "What is the plural of 'ox'?",
+        "answer": "oxen",
+        "explanation": "'Ox' becomes 'oxen' in the plural form."
+      },
+      {
+        "question": "Which word is a noun: run, jump, or house?",
+        "answer": "house",
+        "explanation": "'House' is a noun because it is a thing."
+      },
+      {
+        "question": "What is a synonym for 'big'?",
+        "answer": "large",
+        "explanation": "'Large' means the same as 'big'."
+      },
+      {
+        "question": "What is the past tense of 'have'?",
+        "answer": "had",
+        "explanation": "The past tense of 'have' is 'had'."
+      },
+      {
+        "question": "What punctuation mark ends a statement?",
+        "answer": ".",
+        "explanation": "A full stop ends a statement."
+      },
+      {
+        "question": "Choose the correct word: He ___ my friend. (is / are)",
+        "answer": "is",
+        "explanation": "'Is' is correct because 'he' is singular."
+      },
+      {
+        "question": "What type of word is 'beautiful'?",
+        "answer": "adjective",
+        "explanation": "'Beautiful' describes a noun."
+      },
+      {
+        "question": "What is the opposite of 'clean'?",
+        "answer": "dirty",
+        "explanation": "'Dirty' is the opposite of 'clean'."
+      },
+      {
+        "question": "What is the plural of 'knife'?",
+        "answer": "knives",
+        "explanation": "'Knife' changes to 'knives' in the plural form."
+      },
+      {
+        "question": "Which word is an adjective: tall, run, or quickly?",
+        "answer": "tall",
+        "explanation": "'Tall' describes a noun."
+      },
+      {
+        "question": "What is a synonym for 'funny'?",
+        "answer": "amusing",
+        "explanation": "'Amusing' means the same as 'funny'."
+      },
+      {
+        "question": "What punctuation mark is used in questions?",
+        "answer": "?",
+        "explanation": "A question mark ends a question."
+      }
+    ],
+    "Year 6": [
+      {
+        "question": "What is the active form of: 'The ball was kicked by Tom.'?",
+        "answer": "Tom kicked the ball.",
+        "explanation": "The subject performs the action in the active voice."
+      },
+      {
+        "question": "Identify the adverb in this sentence: 'She spoke confidently.'",
+        "answer": "confidently",
+        "explanation": "'Confidently' describes how she spoke."
+      },
+      {
+        "question": "What is a synonym for 'angry'?",
+        "answer": "furious",
+        "explanation": "'Furious' means very angry."
+      },
+      {
+        "question": "What type of clause starts with 'who' or 'which'?",
+        "answer": "relative clause",
+        "explanation": "Relative clauses give more information about a noun."
+      },
+      {
+        "question": "Choose the correct word: 'I should ___ gone earlier.' (have / of)",
+        "answer": "have",
+        "explanation": "'Have' is correct. 'Of' is incorrect here."
+      },
+      {
+        "question": "What is the past perfect tense of 'eat'?",
+        "answer": "had eaten",
+        "explanation": "Past perfect uses 'had' + past participle."
+      },
+      {
+        "question": "Identify the subject: 'The noisy crowd cheered loudly.'",
+        "answer": "The noisy crowd",
+        "explanation": "The subject tells who or what does the action."
+      },
+      {
+        "question": "What does the suffix '-less' mean?",
+        "answer": "without",
+        "explanation": "'-less' means without, for example 'hopeless'."
+      },
+      {
+        "question": "What type of sentence is: 'Please sit down.'?",
+        "answer": "command",
+        "explanation": "It gives an instruction."
+      },
+      {
+        "question": "Choose the correct word: 'Their / There / They're books are new.'",
+        "answer": "Their",
+        "explanation": "'Their' shows possession."
+      },
+      {
+        "question": "What is a synonym for 'brave'?",
+        "answer": "courageous",
+        "explanation": "'Courageous' means brave."
+      },
+      {
+        "question": "Identify the verb: 'He quickly finished the race.'",
+        "answer": "finished",
+        "explanation": "'Finished' is the action word."
+      },
+      {
+        "question": "What punctuation mark can replace brackets?",
+        "answer": "commas",
+        "explanation": "Commas can replace brackets in some sentences."
+      },
+      {
+        "question": "What is a homophone for 'sea'?",
+        "answer": "see",
+        "explanation": "Homophones sound the same but have different meanings."
+      },
+      {
+        "question": "Choose the correct form: 'Neither answer ___ correct.' (is / are)",
+        "answer": "is",
+        "explanation": "'Neither' takes a singular verb."
+      },
+      {
+        "question": "What is a synonym for 'difficult'?",
+        "answer": "challenging",
+        "explanation": "'Challenging' means difficult."
+      },
+      {
+        "question": "Identify the conjunction: 'I stayed home because it was raining.'",
+        "answer": "because",
+        "explanation": "'Because' joins two ideas."
+      },
+      {
+        "question": "What type of word is 'carefully'?",
+        "answer": "adverb",
+        "explanation": "'Carefully' describes how something is done."
+      },
+      {
+        "question": "What is the plural of 'analysis'?",
+        "answer": "analyses",
+        "explanation": "'Analysis' changes to 'analyses' in plural."
+      },
+      {
+        "question": "What does the prefix 're-' mean?",
+        "answer": "again",
+        "explanation": "'Re-' means again, like 'rewrite'."
+      },
+      {
+        "question": "What is a synonym for 'silent'?",
+        "answer": "quiet",
+        "explanation": "'Quiet' means silent."
+      },
+      {
+        "question": "Identify the object: 'She gave Tom a gift.'",
+        "answer": "a gift",
+        "explanation": "The object receives the action."
+      },
+      {
+        "question": "Choose the correct word: 'I had ___ finished.' (already / all ready)",
+        "answer": "already",
+        "explanation": "'Already' means before now."
+      },
+      {
+        "question": "What is a subordinate clause?",
+        "answer": "a clause that cannot stand alone",
+        "explanation": "It depends on a main clause."
+      },
+      {
+        "question": "What type of sentence uses 'and', 'but', or 'so'?",
+        "answer": "compound sentence",
+        "explanation": "Compound sentences join ideas together."
+      },
+      {
+        "question": "What is a synonym for 'tiny'?",
+        "answer": "minute",
+        "explanation": "'Minute' means very small."
+      },
+      {
+        "question": "Identify the tense: 'She will have finished by noon.'",
+        "answer": "future perfect",
+        "explanation": "It shows something completed in the future."
+      },
+      {
+        "question": "What punctuation mark is used before a list?",
+        "answer": "colon",
+        "explanation": "A colon introduces a list."
+      },
+      {
+        "question": "What is an antonym for 'victory'?",
+        "answer": "defeat",
+        "explanation": "'Defeat' is the opposite of 'victory'."
+      },
+      {
+        "question": "What is a complex sentence?",
+        "answer": "a sentence with a main clause and a subordinate clause",
+        "explanation": "Complex sentences combine main and subordinate clauses."
+      }
+    ]
+  },
+  "Science": {
+    "Year 3": [
+      {
+        "question": "What are the three states of matter? Enter them separated by commas (e.g., solid, liquid, gas)",
+        "answer": "solid, liquid, gas",
+        "explanation": "The three states of matter are solid, liquid, and gas. Everything around us exists in one of these states."
+      },
+      {
+        "question": "Which planet do we live on?",
+        "answer": "Earth",
+        "explanation": "We live on Earth, the third planet from the Sun and the only known planet with life."
+      },
+      {
+        "question": "What do plants need to make their own food? Enter the process name",
+        "answer": "photosynthesis",
+        "explanation": "Plants use photosynthesis to make their own food. They need sunlight, water, and carbon dioxide."
+      },
+      {
+        "question": "How many legs does a spider have? Enter the number",
+        "answer": "8",
+        "explanation": "Spiders have 8 legs. Insects have 6 legs, but spiders are arachnids, not insects."
+      },
+      {
+        "question": "What gas do we breathe in? Enter: oxygen or carbon dioxide",
+        "answer": "oxygen",
+        "explanation": "We breathe in oxygen from the air. Our bodies use it to release energy from food."
+      },
+      {
+        "question": "What is the name of the star closest to Earth?",
+        "answer": "Sun",
+        "explanation": "The Sun is the star closest to Earth. It provides light and heat for our planet."
+      },
+      {
+        "question": "Which animal is a mammal? Enter: fish, bird, or cat",
+        "answer": "cat",
+        "explanation": "A cat is a mammal. Mammals are warm-blooded, have fur or hair, and feed their babies milk."
+      },
+      {
+        "question": "What happens to water when you freeze it?",
+        "answer": "ice",
+        "explanation": "When you freeze water, it turns into ice. This is a change from liquid to solid."
+      },
+      {
+        "question": "What sense do we use to hear sounds?",
+        "answer": "hearing",
+        "explanation": "We use our sense of hearing to hear sounds. Our ears help us detect different noises."
+      },
+      {
+        "question": "Which part of the plant absorbs water from the soil?",
+        "answer": "roots",
+        "explanation": "Roots absorb water and nutrients from the soil to help the plant grow."
+      },
+      {
+        "question": "What force pulls objects towards the Earth?",
+        "answer": "gravity",
+        "explanation": "Gravity is a force that pulls objects towards the Earth."
+      },
+      {
+        "question": "What material is attracted to a magnet? Enter one example",
+        "answer": "iron",
+        "explanation": "Iron is attracted to magnets. Steel also contains iron and is magnetic."
+      },
+      {
+        "question": "What do we call animals that eat only plants?",
+        "answer": "herbivores",
+        "explanation": "Herbivores are animals that eat only plants, such as cows and rabbits."
+      },
+      {
+        "question": "What do we call animals that eat meat?",
+        "answer": "carnivores",
+        "explanation": "Carnivores are animals that eat other animals for food."
+      },
+      {
+        "question": "What do we call animals that eat plants and meat?",
+        "answer": "omnivores",
+        "explanation": "Omnivores eat both plants and animals, such as humans and bears."
+      },
+      {
+        "question": "What is the hard outer layer of the Earth called?",
+        "answer": "crust",
+        "explanation": "The Earth's crust is the hard outer layer where we live."
+      },
+      {
+        "question": "What is a shadow?",
+        "answer": "a dark shape made when light is blocked",
+        "explanation": "A shadow is formed when an object blocks light from a light source."
+      },
+      {
+        "question": "What do living things need to survive? Enter one example",
+        "answer": "water",
+        "explanation": "Living things need water to survive. They also need food and air."
+      },
+      {
+        "question": "What is the name of the tool used to measure temperature?",
+        "answer": "thermometer",
+        "explanation": "A thermometer is used to measure temperature."
+      },
+      {
+        "question": "What do muscles help us do?",
+        "answer": "move",
+        "explanation": "Muscles work with bones to help us move."
+      }
+    ],
+    "Year 6": [
+      {
+        "question": "What is the circulatory system?",
+        "answer": "the system that moves blood around the body",
+        "explanation": "The circulatory system transports blood, oxygen, and nutrients around the body."
+      },
+      {
+        "question": "Which organ pumps blood around the body?",
+        "answer": "heart",
+        "explanation": "The heart pumps blood through blood vessels to all parts of the body."
+      },
+      {
+        "question": "What are blood vessels?",
+        "answer": "tubes that carry blood",
+        "explanation": "Blood vessels carry blood to and from the heart."
+      },
+      {
+        "question": "Name one main component of blood",
+        "answer": "red blood cells",
+        "explanation": "Red blood cells carry oxygen around the body."
+      },
+      {
+        "question": "What gas is carried by red blood cells?",
+        "answer": "oxygen",
+        "explanation": "Red blood cells carry oxygen from the lungs to the rest of the body."
+      },
+      {
+        "question": "What is a balanced diet?",
+        "answer": "a diet with all nutrients in the right amounts",
+        "explanation": "A balanced diet includes carbohydrates, proteins, fats, vitamins, minerals, and water."
+      },
+      {
+        "question": "Why is exercise important?",
+        "answer": "to keep the body healthy",
+        "explanation": "Exercise helps keep the heart, muscles, and bones strong."
+      },
+      {
+        "question": "What is an adaptation?",
+        "answer": "a feature that helps an organism survive",
+        "explanation": "Adaptations help plants and animals live in their environments."
+      },
+      {
+        "question": "What is inheritance?",
+        "answer": "the passing of traits from parents to offspring",
+        "explanation": "Inheritance explains why children look similar to their parents."
+      },
+      {
+        "question": "What is variation?",
+        "answer": "differences between living things",
+        "explanation": "Variation means that individuals of the same species are not identical."
+      },
+      {
+        "question": "What is a microorganism?",
+        "answer": "a very small living organism",
+        "explanation": "Microorganisms are so small they can only be seen with a microscope."
+      },
+      {
+        "question": "Name one type of microorganism",
+        "answer": "bacteria",
+        "explanation": "Bacteria are a type of microorganism found almost everywhere."
+      },
+      {
+        "question": "Are all microorganisms harmful?",
+        "answer": "no",
+        "explanation": "Some microorganisms are helpful, such as those used in making food."
+      },
+      {
+        "question": "What is a food chain?",
+        "answer": "a sequence showing how energy passes between living things",
+        "explanation": "A food chain shows who eats whom in an ecosystem."
+      },
+      {
+        "question": "What do producers do in a food chain?",
+        "answer": "make their own food",
+        "explanation": "Producers, like plants, make food using sunlight."
+      },
+      {
+        "question": "What is a predator?",
+        "answer": "an animal that hunts other animals",
+        "explanation": "Predators hunt prey for food."
+      },
+      {
+        "question": "What is a habitat?",
+        "answer": "the natural home of an organism",
+        "explanation": "A habitat provides food, water, shelter, and space."
+      },
+      {
+        "question": "What is electricity?",
+        "answer": "a form of energy",
+        "explanation": "Electricity powers many devices we use every day."
+      },
+      {
+        "question": "What is a circuit?",
+        "answer": "a complete path for electricity to flow",
+        "explanation": "A circuit must be complete for electricity to work."
+      },
+      {
+        "question": "What does a switch do in a circuit?",
+        "answer": "opens or closes the circuit",
+        "explanation": "A switch controls the flow of electricity."
+      }
+    ]
+  }
+}

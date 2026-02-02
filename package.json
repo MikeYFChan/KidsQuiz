@@ -1,0 +1,31 @@
+{
+  "name": "primary-school-quiz",
+  "version": "2.0.0",
+  "description": "Interactive quiz application for primary school students with remote data storage",
+  "type": "module",
+  "scripts": {
+    "deploy": "netlify deploy --prod",
+    "dev": "netlify dev",
+    "build": "echo 'No build step needed - static files only'"
+  },
+  "keywords": [
+    "quiz",
+    "education",
+    "primary-school",
+    "interactive"
+  ],
+  "author": "Quiz Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@netlify/blobs": "^6.0.0",
+    "netlify-cli": "^17.0.0"
+  },
+  "netlify": {
+    "blobs": {
+      "stores": [
+        "users",
+        "quiz-results"
+      ]
+    }
+  }
+}
