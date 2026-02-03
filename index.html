@@ -975,11 +975,21 @@
         }
 
         function convertNestedToMcq(normalized) {
+            // Accumulate count of skipped invalid items and report once so console isn't spammed
+            let skippedInvalidItems = 0;
+
             for (const sub of Object.keys(normalized)) {
                 const years = normalized[sub];
                 for (const yr of Object.keys(years)) {
                     const arr = years[yr];
                     for (const item of arr) {
+                        // Ensure item is an object; some data variants may have primitives or nulls in arrays
+                        if (!item || typeof item !== 'object') {
+                            skippedInvalidItems++;
+                            console.warn('convertNestedToMcq: skipping invalid item', { subject: sub, year: yr, item });
+                            continue;
+                        }
+
                         if (item.choices && Array.isArray(item.choices) && item.choices.length >= 4) continue;
                         const answer = item.answer || item.answer === 0 ? item.answer : item.correct || item.answer === 0 ? item.answer : (item.answer === undefined ? item.answer : item.answer);
                         const type = detectType(answer, item.question || '');
@@ -1011,11 +1021,15 @@
                         item.correctIndex = final.indexOf(String(answer));
                         item.answer = final[item.correctIndex] || String(answer);
                         item.needsReview = questionNeedsReview(item.question || '', item.answer);
-                        item.meta = item.meta || {};
+
+                        // Ensure meta is an object before assigning fields
+                        if (!item.meta || typeof item.meta !== 'object') item.meta = {};
                         item.meta.generator = type;
                     }
                 }
             }
+
+            if (skippedInvalidItems) console.warn(`convertNestedToMcq: skipped ${skippedInvalidItems} invalid question items`);
         }
 
         // Convert nested loadedData into MCQ-ready structure
