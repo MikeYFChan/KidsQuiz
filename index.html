@@ -431,12 +431,30 @@
         async function loadQuestions() {
             try {
                     // Try multiple paths in case files are placed in different deployment layouts
+                // Compute a repository base (e.g. '/KidsQuiz/') when running on GitHub Pages so
+                // fetching works even when the site is served from a subpath.
+                const baseRoot = (() => {
+                    const seg = location.pathname.split('/').filter(Boolean);
+                    // If the site is served at a subpath (e.g. GitHub Pages project page),
+                    // the first non-empty segment is typically the repo name. Avoid doing
+                    // this when running on localhost to keep local development simple.
+                    if (seg.length > 0 && location.hostname !== 'localhost') {
+                        return '/' + seg[0] + '/';
+                    }
+                    return '/';
+                })();
+
                 const paths = [
+                    // Try repo-rooted paths first (works for GitHub Pages project pages)
+                    baseRoot + 'data/questions_mcq.json',
+                    baseRoot + 'questions_mcq.json',
+                    baseRoot + 'questions.json',
+                    // Then try relative paths (works for many static hosts and local testing)
                     './data/questions_mcq.json',
                     './questions_mcq.json',
                     'questions_mcq.json',
                     './questions.json',
-                    'questions.json',
+                    // Fallback to absolute root (may fail for project pages but kept as last resort)
                     '/questions.json'
                 ];
                 

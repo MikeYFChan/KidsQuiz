@@ -4,7 +4,12 @@
 
     async function loadList() {
       try {
-        const res = await fetch('/data/mcq-manual-review.json', { cache: 'no-cache' });
+        const baseRoot = (() => {
+          const seg = location.pathname.split('/').filter(Boolean);
+          if (seg.length > 0 && location.hostname !== 'localhost') return '/' + seg[0] + '/';
+          return '/';
+        })();
+        const res = await fetch(baseRoot + 'data/mcq-manual-review.json', { cache: 'no-cache' });
         if (!res.ok) throw new Error('Failed to fetch manual review list');
         const json = await res.json();
         return json;
