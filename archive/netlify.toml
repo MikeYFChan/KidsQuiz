@@ -1,0 +1,3 @@
+# netlify.toml (removed)
+# Netlify is no longer used for deployment in this repository.
+# If you need the original Netlify configuration, see the archived functions in `archive/netlify-functions/` and `MIGRATING_FUNCTIONS.md` for migration to other providers.

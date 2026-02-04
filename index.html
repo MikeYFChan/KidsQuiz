@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primary School Quiz</title>
+    <link rel="stylesheet" href="Quiz.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="user-modal" class="modal" style="display:none; position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
+            <div class="modal-content" style="background:#fff;padding:20px;border-radius:8px;max-width:360px;margin:0 auto;">
+                <h2>Add User</h2>
+                <form id="user-form">
+                    <div class="form-group">
+                        <label for="user-name">Name</label>
+                        <input type="text" id="user-name" name="user-name" required placeholder="Enter name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="user-grade">Grade</label>
+                        <select id="user-grade" name="user-grade" required>
+                            <option value="">Select grade</option>
+                            <option value="Year 3">Year 3</option>
+                            <option value="Year 6">Year 6</option>
+                        </select>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;">
+                        <button type="submit" class="submit-button">Save User</button>
+                        <button type="button" id="close-user-modal" class="nav-button">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Welcome Screen - Subject Selection -->
+        <div id="subject-screen" class="screen active">
+            <header class="header">
+                <h1 id="title" class="text-center">Primary School Quiz</h1>
+                <p id="description" class="description text-center">
+                    Choose a subject to begin!
+                </p>
+            </header>
+            <div class="subject-selection">
+                <button type="button" class="subject-button" data-subject="Maths">
+                    <span class="subject-icon">🔢</span>
+                    <span class="subject-name">Maths</span>
+                </button>
+                <button type="button" class="subject-button" data-subject="English">
+                    <span class="subject-icon">📚</span>
+                    <span class="subject-name">English</span>
+                </button>
+                <button type="button" class="subject-button" data-subject="Science">
+                    <span class="subject-icon">🔬</span>
+                    <span class="subject-name">Science</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Year Selection Screen -->
+        <div id="year-screen" class="screen">
+            <header class="header">
+                <h1 id="selected-subject-title" class="text-center"></h1>
+                <p id="description" class="description text-center">
+                    Choose your year level
+                </p>
+            </header>
+            <div class="year-selection">
+                <button type="button" class="year-button" data-year="Year 3">Year 3</button>
+                <button type="button" class="year-button" data-year="Year 6">Year 6</button>
+                <button type="button" class="back-button" id="back-to-subject">← Back to Subjects</button>
+            </div>
+        </div>
+
+        <!-- Question Screen -->
+        <div id="question-screen" class="screen">
+            <header class="header">
+                <div class="quiz-header-info">
+                    <span id="quiz-title"></span>
+                    <button type="button" class="back-to-start-btn" id="back-to-start">← Change Quiz</button>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="question-counter">
+                    Question <span id="current-question">1</span> of <span id="total-questions">5</span>
+                </p>
+            </header>
+
+            <form id="quiz-form">
+                <div class="form-group">
+                    <label class="question-label" id="question-text">
+                        Loading question...
+                    </label>
+                    <input type="text" id="answer-input" class="form-control" placeholder="Enter your answer"
+                        autocomplete="off" />
+                    <!-- Choices container for MCQ questions; radios are injected here when needed -->
+                    <div id="choices-container" class="choices-container" style="margin-top: 8px;"></div>
+                </div>
+
+                <div class="form-group button-group">
+                    <button type="button" id="prev-btn" class="nav-button" style="display: none;">
+                        Previous
+                    </button>
+                    <button type="submit" id="next-btn" class="submit-button">
+                        Next Question
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="results-screen" class="screen">
+            <header class="header">
+                <h1 class="text-center">Quiz Results</h1>
+                <p class="text-center" id="results-subtitle"></p>
+            </header>
+
+            <div class="results-container">
+                <div class="score-display">
+                    <h2 id="score-text">0 / 5</h2>
+                    <p id="percentage-text">0%</p>
+                    <div class="score-message" id="score-message"></div>
+                </div>
+
+                <div class="answers-review">
+                    <h3>Your Answers:</h3>
+                    <div id="answers-list"></div>
+                </div>
+
+                <div class="form-group button-group">
+                    <button type="button" id="restart-btn" class="submit-button">
+                        Take Quiz Again
+                    </button>
+                    <button type="button" id="new-quiz-btn" class="nav-button">
+                        Choose New Quiz
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Inline footer: compact user select + buttons placed under content -->
+        <div id="user-footer" style="display:flex;gap:8px;align-items:center;justify-content:center;margin:16px 0;padding:8px 0;">
+            <select id="user-select" style="padding:6px;border-radius:4px;min-width:160px;">
+                <option value="">Select user</option>
+            </select>
+            <button id="open-user-modal-footer" class="nav-button" style="padding:6px 8px;font-size:12px;">Add User</button>
+            <button id="open-history-btn" class="nav-button" style="padding:6px 8px;font-size:12px;">View History</button>
+        </div>
+
+        <div id="history-modal" class="modal" style="display:none; position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
+            <div class="modal-content" style="background:#fff;padding:20px;border-radius:8px;max-width:480px;margin:0 auto;max-height:80vh;overflow:auto;">
+                <h2>History</h2>
+                <div id="history-list">No history</div>
+                <div style="display:flex;gap:8px;margin-top:12px;">
+                    <button id="close-history-btn" class="nav-button">Close</button>
+                    <button id="clear-history-btn" class="nav-button">Clear History</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    <script>
+        let questionsData = {};
+        // User management
+        let users = [];
+        let currentUser = null;
+
+        // Remote sync configuration: set REMOTE_API_BASE to a full URL (no trailing slash) to use that server (e.g., Vercel endpoint).
+        // Set window.REMOTE_SYNC_ENABLED = false to disable remote sync entirely.
+        const REMOTE_API_BASE = (window.REMOTE_API_BASE && window.REMOTE_API_BASE.trim()) || '';
+        // Default: remote sync is disabled unless explicitly enabled by setting window.REMOTE_SYNC_ENABLED = true
+        const REMOTE_SYNC_ENABLED = (typeof window.REMOTE_SYNC_ENABLED === 'boolean') ? window.REMOTE_SYNC_ENABLED : false;
+        function apiUrl(funcName) {
+            if (!REMOTE_API_BASE) return null;
+            return `${REMOTE_API_BASE.replace(/\/$/, '')}/${funcName}`;
+        }
+
+        function loadUsersFromStorage() {
+            try {
+                const raw = localStorage.getItem('quiz_users');
+                users = raw ? JSON.parse(raw) : [];
+            } catch (e) {
+                users = [];
+            }
+        }
+
+        function saveUsersToStorage() {
+            localStorage.setItem('quiz_users', JSON.stringify(users));
+            // Also sync to remote (if enabled)
+            users.forEach(user => {
+                saveUserToRemote(user).catch(err => {
+                    console.warn('Failed to save user to remote:', err);
+                });
+            });
+        }
+
+        async function saveUserToRemote(user) {
+            if (!REMOTE_SYNC_ENABLED) return;
+            const url = apiUrl('saveUser');
+            if (!url) {
+                console.warn('REMOTE_API_BASE not set; remote sync disabled');
+                return;
+            }
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        id: user.id,
+                        name: user.name,
+                        grade: user.grade
+                    })
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                console.log('User saved to remote successfully');
+                return await response.json();
+            } catch (error) {
+                console.warn('Error saving user to remote:', error);
+                // Fail silently - local storage is still available
+            }
+        }
+
+        function loadCurrentUser() {
+            try {
+                const raw = localStorage.getItem('quiz_current_user');
+                currentUser = raw ? JSON.parse(raw) : null;
+            } catch (e) {
+                currentUser = null;
+            }
+            renderUserBanner();
+        }
+
+        function setCurrentUser(user) {
+            currentUser = user;
+            localStorage.setItem('quiz_current_user', JSON.stringify(user));
+            renderUserBanner();
+            renderUserSelect();
+        }
+
+        function renderUserBanner() {
+            const el = document.getElementById('current-user-display');
+            if (!el) return;
+            if (currentUser && currentUser.name) {
+                el.textContent = `User: ${currentUser.name} (${currentUser.grade || 'No grade'})`;
+            } else {
+                el.textContent = 'No user selected';
+            }
+        }
+
+        function openUserModal() {
+            document.getElementById('user-modal').style.display = 'flex';
+            const nameInput = document.getElementById('user-name');
+            const gradeSelect = document.getElementById('user-grade');
+            if (currentUser) {
+                nameInput.value = currentUser.name || '';
+                gradeSelect.value = currentUser.grade || '';
+            } else {
+                nameInput.value = '';
+                gradeSelect.value = '';
+            }
+            nameInput.focus();
+        }
+
+        function closeUserModal() {
+            document.getElementById('user-modal').style.display = 'none';
+        }
+
+        // Initialize user data
+        loadUsersFromStorage();
+        loadCurrentUser();
+        // History
+        let quizHistory = {};
+        function loadHistoryFromStorage() {
+            try {
+                const raw = localStorage.getItem('quiz_history');
+                quizHistory = raw ? JSON.parse(raw) : {};
+            } catch (e) {
+                quizHistory = {};
+            }
+        }
+
+        function saveHistoryToStorage() {
+            try {
+                localStorage.setItem('quiz_history', JSON.stringify(quizHistory));
+            } catch (e) {
+                console.warn('Failed to save history', e);
+            }
+        }
+
+        function recordHistory(entry) {
+            if (!currentUser || !currentUser.id) return;
+            const id = String(currentUser.id);
+            if (!quizHistory[id]) quizHistory[id] = [];
+            quizHistory[id].push(entry);
+            saveHistoryToStorage();
+            // Also save to remote
+            saveQuizResultToRemote({
+                userId: currentUser.id,
+                subject: entry.subject,
+                year: entry.year,
+                correct: entry.correct,
+                total: entry.total,
+                percentage: entry.percentage,
+                date: entry.date
+            }).catch(err => {
+                console.warn('Failed to save quiz result to remote:', err);
+            });
+        }
+
+        async function saveQuizResultToRemote(result) {
+            if (!REMOTE_SYNC_ENABLED) return;
+            const url = apiUrl('saveQuizResult');
+            if (!url) {
+                console.warn('REMOTE_API_BASE not set; remote sync disabled');
+                return;
+            }
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(result)
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                console.log('Quiz result saved to remote successfully');
+                return await response.json();
+            } catch (error) {
+                console.warn('Error saving quiz result to remote:', error);
+                // Fail silently - local storage is still available
+            }
+        }
+
+        function renderUserSelect() {
+            const sel = document.getElementById('user-select');
+            if (!sel) return;
+            sel.innerHTML = '';
+            const placeholder = document.createElement('option');
+            placeholder.value = '';
+            placeholder.textContent = 'Select user';
+            sel.appendChild(placeholder);
+            users.forEach(u => {
+                const opt = document.createElement('option');
+                opt.value = u.id;
+                opt.textContent = `${u.name} (${u.grade || ''})`;
+                if (currentUser && String(currentUser.id) === String(u.id)) opt.selected = true;
+                sel.appendChild(opt);
+            });
+        }
+
+        loadHistoryFromStorage();
+        renderUserSelect();
+
+        function showHistoryModalFor(userId) {
+            const list = document.getElementById('history-list');
+            if (!list) return;
+            const entries = quizHistory[String(userId)] || [];
+            if (!entries.length) {
+                list.innerHTML = '<p>No history for this user.</p>';
+            } else {
+                list.innerHTML = '';
+                const ul = document.createElement('div');
+                entries.slice().reverse().forEach(e => {
+                    const item = document.createElement('div');
+                    item.style.padding = '8px 0';
+                    item.style.borderBottom = '1px solid #eee';
+                    item.innerHTML = `<strong>${new Date(e.date).toLocaleString()}</strong><div>${e.subject} - ${e.year} — ${e.correct}/${e.total} (${e.percentage}%)</div>`;
+                    ul.appendChild(item);
+                });
+                list.appendChild(ul);
+            }
+            const modal = document.getElementById('history-modal');
+            if (modal) modal.style.display = 'flex';
+        }
+        let currentSubject = '';
+        let currentYear = '';
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+
+        // Screen elements
+        const subjectScreen = document.getElementById('subject-screen');
+        const yearScreen = document.getElementById('year-screen');
+        const questionScreen = document.getElementById('question-screen');
+        const resultsScreen = document.getElementById('results-screen');
+
+        // Subject selection
+        const subjectButtons = document.querySelectorAll('.subject-button');
+        const selectedSubjectTitle = document.getElementById('selected-subject-title');
+
+        // Year selection
+        const yearButtons = document.querySelectorAll('.year-button');
+        const backToSubjectBtn = document.getElementById('back-to-subject');
+
+        // Quiz elements
+        const quizForm = document.getElementById('quiz-form');
+        const answerInput = document.getElementById('answer-input');
+        const choicesContainer = document.getElementById('choices-container');
+        const questionText = document.getElementById('question-text');
+        const currentQuestionSpan = document.getElementById('current-question');
+        const totalQuestionsSpan = document.getElementById('total-questions');
+        const progressFill = document.getElementById('progress-fill');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const backToStartBtn = document.getElementById('back-to-start');
+        const quizTitle = document.getElementById('quiz-title');
+        const resultsSubtitle = document.getElementById('results-subtitle');
+
+        // Results elements
+        const restartBtn = document.getElementById('restart-btn');
+        const newQuizBtn = document.getElementById('new-quiz-btn');
+
+        // User modal elements
+        const openUserModalBtn = document.getElementById('open-user-modal') || document.getElementById('open-user-modal-footer');
+        const closeUserModalBtn = document.getElementById('close-user-modal');
+        const userForm = document.getElementById('user-form');
+        const userSelect = document.getElementById('user-select');
+        const openHistoryBtn = document.getElementById('open-history-btn');
+        const closeHistoryBtn = document.getElementById('close-history-btn');
+        const clearHistoryBtn = document.getElementById('clear-history-btn');
+
+        // Load questions from questions.json
+        let questionsLoaded = false;
+        async function loadQuestions() {
+            try {
+                    // Try multiple paths in case files are placed in different deployment layouts
+                // Compute a repository base (e.g. '/KidsQuiz/') when running on GitHub Pages so
+                // fetching works even when the site is served from a subpath.
+                const baseRoot = (() => {
+                    const seg = location.pathname.split('/').filter(Boolean);
+                    // If the site is served at a subpath (e.g. GitHub Pages project page),
+                    // the first non-empty segment is typically the repo name. Avoid doing
+                    // this when running on localhost to keep local development simple.
+                    if (seg.length > 0 && location.hostname !== 'localhost') {
+                        return '/' + seg[0] + '/';
+                    }
+                    return '/';
+                })();
+
+                const paths = [
+                    // Try repo-rooted paths first (works for GitHub Pages project pages)
+                    baseRoot + 'data/questions_mcq.json',
+                    baseRoot + 'questions_mcq.json',
+                    baseRoot + 'questions.json',
+                    // Then try relative paths (works for many static hosts and local testing)
+                    './data/questions_mcq.json',
+                    './questions_mcq.json',
+                    'questions_mcq.json',
+                    './questions.json',
+                    // Fallback to absolute root (may fail for project pages but kept as last resort)
+                    '/questions.json'
+                ];
+                
+                let response = null;
+                let loadedPath = null;
+                
+                for (const path of paths) {
+                    try {
+                        response = await fetch(path, {
+                            cache: 'no-cache',
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        if (response.ok) {
+                            loadedPath = path;
+                            break;
+                        }
+                    } catch (err) {
+                        console.log(`Failed to load from ${path}:`, err);
+                        continue;
+                    }
+                }
+                
+                if (!response || !response.ok) {
+                    throw new Error(`questions.json not found. Tried: ${paths.join(', ')}`);
+                }
+                
+                const loadedData = await response.json();
+                
+                // Validate data structure
+                if (!loadedData || typeof loadedData !== 'object') {
+                    throw new Error('Invalid JSON format in questions.json');
+                }
+
+                // Support both old nested format and new flat MCQ array format
+                let normalized = {};
+                if (Array.isArray(loadedData)) {
+                    // Convert array of { subject, year, question, choices, ... } into nested map
+                    for (const item of loadedData) {
+                        const sub = item.subject || 'Unknown';
+                        const yr = item.year || 'Year 3';
+                        if (!normalized[sub]) normalized[sub] = {};
+                        if (!normalized[sub][yr]) normalized[sub][yr] = [];
+                        // If MCQ format provided, ensure 'answer' exists
+                        if (item.correctIndex != null && Array.isArray(item.choices) && item.choices[item.correctIndex]) {
+                            item.answer = item.choices[item.correctIndex];
+                        }
+                        normalized[sub][yr].push(item);
+                    }
+                } else {
+                    normalized = loadedData;
+                }
+
+                // Convert nested format to MCQ in-memory so the UI can show choices immediately
+                try {
+                    convertNestedToMcq(normalized);
+                } catch (e) {
+                    console.warn('MCQ conversion failed', e);
+                }
+
+                questionsData = normalized;
+                questionsLoaded = true;
+                console.log(`Questions loaded from ${loadedPath || 'questions.json'}`);
+            } catch (error) {
+                console.error('Failed to load questions.json:', error);
+                console.error('Error details:', {
+                    message: error.message,
+                    name: error.name
+                });
+                alert('無法載入題目檔案 (questions.json)。\n\n請檢查：\n1. questions.json 是否已包含於網站根目錄\n2. 檔案是否在根目錄\n3. 檔案名稱是否正確\n\n錯誤: ' + error.message);
+                questionsLoaded = false;
+            }
+        }
+
+        // Initialize - load questions
+        loadQuestions();
+
+        // Subject selection
+        subjectButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                currentSubject = button.dataset.subject;
+                selectedSubjectTitle.textContent = currentSubject + ' Quiz';
+                // If a current user exists and has a grade, auto-select that year
+                if (currentUser && currentUser.grade) {
+                    currentYear = currentUser.grade;
+                    // Ensure questions are loaded
+                    if (!questionsLoaded) {
+                        loadQuestions().then(startQuiz);
+                    } else {
+                        startQuiz();
+                    }
+                } else {
+                    showScreen('year');
+                }
+            });
+        });
+
+        // Modal open/close
+        if (openUserModalBtn) openUserModalBtn.addEventListener('click', openUserModal);
+        if (closeUserModalBtn) closeUserModalBtn.addEventListener('click', closeUserModal);
+
+        // Handle user form submit
+        if (userForm) {
+            userForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('user-name').value.trim();
+                const grade = document.getElementById('user-grade').value;
+                if (!name) {
+                    alert('Please enter a name.');
+                    return;
+                }
+                if (!grade) {
+                    alert('Please select a grade.');
+                    return;
+                }
+
+                // Create user object and save
+                const user = { id: Date.now(), name, grade };
+                users.push(user);
+                saveUsersToStorage();
+                setCurrentUser(user);
+                closeUserModal();
+            });
+        }
+
+        // User-select change and history buttons
+        if (userSelect) {
+            userSelect.addEventListener('change', (e) => {
+                const id = e.target.value;
+                const selected = users.find(u => String(u.id) === String(id));
+                if (selected) {
+                    setCurrentUser(selected);
+                }
+            });
+        }
+
+        if (openHistoryBtn) {
+            openHistoryBtn.addEventListener('click', () => {
+                if (!currentUser) {
+                    alert('請先選擇使用者');
+                    return;
+                }
+                showHistoryModalFor(currentUser.id);
+            });
+        }
+
+        if (closeHistoryBtn) {
+            closeHistoryBtn.addEventListener('click', () => {
+                const modal = document.getElementById('history-modal');
+                if (modal) modal.style.display = 'none';
+            });
+        }
+
+        if (clearHistoryBtn) {
+            clearHistoryBtn.addEventListener('click', () => {
+                if (!currentUser) return;
+                if (!confirm('Clear history for this user?')) return;
+                delete quizHistory[String(currentUser.id)];
+                saveHistoryToStorage();
+                showHistoryModalFor(currentUser.id);
+            });
+        }
+
+        // Year selection
+        yearButtons.forEach(button => {
+            button.addEventListener('click', async () => {
+                currentYear = button.dataset.year;
+                // Wait for questions to load if not already loaded
+                if (!questionsLoaded) {
+                    await loadQuestions();
+                }
+                startQuiz();
+            });
+        });
+
+        // Back to subject selection
+        backToSubjectBtn.addEventListener('click', () => {
+            showScreen('subject');
+        });
+
+        // Back to start
+        backToStartBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to go back? Your progress will be lost.')) {
+                showScreen('subject');
+            }
+        });
+
+        // Function to shuffle array randomly
+        function shuffleArray(array) {
+            const shuffled = [...array]; // Create a copy of the array
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap elements
+            }
+            return shuffled;
+        }
+
+        // Start quiz
+        function startQuiz() {
+            // Ensure questions are loaded
+            if (!questionsLoaded) {
+                alert('題目正在載入中，請稍候...');
+                return;
+            }
+            
+            if (!questionsData[currentSubject] || !questionsData[currentSubject][currentYear]) {
+                alert(`No questions available for ${currentSubject} - ${currentYear}`);
+                return;
+            }
+
+            const allQuestions = questionsData[currentSubject][currentYear];
+
+            // Randomly select 5 questions
+            const shuffledQuestions = shuffleArray(allQuestions);
+            currentQuestions = shuffledQuestions.slice(0, 5);
+
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            answerInput.value = '';
+
+            quizTitle.textContent = `${currentSubject} - ${currentYear}`;
+            totalQuestionsSpan.textContent = currentQuestions.length;
+
+            showScreen('question');
+            loadQuestion(0);
+        }
+
+        // Handle form submission
+        quizForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Determine answer source: MCQ choices or free-text
+            let userAnswer = '';
+            const selectedChoice = choicesContainer.querySelector('input[name="choice"]:checked');
+            if (selectedChoice) {
+                userAnswer = selectedChoice.value;
+            } else {
+                userAnswer = answerInput.value.trim();
+            }
+
+            if (userAnswer === '') {
+                alert('Please enter or select an answer!');
+                return;
+            }
+
+            // Save answer
+            userAnswers[currentQuestionIndex] = userAnswer;
+
+            // Move to next question or show results
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+            } else {
+                showResults();
+            }
+        });
+
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion(currentQuestionIndex);
+            }
+        });
+
+        // Restart quiz
+        restartBtn.addEventListener('click', () => {
+            startQuiz();
+        });
+
+        // New quiz
+        newQuizBtn.addEventListener('click', () => {
+            showScreen('subject');
+        });
+
+        function showScreen(screen) {
+            subjectScreen.classList.remove('active');
+            yearScreen.classList.remove('active');
+            questionScreen.classList.remove('active');
+            resultsScreen.classList.remove('active');
+
+            if (screen === 'subject') {
+                subjectScreen.classList.add('active');
+            } else if (screen === 'year') {
+                yearScreen.classList.add('active');
+            } else if (screen === 'question') {
+                questionScreen.classList.add('active');
+                answerInput.focus();
+            } else if (screen === 'results') {
+                resultsScreen.classList.add('active');
+            }
+        }
+
+        function loadQuestion(index) {
+            const question = currentQuestions[index];
+            questionText.textContent = question.question;
+            currentQuestionSpan.textContent = index + 1;
+
+            // Update progress bar
+            const progress = ((index + 1) / currentQuestions.length) * 100;
+            progressFill.style.width = progress + '%';
+
+            // Show/hide previous button
+            if (index === 0) {
+                prevBtn.style.display = 'none';
+            } else {
+                prevBtn.style.display = 'inline-block';
+            }
+
+            // Update button text
+            if (index === currentQuestions.length - 1) {
+                nextBtn.textContent = 'Finish Quiz';
+            } else {
+                nextBtn.textContent = 'Next Question';
+            }
+
+            // Render choices if this question includes them (MCQ)
+            if (question.choices && Array.isArray(question.choices) && question.choices.length > 0) {
+                // Hide free text input
+                answerInput.style.display = 'none';
+                answerInput.required = false;
+
+                // Build radio buttons
+                choicesContainer.innerHTML = '';
+                question.choices.forEach((choice, i) => {
+                    const id = `choice-${index}-${i}`;
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'choice-item';
+
+                    const letterSpan = document.createElement('span');
+                    letterSpan.className = 'choice-letter';
+                    letterSpan.textContent = String.fromCharCode(65 + i); // A, B, C, D
+
+                    const input = document.createElement('input');
+                    input.type = 'radio';
+                    input.name = 'choice';
+                    input.id = id;
+                    input.value = choice;
+                    input.className = 'choice-radio';
+
+                    const label = document.createElement('label');
+                    label.htmlFor = id;
+                    label.className = 'choice-label';
+                    label.textContent = choice;
+
+                    wrapper.appendChild(letterSpan);
+                    wrapper.appendChild(input);
+                    wrapper.appendChild(label);
+                    choicesContainer.appendChild(wrapper);
+                });
+
+                // Restore previous selection if any
+                const prev = userAnswers[index];
+                if (prev) {
+                    const selected = choicesContainer.querySelector(`input[value="${CSS.escape(prev)}"]`);
+                    if (selected) selected.checked = true;
+                }
+
+                // Focus first choice
+                const firstInput = choicesContainer.querySelector('input[name="choice"]');
+                if (firstInput) firstInput.focus();
+            } else {
+                // No choices: show text input
+                choicesContainer.innerHTML = '';
+                answerInput.style.display = '';
+                answerInput.required = true;
+                answerInput.value = userAnswers[index] || '';
+                answerInput.focus();
+            }
+        }
+
+        function showResults() {
+            showScreen('results');
+
+            let correctCount = 0;
+            const answersList = document.getElementById('answers-list');
+            answersList.innerHTML = '';
+
+            resultsSubtitle.textContent = `${currentSubject} - ${currentYear}`;
+
+            currentQuestions.forEach((q, index) => {
+                const userAnswer = userAnswers[index] || 'No answer';
+                const isCorrect = normalizeAnswer(userAnswer) === normalizeAnswer(q.answer);
+                if (isCorrect) correctCount++;
+
+                const answerItem = document.createElement('div');
+                answerItem.className = `answer-item ${isCorrect ? 'correct' : 'incorrect'}`;
+                answerItem.innerHTML = `
+            <div class="answer-header">
+              <span class="answer-number">Question ${index + 1}:</span>
+              <span class="answer-status">${isCorrect ? '✓ Correct' : '✗ Incorrect'}</span>
+            </div>
+            <div class="answer-content">
+              <p><strong>Question:</strong> ${q.question}</p>
+              <p><strong>Your answer:</strong> ${userAnswer}</p>
+              <p><strong>Correct answer:</strong> ${q.answer}</p>
+              <p class="explanation"><strong>Explanation:</strong> ${q.explanation}</p>
+            </div>
+          `;
+                answersList.appendChild(answerItem);
+            });
+
+            // Update score
+            const percentage = Math.round((correctCount / currentQuestions.length) * 100);
+            document.getElementById('score-text').textContent = `${correctCount} / ${currentQuestions.length}`;
+            document.getElementById('percentage-text').textContent = `${percentage}%`;
+
+            // Score message
+            const scoreMessage = document.getElementById('score-message');
+            if (percentage === 100) {
+                scoreMessage.textContent = 'Excellent! Perfect score! 🌟';
+                scoreMessage.className = 'score-message excellent';
+            } else if (percentage >= 80) {
+                scoreMessage.textContent = 'Well done! Great job! 🎉';
+                scoreMessage.className = 'score-message great';
+            } else if (percentage >= 60) {
+                scoreMessage.textContent = 'Good effort! Keep practising! 👍';
+                scoreMessage.className = 'score-message good';
+            } else {
+                scoreMessage.textContent = 'Keep practising! You can do it! 💪';
+                scoreMessage.className = 'score-message okay';
+            }
+            // Record history for current user
+            try {
+                const entry = {
+                    date: new Date().toISOString(),
+                    subject: currentSubject,
+                    year: currentYear,
+                    correct: correctCount,
+                    total: currentQuestions.length,
+                    percentage
+                };
+                recordHistory(entry);
+                renderUserSelect();
+            } catch (e) {
+                console.warn('Failed to record history', e);
+            }
+        }
+
+        // --- MCQ helper functions (added) ---
+        function generateNumericDistractors(correct) {
+            const c = Number(correct);
+            if (!Number.isFinite(c)) return ['1', '2', '3'];
+            const set = new Set();
+            set.add(String(c + 1));
+            set.add(String(c - 1));
+            set.add(String(Math.round(c * 1.1)));
+            // digit-swap for integers
+            if (Number.isInteger(c) && Math.abs(c) >= 10) {
+                const s = String(Math.abs(c));
+                const swapped = Number(s.split('').reverse().join('')) * (c < 0 ? -1 : 1);
+                if (swapped !== c) set.add(String(swapped));
+            }
+            const arr = Array.from(set).filter(x => x !== String(correct));
+            while (arr.length < 3) arr.push(String(c + arr.length + 1));
+            return arr.slice(0, 3);
+        }
+
+        function generateFractionDistractors(correct) {
+            const parts = String(correct).split('/').map(s => s.trim());
+            const n = Number(parts[0]);
+            const d = Number(parts[1]);
+            const out = [];
+            if (Number.isFinite(n) && Number.isFinite(d) && d !== 0) {
+                out.push(`${n * 2}/${d * 2}`); // unsimplified
+                out.push(String(n / d)); // decimal
+                out.push(`${n + 1}/${d}`);
+            }
+            return out.filter(x => x !== correct).slice(0, 3);
+        }
+
+        function generateTextDistractors(correct) {
+            const lc = String(correct).trim().toLowerCase();
+            const map = {
+                happy: ['glad', 'cheerful', 'sad'],
+                cold: ['hot', 'warm', 'cool'],
+                foot: ['feet', 'toes', 'legs'],
+                leaf: ['leaves', 'leafs', 'leaf']
+            };
+            if (map[lc]) return map[lc].slice(0, 3);
+            const out = [];
+            if (lc.endsWith('y')) out.push(lc.slice(0, -1) + 'ies');
+            out.push(lc + 's');
+            out.push(lc + 'ed');
+            const uniq = Array.from(new Set(out)).filter(x => x !== lc);
+            while (uniq.length < 3) uniq.push('no');
+            return uniq.slice(0, 3);
+        }
+
+        function generateListDistractors(correct) {
+            const parts = String(correct).split(',').map(p => p.trim()).filter(Boolean);
+            if (parts.length < 2) return ['solid, liquid, gas', 'solid, liquid, water', 'solid, gas, liquid'];
+            const out = [];
+            out.push(parts.slice().reverse().join(', '));
+            out.push([ 'plasma' ].concat(parts.slice(1)).join(', '));
+            out.push(parts.slice(0, parts.length - 1).concat(['water']).join(', '));
+            return out.slice(0, 3);
+        }
+
+        function detectType(answer, question) {
+            const a = String(answer);
+            if (a.indexOf(',') !== -1) return 'list';
+            if (/^\s*\d+\/\d+\s*$/.test(a)) return 'fraction';
+            if (/^-?\d+\.\d+$/.test(a.trim())) return 'decimal';
+            if (/^-?\d+$/.test(a.trim())) return 'integer';
+            if (a.trim().length === 1 && /[^A-Za-z0-9\s]/.test(a)) return 'symbol';
+            return 'text';
+        }
+
+        function questionNeedsReview(question, answer) {
+            const q = String(question).toLowerCase();
+            if (q.includes('enter') || q.includes('example')) return true;
+            if (String(answer).indexOf(',') !== -1) return true;
+            if (String(answer).length > 40) return true;
+            if (q.startsWith('what is a') || q.startsWith('what is the')) return true;
+            return false;
+        }
+
+        function convertNestedToMcq(normalized) {
+            // Accumulate count of skipped invalid items and report once so console isn't spammed
+            let skippedInvalidItems = 0;
+
+            for (const sub of Object.keys(normalized)) {
+                const years = normalized[sub];
+                for (const yr of Object.keys(years)) {
+                    const arr = years[yr];
+                    for (const item of arr) {
+                        // Ensure item is an object; some data variants may have primitives or nulls in arrays
+                        if (!item || typeof item !== 'object') {
+                            skippedInvalidItems++;
+                            console.warn('convertNestedToMcq: skipping invalid item', { subject: sub, year: yr, item });
+                            continue;
+                        }
+
+                        if (item.choices && Array.isArray(item.choices) && item.choices.length >= 4) continue;
+                        const answer = item.answer || item.answer === 0 ? item.answer : item.correct || item.answer === 0 ? item.answer : (item.answer === undefined ? item.answer : item.answer);
+                        const type = detectType(answer, item.question || '');
+                        let distractors = [];
+                        if (type === 'integer' || type === 'decimal') distractors = generateNumericDistractors(answer);
+                        else if (type === 'fraction') distractors = generateFractionDistractors(answer);
+                        else if (type === 'list') distractors = generateListDistractors(answer);
+                        else distractors = generateTextDistractors(answer);
+
+                        const choices = [String(answer)].concat(distractors).filter(Boolean);
+                        // unique
+                        const seen = new Set();
+                        const uniq = [];
+                        for (const c of choices) {
+                            const cc = String(c).trim();
+                            if (!seen.has(cc)) { seen.add(cc); uniq.push(cc); }
+                        }
+                        while (uniq.length < 4) {
+                            const filler = 'alt' + uniq.length;
+                            if (!seen.has(filler)) { seen.add(filler); uniq.push(filler); }
+                        }
+                        // pick first 4 and shuffle
+                        const final = uniq.slice(0, 4);
+                        for (let i = final.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [final[i], final[j]] = [final[j], final[i]];
+                        }
+                        item.choices = final;
+                        item.correctIndex = final.indexOf(String(answer));
+                        item.answer = final[item.correctIndex] || String(answer);
+                        item.needsReview = questionNeedsReview(item.question || '', item.answer);
+
+                        // Ensure meta is an object before assigning fields
+                        if (!item.meta || typeof item.meta !== 'object') item.meta = {};
+                        item.meta.generator = type;
+                    }
+                }
+            }
+
+            if (skippedInvalidItems) console.warn(`convertNestedToMcq: skipped ${skippedInvalidItems} invalid question items`);
+        }
+
+        // Convert nested loadedData into MCQ-ready structure
+        // (applied when loadQuestions reads a nested object)
+        // Note: calling here is safe because conversion runs on the in-memory data before UI uses it.
+
+        // Existing normalizeAnswer function (kept for comparison)
+        function normalizeAnswer(answer) {
+            // Remove spaces and convert to lowercase for comparison
+            // Handle decimal answers and fractions
+            return answer.replace(/\s+/g, '').toLowerCase();
+        }
+    </script>
+</body>
+</html>

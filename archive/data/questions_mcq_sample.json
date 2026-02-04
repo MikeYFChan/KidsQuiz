@@ -1,0 +1,201 @@
+{
+  "archived": "moved to archive/data/questions_mcq_sample.json"
+}
+
+    "choices": ["41", "34", "40", "30"],
+    "correctIndex": 2,
+    "explanation": "14 + 26 = 40",
+    "needsReview": false,
+    "meta": { "generator": "numeric ±1/±10/digit swap", "note": "Used +1 (41), tens error (30), and near-sum (34) as distractors" }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is half of 40?",
+    "choices": ["18", "20", "30", "10"],
+    "correctIndex": 1,
+    "explanation": "40 ÷ 2 = 20",
+    "needsReview": false,
+    "meta": { "generator": "numeric ±1/±10/digit swap", "note": "Used common halves and close mistakes (18,30,10)" }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is quarter of 20?",
+    "choices": ["6", "5", "10", "4"],
+    "correctIndex": 1,
+    "explanation": "20 ÷ 4 = 5",
+    "needsReview": false,
+    "meta": { "generator": "numeric ±1/near fractions", "note": "Included half (10) and near values (4,6) as distractors" }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "How many sides does a rectangle have?",
+    "choices": ["5", "3", "4", "6"],
+    "correctIndex": 2,
+    "explanation": "A rectangle has 4 sides.",
+    "needsReview": false,
+    "meta": { "generator": "concept trap", "note": "Included common small-number confusions" }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 0.4 as a fraction?",
+    "choices": ["1/2", "2/5", "4/10", "3/5"],
+    "correctIndex": 1,
+    "explanation": "0.4 = 4/10 = 2/5",
+    "needsReview": false,
+    "meta": { "generator": "fraction equivalents/decimal conversion", "note": "Included an equivalent fraction (4/10) and other common errors" }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 1/4 as a decimal?",
+    "choices": ["0.2", "0.25", "0.75", "0.5"],
+    "correctIndex": 1,
+    "explanation": "1 ÷ 4 = 0.25",
+    "needsReview": false,
+    "meta": { "generator": "fraction→decimal distractors", "note": "Used common decimal misunderstandings (0.2, 0.5, 0.75)" }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Calculate: 7.2 + 3.85",
+    "choices": ["11.05", "11.5", "10.95", "11.15"],
+    "correctIndex": 0,
+    "explanation": "7.2 + 3.85 = 11.05",
+    "needsReview": false,
+    "meta": { "generator": "decimal rounding / digit-swap", "note": "Included ±0.1 and rounding errors as distractors" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What punctuation mark ends an exclamation?",
+    "choices": ["?", "!", "?!", "."],
+    "correctIndex": 1,
+    "explanation": "An exclamation mark (!) is used to show strong feeling.",
+    "needsReview": false,
+    "meta": { "generator": "symbol / punctuation variants", "note": "Distractors are other end marks and mixed punctuation" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the past tense of 'jump'?",
+    "choices": ["jumping", "jumped", "jumps", "jump"],
+    "correctIndex": 1,
+    "explanation": "The past tense of 'jump' is 'jumped'.",
+    "needsReview": false,
+    "meta": { "generator": "tense/plural traps", "note": "Used other verb forms to trap tense errors" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which word is an adjective: happy, run, or quickly?",
+    "choices": ["happily", "run", "happy", "quickly"],
+    "correctIndex": 2,
+    "explanation": "'Happy' is an adjective because it describes a noun.",
+    "needsReview": false,
+    "meta": { "generator": "part-of-speech distractors", "note": "Included adverb/verb forms as distractors" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the plural of 'leaf'?",
+    "choices": ["leafs", "leaves", "leaf", "leafes"],
+    "correctIndex": 1,
+    "explanation": "'Leaf' changes to 'leaves' in the plural form.",
+    "needsReview": false,
+    "meta": { "generator": "irregular plural traps", "note": "Included common wrong forms like 'leafs' and misspellings" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Choose the correct word: The boys ___ playing outside. (is / are)",
+    "choices": ["is", "are", "was", "be"],
+    "correctIndex": 1,
+    "explanation": "'Are' is correct because 'boys' is plural.",
+    "needsReview": false,
+    "meta": { "generator": "subject-verb agreement", "note": "Included past/infinitive forms as traps" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is the active form of: 'The ball was kicked by Tom.'?",
+    "choices": ["Tom kicked the ball.", "Tom was kicked by the ball.", "Tom kicked a ball.", "The ball kicked Tom."],
+    "correctIndex": 0,
+    "explanation": "The subject performs the action in the active voice.",
+    "needsReview": false,
+    "meta": { "generator": "sentence transformation / voice traps", "note": "Distractors include passive/word-order mistakes and incorrect objects" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Choose the correct word: 'Their / There / They're books are new.'",
+    "choices": ["They're", "Theirs", "Their", "There"],
+    "correctIndex": 2,
+    "explanation": "'Their' shows possession.",
+    "needsReview": false,
+    "meta": { "generator": "homophone/possession traps", "note": "Distractors are common homophone confusions" }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What punctuation mark is used before a list?",
+    "choices": ["comma", "colon", "semicolon", "dash"],
+    "correctIndex": 1,
+    "explanation": "A colon introduces a list.",
+    "needsReview": false,
+    "meta": { "generator": "punctuation / usage distractors", "note": "Included other punctuation marks used in lists or clauses" }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "What are the three states of matter? Enter them separated by commas (e.g., solid, liquid, gas)",
+    "choices": ["solid, liquid, plasma", "solid, gas, liquid", "solid, liquid, gas", "solid, liquid, water"],
+    "correctIndex": 2,
+    "explanation": "The three states of matter are solid, liquid, and gas. Everything around us exists in one of these states.",
+    "needsReview": true,
+    "meta": { "generator": "list - manual conversion", "note": "List question; distractors use common misconceptions (water, plasma) and ordering; requires review for order/format tolerance" }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "Which planet do we live on?",
+    "choices": ["Venus", "Earth", "Mars", "Mercury"],
+    "correctIndex": 1,
+    "explanation": "We live on Earth, the third planet from the Sun and the only known planet with life.",
+    "needsReview": false,
+    "meta": { "generator": "single-word / distractor selection", "note": "Selected other nearby planets as plausible distractors" }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 3",
+    "question": "How many legs does a spider have? Enter the number",
+    "choices": ["6", "8", "10", "4"],
+    "correctIndex": 1,
+    "explanation": "Spiders have 8 legs. Insects have 6 legs, but spiders are arachnids, not insects.",
+    "needsReview": false,
+    "meta": { "generator": "numeric common-confusion", "note": "Included insect leg counts and other small-number mistakes" }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "Which organ pumps blood around the body?",
+    "choices": ["lungs", "heart", "kidney", "brain"],
+    "correctIndex": 1,
+    "explanation": "The heart pumps blood through blood vessels to all parts of the body.",
+    "needsReview": false,
+    "meta": { "generator": "function/organ confusion", "note": "Used other major organs as plausible distractors" }
+  },
+  {
+    "subject": "Science",
+    "year": "Year 6",
+    "question": "What is a circuit?",
+    "choices": ["a complete path for electricity to flow", "a device that stores electricity", "a single electrical wire", "a list of electronic parts"],
+    "correctIndex": 0,
+    "explanation": "A circuit must be complete for electricity to work.",
+    "needsReview": true,
+    "meta": { "generator": "definition / misconception distractors", "note": "Definition-style question; distractors use common misunderstandings and need review" }
+  }
+]

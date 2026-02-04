@@ -1,0 +1,1885 @@
+{
+  "archived": "moved to archive/data/questions_mcq.json"
+}
+
+    "choices": [
+      "40",
+      "41",
+      "39",
+      "44"
+    ],
+    "correctIndex": 0,
+    "answer": "40",
+    "explanation": "14 + 26 = 40",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 50 - 18?",
+    "choices": [
+      "32",
+      "23",
+      "33",
+      "31"
+    ],
+    "correctIndex": 0,
+    "answer": "32",
+    "explanation": "50 - 18 = 32",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 6 × 4?",
+    "choices": [
+      "25",
+      "24",
+      "23",
+      "26"
+    ],
+    "correctIndex": 1,
+    "answer": "24",
+    "explanation": "6 × 4 = 24",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 21 ÷ 3?",
+    "choices": [
+      "7",
+      "6",
+      "8",
+      "10"
+    ],
+    "correctIndex": 0,
+    "answer": "7",
+    "explanation": "21 ÷ 3 = 7",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is double 18?",
+    "choices": [
+      "63",
+      "40",
+      "35",
+      "36"
+    ],
+    "correctIndex": 3,
+    "answer": "36",
+    "explanation": "Double 18 = 18 × 2 = 36",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is half of 40?",
+    "choices": [
+      "2",
+      "21",
+      "19",
+      "20"
+    ],
+    "correctIndex": 3,
+    "answer": "20",
+    "explanation": "40 ÷ 2 = 20",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "Which number is greater: 92 or 29?",
+    "choices": [
+      "92",
+      "29",
+      "93",
+      "101"
+    ],
+    "correctIndex": 0,
+    "answer": "92",
+    "explanation": "92 is greater than 29",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 9 × 3?",
+    "choices": [
+      "26",
+      "27",
+      "72",
+      "30"
+    ],
+    "correctIndex": 1,
+    "answer": "27",
+    "explanation": "9 × 3 = 27",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 45 + 15?",
+    "choices": [
+      "59",
+      "60",
+      "61",
+      "66"
+    ],
+    "correctIndex": 1,
+    "answer": "60",
+    "explanation": "45 + 15 = 60",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 72 - 30?",
+    "choices": [
+      "46",
+      "24",
+      "42",
+      "43"
+    ],
+    "correctIndex": 2,
+    "answer": "42",
+    "explanation": "72 - 30 = 42",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "How many sides does a rectangle have?",
+    "choices": [
+      "3",
+      "7",
+      "5",
+      "4"
+    ],
+    "correctIndex": 3,
+    "answer": "4",
+    "explanation": "A rectangle has 4 sides.",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 8 × 5?",
+    "choices": [
+      "40",
+      "39",
+      "44",
+      "41"
+    ],
+    "correctIndex": 0,
+    "answer": "40",
+    "explanation": "8 × 5 = 40",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 63 ÷ 9?",
+    "choices": [
+      "8",
+      "7",
+      "6",
+      "10"
+    ],
+    "correctIndex": 1,
+    "answer": "7",
+    "explanation": "63 ÷ 9 = 7",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What number comes before 100?",
+    "choices": [
+      "100",
+      "109",
+      "98",
+      "99"
+    ],
+    "correctIndex": 3,
+    "answer": "99",
+    "explanation": "The number before 100 is 99",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 17 + 19?",
+    "choices": [
+      "63",
+      "40",
+      "36",
+      "35"
+    ],
+    "correctIndex": 2,
+    "answer": "36",
+    "explanation": "17 + 19 = 36",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 90 - 47?",
+    "choices": [
+      "44",
+      "42",
+      "43",
+      "47"
+    ],
+    "correctIndex": 2,
+    "answer": "43",
+    "explanation": "90 - 47 = 43",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 7 × 6?",
+    "choices": [
+      "24",
+      "43",
+      "42",
+      "46"
+    ],
+    "correctIndex": 2,
+    "answer": "42",
+    "explanation": "7 × 6 = 42",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 24 ÷ 6?",
+    "choices": [
+      "7",
+      "5",
+      "4",
+      "3"
+    ],
+    "correctIndex": 2,
+    "answer": "4",
+    "explanation": "24 ÷ 6 = 4",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is quarter of 20?",
+    "choices": [
+      "4",
+      "5",
+      "8",
+      "6"
+    ],
+    "correctIndex": 1,
+    "answer": "5",
+    "explanation": "20 ÷ 4 = 5",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "Which number is smaller: 34 or 43?",
+    "choices": [
+      "34",
+      "43",
+      "35",
+      "37"
+    ],
+    "correctIndex": 0,
+    "answer": "34",
+    "explanation": "34 is smaller than 43",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 11 + 29?",
+    "choices": [
+      "44",
+      "40",
+      "41",
+      "39"
+    ],
+    "correctIndex": 1,
+    "answer": "40",
+    "explanation": "11 + 29 = 40",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 64 - 28?",
+    "choices": [
+      "35",
+      "36",
+      "63",
+      "40"
+    ],
+    "correctIndex": 1,
+    "answer": "36",
+    "explanation": "64 - 28 = 36",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 3 × 8?",
+    "choices": [
+      "26",
+      "25",
+      "23",
+      "24"
+    ],
+    "correctIndex": 3,
+    "answer": "24",
+    "explanation": "3 × 8 = 24",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 48 ÷ 8?",
+    "choices": [
+      "6",
+      "9",
+      "7",
+      "5"
+    ],
+    "correctIndex": 0,
+    "answer": "6",
+    "explanation": "48 ÷ 8 = 6",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "How many minutes are in 1 hour?",
+    "choices": [
+      "61",
+      "60",
+      "59",
+      "66"
+    ],
+    "correctIndex": 1,
+    "answer": "60",
+    "explanation": "1 hour = 60 minutes",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is double 25?",
+    "choices": [
+      "49",
+      "50",
+      "55",
+      "5"
+    ],
+    "correctIndex": 1,
+    "answer": "50",
+    "explanation": "25 × 2 = 50",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is half of 18?",
+    "choices": [
+      "10",
+      "12",
+      "8",
+      "9"
+    ],
+    "correctIndex": 3,
+    "answer": "9",
+    "explanation": "18 ÷ 2 = 9",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 5 × 9?",
+    "choices": [
+      "44",
+      "54",
+      "45",
+      "46"
+    ],
+    "correctIndex": 2,
+    "answer": "45",
+    "explanation": "5 × 9 = 45",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 81 ÷ 9?",
+    "choices": [
+      "9",
+      "8",
+      "12",
+      "10"
+    ],
+    "correctIndex": 0,
+    "answer": "9",
+    "explanation": "81 ÷ 9 = 9",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What number comes after 199?",
+    "choices": [
+      "220",
+      "2",
+      "200",
+      "199"
+    ],
+    "correctIndex": 2,
+    "answer": "200",
+    "explanation": "The number after 199 is 200",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 30 + 45?",
+    "choices": [
+      "57",
+      "76",
+      "82",
+      "75"
+    ],
+    "correctIndex": 3,
+    "answer": "75",
+    "explanation": "30 + 45 = 75",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 100 - 56?",
+    "choices": [
+      "45",
+      "43",
+      "44",
+      "48"
+    ],
+    "correctIndex": 2,
+    "answer": "44",
+    "explanation": "100 - 56 = 44",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 4 × 9?",
+    "choices": [
+      "63",
+      "36",
+      "35",
+      "40"
+    ],
+    "correctIndex": 1,
+    "answer": "36",
+    "explanation": "4 × 9 = 36",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 36 ÷ 4?",
+    "choices": [
+      "9",
+      "8",
+      "12",
+      "10"
+    ],
+    "correctIndex": 0,
+    "answer": "9",
+    "explanation": "36 ÷ 4 = 9",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "How many days are in 3 weeks?",
+    "choices": [
+      "23",
+      "21",
+      "20",
+      "12"
+    ],
+    "correctIndex": 1,
+    "answer": "21",
+    "explanation": "3 × 7 = 21 days",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is triple 7?",
+    "choices": [
+      "20",
+      "12",
+      "21",
+      "23"
+    ],
+    "correctIndex": 2,
+    "answer": "21",
+    "explanation": "7 × 3 = 21",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 2 × 12?",
+    "choices": [
+      "24",
+      "23",
+      "26",
+      "25"
+    ],
+    "correctIndex": 0,
+    "answer": "24",
+    "explanation": "2 × 12 = 24",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 60 ÷ 5?",
+    "choices": [
+      "21",
+      "13",
+      "12",
+      "11"
+    ],
+    "correctIndex": 2,
+    "answer": "12",
+    "explanation": "60 ÷ 5 = 12",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "Which number is greater: 145 or 154?",
+    "choices": [
+      "154",
+      "451",
+      "169",
+      "155"
+    ],
+    "correctIndex": 0,
+    "answer": "154",
+    "explanation": "154 is greater than 145",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 3",
+    "question": "What is 10 more than 89?",
+    "choices": [
+      "100",
+      "98",
+      "109",
+      "99"
+    ],
+    "correctIndex": 3,
+    "answer": "99",
+    "explanation": "89 + 10 = 99",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Calculate: 480 ÷ 6",
+    "choices": [
+      "8",
+      "88",
+      "81",
+      "80"
+    ],
+    "correctIndex": 3,
+    "answer": "80",
+    "explanation": "480 ÷ 6 = 80",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 35% of 200?",
+    "choices": [
+      "69",
+      "70",
+      "7",
+      "71"
+    ],
+    "correctIndex": 1,
+    "answer": "70",
+    "explanation": "0.35 × 200 = 70",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 0.4 as a fraction?",
+    "choices": [
+      "0.4",
+      "2/5",
+      "4/10",
+      "3/5"
+    ],
+    "correctIndex": 1,
+    "answer": "2/5",
+    "explanation": "0.4 = 4/10 = 2/5",
+    "needsReview": false,
+    "meta": {
+      "generator": "fraction"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Calculate: 7.2 + 3.85",
+    "choices": [
+      "12",
+      "10.05",
+      "11.05",
+      "12.05"
+    ],
+    "correctIndex": 2,
+    "answer": "11.05",
+    "explanation": "7.2 + 3.85 = 11.05",
+    "needsReview": false,
+    "meta": {
+      "generator": "decimal"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "If 6x = 54, what is x?",
+    "choices": [
+      "9",
+      "8",
+      "12",
+      "10"
+    ],
+    "correctIndex": 0,
+    "answer": "9",
+    "explanation": "54 ÷ 6 = 9",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Calculate: 900 - 378",
+    "choices": [
+      "521",
+      "523",
+      "522",
+      "225"
+    ],
+    "correctIndex": 2,
+    "answer": "522",
+    "explanation": "900 - 378 = 522",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 5/8 of 64?",
+    "choices": [
+      "39",
+      "40",
+      "44",
+      "41"
+    ],
+    "correctIndex": 1,
+    "answer": "40",
+    "explanation": "64 ÷ 8 × 5 = 40",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 12²?",
+    "choices": [
+      "145",
+      "441",
+      "143",
+      "144"
+    ],
+    "correctIndex": 3,
+    "answer": "144",
+    "explanation": "12 × 12 = 144",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Calculate: 3.6 × 4",
+    "choices": [
+      "15.4",
+      "13.4",
+      "14.4",
+      "16"
+    ],
+    "correctIndex": 2,
+    "answer": "14.4",
+    "explanation": "3.6 × 4 = 14.4",
+    "needsReview": false,
+    "meta": {
+      "generator": "decimal"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 1/4 as a decimal?",
+    "choices": [
+      "0",
+      "1.25",
+      "0.25",
+      "-0.75"
+    ],
+    "correctIndex": 2,
+    "answer": "0.25",
+    "explanation": "1 ÷ 4 = 0.25",
+    "needsReview": false,
+    "meta": {
+      "generator": "decimal"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "If x + 19 = 52, what is x?",
+    "choices": [
+      "33",
+      "34",
+      "36",
+      "32"
+    ],
+    "correctIndex": 0,
+    "answer": "33",
+    "explanation": "52 - 19 = 33",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is the mean of 4, 6, and 8?",
+    "choices": [
+      "5",
+      "7",
+      "6",
+      "9"
+    ],
+    "correctIndex": 2,
+    "answer": "6",
+    "explanation": "(4 + 6 + 8) ÷ 3 = 6",
+    "needsReview": true,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 60% of 90?",
+    "choices": [
+      "45",
+      "54",
+      "53",
+      "59"
+    ],
+    "correctIndex": 1,
+    "answer": "54",
+    "explanation": "0.6 × 90 = 54",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Calculate: 125 ÷ 0.5",
+    "choices": [
+      "251",
+      "52",
+      "275",
+      "250"
+    ],
+    "correctIndex": 3,
+    "answer": "250",
+    "explanation": "Dividing by 0.5 doubles the number",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is the perimeter of a rectangle with sides 9 cm and 4 cm?",
+    "choices": [
+      "62",
+      "25",
+      "27",
+      "26"
+    ],
+    "correctIndex": 3,
+    "answer": "26",
+    "explanation": "2 × (9 + 4) = 26 cm",
+    "needsReview": true,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Simplify: 18/24",
+    "choices": [
+      "3/4",
+      "4/4",
+      "0.75",
+      "6/8"
+    ],
+    "correctIndex": 0,
+    "answer": "3/4",
+    "explanation": "Divide top and bottom by 6",
+    "needsReview": false,
+    "meta": {
+      "generator": "fraction"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is 0.125 as a fraction?",
+    "choices": [
+      "0.125",
+      "1/8",
+      "2/8",
+      "2/16"
+    ],
+    "correctIndex": 1,
+    "answer": "1/8",
+    "explanation": "0.125 = 125/1000 = 1/8",
+    "needsReview": false,
+    "meta": {
+      "generator": "fraction"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "Calculate: 14.5 - 6.75",
+    "choices": [
+      "6.75",
+      "8.75",
+      "9",
+      "7.75"
+    ],
+    "correctIndex": 3,
+    "answer": "7.75",
+    "explanation": "14.5 - 6.75 = 7.75",
+    "needsReview": false,
+    "meta": {
+      "generator": "decimal"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "If 9y = 81, what is y?",
+    "choices": [
+      "12",
+      "9",
+      "8",
+      "10"
+    ],
+    "correctIndex": 1,
+    "answer": "9",
+    "explanation": "81 ÷ 9 = 9",
+    "needsReview": false,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "Maths",
+    "year": "Year 6",
+    "question": "What is the area of a rectangle 12 cm by 7 cm?",
+    "choices": [
+      "84",
+      "48",
+      "83",
+      "92"
+    ],
+    "correctIndex": 0,
+    "answer": "84",
+    "explanation": "12 × 7 = 84 cm²",
+    "needsReview": true,
+    "meta": {
+      "generator": "integer"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the plural of 'foot'?",
+    "choices": [
+      "feets",
+      "feeted",
+      "feet",
+      "no"
+    ],
+    "correctIndex": 2,
+    "answer": "feet",
+    "explanation": "'Foot' becomes 'feet' in the plural form.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Choose the correct word: The boys ___ playing outside. (is / are)",
+    "choices": [
+      "are",
+      "areed",
+      "no",
+      "ares"
+    ],
+    "correctIndex": 0,
+    "answer": "are",
+    "explanation": "'Are' is correct because 'boys' is plural.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What punctuation mark ends an exclamation?",
+    "choices": [
+      "no",
+      "!ed",
+      "!s",
+      "!"
+    ],
+    "correctIndex": 3,
+    "answer": "!",
+    "explanation": "An exclamation mark (!) is used to show strong feeling.",
+    "needsReview": false,
+    "meta": {
+      "generator": "symbol"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the past tense of 'jump'?",
+    "choices": [
+      "no",
+      "jumped",
+      "jumpeded",
+      "jumpeds"
+    ],
+    "correctIndex": 1,
+    "answer": "jumped",
+    "explanation": "The past tense of 'jump' is 'jumped'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which word is an adjective: happy, run, or quickly?",
+    "choices": [
+      "happy",
+      "glad",
+      "cheerful",
+      "sad"
+    ],
+    "correctIndex": 0,
+    "answer": "happy",
+    "explanation": "'Happy' is an adjective because it describes a noun.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the opposite of 'hot'?",
+    "choices": [
+      "cold",
+      "hot",
+      "warm",
+      "cool"
+    ],
+    "correctIndex": 0,
+    "answer": "cold",
+    "explanation": "'Cold' is the opposite of 'hot'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Choose the correct word: She ___ a book. (read / reads)",
+    "choices": [
+      "readss",
+      "reads",
+      "no",
+      "readsed"
+    ],
+    "correctIndex": 1,
+    "answer": "reads",
+    "explanation": "'Reads' is correct because 'she' is singular.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the plural of 'man'?",
+    "choices": [
+      "mens",
+      "mened",
+      "no",
+      "men"
+    ],
+    "correctIndex": 3,
+    "answer": "men",
+    "explanation": "'Man' becomes 'men' in the plural form.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is a synonym for 'small'?",
+    "choices": [
+      "tinys",
+      "tinyed",
+      "tiny",
+      "tinies"
+    ],
+    "correctIndex": 2,
+    "answer": "tiny",
+    "explanation": "'Tiny' means the same as 'small'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which word is a noun: dog, run, or blue?",
+    "choices": [
+      "dog",
+      "dogs",
+      "no",
+      "doged"
+    ],
+    "correctIndex": 0,
+    "answer": "dog",
+    "explanation": "'Dog' is a noun because it is a thing.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What punctuation mark is used in a list?",
+    "choices": [
+      "commas",
+      "commaed",
+      "no",
+      "comma"
+    ],
+    "correctIndex": 3,
+    "answer": "comma",
+    "explanation": "Commas are used to separate items in a list.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the past tense of 'see'?",
+    "choices": [
+      "no",
+      "saws",
+      "saw",
+      "sawed"
+    ],
+    "correctIndex": 2,
+    "answer": "saw",
+    "explanation": "The past tense of 'see' is 'saw'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Choose the correct word: I ___ my homework yesterday. (do / did)",
+    "choices": [
+      "dided",
+      "did",
+      "no",
+      "dids"
+    ],
+    "correctIndex": 1,
+    "answer": "did",
+    "explanation": "'Did' is the past tense of 'do'.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the plural of 'leaf'?",
+    "choices": [
+      "leavess",
+      "leaves",
+      "leavesed",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "leaves",
+    "explanation": "'Leaf' changes to 'leaves' in the plural form.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the opposite of 'up'?",
+    "choices": [
+      "downed",
+      "no",
+      "downs",
+      "down"
+    ],
+    "correctIndex": 3,
+    "answer": "down",
+    "explanation": "'Down' is the opposite of 'up'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which sentence is a question? Enter: 'Where are you?' or 'I like apples.'",
+    "choices": [
+      "where are you?ed",
+      "where are you?s",
+      "no",
+      "Where are you?"
+    ],
+    "correctIndex": 3,
+    "answer": "Where are you?",
+    "explanation": "Questions ask something and end with a question mark.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is a synonym for 'happy'?",
+    "choices": [
+      "glad",
+      "gladed",
+      "no",
+      "glads"
+    ],
+    "correctIndex": 0,
+    "answer": "glad",
+    "explanation": "'Glad' means the same as 'happy'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Choose the correct word: The cat ___ sleeping. (is / are)",
+    "choices": [
+      "ised",
+      "no",
+      "is",
+      "iss"
+    ],
+    "correctIndex": 2,
+    "answer": "is",
+    "explanation": "'Is' is correct because 'cat' is singular.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What type of word is 'slowly'?",
+    "choices": [
+      "adverb",
+      "no",
+      "adverbed",
+      "adverbs"
+    ],
+    "correctIndex": 0,
+    "answer": "adverb",
+    "explanation": "'Slowly' describes how something happens.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What punctuation mark ends a command?",
+    "choices": [
+      "no",
+      ".",
+      ".s",
+      ".ed"
+    ],
+    "correctIndex": 1,
+    "answer": ".",
+    "explanation": "Commands often end with a full stop.",
+    "needsReview": false,
+    "meta": {
+      "generator": "symbol"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the plural of 'baby'?",
+    "choices": [
+      "babies",
+      "babiess",
+      "no",
+      "babiesed"
+    ],
+    "correctIndex": 0,
+    "answer": "babies",
+    "explanation": "'Baby' changes to 'babies' in the plural form.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the past tense of 'go'?",
+    "choices": [
+      "no",
+      "wented",
+      "wents",
+      "went"
+    ],
+    "correctIndex": 3,
+    "answer": "went",
+    "explanation": "The past tense of 'go' is 'went'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which word describes a noun?",
+    "choices": [
+      "adjective",
+      "adjectives",
+      "adjectiveed",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "adjective",
+    "explanation": "An adjective describes a noun.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is a synonym for 'fast'?",
+    "choices": [
+      "quicks",
+      "no",
+      "quick",
+      "quicked"
+    ],
+    "correctIndex": 2,
+    "answer": "quick",
+    "explanation": "'Quick' means the same as 'fast'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which word is a verb: eat, red, chair?",
+    "choices": [
+      "eats",
+      "no",
+      "eat",
+      "eated"
+    ],
+    "correctIndex": 2,
+    "answer": "eat",
+    "explanation": "'Eat' is a verb because it is an action.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What punctuation mark shows possession?",
+    "choices": [
+      "no",
+      "apostropheed",
+      "apostrophe",
+      "apostrophes"
+    ],
+    "correctIndex": 2,
+    "answer": "apostrophe",
+    "explanation": "An apostrophe (') shows possession.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the opposite of 'early'?",
+    "choices": [
+      "late",
+      "lateed",
+      "lates",
+      "no"
+    ],
+    "correctIndex": 0,
+    "answer": "late",
+    "explanation": "'Late' is the opposite of 'early'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Choose the correct word: We ___ to the park. (go / goes)",
+    "choices": [
+      "go",
+      "no",
+      "gos",
+      "goed"
+    ],
+    "correctIndex": 0,
+    "answer": "go",
+    "explanation": "'Go' is correct because 'we' is plural.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the plural of 'ox'?",
+    "choices": [
+      "no",
+      "oxen",
+      "oxened",
+      "oxens"
+    ],
+    "correctIndex": 1,
+    "answer": "oxen",
+    "explanation": "'Ox' becomes 'oxen' in the plural form.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which word is a noun: run, jump, or house?",
+    "choices": [
+      "houseed",
+      "house",
+      "houses",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "house",
+    "explanation": "'House' is a noun because it is a thing.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is a synonym for 'big'?",
+    "choices": [
+      "large",
+      "larges",
+      "no",
+      "largeed"
+    ],
+    "correctIndex": 0,
+    "answer": "large",
+    "explanation": "'Large' means the same as 'big'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the past tense of 'have'?",
+    "choices": [
+      "haded",
+      "no",
+      "had",
+      "hads"
+    ],
+    "correctIndex": 2,
+    "answer": "had",
+    "explanation": "The past tense of 'have' is 'had'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What punctuation mark ends a statement?",
+    "choices": [
+      ".",
+      "no",
+      ".ed",
+      ".s"
+    ],
+    "correctIndex": 0,
+    "answer": ".",
+    "explanation": "A full stop ends a statement.",
+    "needsReview": false,
+    "meta": {
+      "generator": "symbol"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Choose the correct word: He ___ my friend. (is / are)",
+    "choices": [
+      "iss",
+      "no",
+      "ised",
+      "is"
+    ],
+    "correctIndex": 3,
+    "answer": "is",
+    "explanation": "'Is' is correct because 'he' is singular.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What type of word is 'beautiful'?",
+    "choices": [
+      "adjective",
+      "adjectives",
+      "no",
+      "adjectiveed"
+    ],
+    "correctIndex": 0,
+    "answer": "adjective",
+    "explanation": "'Beautiful' describes a noun.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the opposite of 'clean'?",
+    "choices": [
+      "dirties",
+      "dirty",
+      "dirtyed",
+      "dirtys"
+    ],
+    "correctIndex": 1,
+    "answer": "dirty",
+    "explanation": "'Dirty' is the opposite of 'clean'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is the plural of 'knife'?",
+    "choices": [
+      "no",
+      "knivesed",
+      "knives",
+      "knivess"
+    ],
+    "correctIndex": 2,
+    "answer": "knives",
+    "explanation": "'Knife' changes to 'knives' in the plural form.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "Which word is an adjective: tall, run, or quickly?",
+    "choices": [
+      "no",
+      "talled",
+      "talls",
+      "tall"
+    ],
+    "correctIndex": 3,
+    "answer": "tall",
+    "explanation": "'Tall' describes a noun.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What is a synonym for 'funny'?",
+    "choices": [
+      "amusinged",
+      "amusing",
+      "amusings",
+      "no"
+    ],
+    "correctIndex": 1,
+    "answer": "amusing",
+    "explanation": "'Amusing' means the same as 'funny'.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 3",
+    "question": "What punctuation mark is used in questions?",
+    "choices": [
+      "?",
+      "?ed",
+      "no",
+      "?s"
+    ],
+    "correctIndex": 0,
+    "answer": "?",
+    "explanation": "A question mark ends a question.",
+    "needsReview": false,
+    "meta": {
+      "generator": "symbol"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is the active form of: 'The ball was kicked by Tom.'?",
+    "choices": [
+      "no",
+      "tom kicked the ball.s",
+      "tom kicked the ball.ed",
+      "Tom kicked the ball."
+    ],
+    "correctIndex": 3,
+    "answer": "Tom kicked the ball.",
+    "explanation": "The subject performs the action in the active voice.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Identify the adverb in this sentence: 'She spoke confidently.'",
+    "choices": [
+      "confidentlyed",
+      "confidentlys",
+      "confidentlies",
+      "confidently"
+    ],
+    "correctIndex": 3,
+    "answer": "confidently",
+    "explanation": "'Confidently' describes how she spoke.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What is a synonym for 'angry'?",
+    "choices": [
+      "furiouss",
+      "furious",
+      "no",
+      "furioused"
+    ],
+    "correctIndex": 1,
+    "answer": "furious",
+    "explanation": "'Furious' means very angry.",
+    "needsReview": true,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "What type of clause starts with 'who' or 'which'?",
+    "choices": [
+      "relative clauses",
+      "relative clauseed",
+      "no",
+      "relative clause"
+    ],
+    "correctIndex": 3,
+    "answer": "relative clause",
+    "explanation": "Relative clauses give more information about a noun.",
+    "needsReview": false,
+    "meta": {
+      "generator": "text"
+    }
+  },
+  {
+    "subject": "English",
+    "year": "Year 6",
+    "question": "Choose the correct word: 'I should ___ gone earlier.' (have / of)",
+    "choices": [
+      "haveed",
+      "no",
+      "have",
+      "haves"
+    ],
+    "correctIndex": 2,
+    "answer": "have",
+    
