@@ -615,22 +615,30 @@ function loadQuestion(index) {
 
         question.choices.forEach((choice, i) => {
             const id = `choice-${index}-${i}`;
-            const wrapper = createElement('div', 'choice-item');
-            const letterSpan = createElement('span', 'choice-letter', String.fromCharCode(65 + i));
+            const wrapper = document.createElement('label');
+            wrapper.className = 'choice-item';
+            wrapper.htmlFor = id;
+            wrapper.style.cursor = 'pointer';
+            
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'choice-letter';
+            letterSpan.textContent = String.fromCharCode(65 + i);
+            
             const input = document.createElement('input');
             input.type = 'radio';
             input.name = 'choice';
             input.id = id;
             input.value = choice;
             input.className = 'choice-radio';
-            const label = document.createElement('label');
-            label.htmlFor = id;
-            label.className = 'choice-label';
-            label.textContent = choice;
-
+            
+            const optionText = document.createElement('span');
+            optionText.className = 'choice-text';
+            optionText.textContent = choice;
+            
             wrapper.appendChild(letterSpan);
             wrapper.appendChild(input);
-            wrapper.appendChild(label);
+            wrapper.appendChild(optionText);
+            
             if (choicesContainer) choicesContainer.appendChild(wrapper);
         });
 
