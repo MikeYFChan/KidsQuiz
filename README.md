@@ -1,16 +1,5 @@
 # Primary School Quiz / 小學Quiz
 
-<div align="center">
-
-![Quiz Screenshot](https://via.placeholder.com/600x300?text=Primary+School+Quiz)
-
-*A fun and interactive quiz for primary school students / 小學生互動問答遊戲*
-
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue)](https://pages.github.com/)
-[![HTML5](https://img.shields.io/badge/HTML5-CSS3-JavaScript-yellow)](https://developer.mozilla.org/)
-
-</div>
-
 ---
 
 ## About / 關於
@@ -24,31 +13,37 @@ The Primary School Quiz is an interactive quiz application designed specifically
 ## Features / 功能特色
 
 ### 🎯 Multi-Subject Support / 多科目支援
+
 本應用程式提供三個核心科目供學生選擇，每個科目都包含豐富的題庫，涵蓋該年級的學習重點。數學科目包括加法、減法、乘法、除法、幾何和計算等題型。英語科目涵蓋語法、詞彙、拼寫和句子結構。科學科目則包括生物、物理和化學的基础知識，讓學生能夠全面學習和鞏固各科知識。
 
 The application offers three core subjects for students to choose from, each containing a rich question bank covering key learning points for that grade level. The Maths subject includes addition, subtraction, multiplication, division, geometry, and calculations. The English subject covers grammar, vocabulary, spelling, and sentence structure. The Science subject includes foundational knowledge of biology, physics, and chemistry.
 
 ### 📝 Multiple Choice Questions / 選擇題系統
+
 所有題目都配備了精心設計的選擇題選項，包含一個正確答案和三個干擾項。選擇題的設計考慮到學生的認知水平，確保干擾項具有合理的誤導性，讓學生在回答過程中能夠加深對知識點的理解。系統會自動打亂選項順序，防止學生記住答案位置。
 
 All questions come with carefully designed multiple-choice options, featuring one correct answer and three distractors. The multiple-choice design takes into account students' cognitive level, ensuring distractors have reasonable misleading properties to help students deepen their understanding of the knowledge points while answering. The system automatically shuffles option order to prevent students from memorizing answer positions.
 
 ### 👤 User Management / 用戶管理
+
 系統支援多用戶功能，每位學生都可以創建自己的帳戶，輸入姓名和年級資訊。這樣系統能夠為每位用戶獨立保存答題歷史記錄，讓學生和家長可以追蹤學習進度。用戶資料會儲存在本地瀏覽器的 localStorage 中，確保數據隱私和安全。
 
 The system supports multi-user functionality, allowing each student to create their own account with name and grade information. This enables the system to save answer history records independently for each user, allowing students and parents to track learning progress. User data is stored in the browser's localStorage, ensuring data privacy and security.
 
 ### 📊 History & Progress Tracking / 歷史記錄與進度追蹤
+
 每次完成測驗後，系統會自動記錄成績並儲存到用戶的歷史記錄中。學生可以隨時查看過去的測驗結果，包括得分百分比、正確題數和完成日期。這項功能讓學生能夠清楚地看到自己的學習進步，激勵他們持續學習和改進。
 
 After each quiz completion, the system automatically records scores and stores them in the user's history. Students can view past quiz results at any time, including score percentage, number of correct answers, and completion date. This feature allows students to clearly see their learning progress, motivating them to continue learning and improving.
 
 ### 📱 Responsive Design / 響應式設計
+
 本應用程式採用響應式設計，能夠完美適配不同尺寸的螢幕，包括桌面電腦、平板電腦和智能手機。無論學生使用什麼設備，都能獲得一致且良好的使用體驗。界面設計簡潔直觀，符合小學生的認知特點，讓他們能夠輕鬆導航和操作。
 
 The application uses responsive design that perfectly adapts to different screen sizes, including desktop computers, tablets, and smartphones. Students can enjoy a consistent and excellent user experience regardless of the device they use. The interface design is simple and intuitive, suitable for primary school students' cognitive characteristics, making navigation and operation easy.
 
 ### 🚀 No Server Required / 無需伺服器
+
 整個應用程式完全由 HTML、CSS 和 JavaScript 構建，無需任何後端伺服器或資料庫。所有數據都儲存在本地瀏覽器中，或以靜態 JSON 文件的形式存在。這使得部署和維護變得極其簡單，任何人都可以輕鬆地設置和運行這個應用程式。
 
 The entire application is built purely with HTML, CSS, and JavaScript, requiring no backend servers or databases. All data is stored in the local browser or exists as static JSON files. This makes deployment and maintenance extremely simple, and anyone can easily set up and run this application.
@@ -146,17 +141,17 @@ If you don't want to manually write options, the system will automatically gener
 
 ### Field Descriptions / 欄位說明
 
-| 欄位 Field | 必須 Required | 類型 Type | 說明 Description |
-|------------|--------------|----------|------------------|
-| subject | ✅ | string | 科目 (Maths / English / Science) |
-| year | ✅ | string | 年級 (Year 3 / Year 6) |
-| question | ✅ | string | 問題內容 |
-| answer | ✅ | string | 正確答案 |
-| choices | ❌ | array | 選項列表 (4個選項) |
-| correctIndex | ❌ | number | 正確答案的索引 (0-3) |
-| explanation | ✅ | string | 解釋說明 |
-| needsReview | ❌ | boolean | 是否需要人工覆核 |
-| meta | ❌ | object | 元數據 (generator 等) |
+| 欄位 Field   | 必須 Required | 類型 Type | 說明 Description                 |
+| ------------ | ------------- | --------- | -------------------------------- |
+| subject      | ✅            | string    | 科目 (Maths / English / Science) |
+| year         | ✅            | string    | 年級 (Year 3 / Year 6)           |
+| question     | ✅            | string    | 問題內容                         |
+| answer       | ✅            | string    | 正確答案                         |
+| choices      | ❌            | array     | 選項列表 (4個選項)               |
+| correctIndex | ❌            | number    | 正確答案的索引 (0-3)             |
+| explanation  | ✅            | string    | 解釋說明                         |
+| needsReview  | ❌            | boolean   | 是否需要人工覆核                 |
+| meta         | ❌            | object    | 元數據 (generator 等)            |
 
 ---
 
@@ -180,13 +175,13 @@ This application is built entirely using standard Web technologies without any e
 
 This application supports all modern browsers, including Google Chrome, Mozilla Firefox, Apple Safari, Microsoft Edge, and Opera. Since ES6+ syntax is used, some older browsers may not fully support it. It is recommended to use the latest version of browsers for the best experience. We have ensured that all core functions work properly on mainstream browsers.
 
-| Browser | Status |
-|---------|--------|
-| Chrome | ✅ Full Support |
-| Firefox | ✅ Full Support |
-| Safari | ✅ Full Support |
-| Edge | ✅ Full Support |
-| IE 11 | ⚠️ Limited Support |
+| Browser | Status             |
+| ------- | ------------------ |
+| Chrome  | ✅ Full Support    |
+| Firefox | ✅ Full Support    |
+| Safari  | ✅ Full Support    |
+| Edge    | ✅ Full Support    |
+| IE 11   | ⚠️ Limited Support |
 
 ---
 
