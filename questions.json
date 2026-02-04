@@ -4,304 +4,964 @@
       {
         "question": "What is 14 + 26?",
         "answer": "40",
-        "explanation": "14 + 26 = 40"
+        "explanation": "14 + 26 = 40",
+        "choices": [
+          "40",
+          "44",
+          "39",
+          "4"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 50 - 18?",
         "answer": "32",
-        "explanation": "50 - 18 = 32"
+        "explanation": "50 - 18 = 32",
+        "choices": [
+          "35",
+          "23",
+          "31",
+          "32"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 6 × 4?",
         "answer": "24",
-        "explanation": "6 × 4 = 24"
+        "explanation": "6 × 4 = 24",
+        "choices": [
+          "25",
+          "26",
+          "42",
+          "24"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 21 ÷ 3?",
         "answer": "7",
-        "explanation": "21 ÷ 3 = 7"
+        "explanation": "21 ÷ 3 = 7",
+        "choices": [
+          "6",
+          "10",
+          "8",
+          "7"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is double 18?",
         "answer": "36",
-        "explanation": "Double 18 = 18 × 2 = 36"
+        "explanation": "Double 18 = 18 × 2 = 36",
+        "choices": [
+          "37",
+          "36",
+          "40",
+          "63"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is half of 40?",
         "answer": "20",
-        "explanation": "40 ÷ 2 = 20"
+        "explanation": "40 ÷ 2 = 20",
+        "choices": [
+          "20",
+          "22",
+          "19",
+          "21"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "Which number is greater: 92 or 29?",
         "answer": "92",
-        "explanation": "92 is greater than 29"
+        "explanation": "92 is greater than 29",
+        "choices": [
+          "91",
+          "92",
+          "29",
+          "93"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 9 × 3?",
         "answer": "27",
-        "explanation": "9 × 3 = 27"
+        "explanation": "9 × 3 = 27",
+        "choices": [
+          "26",
+          "28",
+          "27",
+          "30"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 45 + 15?",
         "answer": "60",
-        "explanation": "45 + 15 = 60"
+        "explanation": "45 + 15 = 60",
+        "choices": [
+          "6",
+          "61",
+          "60",
+          "66"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 72 - 30?",
         "answer": "42",
-        "explanation": "72 - 30 = 42"
+        "explanation": "72 - 30 = 42",
+        "choices": [
+          "43",
+          "46",
+          "41",
+          "42"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "How many sides does a rectangle have?",
         "answer": "4",
-        "explanation": "A rectangle has 4 sides."
+        "explanation": "A rectangle has 4 sides.",
+        "choices": [
+          "5",
+          "4",
+          "3",
+          "7"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 8 × 5?",
         "answer": "40",
-        "explanation": "8 × 5 = 40"
+        "explanation": "8 × 5 = 40",
+        "choices": [
+          "40",
+          "4",
+          "39",
+          "44"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 63 ÷ 9?",
         "answer": "7",
-        "explanation": "63 ÷ 9 = 7"
+        "explanation": "63 ÷ 9 = 7",
+        "choices": [
+          "8",
+          "7",
+          "10",
+          "6"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What number comes before 100?",
         "answer": "99",
-        "explanation": "The number before 100 is 99"
+        "explanation": "The number before 100 is 99",
+        "choices": [
+          "109",
+          "100",
+          "99",
+          "98"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 17 + 19?",
         "answer": "36",
-        "explanation": "17 + 19 = 36"
+        "explanation": "17 + 19 = 36",
+        "choices": [
+          "40",
+          "36",
+          "37",
+          "63"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 90 - 47?",
         "answer": "43",
-        "explanation": "90 - 47 = 43"
+        "explanation": "90 - 47 = 43",
+        "choices": [
+          "43",
+          "44",
+          "47",
+          "34"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 7 × 6?",
         "answer": "42",
-        "explanation": "7 × 6 = 42"
+        "explanation": "7 × 6 = 42",
+        "choices": [
+          "43",
+          "42",
+          "41",
+          "46"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 24 ÷ 6?",
         "answer": "4",
-        "explanation": "24 ÷ 6 = 4"
+        "explanation": "24 ÷ 6 = 4",
+        "choices": [
+          "3",
+          "7",
+          "4",
+          "5"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is quarter of 20?",
         "answer": "5",
-        "explanation": "20 ÷ 4 = 5"
+        "explanation": "20 ÷ 4 = 5",
+        "choices": [
+          "4",
+          "5",
+          "6",
+          "8"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "Which number is smaller: 34 or 43?",
         "answer": "34",
-        "explanation": "34 is smaller than 43"
+        "explanation": "34 is smaller than 43",
+        "choices": [
+          "43",
+          "33",
+          "37",
+          "34"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 11 + 29?",
         "answer": "40",
-        "explanation": "11 + 29 = 40"
+        "explanation": "11 + 29 = 40",
+        "choices": [
+          "39",
+          "4",
+          "44",
+          "40"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 64 - 28?",
         "answer": "36",
-        "explanation": "64 - 28 = 36"
+        "explanation": "64 - 28 = 36",
+        "choices": [
+          "63",
+          "36",
+          "37",
+          "40"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 3 × 8?",
         "answer": "24",
-        "explanation": "3 × 8 = 24"
+        "explanation": "3 × 8 = 24",
+        "choices": [
+          "24",
+          "25",
+          "42",
+          "26"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 48 ÷ 8?",
         "answer": "6",
-        "explanation": "48 ÷ 8 = 6"
+        "explanation": "48 ÷ 8 = 6",
+        "choices": [
+          "7",
+          "6",
+          "5",
+          "9"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "How many minutes are in 1 hour?",
         "answer": "60",
-        "explanation": "1 hour = 60 minutes"
+        "explanation": "1 hour = 60 minutes",
+        "choices": [
+          "6",
+          "66",
+          "60",
+          "61"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is double 25?",
         "answer": "50",
-        "explanation": "25 × 2 = 50"
+        "explanation": "25 × 2 = 50",
+        "choices": [
+          "5",
+          "50",
+          "51",
+          "55"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is half of 18?",
         "answer": "9",
-        "explanation": "18 ÷ 2 = 9"
+        "explanation": "18 ÷ 2 = 9",
+        "choices": [
+          "12",
+          "10",
+          "9",
+          "8"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 5 × 9?",
         "answer": "45",
-        "explanation": "5 × 9 = 45"
+        "explanation": "5 × 9 = 45",
+        "choices": [
+          "46",
+          "44",
+          "50",
+          "45"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 81 ÷ 9?",
         "answer": "9",
-        "explanation": "81 ÷ 9 = 9"
+        "explanation": "81 ÷ 9 = 9",
+        "choices": [
+          "8",
+          "10",
+          "9",
+          "12"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What number comes after 199?",
         "answer": "200",
-        "explanation": "The number after 199 is 200"
+        "explanation": "The number after 199 is 200",
+        "choices": [
+          "199",
+          "201",
+          "200",
+          "2"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 30 + 45?",
         "answer": "75",
-        "explanation": "30 + 45 = 75"
+        "explanation": "30 + 45 = 75",
+        "choices": [
+          "76",
+          "57",
+          "75",
+          "74"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 100 - 56?",
         "answer": "44",
-        "explanation": "100 - 56 = 44"
+        "explanation": "100 - 56 = 44",
+        "choices": [
+          "43",
+          "48",
+          "45",
+          "44"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 4 × 9?",
         "answer": "36",
-        "explanation": "4 × 9 = 36"
+        "explanation": "4 × 9 = 36",
+        "choices": [
+          "40",
+          "36",
+          "37",
+          "63"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 36 ÷ 4?",
         "answer": "9",
-        "explanation": "36 ÷ 4 = 9"
+        "explanation": "36 ÷ 4 = 9",
+        "choices": [
+          "10",
+          "12",
+          "9",
+          "8"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "How many days are in 3 weeks?",
         "answer": "21",
-        "explanation": "3 × 7 = 21 days"
+        "explanation": "3 × 7 = 21 days",
+        "choices": [
+          "22",
+          "21",
+          "20",
+          "12"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is triple 7?",
         "answer": "21",
-        "explanation": "7 × 3 = 21"
+        "explanation": "7 × 3 = 21",
+        "choices": [
+          "20",
+          "21",
+          "22",
+          "12"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 2 × 12?",
         "answer": "24",
-        "explanation": "2 × 12 = 24"
+        "explanation": "2 × 12 = 24",
+        "choices": [
+          "42",
+          "24",
+          "25",
+          "26"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 60 ÷ 5?",
         "answer": "12",
-        "explanation": "60 ÷ 5 = 12"
+        "explanation": "60 ÷ 5 = 12",
+        "choices": [
+          "13",
+          "21",
+          "12",
+          "11"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "Which number is greater: 145 or 154?",
         "answer": "154",
-        "explanation": "154 is greater than 145"
+        "explanation": "154 is greater than 145",
+        "choices": [
+          "169",
+          "154",
+          "153",
+          "155"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 10 more than 89?",
         "answer": "99",
-        "explanation": "89 + 10 = 99"
+        "explanation": "89 + 10 = 99",
+        "choices": [
+          "100",
+          "109",
+          "98",
+          "99"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       }
     ],
     "Year 6": [
       {
         "question": "Calculate: 480 ÷ 6",
         "answer": "80",
-        "explanation": "480 ÷ 6 = 80"
+        "explanation": "480 ÷ 6 = 80",
+        "choices": [
+          "79",
+          "88",
+          "81",
+          "80"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 35% of 200?",
         "answer": "70",
-        "explanation": "0.35 × 200 = 70"
+        "explanation": "0.35 × 200 = 70",
+        "choices": [
+          "69",
+          "70",
+          "77",
+          "7"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 0.4 as a fraction?",
         "answer": "2/5",
-        "explanation": "0.4 = 4/10 = 2/5"
+        "explanation": "0.4 = 4/10 = 2/5",
+        "choices": [
+          "0.4",
+          "4/10",
+          "2/5",
+          "3/5"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "fraction"
+        }
       },
       {
         "question": "Calculate: 7.2 + 3.85",
         "answer": "11.05",
-        "explanation": "7.2 + 3.85 = 11.05"
+        "explanation": "7.2 + 3.85 = 11.05",
+        "choices": [
+          "10",
+          "11.05",
+          "14",
+          "12"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "decimal"
+        }
       },
       {
         "question": "If 6x = 54, what is x?",
         "answer": "9",
-        "explanation": "54 ÷ 6 = 9"
+        "explanation": "54 ÷ 6 = 9",
+        "choices": [
+          "9",
+          "8",
+          "12",
+          "10"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "Calculate: 900 - 378",
         "answer": "522",
-        "explanation": "900 - 378 = 522"
+        "explanation": "900 - 378 = 522",
+        "choices": [
+          "521",
+          "574",
+          "523",
+          "522"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 5/8 of 64?",
         "answer": "40",
-        "explanation": "64 ÷ 8 × 5 = 40"
+        "explanation": "64 ÷ 8 × 5 = 40",
+        "choices": [
+          "4",
+          "39",
+          "40",
+          "44"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 12²?",
         "answer": "144",
-        "explanation": "12 × 12 = 144"
+        "explanation": "12 × 12 = 144",
+        "choices": [
+          "143",
+          "158",
+          "144",
+          "441"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "Calculate: 3.6 × 4",
         "answer": "14.4",
-        "explanation": "3.6 × 4 = 14.4"
+        "explanation": "3.6 × 4 = 14.4",
+        "choices": [
+          "15",
+          "13",
+          "41",
+          "14.4"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "decimal"
+        }
       },
       {
         "question": "What is 1/4 as a decimal?",
         "answer": "0.25",
-        "explanation": "1 ÷ 4 = 0.25"
+        "explanation": "1 ÷ 4 = 0.25",
+        "choices": [
+          "-1",
+          "0.25",
+          "1",
+          "0"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "decimal"
+        }
       },
       {
         "question": "If x + 19 = 52, what is x?",
         "answer": "33",
-        "explanation": "52 - 19 = 33"
+        "explanation": "52 - 19 = 33",
+        "choices": [
+          "34",
+          "33",
+          "36",
+          "32"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is the mean of 4, 6, and 8?",
         "answer": "6",
-        "explanation": "(4 + 6 + 8) ÷ 3 = 6"
+        "explanation": "(4 + 6 + 8) ÷ 3 = 6",
+        "choices": [
+          "6",
+          "7",
+          "5",
+          "8"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is 60% of 90?",
         "answer": "54",
-        "explanation": "0.6 × 90 = 54"
+        "explanation": "0.6 × 90 = 54",
+        "choices": [
+          "59",
+          "55",
+          "54",
+          "53"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "Calculate: 125 ÷ 0.5",
         "answer": "250",
-        "explanation": "Dividing by 0.5 doubles the number"
+        "explanation": "Dividing by 0.5 doubles the number",
+        "choices": [
+          "52",
+          "275",
+          "251",
+          "250"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is the perimeter of a rectangle with sides 9 cm and 4 cm?",
         "answer": "26",
-        "explanation": "2 × (9 + 4) = 26 cm"
+        "explanation": "2 × (9 + 4) = 26 cm",
+        "choices": [
+          "26 cm",
+          "25 cm",
+          "13 cm",
+          "36 cm"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "Simplify: 18/24",
         "answer": "3/4",
-        "explanation": "Divide top and bottom by 6"
+        "explanation": "Divide top and bottom by 6",
+        "choices": [
+          "3/4",
+          "6/8",
+          "0.75",
+          "4/4"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "fraction"
+        }
       },
       {
         "question": "What is 0.125 as a fraction?",
         "answer": "1/8",
-        "explanation": "0.125 = 125/1000 = 1/8"
+        "explanation": "0.125 = 125/1000 = 1/8",
+        "choices": [
+          "2/8",
+          "2/16",
+          "0.12",
+          "1/8"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "fraction"
+        }
       },
       {
         "question": "Calculate: 14.5 - 6.75",
         "answer": "7.75",
-        "explanation": "14.5 - 6.75 = 7.75"
+        "explanation": "14.5 - 6.75 = 7.75",
+        "choices": [
+          "10",
+          "7",
+          "7.75",
+          "9"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "decimal"
+        }
       },
       {
         "question": "If 9y = 81, what is y?",
         "answer": "9",
-        "explanation": "81 ÷ 9 = 9"
+        "explanation": "81 ÷ 9 = 9",
+        "choices": [
+          "8",
+          "9",
+          "12",
+          "10"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What is the area of a rectangle 12 cm by 7 cm?",
         "answer": "84",
-        "explanation": "12 × 7 = 84 cm²"
+        "explanation": "12 × 7 = 84 cm²",
+        "choices": [
+          "84 cm²",
+          "72 cm²",
+          "96 cm²",
+          "19 cm²"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       }
     ]
   },
@@ -310,354 +970,1124 @@
       {
         "question": "What is the plural of 'foot'?",
         "answer": "feet",
-        "explanation": "'Foot' becomes 'feet' in the plural form."
+        "explanation": "'Foot' becomes 'feet' in the plural form.",
+        "choices": [
+          "feet",
+          "foots",
+          "footies",
+          "foot"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: The boys ___ playing outside. (is / are)",
         "answer": "are",
-        "explanation": "'Are' is correct because 'boys' is plural."
+        "explanation": "'Are' is correct because 'boys' is plural.",
+        "choices": [
+          "are",
+          "no",
+          "ares",
+          "areed"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark ends an exclamation?",
         "answer": "!",
-        "explanation": "An exclamation mark (!) is used to show strong feeling."
+        "explanation": "An exclamation mark (!) is used to show strong feeling.",
+        "choices": [
+          "!s",
+          "!ed",
+          "!",
+          "no"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the past tense of 'jump'?",
         "answer": "jumped",
-        "explanation": "The past tense of 'jump' is 'jumped'."
+        "explanation": "The past tense of 'jump' is 'jumped'.",
+        "choices": [
+          "jumped",
+          "jumped",
+          "jump",
+          "jumping"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which word is an adjective: happy, run, or quickly?",
         "answer": "happy",
-        "explanation": "'Happy' is an adjective because it describes a noun."
+        "explanation": "'Happy' is an adjective because it describes a noun.",
+        "choices": [
+          "cheerful",
+          "sad",
+          "glad",
+          "happy"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the opposite of 'hot'?",
         "answer": "cold",
-        "explanation": "'Cold' is the opposite of 'hot'."
+        "explanation": "'Cold' is the opposite of 'hot'.",
+        "choices": [
+          "cold",
+          "cool",
+          "warm",
+          "heat"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: She ___ a book. (read / reads)",
         "answer": "reads",
-        "explanation": "'Reads' is correct because 'she' is singular."
+        "explanation": "'Reads' is correct because 'she' is singular.",
+        "choices": [
+          "readsed",
+          "readss",
+          "no",
+          "reads"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the plural of 'man'?",
         "answer": "men",
-        "explanation": "'Man' becomes 'men' in the plural form."
+        "explanation": "'Man' becomes 'men' in the plural form.",
+        "choices": [
+          "men",
+          "mans",
+          "man",
+          "men"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'small'?",
         "answer": "tiny",
-        "explanation": "'Tiny' means the same as 'small'."
+        "explanation": "'Tiny' means the same as 'small'.",
+        "choices": [
+          "tiny",
+          "little",
+          "short",
+          "big"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which word is a noun: dog, run, or blue?",
         "answer": "dog",
-        "explanation": "'Dog' is a noun because it is a thing."
+        "explanation": "'Dog' is a noun because it is a thing.",
+        "choices": [
+          "no",
+          "dog",
+          "doged",
+          "dogs"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark is used in a list?",
         "answer": "comma",
-        "explanation": "Commas are used to separate items in a list."
+        "explanation": "Commas are used to separate items in a list.",
+        "choices": [
+          "no",
+          "commaed",
+          "comma",
+          "commas"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the past tense of 'see'?",
         "answer": "saw",
-        "explanation": "The past tense of 'see' is 'saw'."
+        "explanation": "The past tense of 'see' is 'saw'.",
+        "choices": [
+          "saw",
+          "seen",
+          "see",
+          "seeing"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: I ___ my homework yesterday. (do / did)",
         "answer": "did",
-        "explanation": "'Did' is the past tense of 'do'."
+        "explanation": "'Did' is the past tense of 'do'.",
+        "choices": [
+          "no",
+          "dids",
+          "dided",
+          "did"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the plural of 'leaf'?",
         "answer": "leaves",
-        "explanation": "'Leaf' changes to 'leaves' in the plural form."
+        "explanation": "'Leaf' changes to 'leaves' in the plural form.",
+        "choices": [
+          "leaves",
+          "leafs",
+          "leaf",
+          "leafe"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the opposite of 'up'?",
         "answer": "down",
-        "explanation": "'Down' is the opposite of 'up'."
+        "explanation": "'Down' is the opposite of 'up'.",
+        "choices": [
+          "down",
+          "low",
+          "below",
+          "under"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which sentence is a question? Enter: 'Where are you?' or 'I like apples.'",
         "answer": "Where are you?",
-        "explanation": "Questions ask something and end with a question mark."
+        "explanation": "Questions ask something and end with a question mark.",
+        "choices": [
+          "Where are you?",
+          "I like apples.",
+          "Where are you",
+          "are you where?"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'happy'?",
         "answer": "glad",
-        "explanation": "'Glad' means the same as 'happy'."
+        "explanation": "'Glad' means the same as 'happy'.",
+        "choices": [
+          "glad",
+          "sad",
+          "angry",
+          "tired"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: The cat ___ sleeping. (is / are)",
         "answer": "is",
-        "explanation": "'Is' is correct because 'cat' is singular."
+        "explanation": "'Is' is correct because 'cat' is singular.",
+        "choices": [
+          "ised",
+          "is",
+          "no",
+          "iss"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What type of word is 'slowly'?",
         "answer": "adverb",
-        "explanation": "'Slowly' describes how something happens."
+        "explanation": "'Slowly' describes how something happens.",
+        "choices": [
+          "adverbed",
+          "adverbs",
+          "adverb",
+          "no"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark ends a command?",
         "answer": ".",
-        "explanation": "Commands often end with a full stop."
+        "explanation": "Commands often end with a full stop.",
+        "choices": [
+          "no",
+          ".ed",
+          ".s",
+          "."
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the plural of 'baby'?",
         "answer": "babies",
-        "explanation": "'Baby' changes to 'babies' in the plural form."
+        "explanation": "'Baby' changes to 'babies' in the plural form.",
+        "choices": [
+          "babies",
+          "babys",
+          "baby",
+          "babyes"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the past tense of 'go'?",
         "answer": "went",
-        "explanation": "The past tense of 'go' is 'went'."
+        "explanation": "The past tense of 'go' is 'went'.",
+        "choices": [
+          "went",
+          "gone",
+          "go",
+          "going"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which word describes a noun?",
         "answer": "adjective",
-        "explanation": "An adjective describes a noun."
+        "explanation": "An adjective describes a noun.",
+        "choices": [
+          "adjectives",
+          "no",
+          "adjectiveed",
+          "adjective"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'fast'?",
         "answer": "quick",
-        "explanation": "'Quick' means the same as 'fast'."
+        "explanation": "'Quick' means the same as 'fast'.",
+        "choices": [
+          "quick",
+          "slow",
+          "rapid",
+          "running"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which word is a verb: eat, red, chair?",
         "answer": "eat",
-        "explanation": "'Eat' is a verb because it is an action."
+        "explanation": "'Eat' is a verb because it is an action.",
+        "choices": [
+          "no",
+          "eated",
+          "eats",
+          "eat"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark shows possession?",
         "answer": "apostrophe",
-        "explanation": "An apostrophe (') shows possession."
+        "explanation": "An apostrophe (') shows possession.",
+        "choices": [
+          "apostrophes",
+          "apostropheed",
+          "apostrophe",
+          "no"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the opposite of 'early'?",
         "answer": "late",
-        "explanation": "'Late' is the opposite of 'early'."
+        "explanation": "'Late' is the opposite of 'early'.",
+        "choices": [
+          "late",
+          "soon",
+          "first",
+          "early"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: We ___ to the park. (go / goes)",
         "answer": "go",
-        "explanation": "'Go' is correct because 'we' is plural."
+        "explanation": "'Go' is correct because 'we' is plural.",
+        "choices": [
+          "gos",
+          "no",
+          "goed",
+          "go"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the plural of 'ox'?",
         "answer": "oxen",
-        "explanation": "'Ox' becomes 'oxen' in the plural form."
+        "explanation": "'Ox' becomes 'oxen' in the plural form.",
+        "choices": [
+          "oxen",
+          "oxs",
+          "oxes",
+          "ox"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which word is a noun: run, jump, or house?",
         "answer": "house",
-        "explanation": "'House' is a noun because it is a thing."
+        "explanation": "'House' is a noun because it is a thing.",
+        "choices": [
+          "houses",
+          "houseed",
+          "no",
+          "house"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'big'?",
         "answer": "large",
-        "explanation": "'Large' means the same as 'big'."
+        "explanation": "'Large' means the same as 'big'.",
+        "choices": [
+          "large",
+          "huge",
+          "small",
+          "tiny"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the past tense of 'have'?",
         "answer": "had",
-        "explanation": "The past tense of 'have' is 'had'."
+        "explanation": "The past tense of 'have' is 'had'.",
+        "choices": [
+          "had",
+          "has",
+          "having",
+          "have"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark ends a statement?",
         "answer": ".",
-        "explanation": "A full stop ends a statement."
+        "explanation": "A full stop ends a statement.",
+        "choices": [
+          "no",
+          ".s",
+          ".ed",
+          "."
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: He ___ my friend. (is / are)",
         "answer": "is",
-        "explanation": "'Is' is correct because 'he' is singular."
+        "explanation": "'Is' is correct because 'he' is singular.",
+        "choices": [
+          "ised",
+          "no",
+          "iss",
+          "is"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What type of word is 'beautiful'?",
         "answer": "adjective",
-        "explanation": "'Beautiful' describes a noun."
+        "explanation": "'Beautiful' describes a noun.",
+        "choices": [
+          "adjectiveed",
+          "no",
+          "adjective",
+          "adjectives"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the opposite of 'clean'?",
         "answer": "dirty",
-        "explanation": "'Dirty' is the opposite of 'clean'."
+        "explanation": "'Dirty' is the opposite of 'clean'.",
+        "choices": [
+          "dirty",
+          "tidy",
+          "neat",
+          "messy"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the plural of 'knife'?",
         "answer": "knives",
-        "explanation": "'Knife' changes to 'knives' in the plural form."
+        "explanation": "'Knife' changes to 'knives' in the plural form.",
+        "choices": [
+          "knives",
+          "knifes",
+          "knife",
+          "knive"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which word is an adjective: tall, run, or quickly?",
         "answer": "tall",
-        "explanation": "'Tall' describes a noun."
+        "explanation": "'Tall' describes a noun.",
+        "choices": [
+          "talls",
+          "talled",
+          "tall",
+          "no"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'funny'?",
         "answer": "amusing",
-        "explanation": "'Amusing' means the same as 'funny'."
+        "explanation": "'Amusing' means the same as 'funny'.",
+        "choices": [
+          "amusing",
+          "sad",
+          "serious",
+          "boring"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark is used in questions?",
         "answer": "?",
-        "explanation": "A question mark ends a question."
+        "explanation": "A question mark ends a question.",
+        "choices": [
+          "no",
+          "?ed",
+          "?",
+          "?s"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       }
     ],
     "Year 6": [
       {
         "question": "What is the active form of: 'The ball was kicked by Tom.'?",
         "answer": "Tom kicked the ball.",
-        "explanation": "The subject performs the action in the active voice."
+        "explanation": "The subject performs the action in the active voice.",
+        "choices": [
+          "Tom kicked the ball.",
+          "The ball kicked Tom.",
+          "Tom was kicked by the ball.",
+          "The ball was kicking Tom."
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Identify the adverb in this sentence: 'She spoke confidently.'",
         "answer": "confidently",
-        "explanation": "'Confidently' describes how she spoke."
+        "explanation": "'Confidently' describes how she spoke.",
+        "choices": [
+          "confidentlyed",
+          "confidently",
+          "confidentlys",
+          "confidentlies"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'angry'?",
         "answer": "furious",
-        "explanation": "'Furious' means very angry."
+        "explanation": "'Furious' means very angry.",
+        "choices": [
+          "furious",
+          "happy",
+          "calm",
+          "peaceful"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What type of clause starts with 'who' or 'which'?",
         "answer": "relative clause",
-        "explanation": "Relative clauses give more information about a noun."
+        "explanation": "Relative clauses give more information about a noun.",
+        "choices": [
+          "no",
+          "relative clauseed",
+          "relative clause",
+          "relative clauses"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: 'I should ___ gone earlier.' (have / of)",
         "answer": "have",
-        "explanation": "'Have' is correct. 'Of' is incorrect here."
+        "explanation": "'Have' is correct. 'Of' is incorrect here.",
+        "choices": [
+          "have",
+          "haveed",
+          "no",
+          "haves"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the past perfect tense of 'eat'?",
         "answer": "had eaten",
-        "explanation": "Past perfect uses 'had' + past participle."
+        "explanation": "Past perfect uses 'had' + past participle.",
+        "choices": [
+          "had eaten",
+          "ate",
+          "eaten",
+          "has eaten"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Identify the subject: 'The noisy crowd cheered loudly.'",
         "answer": "The noisy crowd",
-        "explanation": "The subject tells who or what does the action."
+        "explanation": "The subject tells who or what does the action.",
+        "choices": [
+          "The noisy crowd",
+          "no",
+          "the noisy crowded",
+          "the noisy crowds"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What does the suffix '-less' mean?",
         "answer": "without",
-        "explanation": "'-less' means without, for example 'hopeless'."
+        "explanation": "'-less' means without, for example 'hopeless'.",
+        "choices": [
+          "withouted",
+          "without",
+          "withouts",
+          "no"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What type of sentence is: 'Please sit down.'?",
         "answer": "command",
-        "explanation": "It gives an instruction."
+        "explanation": "It gives an instruction.",
+        "choices": [
+          "command",
+          "commanded",
+          "no",
+          "commands"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: 'Their / There / They're books are new.'",
         "answer": "Their",
-        "explanation": "'Their' shows possession."
+        "explanation": "'Their' shows possession.",
+        "choices": [
+          "they're",
+          "there",
+          "Their",
+          "theirs"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'brave'?",
         "answer": "courageous",
-        "explanation": "'Courageous' means brave."
+        "explanation": "'Courageous' means brave.",
+        "choices": [
+          "courageous",
+          "cowardly",
+          "scared",
+          "fearless"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Identify the verb: 'He quickly finished the race.'",
         "answer": "finished",
-        "explanation": "'Finished' is the action word."
+        "explanation": "'Finished' is the action word.",
+        "choices": [
+          "finisheded",
+          "finisheds",
+          "no",
+          "finished"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark can replace brackets?",
         "answer": "commas",
-        "explanation": "Commas can replace brackets in some sentences."
+        "explanation": "Commas can replace brackets in some sentences.",
+        "choices": [
+          "commas",
+          "commased",
+          "no",
+          "commass"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a homophone for 'sea'?",
         "answer": "see",
-        "explanation": "Homophones sound the same but have different meanings."
+        "explanation": "Homophones sound the same but have different meanings.",
+        "choices": [
+          "see",
+          "sea",
+          "seed",
+          "seam"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct form: 'Neither answer ___ correct.' (is / are)",
         "answer": "is",
-        "explanation": "'Neither' takes a singular verb."
+        "explanation": "'Neither' takes a singular verb.",
+        "choices": [
+          "ised",
+          "iss",
+          "is",
+          "no"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'difficult'?",
         "answer": "challenging",
-        "explanation": "'Challenging' means difficult."
+        "explanation": "'Challenging' means difficult.",
+        "choices": [
+          "challenging",
+          "easy",
+          "hard",
+          "impossible"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Identify the conjunction: 'I stayed home because it was raining.'",
         "answer": "because",
-        "explanation": "'Because' joins two ideas."
+        "explanation": "'Because' joins two ideas.",
+        "choices": [
+          "becauseed",
+          "no",
+          "because",
+          "becauses"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What type of word is 'carefully'?",
         "answer": "adverb",
-        "explanation": "'Carefully' describes how something is done."
+        "explanation": "'Carefully' describes how something is done.",
+        "choices": [
+          "adverbed",
+          "no",
+          "adverb",
+          "adverbs"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the plural of 'analysis'?",
         "answer": "analyses",
-        "explanation": "'Analysis' changes to 'analyses' in plural."
+        "explanation": "'Analysis' changes to 'analyses' in plural.",
+        "choices": [
+          "analyses",
+          "analysis",
+          "analysiss",
+          "analys"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What does the prefix 're-' mean?",
         "answer": "again",
-        "explanation": "'Re-' means again, like 'rewrite'."
+        "explanation": "'Re-' means again, like 'rewrite'.",
+        "choices": [
+          "agains",
+          "no",
+          "again",
+          "agained"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'silent'?",
         "answer": "quiet",
-        "explanation": "'Quiet' means silent."
+        "explanation": "'Quiet' means silent.",
+        "choices": [
+          "quiet",
+          "loud",
+          "noisy",
+          "talkative"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Identify the object: 'She gave Tom a gift.'",
         "answer": "a gift",
-        "explanation": "The object receives the action."
+        "explanation": "The object receives the action.",
+        "choices": [
+          "a gift",
+          "no",
+          "a gifts",
+          "a gifted"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Choose the correct word: 'I had ___ finished.' (already / all ready)",
         "answer": "already",
-        "explanation": "'Already' means before now."
+        "explanation": "'Already' means before now.",
+        "choices": [
+          "alreadies",
+          "alreadyed",
+          "already",
+          "alreadys"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a subordinate clause?",
         "answer": "a clause that cannot stand alone",
-        "explanation": "It depends on a main clause."
+        "explanation": "It depends on a main clause.",
+        "choices": [
+          "a clause that cannot stand alone",
+          "a complete sentence",
+          "a main clause",
+          "a phrase"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What type of sentence uses 'and', 'but', or 'so'?",
         "answer": "compound sentence",
-        "explanation": "Compound sentences join ideas together."
+        "explanation": "Compound sentences join ideas together.",
+        "choices": [
+          "compound sentence",
+          "compound sentenceed",
+          "compound sentences",
+          "no"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a synonym for 'tiny'?",
         "answer": "minute",
-        "explanation": "'Minute' means very small."
+        "explanation": "'Minute' means very small.",
+        "choices": [
+          "minute",
+          "large",
+          "huge",
+          "big"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Identify the tense: 'She will have finished by noon.'",
         "answer": "future perfect",
-        "explanation": "It shows something completed in the future."
+        "explanation": "It shows something completed in the future.",
+        "choices": [
+          "no",
+          "future perfect",
+          "future perfected",
+          "future perfects"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What punctuation mark is used before a list?",
         "answer": "colon",
-        "explanation": "A colon introduces a list."
+        "explanation": "A colon introduces a list.",
+        "choices": [
+          "colons",
+          "coloned",
+          "no",
+          "colon"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is an antonym for 'victory'?",
         "answer": "defeat",
-        "explanation": "'Defeat' is the opposite of 'victory'."
+        "explanation": "'Defeat' is the opposite of 'victory'.",
+        "choices": [
+          "defeat",
+          "win",
+          "success",
+          "triumph"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a complex sentence?",
         "answer": "a sentence with a main clause and a subordinate clause",
-        "explanation": "Complex sentences combine main and subordinate clauses."
+        "explanation": "Complex sentences combine main and subordinate clauses.",
+        "choices": [
+          "a sentence with a main clause and a subordinate clause",
+          "a very short sentence",
+          "a question",
+          "a compound sentence"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       }
     ]
   },
@@ -666,204 +2096,644 @@
       {
         "question": "What are the three states of matter? Enter them separated by commas (e.g., solid, liquid, gas)",
         "answer": "solid, liquid, gas",
-        "explanation": "The three states of matter are solid, liquid, and gas. Everything around us exists in one of these states."
+        "explanation": "The three states of matter are solid, liquid, and gas. Everything around us exists in one of these states.",
+        "choices": [
+          "solid, liquid, gas",
+          "solid, liquid, water",
+          "solid, gas, liquid",
+          "liquid, solid, gas"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "list"
+        }
       },
       {
         "question": "Which planet do we live on?",
         "answer": "Earth",
-        "explanation": "We live on Earth, the third planet from the Sun and the only known planet with life."
+        "explanation": "We live on Earth, the third planet from the Sun and the only known planet with life.",
+        "choices": [
+          "earthed",
+          "earths",
+          "Earth",
+          "no"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What do plants need to make their own food? Enter the process name",
         "answer": "photosynthesis",
-        "explanation": "Plants use photosynthesis to make their own food. They need sunlight, water, and carbon dioxide."
+        "explanation": "Plants use photosynthesis to make their own food. They need sunlight, water, and carbon dioxide.",
+        "choices": [
+          "photosynthesis",
+          "respiration",
+          "digestion",
+          "circulation"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "How many legs does a spider have? Enter the number",
         "answer": "8",
-        "explanation": "Spiders have 8 legs. Insects have 6 legs, but spiders are arachnids, not insects."
+        "explanation": "Spiders have 8 legs. Insects have 6 legs, but spiders are arachnids, not insects.",
+        "choices": [
+          "8",
+          "6",
+          "10",
+          "12"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "integer"
+        }
       },
       {
         "question": "What gas do we breathe in? Enter: oxygen or carbon dioxide",
         "answer": "oxygen",
-        "explanation": "We breathe in oxygen from the air. Our bodies use it to release energy from food."
+        "explanation": "We breathe in oxygen from the air. Our bodies use it to release energy from food.",
+        "choices": [
+          "oxygen",
+          "nitrogen",
+          "carbon dioxide",
+          "helium"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the name of the star closest to Earth?",
         "answer": "Sun",
-        "explanation": "The Sun is the star closest to Earth. It provides light and heat for our planet."
+        "explanation": "The Sun is the star closest to Earth. It provides light and heat for our planet.",
+        "choices": [
+          "Sun",
+          "Moon",
+          "North Star",
+          "Mars"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which animal is a mammal? Enter: fish, bird, or cat",
         "answer": "cat",
-        "explanation": "A cat is a mammal. Mammals are warm-blooded, have fur or hair, and feed their babies milk."
+        "explanation": "A cat is a mammal. Mammals are warm-blooded, have fur or hair, and feed their babies milk.",
+        "choices": [
+          "cat",
+          "fish",
+          "bird",
+          "snake"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What happens to water when you freeze it?",
         "answer": "ice",
-        "explanation": "When you freeze water, it turns into ice. This is a change from liquid to solid."
+        "explanation": "When you freeze water, it turns into ice. This is a change from liquid to solid.",
+        "choices": [
+          "ices",
+          "no",
+          "iceed",
+          "ice"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What sense do we use to hear sounds?",
         "answer": "hearing",
-        "explanation": "We use our sense of hearing to hear sounds. Our ears help us detect different noises."
+        "explanation": "We use our sense of hearing to hear sounds. Our ears help us detect different noises.",
+        "choices": [
+          "no",
+          "hearings",
+          "hearing",
+          "hearinged"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which part of the plant absorbs water from the soil?",
         "answer": "roots",
-        "explanation": "Roots absorb water and nutrients from the soil to help the plant grow."
+        "explanation": "Roots absorb water and nutrients from the soil to help the plant grow.",
+        "choices": [
+          "rootss",
+          "rootsed",
+          "no",
+          "roots"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What force pulls objects towards the Earth?",
         "answer": "gravity",
-        "explanation": "Gravity is a force that pulls objects towards the Earth."
+        "explanation": "Gravity is a force that pulls objects towards the Earth.",
+        "choices": [
+          "gravities",
+          "gravitys",
+          "gravity",
+          "gravityed"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What material is attracted to a magnet? Enter one example",
         "answer": "iron",
-        "explanation": "Iron is attracted to magnets. Steel also contains iron and is magnetic."
+        "explanation": "Iron is attracted to magnets. Steel also contains iron and is magnetic.",
+        "choices": [
+          "iron",
+          "plastic",
+          "wood",
+          "glass"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What do we call animals that eat only plants?",
         "answer": "herbivores",
-        "explanation": "Herbivores are animals that eat only plants, such as cows and rabbits."
+        "explanation": "Herbivores are animals that eat only plants, such as cows and rabbits.",
+        "choices": [
+          "herbivoresed",
+          "herbivoress",
+          "herbivores",
+          "no"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What do we call animals that eat meat?",
         "answer": "carnivores",
-        "explanation": "Carnivores are animals that eat other animals for food."
+        "explanation": "Carnivores are animals that eat other animals for food.",
+        "choices": [
+          "no",
+          "carnivoresed",
+          "carnivoress",
+          "carnivores"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What do we call animals that eat plants and meat?",
         "answer": "omnivores",
-        "explanation": "Omnivores eat both plants and animals, such as humans and bears."
+        "explanation": "Omnivores eat both plants and animals, such as humans and bears.",
+        "choices": [
+          "omnivoresed",
+          "no",
+          "omnivores",
+          "omnivoress"
+        ],
+        "correctIndex": 2,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the hard outer layer of the Earth called?",
         "answer": "crust",
-        "explanation": "The Earth's crust is the hard outer layer where we live."
+        "explanation": "The Earth's crust is the hard outer layer where we live.",
+        "choices": [
+          "crust",
+          "core",
+          "mantle",
+          "shell"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a shadow?",
         "answer": "a dark shape made when light is blocked",
-        "explanation": "A shadow is formed when an object blocks light from a light source."
+        "explanation": "A shadow is formed when an object blocks light from a light source.",
+        "choices": [
+          "a dark shape made when light is blocked",
+          "a reflection",
+          "a mirror image",
+          "a colour"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What do living things need to survive? Enter one example",
         "answer": "water",
-        "explanation": "Living things need water to survive. They also need food and air."
+        "explanation": "Living things need water to survive. They also need food and air.",
+        "choices": [
+          "water",
+          "food",
+          "air",
+          "all of the above"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is the name of the tool used to measure temperature?",
         "answer": "thermometer",
-        "explanation": "A thermometer is used to measure temperature."
+        "explanation": "A thermometer is used to measure temperature.",
+        "choices": [
+          "thermometer",
+          "ruler",
+          "scale",
+          "stopwatch"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What do muscles help us do?",
         "answer": "move",
-        "explanation": "Muscles work with bones to help us move."
+        "explanation": "Muscles work with bones to help us move.",
+        "choices": [
+          "moves",
+          "move",
+          "no",
+          "moveed"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       }
     ],
     "Year 6": [
       {
         "question": "What is the circulatory system?",
         "answer": "the system that moves blood around the body",
-        "explanation": "The circulatory system transports blood, oxygen, and nutrients around the body."
+        "explanation": "The circulatory system transports blood, oxygen, and nutrients around the body.",
+        "choices": [
+          "the system that moves blood around the body",
+          "the system for breathing",
+          "the nervous system",
+          "the digestive system"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Which organ pumps blood around the body?",
         "answer": "heart",
-        "explanation": "The heart pumps blood through blood vessels to all parts of the body."
+        "explanation": "The heart pumps blood through blood vessels to all parts of the body.",
+        "choices": [
+          "heart",
+          "hearted",
+          "hearts",
+          "no"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What are blood vessels?",
         "answer": "tubes that carry blood",
-        "explanation": "Blood vessels carry blood to and from the heart."
+        "explanation": "Blood vessels carry blood to and from the heart.",
+        "choices": [
+          "tubes that carry blooded",
+          "tubes that carry bloods",
+          "no",
+          "tubes that carry blood"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Name one main component of blood",
         "answer": "red blood cells",
-        "explanation": "Red blood cells carry oxygen around the body."
+        "explanation": "Red blood cells carry oxygen around the body.",
+        "choices": [
+          "red blood cellss",
+          "red blood cellsed",
+          "no",
+          "red blood cells"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What gas is carried by red blood cells?",
         "answer": "oxygen",
-        "explanation": "Red blood cells carry oxygen from the lungs to the rest of the body."
+        "explanation": "Red blood cells carry oxygen from the lungs to the rest of the body.",
+        "choices": [
+          "no",
+          "oxygened",
+          "oxygens",
+          "oxygen"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a balanced diet?",
         "answer": "a diet with all nutrients in the right amounts",
-        "explanation": "A balanced diet includes carbohydrates, proteins, fats, vitamins, minerals, and water."
+        "explanation": "A balanced diet includes carbohydrates, proteins, fats, vitamins, minerals, and water.",
+        "choices": [
+          "a diet with all nutrients in the right amounts",
+          "eating only vegetables",
+          "eating only meat",
+          "eating a lot of sugar"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Why is exercise important?",
         "answer": "to keep the body healthy",
-        "explanation": "Exercise helps keep the heart, muscles, and bones strong."
+        "explanation": "Exercise helps keep the heart, muscles, and bones strong.",
+        "choices": [
+          "to keep the body healthys",
+          "to keep the body healthy",
+          "to keep the body healthies",
+          "to keep the body healthyed"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is an adaptation?",
         "answer": "a feature that helps an organism survive",
-        "explanation": "Adaptations help plants and animals live in their environments."
+        "explanation": "Adaptations help plants and animals live in their environments.",
+        "choices": [
+          "a feature that helps an organism survive",
+          "something an animal eats",
+          "a type of habitat",
+          "a form of exercise"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is inheritance?",
         "answer": "the passing of traits from parents to offspring",
-        "explanation": "Inheritance explains why children look similar to their parents."
+        "explanation": "Inheritance explains why children look similar to their parents.",
+        "choices": [
+          "the passing of traits from parents to offspring",
+          "something you receive on your birthday",
+          "a type of money",
+          "a genetic disorder"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is variation?",
         "answer": "differences between living things",
-        "explanation": "Variation means that individuals of the same species are not identical."
+        "explanation": "Variation means that individuals of the same species are not identical.",
+        "choices": [
+          "differences between living thingss",
+          "differences between living things",
+          "differences between living thingsed",
+          "no"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a microorganism?",
         "answer": "a very small living organism",
-        "explanation": "Microorganisms are so small they can only be seen with a microscope."
+        "explanation": "Microorganisms are so small they can only be seen with a microscope.",
+        "choices": [
+          "a very small living organism",
+          "a very large animal",
+          "a type of plant",
+          "a type of weather"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Name one type of microorganism",
         "answer": "bacteria",
-        "explanation": "Bacteria are a type of microorganism found almost everywhere."
+        "explanation": "Bacteria are a type of microorganism found almost everywhere.",
+        "choices": [
+          "bacterias",
+          "bacteria",
+          "bacteriaed",
+          "no"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "Are all microorganisms harmful?",
         "answer": "no",
-        "explanation": "Some microorganisms are helpful, such as those used in making food."
+        "explanation": "Some microorganisms are helpful, such as those used in making food.",
+        "choices": [
+          "noed",
+          "nos",
+          "alt3",
+          "no"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a food chain?",
         "answer": "a sequence showing how energy passes between living things",
-        "explanation": "A food chain shows who eats whom in an ecosystem."
+        "explanation": "A food chain shows who eats whom in an ecosystem.",
+        "choices": [
+          "a sequence showing how energy passes between living things",
+          "a chain made of food",
+          "a list of restaurants",
+          "a type of exercise"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What do producers do in a food chain?",
         "answer": "make their own food",
-        "explanation": "Producers, like plants, make food using sunlight."
+        "explanation": "Producers, like plants, make food using sunlight.",
+        "choices": [
+          "no",
+          "make their own foods",
+          "make their own fooded",
+          "make their own food"
+        ],
+        "correctIndex": 3,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a predator?",
         "answer": "an animal that hunts other animals",
-        "explanation": "Predators hunt prey for food."
+        "explanation": "Predators hunt prey for food.",
+        "choices": [
+          "an animal that hunts other animals",
+          "an animal that is hunted",
+          "a plant that eats insects",
+          "a type of pet"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a habitat?",
         "answer": "the natural home of an organism",
-        "explanation": "A habitat provides food, water, shelter, and space."
+        "explanation": "A habitat provides food, water, shelter, and space.",
+        "choices": [
+          "the natural home of an organism",
+          "a type of house",
+          "a type of food",
+          "a type of weather"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is electricity?",
         "answer": "a form of energy",
-        "explanation": "Electricity powers many devices we use every day."
+        "explanation": "Electricity powers many devices we use every day.",
+        "choices": [
+          "a form of energys",
+          "a form of energy",
+          "a form of energies",
+          "a form of energyed"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What is a circuit?",
         "answer": "a complete path for electricity to flow",
-        "explanation": "A circuit must be complete for electricity to work."
+        "explanation": "A circuit must be complete for electricity to work.",
+        "choices": [
+          "a complete path for electricity to flow",
+          "a type of race",
+          "a type of diagram",
+          "a broken wire"
+        ],
+        "correctIndex": 0,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       },
       {
         "question": "What does a switch do in a circuit?",
         "answer": "opens or closes the circuit",
-        "explanation": "A switch controls the flow of electricity."
+        "explanation": "A switch controls the flow of electricity.",
+        "choices": [
+          "opens or closes the circuits",
+          "opens or closes the circuit",
+          "no",
+          "opens or closes the circuited"
+        ],
+        "correctIndex": 1,
+        "needsReview": false,
+        "meta": {
+          "generator": "text"
+        }
       }
     ]
   }
