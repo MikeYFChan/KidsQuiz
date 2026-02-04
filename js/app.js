@@ -615,10 +615,18 @@ function loadQuestion(index) {
 
         question.choices.forEach((choice, i) => {
             const id = `choice-${index}-${i}`;
-            const wrapper = document.createElement('label');
-            wrapper.className = 'choice-item';
-            wrapper.htmlFor = id;
-            wrapper.style.cursor = 'pointer';
+            const wrapper = document.createElement('div');
+            wrapper.className = 'choice-wrapper';
+            wrapper.dataset.value = choice;
+            
+            // 添加點擊事件 - 整個區塊都可點擊
+            wrapper.addEventListener('click', function() {
+                const allWrappers = choicesContainer.querySelectorAll('.choice-wrapper');
+                allWrappers.forEach(w => w.classList.remove('selected'));
+                const radio = this.querySelector('.choice-radio');
+                if (radio) radio.checked = true;
+                this.classList.add('selected');
+            });
             
             const letterSpan = document.createElement('span');
             letterSpan.className = 'choice-letter';
@@ -644,8 +652,12 @@ function loadQuestion(index) {
 
         const prev = state.userAnswers[index];
         if (prev && choicesContainer) {
-            const selected = choicesContainer.querySelector(`input[value="${CSS.escape(prev)}"]`);
-            if (selected) selected.checked = true;
+            const selectedWrapper = choicesContainer.querySelector(`.choice-wrapper[data-value="${CSS.escape(prev)}"]`);
+            if (selectedWrapper) {
+                selectedWrapper.classList.add('selected');
+                const radio = selectedWrapper.querySelector('.choice-radio');
+                if (radio) radio.checked = true;
+            }
         }
 
         const firstInput = choicesContainer?.querySelector('input[name="choice"]');
