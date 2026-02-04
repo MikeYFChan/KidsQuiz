@@ -1,6 +1,8 @@
 // History Management Module
 let quizHistory = {};
 
+import { showToast } from './ui.js';
+
 const REMOTE_API_BASE = (window.REMOTE_API_BASE && window.REMOTE_API_BASE.trim()) || '';
 const REMOTE_SYNC_ENABLED = (typeof window.REMOTE_SYNC_ENABLED === 'boolean') ? window.REMOTE_SYNC_ENABLED : false;
 
@@ -96,7 +98,7 @@ function setupHistoryEventListeners() {
         openHistoryBtn.addEventListener('click', () => {
             const currentUser = JSON.parse(localStorage.getItem('quiz_current_user'));
             if (!currentUser) {
-                alert('Please select a user first');
+                showToast('Please select a user first', 'info');
                 return;
             }
             showHistoryModalFor(currentUser.id);
