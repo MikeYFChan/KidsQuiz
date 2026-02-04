@@ -1,7 +1,5 @@
 # Primary School Quiz / 小學Quiz
 
----
-
 ## About / 關於
 
 Primary School Quiz 是一個專為小學生設計的互動問答遊戲應用程式，支援三個主要科目：數學 (Maths)、英語 (English) 和科學 (Science)。本應用程式專為 Year 3 和 Year 6 的學生量身定制，提供有趣且具教育意義的學習體驗。系統採用純靜態網頁技術，無需任何後端伺服器，可以直接在瀏覽器中運行，也可輕鬆部署到 GitHub Pages。
