@@ -13,23 +13,26 @@
         <div id="user-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="user-modal-title">
             <div class="modal-content">
                 <h2 id="user-modal-title">Add User</h2>
-                <form id="user-form">
+                <form id="user-form" novalidate>
                     <div class="form-group">
                         <label for="user-name">Name</label>
-                        <input type="text" id="user-name" name="user-name" required placeholder="Enter name" />
+                        <input type="text" id="user-name" name="user-name" required placeholder="Enter your name" minlength="2" maxlength="50" />
+                        <span class="error-message" id="user-name-error"></span>
                     </div>
                     <div class="form-group">
                         <label for="user-grade">Grade</label>
                         <select id="user-grade" name="user-grade" required>
-                            <option value="">Select grade</option>
+                            <option value="">Select your grade</option>
                             <option value="Year 3">Year 3</option>
                             <option value="Year 6">Year 6</option>
                         </select>
+                        <span class="error-message" id="user-grade-error"></span>
                     </div>
                     <div class="modal-buttons">
-                        <button type="submit" class="submit-button">Save User</button>
+                        <button type="submit" class="submit-button" id="save-user-btn">Save User</button>
                         <button type="button" id="close-user-modal" class="nav-button">Cancel</button>
                     </div>
+                    <div class="form-success" id="user-form-success"></div>
                 </form>
             </div>
         </div>
@@ -95,10 +98,10 @@
                     <label class="question-label" id="question-text">
                         Loading question...
                     </label>
-                    <input type="text" id="answer-input" class="form-control" placeholder="Enter your answer"
+                    <input type="text" id="answer-input" class="form-control" placeholder="Type your answer here"
                         autocomplete="off" />
-                    <!-- Choices container for MCQ questions; radios are injected here when needed -->
-                    <div id="choices-container" class="choices-container" style="margin-top: 8px;"></div>
+                    <div id="choices-container" class="choices-container"></div>
+                    <div id="quiz-answer-error" class="quiz-answer-error"></div>
                 </div>
 
                 <div class="form-group button-group">

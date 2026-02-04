@@ -1,5 +1,6 @@
 // Quiz Module
 import { shuffleArray, showScreen, getElement, createElement, normalizeAnswer, convertNestedToMcq } from './utils.js';
+import { showToast, showConfirmDialog } from './ui.js';
 
 let questionsData = {};
 let questionsLoaded = false;
@@ -51,7 +52,8 @@ export async function loadQuestions() {
         }
 
         if (!response || !response.ok) {
-            throw new Error(`questions.json not found. Tried: ${paths.join(', ')}`);
+            showToast('Failed to load questions. Please refresh the page.', 'error');
+            throw new Error(`questions.json not found.`);
         }
 
         const loadedData = await response.json();
@@ -80,13 +82,13 @@ export async function loadQuestions() {
         questionsData = normalized;
         questionsLoaded = true;
         console.log(`Questions loaded from ${loadedPath || 'questions.json'}`);
-    } catch (error) {
-        console.error('Failed to load questions.json:', error);
-        alert('Failed to load questions. Please check that questions.json exists in the root directory.');
-        questionsLoaded = false;
-    } finally {
-        showLoadingIndicator(false);
-    }
+        } catch (error) {
+            console.error('Failed to load questions.json:', error);
+            showToast('Failed to load questions. Please check that questions.json exists in the root directory.', 'error');
+            questionsLoaded = false;
+        } finally {
+            showLoadingIndicator(false);
+        }
 }
 
 function showLoadingIndicator(show) {
@@ -110,12 +112,12 @@ function showLoadingIndicator(show) {
 
 export function startQuiz() {
     if (!questionsLoaded) {
-        alert('Questions are still loading. Please wait...');
+        showToast('Questions are still loading. Please wait...', 'info');
         return;
     }
 
     if (!questionsData[currentSubject] || !questionsData[currentSubject][currentYear]) {
-        alert(`No questions available for ${currentSubject} - ${currentYear}`);
+        showToast(`No questions available for ${currentSubject} - ${currentYear}`, 'error');
         return;
     }
 
@@ -164,7 +166,7 @@ function updateTimerDisplay() {
 }
 
 function handleTimeUp() {
-    alert('Time is up! Submitting your answers...');
+    showToast('Time is up! Submitting your answers...', 'warning');
     submitQuiz();
 }
 
@@ -259,9 +261,20 @@ export function submitQuiz() {
         userAnswer = getElement('answer-input').value.trim();
     }
 
+    const errorEl = getElement('quiz-answer-error');
+
     if (userAnswer === '') {
-        alert('Please enter or select an answer!');
+        if (errorEl) {
+            errorEl.textContent = 'Please enter or select an answer!';
+            errorEl.classList.add('visible');
+        }
+        const answerInput = getElement('answer-input');
+        if (answerInput) answerInput.focus();
         return false;
+    }
+
+    if (errorEl) {
+        errorEl.classList.remove('visible');
     }
 
     userAnswers[currentQuestionIndex] = userAnswer;
@@ -358,10 +371,13 @@ export function chooseNewQuiz() {
 }
 
 export function backToSubjects() {
-    if (confirm('Are you sure you want to go back? Your progress will be lost.')) {
-        stopTimer();
-        showScreen('subject');
-    }
+    showConfirmDialog(
+        'Are you sure you want to go back? Your progress will be lost.',
+        () => {
+            stopTimer();
+            showScreen('subject');
+        }
+    );
 }
 
 export function initQuizEventListeners() {
