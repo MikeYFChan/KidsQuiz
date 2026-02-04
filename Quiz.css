@@ -374,8 +374,8 @@ form {
   font-size: 1.2rem;
 }
 
-/* MCQ choice styling */
-.choice-item {
+/* MCQ choice styling - 修正版 */
+.choice-wrapper {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -386,23 +386,16 @@ form {
   margin-bottom: 0.6rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #fff;
 }
 
-.choice-item:hover {
+.choice-wrapper:hover {
   background: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.4);
-  transform: translateX(5px);
 }
 
-.choice-item:has(.choice-radio:checked) {
+.choice-wrapper.selected {
   border-color: var(--color-green);
   background: rgba(55, 175, 101, 0.25);
-}
-
-.choice-item:has(.choice-radio:checked) .choice-text {
-  color: #4eff4e;
-  font-weight: 700;
 }
 
 .choice-letter {
@@ -416,7 +409,7 @@ form {
   font-weight: 700;
   font-size: 1.1rem;
   border-radius: 6px;
-  flex: 0 0 36px;
+  flex-shrink: 0;
 }
 
 .choice-radio {
@@ -426,10 +419,15 @@ form {
 }
 
 .choice-text {
-  flex: 1 1 auto;
+  flex: 1;
   color: #fff;
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+.choice-wrapper.selected .choice-text {
+  color: #4eff4e;
+  font-weight: 700;
 }
 
 .choices-container {
