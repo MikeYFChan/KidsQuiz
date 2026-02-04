@@ -15,45 +15,61 @@ let timeRemaining = 0;
 export async function loadQuestions() {
     showLoadingIndicator(true);
     try {
+        // Calculate base path for GitHub Pages subdirectory deployment
         const baseRoot = (() => {
             const seg = location.pathname.split('/').filter(Boolean);
-            if (seg.length > 0 && location.hostname !== 'localhost') {
-                return '/' + seg[0] + '/';
+            // Remove the last segment (usually index.html or empty)
+            const cleaned = seg.filter(s => s && s !== 'index.html');
+            // For subdirectory deployment like GitHub Pages, use the first segment
+            if (cleaned.length > 0 && location.hostname !== 'localhost') {
+                return '/' + cleaned[0] + '/';
             }
+            // For localhost or root deployment
             return '/';
         })();
 
+        // Priority ordered paths - most likely first
         const paths = [
-            baseRoot + 'data/questions_mcq.json',
-            baseRoot + 'questions_mcq.json',
             baseRoot + 'questions.json',
-            './data/questions_mcq.json',
-            './questions_mcq.json',
-            'questions_mcq.json',
-            './questions.json',
+            baseRoot + 'data/questions.json',
+            baseRoot + 'questions_mcq.json',
+            baseRoot + 'data/questions_mcq.json',
             'questions.json',
-            '/questions.json'
+            'data/questions.json',
+            'questions_mcq.json',
+            'data/questions_mcq.json',
+            './questions.json',
+            './questions_mcq.json',
+            '../questions.json',
+            '../questions_mcq.json'
         ];
 
         let response = null;
         let loadedPath = null;
+
+        console.log('Attempting to load questions from:', baseRoot);
+        console.log('Available paths:', paths);
 
         for (const path of paths) {
             try {
                 response = await fetch(path, { cache: 'no-cache', headers: { 'Accept': 'application/json' } });
                 if (response.ok) {
                     loadedPath = path;
+                    console.log('Successfully loaded questions from:', loadedPath);
                     break;
                 }
             } catch (err) {
-                console.log(`Failed to load from ${path}:`, err);
+                console.log(`Failed to load from ${path}:`, err.message);
                 continue;
             }
         }
 
         if (!response || !response.ok) {
-            showToast('Failed to load questions. Please refresh the page.', 'error');
-            throw new Error(`questions.json not found.`);
+            console.error('All paths failed. Tried:', paths);
+            showToast('Failed to load questions. Check console for details.', 'error');
+            questionsLoaded = false;
+            showLoadingIndicator(false);
+            return;
         }
 
         const loadedData = await response.json();
@@ -82,13 +98,13 @@ export async function loadQuestions() {
         questionsData = normalized;
         questionsLoaded = true;
         console.log(`Questions loaded from ${loadedPath || 'questions.json'}`);
-        } catch (error) {
-            console.error('Failed to load questions.json:', error);
-            showToast('Failed to load questions. Please check that questions.json exists in the root directory.', 'error');
-            questionsLoaded = false;
-        } finally {
-            showLoadingIndicator(false);
-        }
+    } catch (error) {
+        console.error('Failed to load questions.json:', error);
+        showToast('Failed to load questions. Please check console for details.', 'error');
+        questionsLoaded = false;
+    } finally {
+        showLoadingIndicator(false);
+    }
 }
 
 function showLoadingIndicator(show) {
