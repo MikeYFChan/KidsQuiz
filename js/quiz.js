@@ -29,19 +29,16 @@ export async function loadQuestions() {
         })();
 
         // Priority ordered paths - most likely first
+        // Based on file listing: only questions.json exists in root
         const paths = [
             baseRoot + 'questions.json',
-            baseRoot + 'data/questions.json',
-            baseRoot + 'questions_mcq.json',
-            baseRoot + 'data/questions_mcq.json',
             'questions.json',
-            'data/questions.json',
-            'questions_mcq.json',
-            'data/questions_mcq.json',
             './questions.json',
-            './questions_mcq.json',
             '../questions.json',
-            '../questions_mcq.json'
+            baseRoot + 'data/questions.json',
+            'data/questions.json',
+            baseRoot + 'data/questions_mcq.json',
+            'data/questions_mcq.json'
         ];
 
         let response = null;
