@@ -151,7 +151,7 @@ export function startQuiz() {
 }
 
 function startTimer() {
-    timeRemaining = 60;
+    timeRemaining = 120;
     updateTimerDisplay();
     timerInterval = setInterval(() => {
         timeRemaining--;

@@ -392,6 +392,7 @@ form {
   margin-bottom: 0.6rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  min-width: 0;
 }
 
 .choice-wrapper:hover {
@@ -425,6 +426,9 @@ form {
 
 .choice-text {
   flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
   color: #fff;
   font-size: 1.1rem;
   cursor: pointer;
@@ -438,6 +442,7 @@ form {
 .choices-container {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .choice-radio:checked + .choice-label {
