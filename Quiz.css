@@ -95,6 +95,8 @@ button {
   margin: 2rem auto 0 auto;
   padding: 0 1rem;
   max-width: 800px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 576px) {
@@ -182,6 +184,9 @@ form {
   padding: 2.5rem 0.625rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 @media (min-width: 480px) {
@@ -193,6 +198,9 @@ form {
 .form-group {
   margin: 0 auto 1.75rem auto;
   padding: 0.25rem;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .button-group {
@@ -210,6 +218,9 @@ form {
   background: var(--color-blue-alpha);
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .subject-button {
@@ -254,6 +265,9 @@ form {
   background: var(--color-blue-alpha);
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .year-button {
@@ -358,6 +372,8 @@ form {
   font-weight: 400;
   line-height: 1.5;
   min-height: 3rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .form-control {
@@ -417,6 +433,25 @@ form {
   transform: scale(1.2);
   margin: 0;
   cursor: pointer;
+  flex-shrink: 0;
+}
+
+.choice-text {
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.choice-radio {
+  transform: scale(1.2);
+  margin: 0;
+  cursor: pointer;
 }
 
 .choice-text {
@@ -438,6 +473,9 @@ form {
 .choices-container {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .choice-item:hover {
@@ -470,6 +508,25 @@ form {
 .choice-label {
   flex: 1 1 auto;
   min-width: 0;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.choice-radio {
+  transform: scale(1.2);
+  margin: 0;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.choice-label {
+  flex: 1 1 auto;
+  min-width: 0;
   word-break: break-word;
   overflow-wrap: break-word;
   color: #fff;
@@ -481,6 +538,9 @@ form {
 .choices-container {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .choice-radio:checked + .choice-label {
@@ -542,6 +602,9 @@ form {
   padding: 2.5rem;
   border-radius: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .score-display {
