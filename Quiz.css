@@ -377,7 +377,7 @@ form {
 /* MCQ choice styling - 修正版 */
 .choice-wrapper {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem;
   padding: 0.8rem 1rem;
   background: rgba(255, 255, 255, 0.15);
@@ -386,6 +386,7 @@ form {
   margin-bottom: 0.6rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  min-width: 0;
 }
 
 .choice-wrapper:hover {
@@ -420,9 +421,13 @@ form {
 
 .choice-text {
   flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
   color: #fff;
   font-size: 1.1rem;
   cursor: pointer;
+  line-height: 1.4;
 }
 
 .choice-wrapper.selected .choice-text {
@@ -464,9 +469,13 @@ form {
 
 .choice-label {
   flex: 1 1 auto;
+  min-width: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
   color: #fff;
   font-size: 1.1rem;
   cursor: pointer;
+  line-height: 1.4;
 }
 
 .choices-container {
