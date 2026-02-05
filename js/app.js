@@ -624,12 +624,11 @@ function loadQuestion(index) {
             input.id = id;
             input.value = choice;
             
-            const label = document.createElement('label');
-            label.htmlFor = id;
-            label.textContent = choice;
+            const span = document.createElement('span');
+            span.textContent = choice;
             
             wrapper.appendChild(input);
-            wrapper.appendChild(label);
+            wrapper.appendChild(span);
             
             if (choicesContainer) choicesContainer.appendChild(wrapper);
         });
