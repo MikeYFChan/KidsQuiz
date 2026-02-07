@@ -57,6 +57,10 @@
                     <span class="subject-icon">📚</span>
                     <span class="subject-name">English</span>
                 </button>
+                <button type="button" class="subject-button" data-subject="Chinese">
+                    <span class="subject-icon">🏮</span>
+                    <span class="subject-name">Chinese</span>
+                </button>
                 <button type="button" class="subject-button" data-subject="Science">
                     <span class="subject-icon">🔬</span>
                     <span class="subject-name">Science</span>
@@ -102,6 +106,9 @@
                     <label class="question-label" id="question-text">
                         Loading question...
                     </label>
+                    <button type="button" id="speak-btn" class="tts-button" aria-label="Speak Question">
+                        朗讀內容 Speak 🔊
+                    </button>
                     <input type="text" id="answer-input" class="form-control" placeholder="Type your answer here"
                         autocomplete="off" />
                     <div id="choices-container" class="choices-container"></div>
@@ -169,6 +176,7 @@
                 </div>
             </div>
 
+            <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
             <script src="js/app.js"></script>
 </body>
 

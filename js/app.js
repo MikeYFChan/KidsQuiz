@@ -40,6 +40,44 @@ function getElement(id) {
     return document.getElementById(id);
 }
 
+// Sound Effects Utility (Internal Oscillator Based)
+const sounds = {
+    audioCtx: null,
+    init() {
+        if (!this.audioCtx) {
+            this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+    },
+    play(freqs, type = 'sine', duration = 0.2) {
+        try {
+            this.init();
+            if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+            const oscillator = this.audioCtx.createOscillator();
+            const gainNode = this.audioCtx.createGain();
+            oscillator.type = type;
+            oscillator.connect(gainNode);
+            gainNode.connect(this.audioCtx.destination);
+            const now = this.audioCtx.currentTime;
+            gainNode.gain.setValueAtTime(0, now);
+            gainNode.gain.linearRampToValueAtTime(0.1, now + 0.05);
+            gainNode.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+            freqs.forEach((f, i) => {
+                oscillator.frequency.setValueAtTime(f, now + (i * 0.1));
+            });
+            oscillator.start(now);
+            oscillator.stop(now + duration);
+        } catch (e) {
+            console.error('Audio error:', e);
+        }
+    },
+    correct() {
+        this.play([523.25, 659.25, 783.99], 'sine', 0.5); // C5, E5, G5
+    },
+    incorrect() {
+        this.play([220, 196], 'triangle', 0.3); // A3, G3
+    }
+};
+
 function createElement(tag, className = '', innerHTML = '') {
     const el = document.createElement(tag);
     if (className) el.className = className;
@@ -528,7 +566,6 @@ function startQuiz() {
 
     showScreen('question');
     loadQuestion(0);
-    startTimer();
 }
 
 function startTimer() {
@@ -540,8 +577,21 @@ function startTimer() {
         updateTimerDisplay();
         if (state.timeRemaining <= 0) {
             stopTimer();
-            showToast('Time is up! Submitting your answers...', 'warning');
-            submitQuiz();
+            showToast('Time is up! Moving to next question...', 'warning');
+
+            // Auto submit and move on
+            const choicesContainer = getElement('choices-container');
+            const selectedChoice = choicesContainer?.querySelector('input[name="choice"]:checked');
+            const answerInput = getElement('answer-input');
+            let userAnswer = selectedChoice ? selectedChoice.value : (answerInput ? answerInput.value.trim() : '');
+
+            if (userAnswer === '') {
+                state.userAnswers[state.currentQuestionIndex] = 'No answer';
+            } else {
+                state.userAnswers[state.currentQuestionIndex] = userAnswer;
+            }
+
+            nextQuestion();
         }
     }, 1000);
 }
@@ -585,7 +635,72 @@ function selectYear(year) {
     }
 }
 
+function speakQuestion() {
+    if (!('speechSynthesis' in window)) {
+        showToast('Sorry, your browser does not support text-to-speech.', 'error');
+        return;
+    }
+
+    // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
+
+    const question = state.currentQuestions[state.currentQuestionIndex];
+    if (!question) return;
+
+    const utterance = new SpeechSynthesisUtterance(question.question);
+
+    // Set language based on subject
+    // Chinese -> Cantonese (zh-HK) per user request
+    if (state.currentSubject === 'Chinese') {
+        utterance.lang = 'zh-HK';
+    } else {
+        utterance.lang = 'en-GB';
+    }
+
+    // Adjust rate and pitch for a friendly teacher-like voice
+    utterance.rate = 0.9;
+    utterance.pitch = 1.0;
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function speakQuestion() {
+    if (!('speechSynthesis' in window)) {
+        showToast('Sorry, your browser does not support text-to-speech.', 'error');
+        return;
+    }
+
+    // Cancel any ongoing speech
+    window.speechSynthesis.cancel();
+
+    const question = state.currentQuestions[state.currentQuestionIndex];
+    if (!question) return;
+
+    const utterance = new SpeechSynthesisUtterance(question.question);
+
+    // Set language based on subject
+    // Chinese -> Cantonese (zh-HK) per user request
+    if (state.currentSubject === 'Chinese') {
+        utterance.lang = 'zh-HK';
+    } else {
+        utterance.lang = 'en-GB';
+    }
+
+    // Adjust rate and pitch for a friendly teacher-like voice
+    utterance.rate = 0.9;
+    utterance.pitch = 1.0;
+
+    window.speechSynthesis.speak(utterance);
+}
+
 function loadQuestion(index) {
+    // Start/Reset timer for each question
+    startTimer();
+
+    // Cancel speech when loading a new question
+    if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+    }
     const question = state.currentQuestions[index];
     const questionText = getElement('question-text');
     const currentQuestion = getElement('current-question');
@@ -644,8 +759,6 @@ function loadQuestion(index) {
 }
 
 function submitQuiz() {
-    stopTimer();
-
     const choicesContainer = getElement('choices-container');
     const selectedChoice = choicesContainer?.querySelector('input[name="choice"]:checked');
     const answerInput = getElement('answer-input');
@@ -661,6 +774,15 @@ function submitQuiz() {
 
     if (errorEl) errorEl.classList.remove('visible');
     state.userAnswers[state.currentQuestionIndex] = userAnswer;
+
+    // Play feedback sound
+    const question = state.currentQuestions[state.currentQuestionIndex];
+    if (normalizeAnswer(userAnswer) === normalizeAnswer(question.answer)) {
+        sounds.correct();
+    } else {
+        sounds.incorrect();
+    }
+
     return true;
 }
 
@@ -708,7 +830,15 @@ function showResults() {
     const percentage = Math.round((correctCount / state.currentQuestions.length) * 100);
     const scoreText = getElement('score-text');
     const percentageText = getElement('percentage-text');
-    const scoreMessage = getElement('score-message');
+    if (percentageText) percentageText.textContent = `${percentage}%`;
+    if (percentage === 100 && typeof confetti === 'function') {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#6366f1', '#ec4899', '#fbbf24']
+        });
+    }
 
     if (scoreText) scoreText.textContent = `${correctCount} / ${state.currentQuestions.length}`;
     if (percentageText) percentageText.textContent = `${percentage}%`;
@@ -793,6 +923,10 @@ function setupEventListeners() {
     // Back to start button
     const backToStartBtn = getElement('back-to-start');
     if (backToStartBtn) backToStartBtn.addEventListener('click', backToSubjects);
+
+    // TTS button
+    const speakBtn = getElement('speak-btn');
+    if (speakBtn) speakBtn.addEventListener('click', speakQuestion);
 
     // User modal buttons
     const openUserModalBtn = getElement('open-user-modal') || getElement('open-user-modal-footer');

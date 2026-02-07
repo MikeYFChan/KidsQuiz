@@ -1,4 +1,250 @@
 {
+  "Chinese": {
+    "Year 3": [
+      {
+        "question": "「守株待兔」中，「株」是指什麼？",
+        "answer": "樹樁",
+        "choices": [
+          "樹樁",
+          "兔子",
+          "農夫",
+          "樹葉"
+        ],
+        "correctIndex": 0,
+        "explanation": "株指樹樁。"
+      },
+      {
+        "question": "下列哪個詞語中，有字寫錯了？",
+        "answer": "觀查",
+        "choices": [
+          "興奮",
+          "觀查",
+          "準備",
+          "勇敢"
+        ],
+        "correctIndex": 1,
+        "explanation": "「觀查」應寫作「觀察」。"
+      },
+      {
+        "question": "「高興」的反義詞是：",
+        "answer": "傷心",
+        "choices": [
+          "快樂",
+          "傷心",
+          "驚訝",
+          "生氣"
+        ],
+        "correctIndex": 1,
+        "explanation": "高興的反義詞是傷心。"
+      },
+      {
+        "question": "下列哪個標點符號用於感嘆句？",
+        "answer": "！",
+        "choices": [
+          "？",
+          "！",
+          "。",
+          "、"
+        ],
+        "correctIndex": 1,
+        "explanation": "！用於感嘆句。"
+      },
+      {
+        "question": "「一望（ ）際」括號內應填入哪個字？",
+        "answer": "無",
+        "choices": [
+          "無",
+          "沒",
+          "不",
+          "毛"
+        ],
+        "correctIndex": 0,
+        "explanation": "一望無際。"
+      },
+      {
+        "question": "「狐假虎威」中，是誰借了誰的威風？",
+        "answer": "狐狸借老虎",
+        "choices": [
+          "狐狸借老虎",
+          "老虎借狐狸",
+          "狐狸借獅子",
+          "獅子借狐狸"
+        ],
+        "correctIndex": 0,
+        "explanation": "狐狸借老虎的威風去嚇跑別的動物。"
+      },
+      {
+        "question": "下列哪個是動詞？",
+        "answer": "跑步",
+        "choices": [
+          "紅色",
+          "跑步",
+          "漂亮",
+          "森林"
+        ],
+        "correctIndex": 1,
+        "explanation": "跑步是動作。"
+      },
+      {
+        "question": "下列哪個詞語讀音正確？「儘管」",
+        "answer": "jǐnguǎn",
+        "choices": [
+          "jǐnguǎn",
+          "jǐnguān",
+          "jìnguǎn",
+          "jìnguān"
+        ],
+        "correctIndex": 0,
+        "explanation": "儘管讀音為 jǐnguǎn。"
+      },
+      {
+        "question": "「畫蛇（ ）足」中括號內應填寫什麼？",
+        "answer": "添",
+        "choices": [
+          "添",
+          "加",
+          "補",
+          "點"
+        ],
+        "correctIndex": 0,
+        "explanation": "畫蛇添足。"
+      },
+      {
+        "question": "成語「井底之（ ）」比喻見識淺陋的人。",
+        "answer": "蛙",
+        "choices": [
+          "魚",
+          "蛙",
+          "蝦",
+          "鱉"
+        ],
+        "correctIndex": 1,
+        "explanation": "井底之蛙。"
+      }
+    ],
+    "Year 6": [
+      {
+        "question": "「鍥而不捨」的正確解釋是：",
+        "answer": "不斷地雕刻，比喻有恆心",
+        "choices": [
+          "雕刻一下就停下來",
+          "不斷地雕刻，比喻有恆心",
+          "形容做事粗心大意",
+          "比喻中途而廢"
+        ],
+        "correctIndex": 1,
+        "explanation": "鍥指用刀雕刻；鍥而不捨比喻做事持之以恆。"
+      },
+      {
+        "question": "下列哪一項不是唐宋八大家之一？",
+        "answer": "李白",
+        "choices": [
+          "韓愈",
+          "柳宗元",
+          "李白",
+          "歐陽修"
+        ],
+        "correctIndex": 2,
+        "explanation": "李白是浪漫主義詩人，不屬於唐宋八大家。"
+      },
+      {
+        "question": "下列哪個詞語形容說話不圓滑，且帶刺？",
+        "answer": "尖酸刻薄",
+        "choices": [
+          "尖酸刻薄",
+          "娓娓動聽",
+          "口若懸河",
+          "妙語連珠"
+        ],
+        "correctIndex": 0,
+        "explanation": "尖酸刻薄形容說話冷酷無情或帶有惡意。"
+      },
+      {
+        "question": "「負隅頑抗」中的「隅」是指：",
+        "answer": "角落/地勢險要的地方",
+        "choices": [
+          "牆角",
+          "角落/地勢險要的地方",
+          "海邊",
+          "屋簷"
+        ],
+        "correctIndex": 1,
+        "explanation": "隅指地勢險要的地方。"
+      },
+      {
+        "question": "《背影》一文的作者是：",
+        "answer": "朱自清",
+        "choices": [
+          "朱自清",
+          "魯迅",
+          "冰心",
+          "老舍"
+        ],
+        "correctIndex": 0,
+        "explanation": "《背影》是朱自清的散文名篇。"
+      },
+      {
+        "question": "下列哪個詞語與「慷慨」意思相反？",
+        "answer": "吝嗇",
+        "choices": [
+          "大方",
+          "吝嗇",
+          "英勇",
+          "正義"
+        ],
+        "correctIndex": 1,
+        "explanation": "慷慨（大方）的反義詞是吝嗇。"
+      },
+      {
+        "question": "「（ ）而走險」括號中應填：",
+        "answer": "鋌",
+        "choices": [
+          "聽",
+          "鋌",
+          "延",
+          "挺"
+        ],
+        "correctIndex": 1,
+        "explanation": "鋌而走險。"
+      },
+      {
+        "question": "杜甫被稱為「（ ）」。",
+        "answer": "詩聖",
+        "choices": [
+          "詩仙",
+          "詩聖",
+          "詩鬼",
+          "詩佛"
+        ],
+        "correctIndex": 1,
+        "explanation": "杜甫被稱為詩聖。"
+      },
+      {
+        "question": "下列哪個句子使用了擬人法？",
+        "answer": "小草在大地的懷抱裡點頭。",
+        "choices": [
+          "小草在大地的懷抱裡點頭。",
+          "他的意志像鋼鐵一樣堅硬。",
+          "這件事難道不是你做的嗎？",
+          "教室裡安靜得連針掉在地上都能聽見。"
+        ],
+        "correctIndex": 0,
+        "explanation": "擬人法賦予小草點頭的動作。"
+      },
+      {
+        "question": "「江山易改，（ ）難移」。",
+        "answer": "本性",
+        "choices": [
+          "性情",
+          "本性",
+          "指標",
+          "天性"
+        ],
+        "correctIndex": 1,
+        "explanation": "江山易改，本性難移。"
+      }
+    ]
+  },
   "Maths": {
     "Year 3": [
       {
