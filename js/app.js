@@ -204,8 +204,8 @@ function showToast(message, type = 'info', duration = 4000) {
     const toast = document.createElement('div');
     const colors = { error: '#e74c3c', success: '#37af65', info: '#4a90e2', warning: '#f39c12' };
     const icons = { error: '❌', success: '✅', info: 'ℹ️', warning: '⚠️' };
-    toast.style.cssText = `background:${colors[type]||colors.info};color:white;padding:12px 20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);font-size:14px;max-width:300px;animation:toastSlideIn 0.3s ease;display:flex;align-items:center;gap:10px;`;
-    toast.innerHTML = `<span>${icons[type]||icons.info}</span><span>${message}</span>`;
+    toast.style.cssText = `background:${colors[type] || colors.info};color:white;padding:12px 20px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.2);font-size:14px;max-width:300px;animation:toastSlideIn 0.3s ease;display:flex;align-items:center;gap:10px;`;
+    toast.innerHTML = `<span>${icons[type] || icons.info}</span><span>${message}</span>`;
 
     const style = document.createElement('style');
     style.textContent = '@keyframes toastSlideIn{from{opacity:0;transform:translateX(100px);}to{opacity:1;transform:translateX(0);}}@keyframes toastSlideOut{from{opacity:1;transform:translateX(0);}to{opacity:0;transform:translateX(100px);}}';
@@ -328,17 +328,13 @@ function clearFormErrors() {
 function openUserModal() {
     const modal = getElement('user-modal');
     if (modal) modal.classList.add('active');
+
+    // Reset form fields for a fresh "Add User" experience
     const nameInput = getElement('user-name');
     const gradeSelect = getElement('user-grade');
-    if (state.currentUser) {
-        if (nameInput) nameInput.value = state.currentUser.name || '';
-        if (gradeSelect) gradeSelect.value = state.currentUser.grade || '';
-        if (nameInput && state.currentUser.name) setInputState('user-name', true);
-        if (gradeSelect && state.currentUser.grade) setInputState('user-grade', true);
-    } else {
-        if (nameInput) nameInput.value = '';
-        if (gradeSelect) gradeSelect.value = '';
-    }
+    if (nameInput) nameInput.value = '';
+    if (gradeSelect) gradeSelect.value = '';
+
     clearFormErrors();
     if (nameInput) nameInput.focus();
 }
@@ -536,7 +532,7 @@ function startQuiz() {
 }
 
 function startTimer() {
-    state.timeRemaining = 60;
+    state.timeRemaining = 120;
     updateTimerDisplay();
     stopTimer();
     state.timerInterval = setInterval(() => {
@@ -615,21 +611,21 @@ function loadQuestion(index) {
 
         question.choices.forEach((choice, i) => {
             const id = `choice-${index}-${i}`;
-            
+
             const wrapper = document.createElement('div');
-            
+
             const input = document.createElement('input');
             input.type = 'radio';
             input.name = 'choice';
             input.id = id;
             input.value = choice;
-            
+
             const span = document.createElement('span');
-            span.textContent = choice;
-            
+            span.textContent = String.fromCharCode(65 + i) + ' ' + choice;
+
             wrapper.appendChild(input);
             wrapper.appendChild(span);
-            
+
             if (choicesContainer) choicesContainer.appendChild(wrapper);
         });
 
@@ -852,6 +848,7 @@ function setupEventListeners() {
             state.users.push(user);
             saveUsersToStorage();
             setCurrentUser(user);
+            renderUserSelect();
 
             if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = 'Save User'; }
 
@@ -905,6 +902,35 @@ function setupEventListeners() {
             delete state.quizHistory[String(currentUser.id)];
             saveHistoryToStorage();
             showHistoryModal(currentUser.id);
+        });
+    }
+
+    // Delete user button
+    const deleteUserBtn = getElement('delete-user-btn');
+    if (deleteUserBtn) {
+        deleteUserBtn.addEventListener('click', () => {
+            if (!state.currentUser) {
+                showToast('Please select a user to delete', 'info');
+                return;
+            }
+
+            if (confirm(`Are you sure you want to delete user "${state.currentUser.name}"? This will also remove their history.`)) {
+                // Remove from users list
+                state.users = state.users.filter(u => String(u.id) !== String(state.currentUser.id));
+                saveUsersToStorage();
+
+                // Remove from history
+                delete state.quizHistory[String(state.currentUser.id)];
+                saveHistoryToStorage();
+
+                // Clear current user
+                setCurrentUser(null);
+                localStorage.removeItem('quiz_current_user');
+
+                // Update UI
+                renderUserSelect();
+                showToast('User deleted successfully', 'success');
+            }
         });
     }
 
