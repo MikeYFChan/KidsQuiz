@@ -8,8 +8,10 @@
 const state = {
     questionsData: {},
     questionsLoaded: false,
+    currentView: 'dashboard',
     currentSubject: '',
     currentYear: '',
+    currentSkill: null,
     currentQuestions: [],
     currentQuestionIndex: 0,
     userAnswers: [],
@@ -17,7 +19,8 @@ const state = {
     timeRemaining: 0,
     users: [],
     currentUser: null,
-    quizHistory: {}
+    quizHistory: {},
+    smartScore: 0
 };
 
 // ============================================
@@ -86,13 +89,23 @@ function createElement(tag, className = '', innerHTML = '') {
 }
 
 function showScreen(screenName) {
-    const screens = ['subject-screen', 'year-screen', 'question-screen', 'results-screen'];
+    state.currentView = screenName;
+    const screens = ['dashboard-screen', 'subject-screen', 'year-screen', 'skill-screen', 'question-screen', 'results-screen'];
     screens.forEach(id => {
         const el = getElement(id);
-        if (el) el.classList.remove('active');
+        if (el) {
+            el.classList.remove('active');
+            if (id === `${screenName}-screen`) el.classList.add('active');
+        }
     });
-    const target = getElement(`${screenName}-screen`);
-    if (target) target.classList.add('active');
+
+    // Sidebar active state
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.dataset.view === screenName || item.dataset.subject === state.currentSubject) {
+            item.classList.add('active');
+        }
+    });
 }
 
 // ============================================
@@ -311,7 +324,21 @@ function loadCurrentUser() {
 
 function setCurrentUser(user) {
     state.currentUser = user;
-    localStorage.setItem('quiz_current_user', JSON.stringify(user));
+    if (user) {
+        localStorage.setItem('quiz_current_user', JSON.stringify(user));
+        showToast(`Welcome back, ${user.name}!`, 'success');
+
+        // Refresh views to show correct mastery levels
+        if (state.currentView === 'skill') {
+            showSkillTree(state.currentSubject, state.currentYear);
+        } else {
+            showScreen('dashboard');
+        }
+    } else {
+        localStorage.removeItem('quiz_current_user');
+        showToast('Switched to Guest mode (Scores will not be tracked)', 'info');
+    }
+    updateUserUI();
 }
 
 function validateName(name) {
@@ -388,8 +415,9 @@ function renderUserSelect() {
     if (!sel) return;
     sel.innerHTML = '';
     const placeholder = document.createElement('option');
-    placeholder.value = '';
-    placeholder.textContent = 'Select user';
+    placeholder.value = 'guest';
+    placeholder.textContent = 'Guest (No Tracking)';
+    if (!state.currentUser) placeholder.selected = true;
     sel.appendChild(placeholder);
     state.users.forEach(u => {
         const opt = document.createElement('option');
@@ -417,6 +445,35 @@ function saveHistoryToStorage() {
         localStorage.setItem('quiz_history', JSON.stringify(state.quizHistory));
     } catch (e) {
         console.warn('Failed to save history', e);
+    }
+}
+
+function saveSkillScore(userId, subject, year, skillId, score) {
+    const key = `skill_scores_${userId}`;
+    let scores = {};
+    try {
+        const raw = localStorage.getItem(key);
+        scores = raw ? JSON.parse(raw) : {};
+    } catch (e) { }
+
+    if (!scores[subject]) scores[subject] = {};
+    if (!scores[subject][year]) scores[subject][year] = {};
+
+    // Only update if the new score is higher (Mastery)
+    if (!scores[subject][year][skillId] || score > scores[subject][year][skillId]) {
+        scores[subject][year][skillId] = score;
+        localStorage.setItem(key, JSON.stringify(scores));
+    }
+}
+
+function getSkillScore(userId, subject, year, skillId) {
+    const key = `skill_scores_${userId}`;
+    try {
+        const raw = localStorage.getItem(key);
+        const scores = raw ? JSON.parse(raw) : {};
+        return scores[subject]?.[year]?.[skillId] || 0;
+    } catch (e) {
+        return 0;
     }
 }
 
@@ -603,6 +660,19 @@ function stopTimer() {
     }
 }
 
+function updateUserUI() {
+    const userDisplay = getElement('current-user-name');
+    if (userDisplay && state.currentUser) {
+        userDisplay.textContent = state.currentUser.name;
+    }
+
+    // Update grade badge/info if needed
+    const userGrade = getElement('current-user-grade');
+    if (userGrade && state.currentUser) {
+        userGrade.textContent = state.currentUser.grade || 'No Grade';
+    }
+}
+
 function updateTimerDisplay() {
     const timerEl = getElement('timer-display');
     if (timerEl) {
@@ -613,55 +683,77 @@ function updateTimerDisplay() {
 
 function selectSubject(subject) {
     state.currentSubject = subject;
-    const currentUser = JSON.parse(localStorage.getItem('quiz_current_user'));
+    const currentUser = state.currentUser;
     if (currentUser && currentUser.grade) {
         state.currentYear = currentUser.grade;
-        if (!state.questionsLoaded) {
-            loadQuestions().then(startQuiz);
-        } else {
-            startQuiz();
-        }
+        showSkillTree(subject, state.currentYear);
     } else {
+        const titleEl = getElement('selected-subject-title');
+        if (titleEl) titleEl.textContent = subject + ' - Select Year';
         showScreen('year');
     }
 }
 
 function selectYear(year) {
     state.currentYear = year;
-    if (!state.questionsLoaded) {
-        loadQuestions().then(startQuiz);
-    } else {
-        startQuiz();
-    }
+    showSkillTree(state.currentSubject, year);
 }
 
-function speakQuestion() {
-    if (!('speechSynthesis' in window)) {
-        showToast('Sorry, your browser does not support text-to-speech.', 'error');
-        return;
+function showSkillTree(subject, year) {
+    const skillListEl = getElement('skill-list');
+    const titleEl = getElement('skill-subject-title');
+    const subtitleEl = getElement('skill-year-subtitle');
+
+    if (titleEl) titleEl.textContent = subject;
+    if (subtitleEl) subtitleEl.textContent = year;
+
+    if (skillListEl) {
+        skillListEl.innerHTML = '';
+
+        // Synthesize skills from questions for now (Mocking IXL categories)
+        // In a real app, questions.json would have SkillIDs
+        const categories = {
+            'A': 'Basics & Identity',
+            'B': 'Advanced Concepts',
+            'C': 'Problem Solving'
+        };
+
+        Object.entries(categories).forEach(([code, name]) => {
+            const categorySection = document.createElement('div');
+            categorySection.className = 'skill-category';
+            categorySection.innerHTML = `<h2>${code}. ${name}</h2>`;
+
+            const itemsGrid = document.createElement('div');
+            itemsGrid.className = 'skill-items';
+
+            // Just split questions into 3 arbitrary skills for demo
+            for (let i = 1; i <= 3; i++) {
+                const skillId = `${code}.${i}`;
+                const mastery = state.currentUser ? getSkillScore(state.currentUser.id, subject, year, skillId) : 0;
+
+                const skillItem = document.createElement('div');
+                skillItem.className = 'skill-item';
+                skillItem.innerHTML = `
+                    <span class="skill-id">${skillId}</span>
+                    <span class="skill-name">Practice Set ${i}</span>
+                    <span class="skill-score" style="background: ${mastery === 100 ? 'var(--accent)' : 'var(--success)'}">${mastery}</span>
+                `;
+                skillItem.onclick = () => startPractice(skillId);
+                itemsGrid.appendChild(skillItem);
+            }
+            categorySection.appendChild(itemsGrid);
+            skillListEl.appendChild(categorySection);
+        });
     }
+    showScreen('skill');
+}
 
-    // Cancel any ongoing speech
-    window.speechSynthesis.cancel();
-
-    const question = state.currentQuestions[state.currentQuestionIndex];
-    if (!question) return;
-
-    const utterance = new SpeechSynthesisUtterance(question.question);
-
-    // Set language based on subject
-    // Chinese -> Cantonese (zh-HK) per user request
-    if (state.currentSubject === 'Chinese') {
-        utterance.lang = 'zh-HK';
-    } else {
-        utterance.lang = 'en-GB';
-    }
-
-    // Adjust rate and pitch for a friendly teacher-like voice
-    utterance.rate = 0.9;
-    utterance.pitch = 1.0;
-
-    window.speechSynthesis.speak(utterance);
+function startPractice(skillId) {
+    state.currentSkill = skillId;
+    state.smartScore = 0;
+    const smartScoreEl = getElement('smart-score');
+    if (smartScoreEl) smartScoreEl.textContent = '0';
+    startQuiz();
 }
 
 function speakQuestion() {
@@ -728,18 +820,36 @@ function loadQuestion(index) {
             const id = `choice-${index}-${i}`;
 
             const wrapper = document.createElement('div');
+            wrapper.className = 'choice-item';
+            wrapper.onclick = () => {
+                const radio = wrapper.querySelector('input[type="radio"]');
+                if (radio) radio.checked = true;
+
+                // Update styling
+                if (choicesContainer) {
+                    choicesContainer.querySelectorAll('.choice-item').forEach(cw => cw.classList.remove('selected'));
+                }
+                wrapper.classList.add('selected');
+            };
 
             const input = document.createElement('input');
             input.type = 'radio';
             input.name = 'choice';
             input.id = id;
             input.value = choice;
+            input.style.display = 'none'; // hide raw radio button
 
-            const span = document.createElement('span');
-            span.textContent = String.fromCharCode(65 + i) + ' ' + choice;
+            const letterSpan = document.createElement('span');
+            letterSpan.className = 'choice-letter';
+            letterSpan.textContent = String.fromCharCode(65 + i);
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'choice-text';
+            textSpan.textContent = choice;
 
             wrapper.appendChild(input);
-            wrapper.appendChild(span);
+            wrapper.appendChild(letterSpan);
+            wrapper.appendChild(textSpan);
 
             if (choicesContainer) choicesContainer.appendChild(wrapper);
         });
@@ -747,7 +857,11 @@ function loadQuestion(index) {
         const prev = state.userAnswers[index];
         if (prev && choicesContainer) {
             const selected = choicesContainer.querySelector(`input[value="${CSS.escape(prev)}"]`);
-            if (selected) selected.checked = true;
+            if (selected) {
+                selected.checked = true;
+                const wrapper = selected.closest('.choice-item');
+                if (wrapper) wrapper.classList.add('selected');
+            }
         }
 
         const firstInput = choicesContainer?.querySelector('input[name="choice"]');
@@ -755,6 +869,39 @@ function loadQuestion(index) {
     } else {
         if (choicesContainer) choicesContainer.innerHTML = '';
         if (answerInput) { answerInput.style.display = ''; answerInput.required = true; answerInput.value = state.userAnswers[index] || ''; answerInput.focus(); }
+    }
+}
+
+function updateSmartScore(isCorrect) {
+    let score = state.smartScore;
+    if (isCorrect) {
+        if (score < 80) score += 10;
+        else if (score < 90) score += 5;
+        else if (score < 96) score += 2;
+        else if (score < 100) score += 1;
+    } else {
+        if (score > 90) score -= 15;
+        else if (score > 80) score -= 10;
+        else if (score > 50) score -= 5;
+        else score = Math.max(0, score - 2);
+    }
+    state.smartScore = Math.min(100, score);
+    const scoreEl = getElement('smart-score');
+    if (scoreEl) {
+        scoreEl.textContent = state.smartScore;
+        // Animation effect
+        scoreEl.style.transform = 'scale(1.2)';
+        setTimeout(() => scoreEl.style.transform = 'scale(1)', 200);
+    }
+
+    // Persist mastery level
+    if (state.currentUser) {
+        saveSkillScore(state.currentUser.id, state.currentSubject, state.currentYear, state.currentSkill, state.smartScore);
+    }
+
+    // If reached 100, finish quiz automatically
+    if (state.smartScore === 100) {
+        setTimeout(showResults, 1000);
     }
 }
 
@@ -775,15 +922,37 @@ function submitQuiz() {
     if (errorEl) errorEl.classList.remove('visible');
     state.userAnswers[state.currentQuestionIndex] = userAnswer;
 
-    // Play feedback sound
     const question = state.currentQuestions[state.currentQuestionIndex];
-    if (normalizeAnswer(userAnswer) === normalizeAnswer(question.answer)) {
+    const isCorrect = normalizeAnswer(userAnswer) === normalizeAnswer(question.answer);
+
+    // Play feedback sound
+    if (isCorrect) {
         sounds.correct();
+        updateSmartScore(true);
+        nextQuestion(); // Automatic move on correct
     } else {
         sounds.incorrect();
+        updateSmartScore(false);
+        showExplanation(question, userAnswer);
     }
 
     return true;
+}
+
+function showExplanation(question, userAnswer) {
+    const overlay = getElement('explanation-overlay');
+    getElement('exp-question').textContent = question.question;
+    getElement('exp-user-answer').textContent = userAnswer;
+    getElement('exp-correct-answer').textContent = question.answer;
+    getElement('exp-detail').textContent = question.explanation || "Review the concept and try again.";
+
+    if (overlay) overlay.classList.add('active');
+}
+
+function closeExplanation() {
+    const overlay = getElement('explanation-overlay');
+    if (overlay) overlay.classList.remove('active');
+    nextQuestion();
 }
 
 function nextQuestion() {
@@ -876,7 +1045,78 @@ function backToSubjects() {
 // Event Listeners Setup
 // ============================================
 function setupEventListeners() {
-    // Subject buttons
+    // Sidebar Toggle
+    const toggleBtn = getElement('toggle-sidebar');
+    const sidebar = getElement('sidebar');
+    if (toggleBtn && sidebar) {
+        toggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+    }
+
+    // Sidebar & Navigation buttons
+    document.querySelectorAll('.nav-item').forEach(button => {
+        button.addEventListener('click', () => {
+            if (button.dataset.view === 'dashboard') {
+                showScreen('dashboard');
+            } else if (button.dataset.subject) {
+                selectSubject(button.dataset.subject);
+            } else if (button.id === 'sidebar-history') {
+                const currentUser = state.currentUser;
+                if (!currentUser) { showToast('Please select a user first', 'info'); return; }
+                showHistoryModal(currentUser.id);
+            }
+
+            // Close sidebar on mobile after click
+            if (window.innerWidth <= 900 && sidebar) sidebar.classList.remove('active');
+        });
+    });
+
+    // Search Functionality
+    const searchInput = getElement('skill-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.skill-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(query) ? 'flex' : 'none';
+            });
+            // Hide empty categories
+            document.querySelectorAll('.skill-category').forEach(cat => {
+                const visibleItems = cat.querySelectorAll('.skill-item[style="display: flex;"]');
+                const allItems = cat.querySelectorAll('.skill-item');
+                // Handle initial state where style.display might be empty
+                const hasVisible = Array.from(allItems).some(i => i.style.display !== 'none');
+                cat.style.display = hasVisible ? 'block' : 'none';
+            });
+        });
+    }
+
+    // Recommendation Cards and Buttons
+    document.querySelectorAll('.recommendation-card').forEach(card => {
+        const btn = card.querySelector('.start-card-btn');
+        const action = () => {
+            if (card.id === 'resume-skill-card') {
+                // If it's the resume card and we have a skill, hypothetically resume it. 
+                // For now, default to a subject if nothing is set.
+                selectSubject(state.currentSubject || 'Maths');
+            } else if (card.dataset.subject) {
+                selectSubject(card.dataset.subject);
+            }
+        };
+
+        // Attach click to the card
+        card.addEventListener('click', action);
+        // Ensure button click doesn't double-fire but still works if card click is somehow blocked
+        if (btn) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                action();
+            });
+        }
+    });
+
+    // Subject buttons (legacy subjects screen)
     document.querySelectorAll('.subject-button').forEach(button => {
         button.addEventListener('click', () => selectSubject(button.dataset.subject));
     });
@@ -886,10 +1126,12 @@ function setupEventListeners() {
         button.addEventListener('click', () => selectYear(button.dataset.year));
     });
 
-    // Back button
-    const backToSubjectBtn = getElement('back-to-subject');
-    if (backToSubjectBtn) {
-        backToSubjectBtn.addEventListener('click', () => showScreen('subject'));
+    // Results back button
+    const backToStartBtn = getElement('back-to-start');
+    if (backToStartBtn) {
+        backToStartBtn.addEventListener('click', () => {
+            showScreen('skill');
+        });
     }
 
     // Quiz form
@@ -920,13 +1162,28 @@ function setupEventListeners() {
     const newQuizBtn = getElement('new-quiz-btn');
     if (newQuizBtn) newQuizBtn.addEventListener('click', chooseNewQuiz);
 
-    // Back to start button
-    const backToStartBtn = getElement('back-to-start');
-    if (backToStartBtn) backToStartBtn.addEventListener('click', backToSubjects);
+    // Back to subjects (Legacy footer)
+    const backToSubjectsBtn = getElement('back-to-subjects'); // Renamed or just use existing
+    if (backToSubjectsBtn) backToSubjectsBtn.addEventListener('click', backToSubjects);
 
     // TTS button
+    // Quiz Controls
+    const exitQuizBtn = getElement('exit-quiz');
+    if (exitQuizBtn) {
+        exitQuizBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to exit this practice? Your progress will be saved.')) {
+                showScreen('skill');
+                stopTimer();
+            }
+        });
+    }
+
     const speakBtn = getElement('speak-btn');
     if (speakBtn) speakBtn.addEventListener('click', speakQuestion);
+
+    // Explanation Close
+    const closeExpBtn = getElement('close-explanation');
+    if (closeExpBtn) closeExpBtn.addEventListener('click', closeExplanation);
 
     // User modal buttons
     const openUserModalBtn = getElement('open-user-modal') || getElement('open-user-modal-footer');
@@ -1003,8 +1260,12 @@ function setupEventListeners() {
     if (userSelect) {
         userSelect.addEventListener('change', (e) => {
             const id = e.target.value;
-            const selected = state.users.find(u => String(u.id) === String(id));
-            if (selected) setCurrentUser(selected);
+            if (id === 'guest' || !id) {
+                setCurrentUser(null);
+            } else {
+                const selected = state.users.find(u => String(u.id) === String(id));
+                if (selected) setCurrentUser(selected);
+            }
         });
     }
 
@@ -1090,6 +1351,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Load questions
     await loadQuestions();
+
+    // Ensure we start at dashboard if questions loaded
+    if (state.questionsLoaded && !state.currentUser) {
+        showScreen('dashboard');
+    }
 
     console.log('Kids Quiz initialized successfully!');
 });

@@ -12,172 +12,274 @@
 </head>
 
 <body>
-    <div class="container">
-        <div id="user-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="user-modal-title">
-            <div class="modal-content">
-                <h2 id="user-modal-title">Add User</h2>
-                <form id="user-form" novalidate>
-                    <div class="form-group">
-                        <label for="user-name">Name</label>
-                        <input type="text" id="user-name" name="user-name" required placeholder="Enter your name"
-                            minlength="2" maxlength="50" />
-                        <span class="error-message" id="user-name-error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="user-grade">Grade</label>
-                        <select id="user-grade" name="user-grade" required>
-                            <option value="">Select your grade</option>
-                            <option value="Year 3">Year 3</option>
-                            <option value="Year 6">Year 6</option>
-                        </select>
-                        <span class="error-message" id="user-grade-error"></span>
-                    </div>
-                    <div class="modal-buttons">
-                        <button type="submit" class="submit-button" id="save-user-btn">Save User</button>
-                        <button type="button" id="close-user-modal" class="nav-button">Cancel</button>
-                    </div>
-                    <div class="form-success" id="user-form-success"></div>
-                </form>
+    <div class="app-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">🎓</span>
+                <span class="logo-text">KidsQuiz</span>
             </div>
-        </div>
-        <!-- Welcome Screen - Subject Selection -->
-        <div id="subject-screen" class="screen active">
-            <header class="header">
-                <h1 id="title" class="text-center">Primary School Quiz</h1>
-                <p class="description subject-description text-center">
-                    Choose a subject to begin!
-                </p>
-            </header>
-            <div class="subject-selection">
-                <button type="button" class="subject-button" data-subject="Maths">
-                    <span class="subject-icon">🔢</span>
-                    <span class="subject-name">Maths</span>
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="dashboard">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-label">Dashboard</span>
                 </button>
-                <button type="button" class="subject-button" data-subject="English">
-                    <span class="subject-icon">📚</span>
-                    <span class="subject-name">English</span>
+                <div class="nav-divider">Subjects</div>
+                <button class="nav-item" data-subject="Maths">
+                    <span class="nav-icon">🔢</span>
+                    <span class="nav-label">Maths</span>
                 </button>
-                <button type="button" class="subject-button" data-subject="Chinese">
-                    <span class="subject-icon">🏮</span>
-                    <span class="subject-name">Chinese</span>
+                <button class="nav-item" data-subject="English">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-label">English</span>
                 </button>
-                <button type="button" class="subject-button" data-subject="Science">
-                    <span class="subject-icon">🔬</span>
-                    <span class="subject-name">Science</span>
+                <button class="nav-item" data-subject="Chinese">
+                    <span class="nav-icon">🏮</span>
+                    <span class="nav-label">Chinese</span>
                 </button>
-            </div>
-        </div>
-
-        <!-- Year Selection Screen -->
-        <div id="year-screen" class="screen">
-            <header class="header">
-                <h1 id="selected-subject-title" class="text-center"></h1>
-                <p class="description year-description text-center">
-                    Choose your year level
-                </p>
-            </header>
-            <div class="year-selection">
-                <button type="button" class="year-button" data-year="Year 3">Year 3</button>
-                <button type="button" class="year-button" data-year="Year 6">Year 6</button>
-                <button type="button" class="back-button" id="back-to-subject">← Back to Subjects</button>
-            </div>
-        </div>
-
-        <!-- Question Screen -->
-        <div id="question-screen" class="screen">
-            <header class="header">
-                <div class="quiz-header-info">
-                    <span id="quiz-title"></span>
-                    <div style="display:flex;align-items:center;gap:1rem;">
-                        <span id="timer-display" class="timer-display">Time: 60s</span>
-                        <button type="button" class="back-to-start-btn" id="back-to-start">← Change Quiz</button>
-                    </div>
+                <button class="nav-item" data-subject="Science">
+                    <span class="nav-icon">🔬</span>
+                    <span class="nav-label">Science</span>
+                </button>
+                <div class="nav-divider">Progress</div>
+                <button class="nav-item" id="sidebar-history">
+                    <span class="nav-icon">📈</span>
+                    <span class="nav-label">History</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <div id="user-footer" class="user-footer-side">
+                    <select id="user-select" class="user-select">
+                        <option value="guest">Guest (No Tracking)</option>
+                    </select>
+                    <button id="open-user-modal-footer" class="nav-icon-button" aria-label="Add User"
+                        title="Add User">➕</button>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <button id="toggle-sidebar" class="icon-button">☰</button>
+                <div class="search-container">
+                    <input type="text" id="skill-search" placeholder="Search for skills (e.g. addition)...">
                 </div>
-                <p class="question-counter">
-                    Question <span id="current-question">1</span> of <span id="total-questions">5</span>
-                </p>
+                <div class="user-actions">
+                    <!-- User properties moved to sidebar -->
+                </div>
             </header>
 
-            <form id="quiz-form">
-                <div class="form-group">
-                    <label class="question-label" id="question-text">
-                        Loading question...
-                    </label>
-                    <button type="button" id="speak-btn" class="tts-button" aria-label="Speak Question">
-                        朗讀內容 Speak 🔊
-                    </button>
-                    <input type="text" id="answer-input" class="form-control" placeholder="Type your answer here"
-                        autocomplete="off" />
-                    <div id="choices-container" class="choices-container"></div>
-                    <div id="quiz-answer-error" class="quiz-answer-error"></div>
+            <div class="content-body">
+                <div id="user-modal" class="modal-overlay" aria-hidden="true" role="dialog"
+                    aria-labelledby="user-modal-title">
+                    <div class="modal-content">
+                        <h2 id="user-modal-title">Add User</h2>
+                        <form id="user-form" novalidate>
+                            <div class="form-group">
+                                <label for="user-name">Name</label>
+                                <input type="text" id="user-name" name="user-name" required
+                                    placeholder="Enter your name" minlength="2" maxlength="50" />
+                                <span class="error-message" id="user-name-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="user-grade">Grade</label>
+                                <select id="user-grade" name="user-grade" required>
+                                    <option value="">Select your grade</option>
+                                    <option value="Year 3">Year 3</option>
+                                    <option value="Year 6">Year 6</option>
+                                </select>
+                                <span class="error-message" id="user-grade-error"></span>
+                            </div>
+                            <div class="modal-buttons">
+                                <button type="submit" class="submit-button" id="save-user-btn">Save</button>
+                                <button type="button" id="close-user-modal" class="nav-button">Cancel</button>
+                            </div>
+                            <div class="form-success" id="user-form-success"></div>
+                        </form>
+                    </div>
                 </div>
 
-                <div class="form-group button-group">
-                    <button type="button" id="prev-btn" class="nav-button" style="display: none;">
-                        Previous
-                    </button>
-                    <button type="submit" id="next-btn" class="submit-button">
-                        Next Question
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <!-- Results Screen -->
-        <div id="results-screen" class="screen">
-            <header class="header">
-                <h1 class="text-center">Quiz Results</h1>
-                <p class="text-center" id="results-subtitle"></p>
-            </header>
-
-            <div class="results-container">
-                <div class="score-display">
-                    <h2 id="score-text">0 / 5</h2>
-                    <p id="percentage-text">0%</p>
-                    <div class="score-message" id="score-message"></div>
-                </div>
-
-                <div class="answers-review">
-                    <h3>Your Answers:</h3>
-                    <div id="answers-list"></div>
+                <!-- Dashboard Screen (IXL Recommendations Style) -->
+                <div id="dashboard-screen" class="screen active">
+                    <header class="header">
+                        <h2>Welcome back, <span id="welcome-name">Learner</span>!</h2>
+                        <p class="description">Ready to master some new skills today?</p>
+                    </header>
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card" data-subject="Maths">
+                            <span class="card-icon">🔢</span>
+                            <h3>Daily Math Challenge</h3>
+                            <button class="start-card-btn">Go</button>
+                        </div>
+                        <div class="recommendation-card" data-subject="English">
+                            <span class="card-icon">📚</span>
+                            <h3>Grammar Mastery</h3>
+                            <button class="start-card-btn">Go</button>
+                        </div>
+                        <div class="recommendation-card" id="resume-skill-card">
+                            <span class="card-icon">🎯</span>
+                            <h3>Keep Going</h3>
+                            <p id="resume-skill-name">Pick up where you left off</p>
+                            <button class="start-card-btn">Resume</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group button-group">
-                    <button type="button" id="restart-btn" class="submit-button">
-                        Take Quiz Again
-                    </button>
-                    <button type="button" id="new-quiz-btn" class="nav-button">
-                        Choose New Quiz
-                    </button>
+                <!-- Skill Tree Screen -->
+                <div id="skill-screen" class="screen">
+                    <header class="header">
+                        <h1 id="skill-subject-title">Maths</h1>
+                        <p id="skill-year-subtitle">Year 3</p>
+                    </header>
+                    <div id="skill-list" class="skill-list">
+                        <!-- Categories and Skills will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Welcome Screen - Subject Selection (Legacy/Alternative) -->
+                <div id="subject-screen" class="screen">
+                    <header class="header">
+                        <h1 id="title" class="text-center">Subjects</h1>
+                    </header>
+                    <div class="subject-selection">
+                        <button type="button" class="subject-button" data-subject="Maths">
+                            <span class="subject-icon">🔢</span>
+                            <span class="subject-name">Maths</span>
+                        </button>
+                        <button type="button" class="subject-button" data-subject="English">
+                            <span class="subject-icon">📚</span>
+                            <span class="subject-name">English</span>
+                        </button>
+                        <button type="button" class="subject-button" data-subject="Chinese">
+                            <span class="subject-icon">🏮</span>
+                            <span class="subject-name">Chinese</span>
+                        </button>
+                        <button type="button" class="subject-button" data-subject="Science">
+                            <span class="subject-icon">🔬</span>
+                            <span class="subject-name">Science</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Year Selection Screen -->
+                <div id="year-screen" class="screen">
+                    <header class="header">
+                        <h1 id="selected-subject-title" class="text-center"></h1>
+                    </header>
+                    <div class="year-selection">
+                        <button type="button" class="year-button" data-year="Year 3">Year 3</button>
+                        <button type="button" class="year-button" data-year="Year 6">Year 6</button>
+                        <button type="button" class="back-button" id="back-to-subject">← Subjects</button>
+                    </div>
+                </div>
+
+                <!-- Explanation Overlay (IXL Style) -->
+                <div id="explanation-overlay" class="modal-overlay">
+                    <div class="modal-content explanation-content">
+                        <div class="explanation-type error-text">Sorry, that's not right.</div>
+                        <div class="explanation-body">
+                            <div class="exp-section">
+                                <span class="exp-label">The question:</span>
+                                <div id="exp-question" class="exp-value"></div>
+                            </div>
+                            <div class="exp-section">
+                                <span class="exp-label">You answered:</span>
+                                <div id="exp-user-answer" class="exp-value incorrect-text"></div>
+                            </div>
+                            <div class="exp-section">
+                                <span class="exp-label">The correct answer:</span>
+                                <div id="exp-correct-answer" class="exp-value correct-text"></div>
+                            </div>
+                            <div class="exp-section master-exp">
+                                <span class="exp-label">Explanation:</span>
+                                <div id="exp-detail" class="exp-value"></div>
+                            </div>
+                        </div>
+                        <button type="button" id="close-explanation" class="submit-button">Got it</button>
+                    </div>
+                </div>
+                <!-- Question Screen -->
+                <div id="question-screen" class="screen">
+                    <header class="header quiz-top-header">
+                        <div class="quiz-status">
+                            <div class="score-display-mini">
+                                <span class="label">SmartScore</span>
+                                <span id="smart-score" class="value">0</span>
+                            </div>
+                            <div class="counter-display">
+                                <span id="timer-display" class="timer-display">00:00</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </header>
+
+                    <form id="quiz-form">
+                        <div class="question-container">
+                            <label class="question-label" id="question-text">Loading...</label>
+                            <button type="button" id="speak-btn" class="tts-button" aria-label="Speak">🔊</button>
+                            <div id="choices-container" class="choices-container"></div>
+                            <input type="text" id="answer-input" class="form-control" autocomplete="off" />
+                            <div id="quiz-answer-error" class="quiz-answer-error"></div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="button" class="back-to-start-btn" id="back-to-start">Exit</button>
+                            <button type="submit" id="next-btn" class="submit-button">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-        <!-- Inline footer: compact user select + buttons placed under content -->
-        <div id="user-footer" class="user-footer">
-            <select id="user-select" class="user-select">
-                <option value="">Select user</option>
-            </select>
-            <button id="open-user-modal-footer" class="nav-button">Add User</button>
-            <button id="delete-user-btn" class="nav-button" style="background-color: var(--error);">Delete User</button>
-            <button id="open-history-btn" class="nav-button">View History</button>
-        </div>
 
-        <div id="history-modal" class="modal-overlay history-modal" aria-hidden="true" role="dialog"
-            aria-labelledby="history-modal-title">
-            <div class="modal-content">
-                <h2 id="history-modal-title">History</h2>
-                <div id="history-list">No history</div>
-                <div class="modal-buttons">
-                    <button id="close-history-btn" class="nav-button">Close</button>
-                    <button id="clear-history-btn" class="nav-button">Clear History</button>
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <header class="header">
+                    <h1>Excellent Work!</h1>
+                    <p id="results-subtitle"></p>
+                </header>
+
+                <div class="results-container">
+                    <div class="score-summary">
+                        <div class="stat">
+                            <span class="stat-value" id="score-text">0/5</span>
+                            <span class="stat-label">Correct</span>
+                        </div>
+                        <div class="stat highlight">
+                            <span class="stat-value" id="percentage-text">0%</span>
+                            <span class="stat-label">Score</span>
+                        </div>
+                    </div>
+                    <div id="score-message"></div>
+
+                    <div class="answers-review">
+                        <h3>Review</h3>
+                        <div id="answers-list"></div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" id="restart-btn" class="submit-button">Practice More</button>
+                        <button type="button" id="new-quiz-btn" class="nav-button">Other Skills</button>
+                    </div>
                 </div>
             </div>
+    </div>
+    </main>
+    </div>
 
-            <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-            <script src="js/app.js"></script>
+    <div id="history-modal" class="modal-overlay history-modal" aria-hidden="true" role="dialog"
+        aria-labelledby="history-modal-title">
+        <div class="modal-content">
+            <h2 id="history-modal-title">History</h2>
+            <div id="history-list">No history</div>
+            <div class="modal-buttons">
+                <button id="close-history-btn" class="nav-button">Close</button>
+                <button id="clear-history-btn" class="nav-button">Clear History</button>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+        <script src="js/app.js"></script>
 </body>
 
 </html>
