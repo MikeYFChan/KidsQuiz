@@ -1,31 +1,40 @@
 :root {
-  /* Colorful Kid-Friendly Palette */
-  --primary: #0ea5e9;
-  /* Cheerful sky blue */
-  --primary-glow: rgba(14, 165, 233, 0.4);
-  --secondary: #ec4899;
-  --accent: #f59e0b;
-  --background: #f0f9ff;
-  /* Light, bright background */
+  /* Apple-Inspired Minimalist Palette */
+  --primary: #0066cc;
+  /* Apple Blue */
+  --primary-glow: rgba(0, 102, 204, 0.15);
+  --secondary: #ff3b30;
+  /* Apple Red */
+  --accent: #ff9500;
+  /* Apple Orange */
+  --background: #f5f5f7;
+  /* Apple Grey Background */
   --surface: #ffffff;
-  /* White cards */
-  --surface-hover: #f8fafc;
-  --sidebar-bg: #ffffff;
-  --top-bar-bg: rgba(255, 255, 255, 0.9);
-  --text: #1e293b;
-  /* Dark text for contrast */
-  --text-muted: #64748b;
-  --success: #22c55e;
-  --error: #ef4444;
-  --warning: #f59e0b;
-  --border: #e2e8f0;
-  --radius-sm: 12px;
-  /* Rounder, friendlier corners */
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --shadow-lg: 0 8px 30px rgba(14, 165, 233, 0.15);
-  /* Colorful soft shadow */
-  --sidebar-width: 260px;
+  /* Pure White Surface */
+  --surface-hover: #fcfcfd;
+  --sidebar-bg: #fbfbfd;
+  --top-bar-bg: rgba(255, 255, 255, 0.72);
+  --text: #1d1d1f;
+  /* Apple High-Contrast Text */
+  --text-muted: #86868b;
+  /* Apple Muted Text */
+  --success: #34c759;
+  /* Apple Green */
+  --error: #ff3b30;
+  --warning: #ffcc00;
+  /* Apple Yellow */
+  --border: #d2d2d7;
+  /* Apple Border Color */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* Sophisticated, soft shadow */
+  --sidebar-width: 280px;
+
+  /* Animation Easing */
+  --ease-apple: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 *,
@@ -37,13 +46,17 @@
 }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.47059;
+  /* Apple's specific line height */
+  font-weight: 400;
+  letter-spacing: -0.022em;
   min-height: 100vh;
   overflow: hidden;
-  /* App handles scrolling in main content */
 }
 
 /* App Layout */
@@ -60,7 +73,7 @@ body {
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s var(--ease-apple);
   z-index: 100;
 }
 
@@ -76,12 +89,10 @@ body {
 }
 
 .logo-text {
-  font-size: 1.5rem;
-  font-weight: 900;
-  background: linear-gradient(to right, #0ea5e9, #ec4899, #f59e0b);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000;
+  letter-spacing: -0.03em;
 }
 
 .sidebar-nav {
@@ -99,32 +110,29 @@ body {
   padding: 0.85rem 1rem;
   background: transparent;
   border: none;
-  border-radius: var(--radius-md);
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 1.1rem;
-  /* Increased font size */
+  border-radius: 10px;
+  color: #000;
+  font-weight: 500;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s var(--ease-apple);
   width: 100%;
   text-align: left;
 }
 
-.nav-item:hover,
-.nav-item.active {
-  background: var(--surface);
-  color: var(--text);
+.nav-item:hover {
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .nav-item.active {
-  border-left: 3px solid var(--primary);
+  background: rgba(0, 102, 204, 0.1);
+  color: var(--primary);
 }
 
 .nav-divider {
   padding: 1.5rem 1rem 0.5rem;
-  font-size: 0.85rem;
-  /* Increased font size */
-  font-weight: 700;
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   color: var(--text-muted);
   letter-spacing: 0.05em;
@@ -145,15 +153,19 @@ body {
 }
 
 .top-bar {
-  height: 70px;
+  height: 52px;
+  /* Slimmer, more balanced */
   background: var(--top-bar-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
   display: flex;
   align-items: center;
   padding: 0 2rem;
   border-bottom: 1px solid var(--border);
   gap: 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 #toggle-sidebar {
@@ -169,19 +181,19 @@ body {
 
 .search-container input {
   width: 100%;
-  background: #f8fafc;
-  border: 2px solid var(--border);
-  padding: 0.6rem 1rem;
-  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
   color: var(--text);
   outline: none;
-  transition: all 0.2s;
+  transition: all 0.2s var(--ease-apple);
+  font-size: 0.9rem;
 }
 
 .search-container input:focus {
-  border-color: var(--primary);
   background: #ffffff;
-  box-shadow: 0 0 0 3px var(--primary-glow);
+  box-shadow: 0 0 0 2px var(--primary);
 }
 
 .user-actions {
@@ -239,16 +251,37 @@ body {
 .content-body {
   flex: 1;
   overflow-y: auto;
-  padding: 2rem;
+  padding: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.header h1,
+.header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.header .description {
+  color: var(--text-muted);
+  font-size: 1.1rem;
 }
 
 /* Screens */
 .screen {
   display: none;
   animation: fadeIn 0.4s ease;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .screen.active {
@@ -267,50 +300,109 @@ body {
   }
 }
 
-/* Dashboard Recommendations */
+/* Dashboard Enhancements */
+.dashboard-hero {
+  background: white;
+  /* Pure Apple feel */
+  border-radius: var(--radius-lg);
+  padding: 3.5rem;
+  color: var(--text);
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.dashboard-hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, rgba(0, 102, 204, 0.05) 0%, rgba(10, 132, 255, 0.05) 100%);
+  border-radius: 50%;
+}
+
+.dashboard-hero h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  /* Apple uses 700 for heavy titles */
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.04em;
+  color: #000;
+}
+
+.dashboard-hero p {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  line-height: 1.4;
+}
+
 .recommendations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
 }
 
 .recommendation-card {
-  background: var(--surface);
-  padding: 2rem;
+  background: #ffffff;
+  padding: 2.5rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
+  transition: all 0.4s var(--ease-apple);
   position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .recommendation-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
+  transform: scale(1.02);
   box-shadow: var(--shadow-lg);
 }
 
 .card-icon {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .recommendation-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #000;
+  letter-spacing: -0.02em;
+}
+
+.recommendation-card p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  flex-grow: 1;
+  line-height: 1.4;
 }
 
 .start-card-btn {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   background: var(--primary);
   color: white;
   border: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: var(--radius-sm);
+  padding: 0.7rem 1.8rem;
+  border-radius: 20px;
+  /* Pill shape */
   cursor: pointer;
   font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.start-card-btn:hover {
+  background: #0077ed;
+  transform: scale(1.05);
 }
 
 /* Skill List Tree */
@@ -342,39 +434,48 @@ body {
 .skill-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
   background: #ffffff;
-  border: 2px solid var(--border);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s var(--ease-apple);
 }
 
 .skill-item:hover {
-  background: #f0f9ff;
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(14, 165, 233, 0.1);
+  background: var(--surface);
+  border-color: #86868b;
+  transform: scale(1.005);
 }
 
 .skill-id {
-  font-weight: 800;
-  color: var(--primary);
-  min-width: 40px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  min-width: 45px;
 }
 
 .skill-name {
   flex: 1;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 .skill-score {
-  background: var(--success);
-  color: white;
-  padding: 2px 8px;
-  border-radius: 10px;
-  font-size: 0.75rem;
-  font-weight: bold;
+  background: #f5f5f7;
+  color: var(--text);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+}
+
+.skill-score[style*="background: var(--accent)"] {
+  background: var(--primary) !important;
+  color: white !important;
+  border: none !important;
 }
 
 /* Quiz Styles (IXL Style) */
@@ -411,22 +512,23 @@ body {
 }
 
 .question-container {
-  background: var(--surface);
-  padding: 3rem;
+  background: #ffffff;
+  padding: 4rem;
   border-radius: var(--radius-lg);
-  border: 2px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  margin-bottom: 2rem;
-  min-height: 300px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 2.5rem;
+  min-height: 320px;
   position: relative;
 }
 
 .question-label {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  line-height: 1.4;
-  display: block;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  line-height: 1.3;
+  color: #000;
+  letter-spacing: -0.03em;
 }
 
 .tts-button {
@@ -458,44 +560,46 @@ body {
 }
 
 .choice-item {
-  background: #ffffff;
-  border: 2px solid var(--border);
-  padding: 1.25rem;
-  border-radius: var(--radius-md);
+  background: #f5f5f7;
+  border: 1px solid transparent;
+  padding: 1.5rem;
+  border-radius: 12px;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  transition: all 0.2s;
+  gap: 1.25rem;
+  transition: all 0.2s var(--ease-apple);
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  color: var(--text);
 }
 
 .choice-item:hover {
-  background: #f0f9ff;
-  border-color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+  background: #e8e8ed;
+  transform: scale(1.01);
 }
 
 .choice-item.selected {
-  border-color: var(--primary);
-  background: #e0f2fe;
+  background: var(--primary);
+  color: white;
 }
 
 .choice-letter {
-  font-weight: 800;
-  background: var(--primary);
-  color: white;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+  font-weight: 700;
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
-  margin-right: 0.5rem;
-  /* Added spacing between circle and text */
+  font-size: 0.85rem;
+}
+
+.choice-item.selected .choice-letter {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 /* Navigation Buttons */
@@ -509,35 +613,33 @@ body {
   background: var(--primary);
   color: white;
   border: none;
-  padding: 1rem 3rem;
-  border-radius: var(--radius-md);
-  font-weight: 700;
+  padding: 0.8rem 2.5rem;
+  border-radius: 24px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1.125rem;
+  font-size: 1rem;
+  transition: all 0.2s var(--ease-apple);
 }
 
 .submit-button:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--primary-glow);
+  background: #0077ed;
+  transform: scale(1.03);
 }
 
 .back-to-start-btn {
   background: transparent;
-  border: 2px solid var(--border);
-  color: var(--text-muted);
-  padding: 1rem 3rem;
-  border-radius: var(--radius-md);
-  font-weight: 700;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.8rem 2.5rem;
+  border-radius: 24px;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1.125rem;
-  transition: all 0.2s;
+  font-size: 1rem;
+  transition: all 0.2s var(--ease-apple);
 }
 
 .back-to-start-btn:hover {
-  border-color: var(--text-muted);
-  color: var(--text);
-  transform: translateY(-2px);
+  background: #f5f5f7;
 }
 
 /* Stat Summary in Results */
@@ -631,6 +733,183 @@ body {
   padding: 0.75rem;
   border-radius: var(--radius-sm);
   color: var(--text);
+}
+
+/* Results Screen Layout */
+.results-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#score-message {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: white;
+  border: 1px solid var(--border);
+  color: #000;
+  letter-spacing: -0.04em;
+}
+
+#score-message:empty {
+  display: none;
+}
+
+#score-message.excellent {
+  color: var(--success);
+}
+
+#score-message.great {
+  color: var(--primary);
+}
+
+#score-message.good {
+  color: var(--accent);
+}
+
+#score-message.okay {
+  color: var(--warning);
+}
+
+/* Results Screen Review Section */
+.answers-review {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  margin-bottom: 3rem;
+}
+
+.answers-review h3 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: var(--text);
+  border-bottom: 2px solid var(--primary-glow);
+  padding-bottom: 0.75rem;
+  display: inline-block;
+}
+
+#answers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.answer-item {
+  background: var(--surface);
+  border: 2px solid transparent;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.answer-item:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 25px rgba(14, 165, 233, 0.1);
+}
+
+.answer-item.correct {
+  border-color: rgba(34, 197, 94, 0.3);
+  background: linear-gradient(to right, rgba(34, 197, 94, 0.05), #ffffff 50%);
+}
+
+.answer-item.incorrect {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: linear-gradient(to right, rgba(239, 68, 68, 0.05), #ffffff 50%);
+}
+
+.answer-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+}
+
+.answer-item.correct::before {
+  background-color: var(--success);
+}
+
+.answer-item.incorrect::before {
+  background-color: var(--error);
+}
+
+.answer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.answer-number {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.answer-status {
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+}
+
+.answer-item.correct .answer-status {
+  background-color: var(--success);
+  color: white;
+}
+
+.answer-item.incorrect .answer-status {
+  background-color: var(--error);
+  color: white;
+}
+
+.answer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 1.05rem;
+}
+
+.answer-content p {
+  line-height: 1.5;
+  margin: 0;
+}
+
+.answer-content strong {
+  color: var(--text-muted);
+  font-weight: 600;
+  margin-right: 0.5rem;
+  display: inline-block;
+  min-width: 140px;
+}
+
+.answer-content .explanation {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid var(--primary);
+  font-size: 0.95rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 /* Responsive */

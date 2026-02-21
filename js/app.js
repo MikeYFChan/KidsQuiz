@@ -662,8 +662,13 @@ function stopTimer() {
 
 function updateUserUI() {
     const userDisplay = getElement('current-user-name');
-    if (userDisplay && state.currentUser) {
-        userDisplay.textContent = state.currentUser.name;
+    const welcomeDisplay = getElement('welcome-name');
+
+    if (state.currentUser) {
+        if (userDisplay) userDisplay.textContent = state.currentUser.name;
+        if (welcomeDisplay) welcomeDisplay.textContent = state.currentUser.name;
+    } else {
+        if (welcomeDisplay) welcomeDisplay.textContent = 'Learner';
     }
 
     // Update grade badge/info if needed
@@ -726,8 +731,8 @@ function showSkillTree(subject, year) {
             const itemsGrid = document.createElement('div');
             itemsGrid.className = 'skill-items';
 
-            // Just split questions into 3 arbitrary skills for demo
-            for (let i = 1; i <= 3; i++) {
+            // Just split questions into 5 arbitrary skills for demo
+            for (let i = 1; i <= 5; i++) {
                 const skillId = `${code}.${i}`;
                 const mastery = state.currentUser ? getSkillScore(state.currentUser.id, subject, year, skillId) : 0;
 
@@ -897,11 +902,6 @@ function updateSmartScore(isCorrect) {
     // Persist mastery level
     if (state.currentUser) {
         saveSkillScore(state.currentUser.id, state.currentSubject, state.currentYear, state.currentSkill, state.smartScore);
-    }
-
-    // If reached 100, finish quiz automatically
-    if (state.smartScore === 100) {
-        setTimeout(showResults, 1000);
     }
 }
 
@@ -1139,7 +1139,7 @@ function setupEventListeners() {
     if (quizForm) {
         quizForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            if (submitQuiz()) nextQuestion();
+            submitQuiz();
         });
     }
 

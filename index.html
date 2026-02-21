@@ -101,25 +101,28 @@
 
                 <!-- Dashboard Screen (IXL Recommendations Style) -->
                 <div id="dashboard-screen" class="screen active">
-                    <header class="header">
+                    <div class="dashboard-hero">
                         <h2>Welcome back, <span id="welcome-name">Learner</span>!</h2>
-                        <p class="description">Ready to master some new skills today?</p>
-                    </header>
+                        <p>Ready to master some new skills today? Practice makes perfect, and every question gets you
+                            closer to your goals!</p>
+                    </div>
                     <div class="recommendations-grid">
                         <div class="recommendation-card" data-subject="Maths">
                             <span class="card-icon">🔢</span>
                             <h3>Daily Math Challenge</h3>
+                            <p>Test your logic and problem-solving skills with today's top picks.</p>
                             <button class="start-card-btn">Go</button>
                         </div>
                         <div class="recommendation-card" data-subject="English">
                             <span class="card-icon">📚</span>
                             <h3>Grammar Mastery</h3>
+                            <p>Build better sentences and expand your vocabulary through play.</p>
                             <button class="start-card-btn">Go</button>
                         </div>
                         <div class="recommendation-card" id="resume-skill-card">
                             <span class="card-icon">🎯</span>
                             <h3>Keep Going</h3>
-                            <p id="resume-skill-name">Pick up where you left off</p>
+                            <p id="resume-skill-name">Continue your journey where you left off!</p>
                             <button class="start-card-btn">Resume</button>
                         </div>
                     </div>
@@ -236,7 +239,6 @@
             <div id="results-screen" class="screen">
                 <header class="header">
                     <h1>Excellent Work!</h1>
-                    <p id="results-subtitle"></p>
                 </header>
 
                 <div class="results-container">
