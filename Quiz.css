@@ -113,6 +113,9 @@ body {
   flex-direction: column;
   transition: transform 0.3s var(--ease-apple);
   z-index: 100;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Smooth scrolling for iOS */
 }
 
 .sidebar-header {
@@ -135,7 +138,8 @@ body {
 
 .sidebar-nav {
   padding: 1rem;
-  flex: 1;
+  flex: 1 0 auto;
+  /* Allow to grow and shrink, prevents squishing on small screens */
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -179,6 +183,8 @@ body {
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid var(--border);
+  flex-shrink: 0;
+  /* Ensures footer doesn't squash */
 }
 
 /* Main Content Area */
@@ -251,6 +257,8 @@ body {
   align-items: center;
   gap: 0.5rem;
   width: 100%;
+  flex-wrap: wrap;
+  /* Helps on very tight screens */
 }
 
 .user-footer-side .user-select {
@@ -289,6 +297,7 @@ body {
 .content-body {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -1212,6 +1221,7 @@ body {
     height: calc(100vh - 70px);
     transform: translateX(-100%);
     width: 280px;
+    /* Already has overflow-y: auto from main declaration */
   }
 
   .sidebar.active {
@@ -1234,22 +1244,73 @@ body {
   .main-content {
     height: 100vh;
   }
+
+  .content-body {
+    padding: 1.5rem 1rem;
+    /* Less padding on mobile */
+  }
+
+  .header h1,
+  .header h2 {
+    font-size: 2rem;
+    /* Slightly smaller headers */
+  }
+
+  .dashboard-hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .dashboard-hero h2 {
+    font-size: 2.2rem;
+  }
 }
 
 @media (max-width: 600px) {
   .question-container {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
+    min-height: auto;
+    /* Remove fixed min-height */
   }
 
   .question-label {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    /* Smaller question text on mobile */
+    margin-bottom: 2rem;
   }
 
   .choices-container {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .choice-item {
+    padding: 1.2rem;
+    font-size: 1.05rem;
   }
 
   .score-summary {
+    gap: 1.5rem;
+  }
+
+  .stat-value {
+    font-size: 2.5rem;
+  }
+
+  .dashboard-rewards {
+    padding: 1.5rem;
+  }
+
+  .rewards-summary {
+    gap: 1.5rem;
+  }
+
+  .reward-stat .stat-value {
+    font-size: 2rem;
+  }
+
+  .badges-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: 1rem;
   }
+
 }
