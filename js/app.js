@@ -23,7 +23,11 @@ const state = {
     smartScore: 0,
     rewards: {
         stars: 0,
-        badges: []
+        badges: [],
+        xp: 0,
+        level: 1,
+        streak: 0,
+        lastActiveDate: null
     }
 };
 
@@ -110,7 +114,7 @@ function createElement(tag, className = '', innerHTML = '') {
 
 function showScreen(screenName) {
     state.currentView = screenName;
-    const screens = ['dashboard-screen', 'subject-screen', 'year-screen', 'skill-screen', 'question-screen', 'results-screen'];
+    const screens = ['dashboard-screen', 'subject-screen', 'year-screen', 'skill-screen', 'question-screen', 'results-screen', 'report-screen'];
     screens.forEach(id => {
         const el = getElement(id);
         if (el) {
@@ -118,6 +122,18 @@ function showScreen(screenName) {
             if (id === `${screenName}-screen`) el.classList.add('active');
         }
     });
+
+    // Hide progress-related sidebar items during quiz to avoid distraction
+    const reportBtn = getElement('open-report-btn');
+    const historyBtn = getElement('sidebar-history');
+    if (screenName === 'question') {
+        if (reportBtn) reportBtn.style.display = 'none';
+        if (historyBtn) historyBtn.style.display = 'none';
+    } else {
+        if (reportBtn) reportBtn.style.display = 'flex';
+        if (historyBtn) historyBtn.style.display = 'flex';
+    }
+
 
     // Sidebar active state
     document.querySelectorAll('.nav-item').forEach(item => {
@@ -396,13 +412,28 @@ function setCurrentUser(user) {
         const latestUser = state.users.find(u => String(u.id) === String(user.id));
         if (latestUser) {
             if (!latestUser.rewards) {
-                latestUser.rewards = { stars: 0, badges: [] };
+                latestUser.rewards = {
+                    stars: 0,
+                    badges: [],
+                    xp: 0,
+                    level: 1,
+                    streak: 0,
+                    lastActiveDate: null
+                };
             }
             state.rewards = latestUser.rewards;
             state.currentUser = latestUser;
+            checkStreak(); // Check streak when user is set
         } else {
             // New user or fallback
-            if (!user.rewards) user.rewards = { stars: 0, badges: [] };
+            if (!user.rewards) user.rewards = {
+                stars: 0,
+                badges: [],
+                xp: 0,
+                level: 1,
+                streak: 0,
+                lastActiveDate: null
+            };
             state.rewards = user.rewards;
         }
 
@@ -829,6 +860,37 @@ function updateUserUI() {
     if (userGrade && state.currentUser) {
         userGrade.textContent = state.currentUser.grade || 'No Grade';
     }
+
+    // Update XP and Level UI
+    const levelEl = getElement('sidebar-level');
+    const xpBarEl = getElement('sidebar-xp-fill');
+    const streakEl = getElement('sidebar-streak-count');
+    const xpTextEl = getElement('sidebar-xp-text');
+
+    if (state.currentUser) {
+        const rewards = state.rewards;
+        if (levelEl) levelEl.textContent = `Lvl ${rewards.level || 1}`;
+        if (streakEl) {
+            streakEl.textContent = rewards.streak || 0;
+            streakEl.parentElement.style.display = (rewards.streak > 0) ? 'flex' : 'none';
+        }
+
+        if (xpBarEl && xpTextEl) {
+            const currentLevel = rewards.level || 1;
+            const currentXP = rewards.xp || 0;
+            const prevThreshold = getLevelThreshold(currentLevel - 1);
+            const nextThreshold = getLevelThreshold(currentLevel);
+            const progress = ((currentXP - prevThreshold) / (nextThreshold - prevThreshold)) * 100;
+
+            xpBarEl.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+            xpTextEl.textContent = `${currentXP} / ${nextThreshold} XP`;
+        }
+    } else {
+        if (levelEl) levelEl.textContent = '';
+        if (xpBarEl) xpBarEl.style.width = '0%';
+        if (xpTextEl) xpTextEl.textContent = 'Guest';
+        if (streakEl) streakEl.parentElement.style.display = 'none';
+    }
 }
 
 function updateTimerDisplay() {
@@ -973,6 +1035,26 @@ function speakQuestion() {
     window.speechSynthesis.speak(utterance);
 }
 
+function speakEncouragement() {
+    if (!('speechSynthesis' in window)) return;
+
+    const phrases = {
+        en: ["Excellent!", "Brilliant!", "You're a star!", "Keep it up!", "Great job!", "Spot on!"],
+        zh: ["好叻呀！", "非常之好！", "答啱喇！", "繼續加油！", "你真係聰明！", "太棒了！"]
+    };
+
+    const lang = state.currentSubject === 'Chinese' ? 'zh' : 'en';
+    const list = phrases[lang];
+    const randomPhrase = list[Math.floor(Math.random() * list.length)];
+
+    const utterance = new SpeechSynthesisUtterance(randomPhrase);
+    utterance.lang = lang === 'zh' ? 'zh-HK' : 'en-GB';
+    utterance.rate = 1.0;
+    utterance.pitch = 1.1; // Slightly higher pitch for excitement
+
+    window.speechSynthesis.speak(utterance);
+}
+
 function loadQuestion(index) {
     // Start/Reset timer for each question
     startTimer();
@@ -1112,6 +1194,7 @@ function submitQuiz() {
     if (isCorrect) {
         sounds.correct();
         updateSmartScore(true);
+        speakEncouragement(); // Add verbal encouragement
         nextQuestion(); // Automatic move on correct
     } else {
         sounds.incorrect();
@@ -1239,8 +1322,103 @@ function showResults() {
         if (earnedStar) {
             checkAndAwardBadges(state.currentSubject);
         }
+
+        // Award XP
+        let awardedXP = (correctCount * 10); // 10 XP per correct answer
+        awardedXP += 50; // Base completion bonus
+        if (percentage === 100) awardedXP += 50; // Extra perfect score bonus
+
+        // Streak Multiplier (Example: 1.2x if streak > 1)
+        if (state.rewards.streak > 1) {
+            awardedXP = Math.round(awardedXP * 1.2);
+        }
+
+        awardXP(awardedXP);
         updateUserUI();
     }
+}
+
+function awardXP(amount) {
+    if (!state.currentUser) return;
+
+    state.rewards.xp = (state.rewards.xp || 0) + amount;
+    showToast(`+${amount} XP Earned! ✨`, 'info');
+
+    checkLevelUp();
+    saveUsersToStorage();
+}
+
+function getLevelThreshold(level) {
+    if (level <= 0) return 0;
+    // Level 1: 0, Level 2: 100, Level 3: 300, Level 4: 600...
+    let total = 0;
+    for (let i = 1; i <= level; i++) {
+        total += i * 100;
+    }
+    return total;
+}
+
+function checkLevelUp() {
+    let currentLevel = state.rewards.level || 1;
+    let xp = state.rewards.xp || 0;
+
+    let nextThreshold = getLevelThreshold(currentLevel);
+
+    if (xp >= nextThreshold) {
+        state.rewards.level = currentLevel + 1;
+        showLevelUpFeedback();
+        // Check again in case they jumped multiple levels
+        checkLevelUp();
+    }
+}
+
+function showLevelUpFeedback() {
+    showToast(`LEVEL UP! You are now Level ${state.rewards.level}! 🎉`, 'success', 8000);
+
+    if (typeof confetti === 'function') {
+        confetti({
+            particleCount: 200,
+            spread: 90,
+            origin: { y: 0.5 },
+            colors: ['#ff9500', '#ffcc00', '#34c759', '#0066cc']
+        });
+    }
+
+    // Play a special sound? (Placeholder)
+    sounds.correct();
+    setTimeout(() => sounds.correct(), 200);
+}
+
+function checkStreak() {
+    if (!state.currentUser) return;
+
+    const now = new Date();
+    const todayStr = now.toISOString().split('T')[0];
+    const lastActive = state.rewards.lastActiveDate;
+
+    if (!lastActive) {
+        state.rewards.streak = 1;
+        state.rewards.lastActiveDate = todayStr;
+    } else if (lastActive === todayStr) {
+        // Already active today, do nothing
+    } else {
+        const lastDate = new Date(lastActive);
+        const diffDays = Math.floor((now - lastDate) / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 1) {
+            // Consecutive day!
+            state.rewards.streak++;
+            showToast(`${state.rewards.streak} Day Streak! 🔥`, 'success');
+        } else if (diffDays > 1) {
+            // Streak broken
+            state.rewards.streak = 1;
+            showToast('Streak broken, keep practicing every day!', 'warning');
+        }
+        state.rewards.lastActiveDate = todayStr;
+    }
+
+    saveUsersToStorage();
+    updateUserUI();
 }
 
 function restartQuiz() {
@@ -1286,6 +1464,8 @@ function setupEventListeners() {
                 const currentUser = state.currentUser;
                 if (!currentUser) { showToast('Please select a user first', 'info'); return; }
                 showHistoryModal(currentUser.id);
+            } else if (button.id === 'open-report-btn') {
+                openProgressReport();
             }
 
             // Close sidebar on mobile after click
@@ -1323,6 +1503,8 @@ function setupEventListeners() {
                 selectSubject(state.currentSubject || 'Maths');
             } else if (card.dataset.subject) {
                 selectSubject(card.dataset.subject);
+            } else if (card.id === 'dash-report-card') {
+                openProgressReport();
             }
         };
 
@@ -1336,6 +1518,7 @@ function setupEventListeners() {
             });
         }
     });
+
 
     // Subject buttons (legacy subjects screen)
     document.querySelectorAll('.subject-button').forEach(button => {
@@ -1408,6 +1591,11 @@ function setupEventListeners() {
     // Explanation Close
     const closeExpBtn = getElement('close-explanation');
     if (closeExpBtn) closeExpBtn.addEventListener('click', closeExplanation);
+
+    const reportBackBtn = getElement('report-back-btn');
+    if (reportBackBtn) {
+        reportBackBtn.addEventListener('click', () => showScreen('dashboard'));
+    }
 
     // User modal buttons
     const openUserModalBtn = getElement('open-user-modal') || getElement('open-user-modal-footer');
@@ -1556,6 +1744,145 @@ function setupEventListeners() {
     // History modal styling
     const historyModal = getElement('history-modal');
     if (historyModal) historyModal.style.cssText = 'display:none;position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;';
+
+    if (openReportBtn) {
+        openReportBtn.onclick = openProgressReport;
+    }
+}
+
+function openProgressReport() {
+    console.log('Opening Progress Report...');
+    if (state.currentView === 'question') {
+        showToast('Finish your practice first!', 'info');
+        return;
+    }
+    if (!state.currentUser) {
+        console.log('No user selected for report.');
+        showToast('Please select a student first.', 'info');
+        return;
+    }
+
+    console.log('Generating report for:', state.currentUser.name);
+    const reportData = generateReportData(state.currentUser.id);
+    renderReport(reportData);
+
+    showScreen('report');
+    console.log('Switched to Progress Report screen.');
+}
+
+function generateReportData(userId) {
+    console.log('Processing history for user ID:', userId);
+    const history = state.quizHistory ? (state.quizHistory[String(userId)] || []) : [];
+    console.log(`Found ${history.length} history entries.`);
+
+    if (history.length === 0) return null;
+
+    const subjectStats = {};
+    history.forEach(entry => {
+        if (!subjectStats[entry.subject]) {
+            subjectStats[entry.subject] = { total: 0, correct: 0, count: 0 };
+        }
+        subjectStats[entry.subject].total += entry.total;
+        subjectStats[entry.subject].correct += entry.correct;
+        subjectStats[entry.subject].count += 1;
+    });
+
+    // Calculate strongest/weakest
+    let strongest = { name: 'N/A', score: -1 };
+    let weakest = { name: 'N/A', score: 101 };
+
+    Object.entries(subjectStats).forEach(([name, stats]) => {
+        const avg = (stats.correct / stats.total) * 100;
+        if (avg > strongest.score) strongest = { name, score: avg };
+        if (avg < weakest.score) weakest = { name, score: avg };
+    });
+
+    return {
+        student: state.currentUser.name,
+        totalQuizzes: history.length,
+        totalStars: history.filter(h => h.star).length,
+        strongest: strongest.name !== 'N/A' ? strongest : null,
+        weakest: weakest.name !== 'N/A' ? weakest : null,
+        recentTrend: history.slice(-5).map(h => h.percentage)
+    };
+}
+
+function renderReport(data) {
+    const content = getElement('report-content-full');
+    if (!content) return;
+
+    if (!data) {
+        content.innerHTML = `
+            <div class="no-data-premium">
+                <div class="no-data-icon">📊</div>
+                <h4>Empty Slate</h4>
+                <p>Start your first quiz to unlock personalized insights and learning patterns!</p>
+                <button onclick="showScreen('subject')" class="primary-btn" style="margin-top: 1rem">Start Learning</button>
+            </div>
+        `;
+        return;
+    }
+
+    const getSubjectIcon = (subject) => {
+        const icons = {
+            'Maths': '🔢',
+            'English': '📚',
+            'Chinese': '🧧',
+            'Verbal Reasoning': '💡',
+            'Non-Verbal Reasoning': '🧩',
+            'Science': '🧪'
+        };
+        return icons[subject] || '📝';
+    };
+
+    const trendHtml = data.recentTrend.map((p, i) => `
+        <div class="trend-bar-wrapper">
+            <span class="trend-percent">${p}%</span>
+            <div class="trend-bar" style="height: ${Math.max(p, 5)}%; animation-delay: ${i * 0.1}s"></div>
+        </div>
+    `).join('');
+
+    const strongestIcon = getSubjectIcon(data.strongest?.name);
+    const weakestIcon = getSubjectIcon(data.weakest?.name);
+
+    content.innerHTML = `
+        <div class="report-stats-grid">
+            <div class="report-stat-card">
+                <span class="stat-label">Quizzes</span>
+                <span class="stat-value">${data.totalQuizzes}</span>
+            </div>
+            <div class="report-stat-card">
+                <span class="stat-label">Stars</span>
+                <span class="stat-value">${data.totalStars}</span>
+            </div>
+        </div>
+
+        <div class="report-insights">
+            <div class="insight-item highlight">
+                <span class="insight-icon">${data.strongest ? strongestIcon : '⭐'}</span>
+                <div class="insight-text">
+                    <strong>Strongest: ${data.strongest ? data.strongest.name : 'Starting Out'}</strong>
+                    <p>${data.strongest ? `Excellent mastery at ${Math.round(data.strongest.score)}%` : 'Keep practicing to find your strengths!'}</p>
+                </div>
+            </div>
+            <div class="insight-item focus">
+                <span class="insight-icon">${data.weakest ? weakestIcon : '🎯'}</span>
+                <div class="insight-text">
+                    <strong>Focus Area: ${data.weakest ? data.weakest.name : 'N/A'}</strong>
+                    <p>${data.weakest ? `Target: Improve accuracy in ${data.weakest.name}` : 'More data needed for focused analysis.'}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-trend">
+            <h4>Recent Accuracy Trend</h4>
+            <div class="trend-chart">${trendHtml}</div>
+            <div class="trend-labels">
+                <span>Earlier</span>
+                <span>Recent</span>
+            </div>
+        </div>
+    `;
 }
 
 // ============================================

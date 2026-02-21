@@ -18,9 +18,25 @@
             <div class="sidebar-header">
                 <span class="logo-icon">🎓</span>
                 <span class="logo-text">KidsQuiz</span>
-                <div class="user-rewards-badge" id="sidebar-rewards" style="display: none;">
-                    <span class="star-icon">⭐</span>
-                    <span id="sidebar-star-count">0</span>
+            </div>
+
+            <div class="player-stats-sidebar">
+                <div class="stats-top">
+                    <span id="sidebar-level" class="level-badge">Lvl 1</span>
+                    <div class="streak-badge" style="display: none;">
+                        <span class="streak-icon">🔥</span>
+                        <span id="sidebar-streak-count">0</span>
+                    </div>
+                    <div class="user-rewards-badge" id="sidebar-rewards" style="display: none;">
+                        <span class="star-icon">⭐</span>
+                        <span id="sidebar-star-count">0</span>
+                    </div>
+                </div>
+                <div class="xp-bar-container">
+                    <div class="xp-progress">
+                        <div id="sidebar-xp-fill" class="xp-fill"></div>
+                    </div>
+                    <span id="sidebar-xp-text" class="xp-text">0 / 100 XP</span>
                 </div>
             </div>
             <nav class="sidebar-nav">
@@ -53,6 +69,10 @@
                 <button class="nav-item" id="sidebar-history">
                     <span class="nav-icon">📈</span>
                     <span class="nav-label">History</span>
+                </button>
+                <button class="nav-item accent" id="open-report-btn">
+                    <span class="nav-icon">📊</span>
+                    Progress Report
                 </button>
             </nav>
             <div class="sidebar-footer">
@@ -133,6 +153,12 @@
                             <p id="resume-skill-name">Continue your journey where you left off!</p>
                             <button class="start-card-btn">Resume</button>
                         </div>
+                        <div class="recommendation-card accent-card" id="dash-report-card">
+                            <span class="card-icon">📊</span>
+                            <h3>Learning Report</h3>
+                            <p>View your mastery trends and identify areas to grow.</p>
+                            <button class="start-card-btn">See Progress</button>
+                        </div>
                     </div>
 
                     <div class="dashboard-rewards" id="dashboard-rewards-section">
@@ -203,6 +229,22 @@
                     </div>
                     <div class="button-group" style="justify-content: center; margin-top: 2rem;">
                         <button type="button" class="back-button" id="back-to-subject">← Subjects</button>
+                    </div>
+                </div>
+
+                <!-- Progress Report Screen -->
+                <div id="report-screen" class="screen">
+                    <header class="header report-top-header">
+                        <button id="report-back-btn" class="back-button">← Dashboard</button>
+                        <div class="header-main">
+                            <h1>📊 Learning Progress</h1>
+                            <p>Insights for Parents & Teachers</p>
+                        </div>
+                        <button onclick="window.print()" class="secondary-btn print-btn-premium">🖨️ Print
+                            Report</button>
+                    </header>
+                    <div id="report-content-full" class="report-content-container">
+                        <!-- Content injected by JS -->
                     </div>
                 </div>
 
