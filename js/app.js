@@ -989,7 +989,7 @@ function loadQuestion(index) {
     if (questionText) questionText.textContent = question.question;
     if (currentQuestion) currentQuestion.textContent = index + 1;
 
-    const progress = ((index + 1) / state.currentQuestions.length) * 100;
+    const progress = (index / state.currentQuestions.length) * 100;
     if (progressFill) progressFill.style.width = progress + '%';
 
     const prevBtn = getElement('prev-btn');
