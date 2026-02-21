@@ -18,6 +18,10 @@
             <div class="sidebar-header">
                 <span class="logo-icon">🎓</span>
                 <span class="logo-text">KidsQuiz</span>
+                <div class="user-rewards-badge" id="sidebar-rewards" style="display: none;">
+                    <span class="star-icon">⭐</span>
+                    <span id="sidebar-star-count">0</span>
+                </div>
             </div>
             <nav class="sidebar-nav">
                 <button class="nav-item active" data-view="dashboard">
@@ -40,6 +44,10 @@
                 <button class="nav-item" data-subject="Science">
                     <span class="nav-icon">🔬</span>
                     <span class="nav-label">Science</span>
+                </button>
+                <button class="nav-item" data-subject="11+">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-label">11+ Prep</span>
                 </button>
                 <div class="nav-divider">Progress</div>
                 <button class="nav-item" id="sidebar-history">
@@ -161,6 +169,10 @@
                             <span class="subject-icon">🔬</span>
                             <span class="subject-name">Science</span>
                         </button>
+                        <button type="button" class="subject-button" data-subject="11+">
+                            <span class="subject-icon">🎯</span>
+                            <span class="subject-name">11+ Prep</span>
+                        </button>
                     </div>
                 </div>
 
@@ -169,9 +181,10 @@
                     <header class="header">
                         <h1 id="selected-subject-title" class="text-center"></h1>
                     </header>
-                    <div class="year-selection">
-                        <button type="button" class="year-button" data-year="Year 3">Year 3</button>
-                        <button type="button" class="year-button" data-year="Year 6">Year 6</button>
+                    <div class="year-selection" id="year-selection">
+                        <!-- Year buttons will be dynamically injected here -->
+                    </div>
+                    <div class="button-group" style="justify-content: center; margin-top: 2rem;">
                         <button type="button" class="back-button" id="back-to-subject">← Subjects</button>
                     </div>
                 </div>
@@ -260,6 +273,7 @@
                     </div>
 
                     <div class="button-group">
+                        <button type="button" id="results-dashboard-btn" class="nav-button secondary">Dashboard</button>
                         <button type="button" id="restart-btn" class="submit-button">Practice More</button>
                         <button type="button" id="new-quiz-btn" class="nav-button">Other Skills</button>
                     </div>
@@ -281,6 +295,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+        <script src="js/questions-data.js"></script>
         <script src="js/app.js"></script>
 </body>
 

@@ -1,4 +1,4 @@
-{
+const QUESTIONS_DATA = {
   "Chinese": {
     "Year 3": [
       {
@@ -3799,4 +3799,4 @@
       }
     ]
   }
-}
+};

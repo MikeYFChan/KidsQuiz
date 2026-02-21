@@ -20,7 +20,11 @@ const state = {
     users: [],
     currentUser: null,
     quizHistory: {},
-    smartScore: 0
+    smartScore: 0,
+    rewards: {
+        stars: 0,
+        badges: []
+    }
 };
 
 // ============================================
@@ -36,7 +40,23 @@ function shuffleArray(array) {
 }
 
 function normalizeAnswer(answer) {
-    return String(answer).replace(/\s+/g, '').toLowerCase();
+    if (answer === null || answer === undefined) return '';
+    return String(answer)
+        .normalize('NFKC') // Normalize Unicode (handles full-width chars)
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()！？。，、；：「」『』（）]/g, '') // Remove punctuation
+        .replace(/\s+/g, '') // Remove all whitespace
+        .toLowerCase();
+}
+
+function compareAnswers(userAns, correctAns) {
+    const normUser = normalizeAnswer(userAns);
+    const normCorrect = normalizeAnswer(correctAns);
+    const isMatched = normUser === normCorrect;
+
+    if (!isMatched) {
+        console.log(`Answer Mismatch: [${userAns}] -> [${normUser}] vs Correct: [${correctAns}] -> [${normCorrect}]`);
+    }
+    return isMatched;
 }
 
 function getElement(id) {
@@ -106,6 +126,34 @@ function showScreen(screenName) {
             item.classList.add('active');
         }
     });
+
+    // Refresh Dashboard Rewards
+    if (screenName === 'dashboard' && state.currentUser) {
+        const rewardsSection = getElement('dashboard-rewards-section');
+        const starsVal = getElement('dash-total-stars');
+        const badgesVal = getElement('dash-total-badges');
+        const badgesGrid = getElement('badges-grid');
+
+        if (rewardsSection) {
+            rewardsSection.style.display = (state.rewards.stars > 0 || state.rewards.badges.length > 0) ? 'block' : 'none';
+            if (starsVal) starsVal.textContent = state.rewards.stars || 0;
+            if (badgesVal) badgesVal.textContent = state.rewards.badges.length || 0;
+
+            if (badgesGrid) {
+                badgesGrid.innerHTML = '';
+                state.rewards.badges.forEach(badge => {
+                    const badgeEl = document.createElement('div');
+                    badgeEl.className = 'badge-item';
+                    const icon = badge.split(' ').pop();
+                    badgeEl.innerHTML = `
+                        <div class="badge-icon">${icon}</div>
+                        <div class="badge-name">${badge}</div>
+                    `;
+                    badgesGrid.appendChild(badgeEl);
+                });
+            }
+        }
+    }
 }
 
 // ============================================
@@ -326,7 +374,22 @@ function setCurrentUser(user) {
     state.currentUser = user;
     if (user) {
         localStorage.setItem('quiz_current_user', JSON.stringify(user));
-        showToast(`Welcome back, ${user.name}!`, 'success');
+
+        // Always load from the main users list to get latest rewards
+        const latestUser = state.users.find(u => String(u.id) === String(user.id));
+        if (latestUser) {
+            if (!latestUser.rewards) {
+                latestUser.rewards = { stars: 0, badges: [] };
+            }
+            state.rewards = latestUser.rewards;
+            state.currentUser = latestUser;
+        } else {
+            // New user or fallback
+            if (!user.rewards) user.rewards = { stars: 0, badges: [] };
+            state.rewards = user.rewards;
+        }
+
+        showToast(`Welcome back, ${state.currentUser.name}!`, 'success');
 
         // Refresh views to show correct mastery levels
         if (state.currentView === 'skill') {
@@ -339,6 +402,7 @@ function setCurrentUser(user) {
         showToast('Switched to Guest mode (Scores will not be tracked)', 'info');
     }
     updateUserUI();
+    if (state.currentView === 'dashboard') showScreen('dashboard');
 }
 
 function validateName(name) {
@@ -422,7 +486,7 @@ function renderUserSelect() {
     state.users.forEach(u => {
         const opt = document.createElement('option');
         opt.value = u.id;
-        opt.textContent = `${u.name} (${u.grade || ''})`;
+        opt.textContent = `${u.name} (${u.grade || ''}) ${u.rewards?.stars ? '⭐' + u.rewards.stars : ''}`;
         if (state.currentUser && String(state.currentUser.id) === String(u.id)) opt.selected = true;
         sel.appendChild(opt);
     });
@@ -482,7 +546,53 @@ function recordHistory(entry, user) {
     const id = String(user.id);
     if (!state.quizHistory[id]) state.quizHistory[id] = [];
     state.quizHistory[id].push(entry);
+
+    // Update user rewards in stats
+    const userIdx = state.users.findIndex(u => String(u.id) === String(user.id));
+    if (userIdx !== -1) {
+        state.users[userIdx].rewards = state.rewards;
+        saveUsersToStorage();
+
+        // Also update stored current user to stay in sync
+        localStorage.setItem('quiz_current_user', JSON.stringify(state.users[userIdx]));
+    }
+
     saveHistoryToStorage();
+}
+
+/**
+ * Check and award badges based on milestones
+ * @param {string} subject 
+ */
+function checkAndAwardBadges(subject) {
+    if (!state.currentUser) return;
+
+    const userHistory = state.quizHistory[String(state.currentUser.id)] || [];
+    const subjectStars = userHistory.filter(h => h.subject === subject && h.star).length;
+
+    const badgeMap = {
+        'Maths': { threshold: 3, name: 'Math Whiz 🔢', icon: '🔢' },
+        'English': { threshold: 3, name: 'Word Master 📚', icon: '📚' },
+        'Science': { threshold: 3, name: 'Super Scientist 🔬', icon: '🔬' },
+        'Chinese': { threshold: 3, name: 'Chinese Expert 🏮', icon: '🏮' }
+    };
+
+    const badgeInfo = badgeMap[subject];
+    if (badgeInfo && subjectStars >= badgeInfo.threshold) {
+        if (!state.rewards.badges.includes(badgeInfo.name)) {
+            state.rewards.badges.push(badgeInfo.name);
+            showToast(`New Badge Earned: ${badgeInfo.name}! 🏆`, 'success', 6000);
+
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#fbbf24', '#f59e0b', '#d97706']
+                });
+            }
+        }
+    }
 }
 
 function showHistoryModal(userId) {
@@ -490,13 +600,19 @@ function showHistoryModal(userId) {
     if (!list) return;
     const entries = state.quizHistory[String(userId)] || [];
     if (!entries.length) {
-        list.innerHTML = '<p>No history for this user.</p>';
+        list.innerHTML = '<p class="text-center" style="padding: 2rem; color: var(--text-muted);">No history for this user yet. Start a quiz to see results here!</p>';
     } else {
         list.innerHTML = '';
         entries.slice().reverse().forEach(e => {
             const item = document.createElement('div');
-            item.style.cssText = 'padding:8px 0;border-bottom:1px solid #eee;';
-            item.innerHTML = `<strong>${new Date(e.date).toLocaleString()}</strong><div>${e.subject} - ${e.year} — ${e.correct}/${e.total} (${e.percentage}%)</div>`;
+            item.className = 'history-entry';
+            item.innerHTML = `
+                <div class="history-date">${new Date(e.date).toLocaleString()}</div>
+                <div class="history-info">
+                    <div class="history-subject">${e.subject} - ${e.year} ${e.star ? '<span class="history-star">⭐</span>' : ''}</div>
+                    <div class="history-score">${e.correct}/${e.total} (${e.percentage}%)</div>
+                </div>
+            `;
             list.appendChild(item);
         });
     }
@@ -510,6 +626,17 @@ function showHistoryModal(userId) {
 async function loadQuestions() {
     showLoadingIndicator(true);
 
+    // Check if we already have data from a script tag (for local file access)
+    if (typeof QUESTIONS_DATA !== 'undefined') {
+        console.log('Using pre-loaded QUESTIONS_DATA from script tag');
+        let normalized = QUESTIONS_DATA;
+        convertNestedToMcq(normalized);
+        state.questionsData = normalized;
+        state.questionsLoaded = true;
+        showLoadingIndicator(false);
+        return;
+    }
+
     // Timeout protection - hide loading after 10 seconds
     const timeoutId = setTimeout(() => {
         console.log('Loading timeout - hiding indicator');
@@ -517,7 +644,7 @@ async function loadQuestions() {
     }, 10000);
 
     try {
-        // Calculate base path for GitHub Pages subdirectory deployment
+        // ... (rest of the fetch logic remains as fallback or for production)
         const baseRoot = (() => {
             const seg = location.pathname.split('/').filter(Boolean);
             const cleaned = seg.filter(s => s && s !== 'index.html');
@@ -527,7 +654,6 @@ async function loadQuestions() {
             return '/';
         })();
 
-        // Priority ordered paths
         const paths = [
             baseRoot + 'questions.json',
             'questions.json',
@@ -556,7 +682,7 @@ async function loadQuestions() {
 
         if (!response || !response.ok) {
             console.error('All paths failed');
-            showToast('Failed to load questions. Please refresh the page.', 'error');
+            showToast('Failed to load questions. Opening via file:// without local server?', 'warning');
             clearTimeout(timeoutId);
             showLoadingIndicator(false);
             return;
@@ -667,8 +793,17 @@ function updateUserUI() {
     if (state.currentUser) {
         if (userDisplay) userDisplay.textContent = state.currentUser.name;
         if (welcomeDisplay) welcomeDisplay.textContent = state.currentUser.name;
+
+        // Update reward indicators in sidebar if they exist
+        const starCountEl = getElement('sidebar-star-count');
+        if (starCountEl) {
+            starCountEl.textContent = state.rewards.stars || 0;
+            starCountEl.parentElement.style.display = state.rewards.stars > 0 ? 'flex' : 'none';
+        }
     } else {
         if (welcomeDisplay) welcomeDisplay.textContent = 'Learner';
+        const starCountEl = getElement('sidebar-star-count');
+        if (starCountEl) starCountEl.parentElement.style.display = 'none';
     }
 
     // Update grade badge/info if needed
@@ -689,12 +824,42 @@ function updateTimerDisplay() {
 function selectSubject(subject) {
     state.currentSubject = subject;
     const currentUser = state.currentUser;
-    if (currentUser && currentUser.grade) {
+    if (currentUser && currentUser.grade && state.questionsData[subject]?.[currentUser.grade]) {
         state.currentYear = currentUser.grade;
         showSkillTree(subject, state.currentYear);
     } else {
         const titleEl = getElement('selected-subject-title');
-        if (titleEl) titleEl.textContent = subject + ' - Select Year';
+        if (titleEl) titleEl.textContent = subject + ' - Select Topic';
+
+        const yearSelectionEl = getElement('year-selection');
+        if (yearSelectionEl) {
+            yearSelectionEl.innerHTML = '';
+            const categories = Object.keys(state.questionsData[subject] || {});
+
+            // Map common topics to icons for a premium feel
+            const topicIcons = {
+                'Verbal Reasoning': '🧠',
+                'English & Maths': '➕',
+                'Year 3': '🥉',
+                'Year 6': '🥇',
+                'Default': '📝'
+            };
+
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'year-button';
+
+                const icon = topicIcons[cat] || topicIcons['Default'];
+                btn.innerHTML = `
+                    <span class="subject-icon">${icon}</span>
+                    <span class="subject-name">${cat}</span>
+                `;
+
+                btn.onclick = () => selectYear(cat);
+                yearSelectionEl.appendChild(btn);
+            });
+        }
         showScreen('year');
     }
 }
@@ -923,7 +1088,7 @@ function submitQuiz() {
     state.userAnswers[state.currentQuestionIndex] = userAnswer;
 
     const question = state.currentQuestions[state.currentQuestionIndex];
-    const isCorrect = normalizeAnswer(userAnswer) === normalizeAnswer(question.answer);
+    const isCorrect = compareAnswers(userAnswer, question.answer);
 
     // Play feedback sound
     if (isCorrect) {
@@ -977,7 +1142,7 @@ function showResults() {
 
     state.currentQuestions.forEach((q, index) => {
         const userAnswer = state.userAnswers[index] || 'No answer';
-        const isCorrect = normalizeAnswer(userAnswer) === normalizeAnswer(q.answer);
+        const isCorrect = compareAnswers(userAnswer, q.answer);
         if (isCorrect) correctCount++;
 
         const answerItem = createElement('div', `answer-item ${isCorrect ? 'correct' : 'incorrect'}`);
@@ -1021,8 +1186,28 @@ function showResults() {
 
     const currentUser = JSON.parse(localStorage.getItem('quiz_current_user'));
     if (currentUser) {
-        const entry = { date: new Date().toISOString(), subject: state.currentSubject, year: state.currentYear, correct: correctCount, total: state.currentQuestions.length, percentage };
-        recordHistory(entry, currentUser);
+        let earnedStar = false;
+        if (percentage === 100) {
+            state.rewards.stars++;
+            earnedStar = true;
+            // Additional celebration if needed, but confetti is already handled
+        }
+
+        const entry = {
+            date: new Date().toISOString(),
+            subject: state.currentSubject,
+            year: state.currentYear,
+            correct: correctCount,
+            total: state.currentQuestions.length,
+            percentage,
+            star: earnedStar
+        };
+        recordHistory(entry, state.currentUser);
+
+        if (earnedStar) {
+            checkAndAwardBadges(state.currentSubject);
+        }
+        updateUserUI();
     }
 }
 
@@ -1032,6 +1217,10 @@ function restartQuiz() {
 
 function chooseNewQuiz() {
     showScreen('subject');
+}
+
+function goToDashboard() {
+    showScreen('dashboard');
 }
 
 function backToSubjects() {
@@ -1161,6 +1350,9 @@ function setupEventListeners() {
     // New quiz button
     const newQuizBtn = getElement('new-quiz-btn');
     if (newQuizBtn) newQuizBtn.addEventListener('click', chooseNewQuiz);
+
+    const resDashBtn = getElement('results-dashboard-btn');
+    if (resDashBtn) resDashBtn.addEventListener('click', goToDashboard);
 
     // Back to subjects (Legacy footer)
     const backToSubjectsBtn = getElement('back-to-subjects'); // Renamed or just use existing
