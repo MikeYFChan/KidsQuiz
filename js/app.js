@@ -128,29 +128,42 @@ function showScreen(screenName) {
     });
 
     // Refresh Dashboard Rewards
-    if (screenName === 'dashboard' && state.currentUser) {
+    if (screenName === 'dashboard') {
         const rewardsSection = getElement('dashboard-rewards-section');
         const starsVal = getElement('dash-total-stars');
         const badgesVal = getElement('dash-total-badges');
         const badgesGrid = getElement('badges-grid');
 
         if (rewardsSection) {
-            rewardsSection.style.display = (state.rewards.stars > 0 || state.rewards.badges.length > 0) ? 'block' : 'none';
-            if (starsVal) starsVal.textContent = state.rewards.stars || 0;
-            if (badgesVal) badgesVal.textContent = state.rewards.badges.length || 0;
+            rewardsSection.style.display = 'block';
 
-            if (badgesGrid) {
-                badgesGrid.innerHTML = '';
-                state.rewards.badges.forEach(badge => {
-                    const badgeEl = document.createElement('div');
-                    badgeEl.className = 'badge-item';
-                    const icon = badge.split(' ').pop();
-                    badgeEl.innerHTML = `
-                        <div class="badge-icon">${icon}</div>
-                        <div class="badge-name">${badge}</div>
-                    `;
-                    badgesGrid.appendChild(badgeEl);
-                });
+            if (!state.currentUser) {
+                if (starsVal) starsVal.textContent = '0';
+                if (badgesVal) badgesVal.textContent = '0';
+                if (badgesGrid) {
+                    badgesGrid.innerHTML = '<p class="empty-rewards-msg">Please <strong>Select a User</strong> in the sidebar to start earning stars! 👤</p>';
+                }
+            } else {
+                if (starsVal) starsVal.textContent = state.rewards.stars || 0;
+                if (badgesVal) badgesVal.textContent = state.rewards.badges.length || 0;
+
+                if (badgesGrid) {
+                    if (state.rewards.badges.length === 0) {
+                        badgesGrid.innerHTML = '<p class="empty-rewards-msg">Keep practicing to earn your first star! ⭐</p>';
+                    } else {
+                        badgesGrid.innerHTML = '';
+                        state.rewards.badges.forEach(badge => {
+                            const badgeEl = document.createElement('div');
+                            badgeEl.className = 'badge-item';
+                            const icon = badge.split(' ').pop();
+                            badgeEl.innerHTML = `
+                                <div class="badge-icon">${icon}</div>
+                                <div class="badge-name">${badge}</div>
+                            `;
+                            badgesGrid.appendChild(badgeEl);
+                        });
+                    }
+                }
             }
         }
     }
@@ -364,7 +377,11 @@ function saveUsersToStorage() {
 function loadCurrentUser() {
     try {
         const raw = localStorage.getItem('quiz_current_user');
-        state.currentUser = raw ? JSON.parse(raw) : null;
+        const user = raw ? JSON.parse(raw) : null;
+        if (user) {
+            // This will sync state.rewards and update UI
+            setCurrentUser(user);
+        }
     } catch (e) {
         state.currentUser = null;
     }
@@ -552,6 +569,7 @@ function recordHistory(entry, user) {
     if (userIdx !== -1) {
         state.users[userIdx].rewards = state.rewards;
         saveUsersToStorage();
+        console.log(`History Recorded. Saved user rewards:`, state.users[userIdx].rewards);
 
         // Also update stored current user to stay in sync
         localStorage.setItem('quiz_current_user', JSON.stringify(state.users[userIdx]));
@@ -1136,6 +1154,7 @@ function showResults() {
     let correctCount = 0;
     const answersList = getElement('answers-list');
     const resultsSubtitle = getElement('results-subtitle');
+    const scoreMessage = getElement('score-message');
 
     if (answersList) answersList.innerHTML = '';
     if (resultsSubtitle) resultsSubtitle.textContent = `${state.currentSubject} - ${state.currentYear}`;
@@ -1162,6 +1181,8 @@ function showResults() {
     });
 
     const percentage = Math.round((correctCount / state.currentQuestions.length) * 100);
+    console.log(`Quiz Finished: ${correctCount}/${state.currentQuestions.length} (${percentage}%)`);
+    if (!state.currentUser) console.log("Warning: No user selected. Rewards will not be tracked.");
     const scoreText = getElement('score-text');
     const percentageText = getElement('percentage-text');
     if (percentageText) percentageText.textContent = `${percentage}%`;
@@ -1184,13 +1205,24 @@ function showResults() {
         else { scoreMessage.textContent = 'Keep practising! You can do it! 💪'; scoreMessage.className = 'score-message okay'; }
     }
 
-    const currentUser = JSON.parse(localStorage.getItem('quiz_current_user'));
-    if (currentUser) {
+    console.log("Checking User State for rewards:", {
+        currentUser: state.currentUser,
+        rewards: state.rewards,
+        percentage: percentage
+    });
+
+    if (state.currentUser) {
         let earnedStar = false;
         if (percentage === 100) {
+            console.log(`Current rewards object:`, state.rewards);
+            if (!state.rewards) {
+                console.error("Critical: state.rewards is missing for user!");
+                state.rewards = state.currentUser.rewards || { stars: 0, badges: [] };
+            }
+            console.log(`Awarding Star. Current stars: ${state.rewards.stars}`);
             state.rewards.stars++;
             earnedStar = true;
-            // Additional celebration if needed, but confetti is already handled
+            console.log(`Star awarded. New total: ${state.rewards.stars}`);
         }
 
         const entry = {
@@ -1544,8 +1576,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Load questions
     await loadQuestions();
 
-    // Ensure we start at dashboard if questions loaded
-    if (state.questionsLoaded && !state.currentUser) {
+    // Ensure we start at dashboard
+    if (state.questionsLoaded) {
         showScreen('dashboard');
     }
 

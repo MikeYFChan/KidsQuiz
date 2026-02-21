@@ -520,6 +520,17 @@ body {
   color: var(--text);
 }
 
+.empty-rewards-msg {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-style: italic;
+  border: 1px dashed var(--border);
+}
+
 /* Selection Screens (Subject & Year/Topic) */
 .subject-selection,
 .year-selection {
