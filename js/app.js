@@ -266,20 +266,36 @@ function questionNeedsReview(question, answer) {
 }
 
 function convertNestedToMcq(normalized) {
+    if (!normalized || typeof normalized !== 'object') return;
+
     let skippedInvalidItems = 0;
 
     for (const sub of Object.keys(normalized)) {
         const years = normalized[sub];
+        if (!years || typeof years !== 'object') continue;
+
         for (const yr of Object.keys(years)) {
             const arr = years[yr];
+            if (!Array.isArray(arr)) continue;
+
             for (const item of arr) {
                 if (!item || typeof item !== 'object') {
                     skippedInvalidItems++;
                     continue;
                 }
 
+                // If the subject/year isn't already on the item, add it for debugging
+                if (!item.subject) item.subject = sub;
+                if (!item.year) item.year = yr;
+
                 if (item.choices && Array.isArray(item.choices) && item.choices.length >= 4) continue;
-                const answer = item.answer || item.answer === 0 ? item.answer : item.correct || item.answer === 0 ? item.answer : (item.answer === undefined ? item.answer : item.answer);
+
+                const answer = item.answer !== undefined ? item.answer : (item.correct !== undefined ? item.correct : null);
+                if (answer === null && (!item.choices || item.choices.length === 0)) {
+                    skippedInvalidItems++;
+                    continue;
+                }
+
                 const type = detectType(answer);
                 let distractors = [];
                 if (type === 'integer' || type === 'decimal') distractors = generateNumericDistractors(answer);
@@ -299,10 +315,13 @@ function convertNestedToMcq(normalized) {
                     if (!seen.has(filler)) { seen.add(filler); uniq.push(filler); }
                 }
                 const final = uniq.slice(0, 4);
+
+                // Shuffle choices
                 for (let i = final.length - 1; i > 0; i--) {
                     const j = Math.floor(Math.random() * (i + 1));
                     [final[i], final[j]] = [final[j], final[i]];
                 }
+
                 item.choices = final;
                 item.correctIndex = final.indexOf(String(answer));
                 item.answer = final[item.correctIndex] || String(answer);
@@ -676,12 +695,21 @@ async function loadQuestions() {
     showLoadingIndicator(true);
 
     // Check if we already have data from a script tag (for local file access)
-    if (typeof QUESTIONS_DATA !== 'undefined') {
-        console.log('Using pre-loaded QUESTIONS_DATA from script tag');
-        let normalized = QUESTIONS_DATA;
-        convertNestedToMcq(normalized);
-        state.questionsData = normalized;
-        state.questionsLoaded = true;
+    if (typeof QUESTIONS_DATA !== 'undefined' || (typeof window !== 'undefined' && window.QUESTIONS_DATA)) {
+        console.log('Using pre-loaded QUESTIONS_DATA from global scope');
+        let normalized = (typeof QUESTIONS_DATA !== 'undefined' ? QUESTIONS_DATA : window.QUESTIONS_DATA);
+
+        // Safety check to ensure normalized is an object
+        if (normalized && typeof normalized === 'object') {
+            try {
+                convertNestedToMcq(normalized);
+                state.questionsData = normalized;
+                state.questionsLoaded = true;
+                console.log('Pre-loaded questions processed successfully!');
+            } catch (err) {
+                console.error('Error processing pre-loaded questions:', err);
+            }
+        }
         showLoadingIndicator(false);
         return;
     }
@@ -901,47 +929,112 @@ function updateTimerDisplay() {
     }
 }
 
-function selectSubject(subject) {
-    state.currentSubject = subject;
+async function selectSubject(subject) {
+    console.log('--- SUBJECT SELECTION START ---');
+    console.log('Requested subject:', subject);
+    console.log('Current questionsLoaded state:', state.questionsLoaded);
+
+    // Defensive check: If data isn't loaded, wait or reload
+    if (!state.questionsLoaded) {
+        console.warn('Questions not loaded yet. Attempting to reload/wait...');
+        showLoadingIndicator(true);
+        await loadQuestions();
+        showLoadingIndicator(false);
+
+        if (!state.questionsLoaded) {
+            console.error('CRITICAL: Questions failed to load after retry.');
+            showToast('Subject selection unavailable: Question data not found.', 'error');
+            return;
+        }
+    }
+
+    const dataKeys = Object.keys(state.questionsData);
+    console.log('Available subjects in data:', dataKeys);
+
+    // Normalize subject name (Case-insensitive + Alias handling)
+    let normalizedSubject = subject;
+    const lowerSubject = subject.toLowerCase().trim();
+
+    const subjectAliases = {
+        'maths': 'Maths',
+        'math': 'Maths',
+        'english': 'English',
+        'chinese': 'Chinese',
+        'science': 'Science',
+        '11+': '11+'
+    };
+
+    // Try to find an exact case-insensitive match from our keys
+    const matchedKey = dataKeys.find(k => k.toLowerCase() === lowerSubject);
+
+    if (matchedKey) {
+        normalizedSubject = matchedKey;
+        console.log('Found exact match (case-insensitive):', matchedKey);
+    } else if (subjectAliases[lowerSubject]) {
+        normalizedSubject = subjectAliases[lowerSubject];
+        console.log('Mapped subject via alias:', normalizedSubject);
+    }
+
+    console.log('Final normalized subject:', normalizedSubject);
+    state.currentSubject = normalizedSubject;
     const currentUser = state.currentUser;
-    if (currentUser && currentUser.grade && state.questionsData[subject]?.[currentUser.grade]) {
+
+    // Check if we have data for this subject
+    if (!state.questionsData[normalizedSubject]) {
+        console.error(`ERROR: No data found for normalized subject: ${normalizedSubject}`);
+        console.log('Debugging state.questionsData:', state.questionsData);
+        showToast(`Questions for ${normalizedSubject} are coming soon!`, 'info');
+        return;
+    }
+
+    if (currentUser && currentUser.grade && state.questionsData[normalizedSubject]?.[currentUser.grade]) {
+        console.log('Auto-selecting year based on user grade:', currentUser.grade);
         state.currentYear = currentUser.grade;
-        showSkillTree(subject, state.currentYear);
+        showSkillTree(normalizedSubject, state.currentYear);
     } else {
+        console.log('No user grade match or guest user. Showing year selection.');
         const titleEl = getElement('selected-subject-title');
-        if (titleEl) titleEl.textContent = subject + ' - Select Topic';
+        if (titleEl) titleEl.textContent = normalizedSubject + ' - Select Topic';
 
         const yearSelectionEl = getElement('year-selection');
         if (yearSelectionEl) {
             yearSelectionEl.innerHTML = '';
-            const categories = Object.keys(state.questionsData[subject] || {});
+            const yearData = state.questionsData[normalizedSubject] || {};
+            const categories = Object.keys(yearData);
+            console.log('Available years for subject:', categories);
 
-            // Map common topics to icons for a premium feel
-            const topicIcons = {
-                'Verbal Reasoning': '🧠',
-                'English & Maths': '➕',
-                'Year 3': '🥉',
-                'Year 6': '🥇',
-                'Default': '📝'
-            };
+            if (categories.length === 0) {
+                console.warn('Subject exists but has NO year categories.');
+                yearSelectionEl.innerHTML = '<p class="text-center" style="padding: 2rem; width: 100%;">No topics available yet for this subject.</p>';
+            } else {
+                // Map common topics to icons for a premium feel
+                const topicIcons = {
+                    'Verbal Reasoning': '🧠',
+                    'English & Maths': '➕',
+                    'Year 3': '🥉',
+                    'Year 6': '🥇',
+                    'Default': '📝'
+                };
 
-            categories.forEach(cat => {
-                const btn = document.createElement('button');
-                btn.type = 'button';
-                btn.className = 'year-button';
+                categories.forEach(cat => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'year-button';
 
-                const icon = topicIcons[cat] || topicIcons['Default'];
-                btn.innerHTML = `
-                    <span class="subject-icon">${icon}</span>
-                    <span class="subject-name">${cat}</span>
-                `;
+                    const icon = topicIcons[cat] || topicIcons['Default'];
+                    btn.innerHTML = `
+                        <span class="subject-icon">${icon}</span>
+                        <span class="subject-name">${cat}</span>
+                    `;
 
-                btn.onclick = () => selectYear(cat);
-                yearSelectionEl.appendChild(btn);
-            });
+                    btn.onclick = () => selectYear(cat);
+                    yearSelectionEl.appendChild(btn);
+                });
+            }
         }
         showScreen('year');
     }
+    console.log('--- SUBJECT SELECTION END ---');
 }
 
 function selectYear(year) {
@@ -1677,6 +1770,12 @@ function setupEventListeners() {
             } else {
                 const selected = state.users.find(u => String(u.id) === String(id));
                 if (selected) setCurrentUser(selected);
+            }
+
+            // Close sidebar on mobile after student selection
+            const sidebar = getElement('sidebar');
+            if (window.innerWidth <= 900 && sidebar) {
+                sidebar.classList.remove('active');
             }
         });
     }

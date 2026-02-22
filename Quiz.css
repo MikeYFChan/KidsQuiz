@@ -112,7 +112,8 @@ body {
   display: flex;
   flex-direction: column;
   transition: transform 0.3s var(--ease-apple);
-  z-index: 100;
+  z-index: 1000;
+  /* Increased for mobile layering */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   /* Smooth scrolling for iOS */
@@ -618,6 +619,8 @@ body {
   width: 100%;
   flex-wrap: wrap;
   /* Helps on very tight screens */
+  position: relative;
+  z-index: 101;
 }
 
 .user-footer-side .user-select {
@@ -630,6 +633,7 @@ body {
   font-size: 0.875rem;
   outline: none;
   cursor: pointer;
+  pointer-events: auto !important;
 }
 
 .nav-icon-button {
@@ -1353,7 +1357,7 @@ body {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 .modal-overlay.active {
@@ -1575,12 +1579,20 @@ body {
 
   .sidebar {
     position: fixed;
-    top: 70px;
+    top: 52px;
+    /* Matches top-bar height */
     left: 0;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 52px);
     transform: translateX(-100%);
     width: 280px;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
     /* Already has overflow-y: auto from main declaration */
+  }
+
+  .sidebar-footer {
+    padding-bottom: 80px;
+    /* Extra space for mobile browser bars */
   }
 
   .sidebar.active {

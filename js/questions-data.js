@@ -3800,3 +3800,7 @@ const QUESTIONS_DATA = {
     ]
   }
 };
+// Ensure QUESTIONS_DATA is globally available across all scripts
+if (typeof window !== 'undefined') {
+    window.QUESTIONS_DATA = QUESTIONS_DATA;
+}
