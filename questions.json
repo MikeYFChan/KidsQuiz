@@ -1195,7 +1195,7 @@
       },
       {
         "question": "What is the area of a rectangle 12 cm by 7 cm?",
-        "answer": "84",
+        "answer": "84 cm²",
         "explanation": "12 × 7 = 84 cm²",
         "choices": [
           "84 cm²",
