@@ -93,14 +93,15 @@ body {
   /* Apple's specific line height */
   font-weight: 400;
   letter-spacing: -0.022em;
-  min-height: 100vh;
-  overflow: hidden;
+  min-height: 100dvh;
+  /* Use dynamic viewport height */
+  overflow-x: hidden;
 }
 
 /* App Layout */
 .app-layout {
   display: flex;
-  height: 100vh;
+  min-height: 100dvh;
   width: 100vw;
 }
 
@@ -115,6 +116,9 @@ body {
   z-index: 1000;
   /* Increased for mobile layering */
   overflow-y: auto;
+  position: sticky;
+  top: 0;
+  height: 100dvh;
   -webkit-overflow-scrolling: touch;
   /* Smooth scrolling for iOS */
 }
@@ -553,7 +557,7 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--background);
-  overflow: hidden;
+  min-height: 100dvh;
 }
 
 .top-bar {
@@ -659,8 +663,6 @@ body {
 
 .content-body {
   flex: 1;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   padding: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -690,8 +692,7 @@ body {
 .screen {
   display: none;
   animation: fadeIn 0.4s ease;
-  height: 100%;
-  overflow-y: auto;
+  width: 100%;
 }
 
 .screen.active {
@@ -1591,8 +1592,8 @@ body {
   }
 
   .sidebar-footer {
-    padding-bottom: 80px;
-    /* Extra space for mobile browser bars */
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    /* Extra space for mobile browser bars and safe areas */
   }
 
   .sidebar.active {
@@ -1613,12 +1614,12 @@ body {
   }
 
   .main-content {
-    height: 100vh;
+    min-height: 100dvh;
   }
 
   .content-body {
-    padding: 1.5rem 1rem;
-    /* Less padding on mobile */
+    padding: 1.5rem 1rem 4rem;
+    /* Added bottom padding for mobile navigation space */
   }
 
   .header h1,
