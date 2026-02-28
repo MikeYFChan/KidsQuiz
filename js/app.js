@@ -107,6 +107,7 @@ function setupEventListeners() {
     if (getElement('new-quiz-btn')) getElement('new-quiz-btn').onclick = chooseNewQuiz;
     if (getElement('results-dashboard-btn')) getElement('results-dashboard-btn').onclick = goToDashboard;
     if (getElement('back-to-subjects')) getElement('back-to-subjects').onclick = backToSubjects;
+    if (getElement('report-back-btn')) getElement('report-back-btn').onclick = () => showScreen('dashboard');
     if (getElement('speak-btn')) getElement('speak-btn').onclick = speakQuestion;
     if (getElement('close-explanation')) getElement('close-explanation').onclick = closeExplanation;
 

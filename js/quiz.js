@@ -361,6 +361,7 @@ function updateUserUI() {
     const xpTextEl = getElement('sidebar-xp-text');
 
     if (state.currentUser) {
+        // ... (existing user logic)
         const rewards = state.rewards;
         if (levelEl) levelEl.textContent = `Lvl ${rewards.level || 1}`;
         if (streakEl) {
@@ -384,6 +385,9 @@ function updateUserUI() {
         if (xpTextEl) xpTextEl.textContent = 'Guest';
         if (streakEl) streakEl.parentElement.style.display = 'none';
     }
+
+    // Always show sidebar subjects unless specifically asked to hide per user preference
+    if (getElement('sidebar-subjects-section')) getElement('sidebar-subjects-section').style.display = 'block';
 }
 
 function updateTimerDisplay() {
@@ -463,7 +467,22 @@ async function selectSubject(subject) {
     } else {
         console.log('No user grade match or guest user. Showing year selection.');
         const titleEl = getElement('selected-subject-title');
-        if (titleEl) titleEl.textContent = normalizedSubject + ' - Select Topic';
+        const backBtn = getElement('back-to-subjects');
+
+        if (titleEl) {
+            titleEl.textContent = state.currentUser ? `${normalizedSubject} - Select Topic` : 'Select Topic';
+        }
+
+        if (backBtn) {
+            if (state.currentUser) {
+                backBtn.style.display = 'flex';
+                backBtn.textContent = '← Subjects';
+                backBtn.onclick = backToSubjects;
+            } else {
+                // For Guests, hide the back button because sidebar keeps subjects available
+                backBtn.style.display = 'none';
+            }
+        }
 
         const yearSelectionEl = getElement('year-selection');
         if (yearSelectionEl) {
@@ -516,7 +535,7 @@ function showSkillTree(subject, year) {
     const titleEl = getElement('skill-subject-title');
     const subtitleEl = getElement('skill-year-subtitle');
 
-    if (titleEl) titleEl.textContent = subject;
+    if (titleEl) titleEl.textContent = state.currentUser ? subject : 'Practice Skills';
     if (subtitleEl) subtitleEl.textContent = year;
 
     if (skillListEl) {
