@@ -174,7 +174,11 @@ function updateTimerDisplay() {
     const timerEl = getElement('timer-display');
     if (timerEl) {
         timerEl.textContent = `Time: ${timeRemaining}s`;
-        timerEl.style.color = timeRemaining <= 10 ? '#e74c3c' : '#fff';
+        if (timeRemaining <= 10) {
+            timerEl.classList.add('timer-low');
+        } else {
+            timerEl.classList.remove('timer-low');
+        }
     }
 }
 
