@@ -470,7 +470,7 @@ async function selectSubject(subject) {
         const backBtn = getElement('back-to-subjects');
 
         if (titleEl) {
-            titleEl.textContent = state.currentUser ? `${normalizedSubject} - Select Topic` : 'Select Topic';
+            titleEl.textContent = state.currentUser ? `${normalizedSubject} - Select Year` : 'Select Year';
         }
 
         if (backBtn) {
