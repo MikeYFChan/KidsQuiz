@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="manifest" href="manifest.json">
     <title>KidsQuiz | Interactive Learning</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -77,6 +80,7 @@
             </nav>
             <div class="sidebar-footer">
                 <div id="user-footer" class="user-footer-side">
+                    <div id="sidebar-avatar" class="sidebar-avatar">👤</div>
                     <select id="user-select" class="user-select">
                         <option value="guest">Guest (No Tracking)</option>
                     </select>
@@ -93,6 +97,8 @@
                     <input type="text" id="skill-search" placeholder="Search for skills (e.g. addition)...">
                 </div>
                 <div class="user-actions">
+                    <button id="theme-toggle" class="icon-button" aria-label="Toggle Dark Mode"
+                        title="Toggle Dark Mode">🌙</button>
                     <!-- User properties moved to sidebar -->
                 </div>
             </header>
@@ -117,6 +123,13 @@
                                     <option value="Year 6">Year 6</option>
                                 </select>
                                 <span class="error-message" id="user-grade-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Choose your Avatar</label>
+                                <div id="avatar-grid" class="avatar-grid">
+                                    <!-- Avatars injected by JS -->
+                                </div>
+                                <input type="hidden" id="user-avatar-input" name="user-avatar" value="👤" />
                             </div>
                             <div class="modal-buttons">
                                 <button type="submit" class="submit-button" id="save-user-btn">Save</button>
@@ -158,6 +171,13 @@
                             <h3>Learning Report</h3>
                             <p>View your mastery trends and identify areas to grow.</p>
                             <button class="start-card-btn">See Progress</button>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-quests" id="dashboard-quests-section" style="display: none;">
+                        <h3>Today's Quests ✨</h3>
+                        <div id="quests-list" class="quests-list">
+                            <!-- Quests injected by JS -->
                         </div>
                     </div>
 
@@ -242,6 +262,9 @@
                         </div>
                         <button onclick="window.print()" class="secondary-btn print-btn-premium">🖨️ Print
                             Report</button>
+                        <button id="export-data-btn" class="secondary-btn">💾 Export Data</button>
+                        <button id="import-data-btn" class="secondary-btn">📥 Import Data</button>
+                        <input type="file" id="import-input" style="display: none;" accept=".json" />
                     </header>
                     <div id="report-content-full" class="report-content-container">
                         <!-- Content injected by JS -->
@@ -279,7 +302,13 @@
                         <div class="quiz-status">
                             <div class="score-display-mini">
                                 <span class="label">SmartScore</span>
-                                <span id="smart-score" class="value">0</span>
+                                <div class="mastery-ring-container">
+                                    <svg class="mastery-ring" width="60" height="60">
+                                        <circle class="ring-bg" cx="30" cy="30" r="26"></circle>
+                                        <circle id="mastery-fill" class="ring-fill" cx="30" cy="30" r="26"></circle>
+                                    </svg>
+                                    <span id="smart-score" class="value">0</span>
+                                </div>
                             </div>
                             <div class="counter-display">
                                 <span id="timer-display" class="timer-display">00:00</span>
@@ -355,7 +384,22 @@
 
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
         <script src="js/questions-data.js"></script>
+        <script src="js/state.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/quiz.js"></script>
+        <script src="js/features.js"></script>
         <script src="js/app.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').then((registration) => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, (err) => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        </script>
 </body>
 
 </html>
