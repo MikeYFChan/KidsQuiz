@@ -76,6 +76,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            color: #1e293b;
         }
 
         .dark-mode .users-table {
@@ -106,6 +107,19 @@
             border-radius: 8px;
             text-align: center;
             font-family: 'Outfit', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .level-input {
+            background-color: rgba(99, 102, 241, 0.1);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .level-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
         }
 
         .admin-btn {
@@ -182,18 +196,27 @@
 
         <!-- Password Modal overlay -->
         <div id="admin-password-modal"
-            style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+            style="position: fixed; inset: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); z-index: 1000; display: flex; align-items: center; justify-content: center;">
             <div
-                style="background: white; padding: 2rem; border-radius: 12px; text-align: center; max-width: 400px; width: 90%;">
-                <h2 style="margin-bottom: 1rem; color: #1e293b;">Admin Access</h2>
-                <p style="margin-bottom: 1rem; color: #64748b;">Please enter the password to continue.</p>
+                style="background: white; padding: 2.5rem; border-radius: 20px; text-align: center; max-width: 420px; width: 90%; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255,255,255,0.1);">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔐</div>
+                <h2 style="margin-bottom: 0.5rem; color: #0f172a; font-weight: 700; font-size: 1.5rem;">Admin Access
+                    Required</h2>
+                <p style="margin-bottom: 1.5rem; color: #64748b; font-size: 1.1rem;">Please enter the secure password to
+                    continue.</p>
                 <input type="password" id="admin-password-input" class="admin-input"
-                    style="width: 100%; margin-bottom: 1rem;" placeholder="Password">
-                <div id="admin-password-error" style="color: var(--danger-color); margin-bottom: 1rem; display: none;">
-                    Incorrect password</div>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <button class="btn btn-primary" id="admin-password-submit">Submit</button>
-                    <a href="index.html" class="admin-btn" style="text-decoration: none;">Cancel</a>
+                    style="width: 100%; margin-bottom: 1rem; padding: 0.8rem 1rem; font-size: 1.2rem; border-radius: 12px; border: 2px solid #e2e8f0; background: #f8fafc; transition: all 0.2s;"
+                    placeholder="••••••••"
+                    onfocus="this.style.borderColor='#6366f1'; this.style.boxShadow='0 0 0 3px rgba(99, 102, 241, 0.2)';"
+                    onblur="this.style.borderColor='#e2e8f0'; this.style.boxShadow='none';">
+                <div id="admin-password-error"
+                    style="color: #ef4444; margin-bottom: 1rem; display: none; font-weight: 500; font-size: 0.95rem; background: #fef2f2; padding: 0.5rem; border-radius: 8px;">
+                    Incorrect password. Please try again.</div>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                    <a href="index.html" class="nav-button"
+                        style="text-decoration: none; flex: 1; padding: 0.8rem 1.5rem;">Cancel</a>
+                    <button class="submit-button" id="admin-password-submit"
+                        style="flex: 1; padding: 0.8rem 1.5rem;">Login</button>
                 </div>
             </div>
         </div>
