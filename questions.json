@@ -360,6 +360,246 @@
           "9"
         ],
         "correctIndex": 2
+      },
+      {
+        "question": "What is 22 + 33?",
+        "answer": "55",
+        "explanation": "The answer is 55.",
+        "choices": [
+          "57",
+          "50",
+          "65",
+          "55"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What is 19 + 26?",
+        "answer": "45",
+        "explanation": "The answer is 45.",
+        "choices": [
+          "55",
+          "45",
+          "41",
+          "48"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 39 + 37?",
+        "answer": "76",
+        "explanation": "The answer is 76.",
+        "choices": [
+          "86",
+          "74",
+          "81",
+          "76"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What is 56 ÷ 7?",
+        "answer": "8",
+        "explanation": "The answer is 8.",
+        "choices": [
+          "18",
+          "7",
+          "8",
+          "13"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 33 - 20?",
+        "answer": "13",
+        "explanation": "The answer is 13.",
+        "choices": [
+          "9",
+          "17",
+          "23",
+          "13"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What is 18 ÷ 6?",
+        "answer": "3",
+        "explanation": "The answer is 3.",
+        "choices": [
+          "7",
+          "13",
+          "-1",
+          "3"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What is 10 × 4?",
+        "answer": "40",
+        "explanation": "The answer is 40.",
+        "choices": [
+          "50",
+          "37",
+          "42",
+          "40"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What is 16 + 23?",
+        "answer": "39",
+        "explanation": "The answer is 39.",
+        "choices": [
+          "49",
+          "38",
+          "39",
+          "43"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 5 × 10?",
+        "answer": "50",
+        "explanation": "The answer is 50.",
+        "choices": [
+          "55",
+          "50",
+          "60",
+          "46"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 42 + 49?",
+        "answer": "91",
+        "explanation": "The answer is 91.",
+        "choices": [
+          "91",
+          "101",
+          "90",
+          "92"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is 17 + 25?",
+        "answer": "42",
+        "explanation": "The answer is 42.",
+        "choices": [
+          "41",
+          "52",
+          "42",
+          "44"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 33 ÷ 3?",
+        "answer": "11",
+        "explanation": "The answer is 11.",
+        "choices": [
+          "10",
+          "14",
+          "21",
+          "11"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What is 10 × 12?",
+        "answer": "120",
+        "explanation": "The answer is 120.",
+        "choices": [
+          "130",
+          "120",
+          "122",
+          "116"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 34 + 20?",
+        "answer": "54",
+        "explanation": "The answer is 54.",
+        "choices": [
+          "54",
+          "55",
+          "51",
+          "64"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is 4 × 12?",
+        "answer": "48",
+        "explanation": "The answer is 48.",
+        "choices": [
+          "53",
+          "58",
+          "48",
+          "45"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 42 + 37?",
+        "answer": "79",
+        "explanation": "The answer is 79.",
+        "choices": [
+          "83",
+          "79",
+          "77",
+          "89"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 43 + 41?",
+        "answer": "84",
+        "explanation": "The answer is 84.",
+        "choices": [
+          "84",
+          "94",
+          "79",
+          "88"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is 11 × 7?",
+        "answer": "77",
+        "explanation": "The answer is 77.",
+        "choices": [
+          "78",
+          "87",
+          "77",
+          "76"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 12 + 26?",
+        "answer": "38",
+        "explanation": "The answer is 38.",
+        "choices": [
+          "38",
+          "48",
+          "35",
+          "40"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is 78 - 49?",
+        "answer": "29",
+        "explanation": "The answer is 29.",
+        "choices": [
+          "39",
+          "30",
+          "28",
+          "29"
+        ],
+        "correctIndex": 3
       }
     ],
     "Year 6": [
@@ -722,6 +962,246 @@
           "94"
         ],
         "correctIndex": 3
+      },
+      {
+        "question": "What is 8.1 + 2.9?",
+        "answer": "11.0",
+        "explanation": "Calculation yields 11.0.",
+        "choices": [
+          "10.9",
+          "12.0",
+          "11.5",
+          "11.0"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If 10x + 2 = 82, what is x?",
+        "answer": "8",
+        "explanation": "Calculation yields 8.",
+        "choices": [
+          "9",
+          "8",
+          "7",
+          "10"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 4/8 of 80?",
+        "answer": "40",
+        "explanation": "Calculation yields 40.",
+        "choices": [
+          "41",
+          "42",
+          "40",
+          "39"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 7.9 + 4.6?",
+        "answer": "12.5",
+        "explanation": "Calculation yields 12.5.",
+        "choices": [
+          "13.5",
+          "13.0",
+          "12.5",
+          "12.4"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 5/8 of 80?",
+        "answer": "50",
+        "explanation": "Calculation yields 50.",
+        "choices": [
+          "49",
+          "50",
+          "51",
+          "52"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 2/8 of 80?",
+        "answer": "20",
+        "explanation": "Calculation yields 20.",
+        "choices": [
+          "20",
+          "19",
+          "22",
+          "21"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is 3/10 of 100?",
+        "answer": "30",
+        "explanation": "Calculation yields 30.",
+        "choices": [
+          "31",
+          "30",
+          "29",
+          "32"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If 9x + 6 = 78, what is x?",
+        "answer": "8",
+        "explanation": "Calculation yields 8.",
+        "choices": [
+          "9",
+          "8",
+          "10",
+          "7"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If 2x + 15 = 23, what is x?",
+        "answer": "4",
+        "explanation": "Calculation yields 4.",
+        "choices": [
+          "4",
+          "6",
+          "3",
+          "5"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is 7/6 of 60?",
+        "answer": "70",
+        "explanation": "Calculation yields 70.",
+        "choices": [
+          "69",
+          "71",
+          "72",
+          "70"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If 4x + 8 = 32, what is x?",
+        "answer": "6",
+        "explanation": "Calculation yields 6.",
+        "choices": [
+          "7",
+          "6",
+          "5",
+          "8"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If 4x + 15 = 43, what is x?",
+        "answer": "7",
+        "explanation": "Calculation yields 7.",
+        "choices": [
+          "7",
+          "6",
+          "9",
+          "8"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If 6x + 5 = 47, what is x?",
+        "answer": "7",
+        "explanation": "Calculation yields 7.",
+        "choices": [
+          "9",
+          "8",
+          "6",
+          "7"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If 3x + 13 = 22, what is x?",
+        "answer": "3",
+        "explanation": "Calculation yields 3.",
+        "choices": [
+          "3",
+          "5",
+          "2",
+          "4"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What is 3/10 of 100?",
+        "answer": "30",
+        "explanation": "Calculation yields 30.",
+        "choices": [
+          "30",
+          "29",
+          "32",
+          "31"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If 5x + 20 = 45, what is x?",
+        "answer": "5",
+        "explanation": "Calculation yields 5.",
+        "choices": [
+          "7",
+          "4",
+          "5",
+          "6"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 5/8 of 80?",
+        "answer": "50",
+        "explanation": "Calculation yields 50.",
+        "choices": [
+          "52",
+          "49",
+          "51",
+          "50"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What is 1.7 + 8.6?",
+        "answer": "10.3",
+        "explanation": "Calculation yields 10.3.",
+        "choices": [
+          "10.8",
+          "10.3",
+          "11.3",
+          "10.2"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If 3x + 1 = 25, what is x?",
+        "answer": "8",
+        "explanation": "Calculation yields 8.",
+        "choices": [
+          "10",
+          "8",
+          "7",
+          "9"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 3/10 of 100?",
+        "answer": "30",
+        "explanation": "Calculation yields 30.",
+        "choices": [
+          "31",
+          "30",
+          "32",
+          "29"
+        ],
+        "correctIndex": 1
       }
     ]
   },
@@ -1086,6 +1566,246 @@
           "colds"
         ],
         "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'end'? (Gen 0)",
+        "answer": "finish",
+        "explanation": "'finish' means the same as 'end'.",
+        "choices": [
+          "slow",
+          "stop",
+          "bad",
+          "finish"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is a synonym for 'easy'? (Gen 1)",
+        "answer": "simple",
+        "explanation": "'simple' means the same as 'easy'.",
+        "choices": [
+          "stop",
+          "bad",
+          "slow",
+          "simple"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is a synonym for 'start'? (Gen 2)",
+        "answer": "begin",
+        "explanation": "'begin' means the same as 'start'.",
+        "choices": [
+          "begin",
+          "stop",
+          "slow",
+          "bad"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is a synonym for 'start'? (Gen 3)",
+        "answer": "begin",
+        "explanation": "'begin' means the same as 'start'.",
+        "choices": [
+          "begin",
+          "slow",
+          "stop",
+          "bad"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is a synonym for 'hard'? (Gen 4)",
+        "answer": "difficult",
+        "explanation": "'difficult' means the same as 'hard'.",
+        "choices": [
+          "stop",
+          "slow",
+          "difficult",
+          "bad"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is a synonym for 'hard'? (Gen 5)",
+        "answer": "difficult",
+        "explanation": "'difficult' means the same as 'hard'.",
+        "choices": [
+          "difficult",
+          "stop",
+          "bad",
+          "slow"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is a synonym for 'fast'? (Gen 6)",
+        "answer": "quick",
+        "explanation": "'quick' means the same as 'fast'.",
+        "choices": [
+          "bad",
+          "slow",
+          "quick",
+          "stop"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is a synonym for 'end'? (Gen 7)",
+        "answer": "finish",
+        "explanation": "'finish' means the same as 'end'.",
+        "choices": [
+          "bad",
+          "finish",
+          "stop",
+          "slow"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'easy'? (Gen 8)",
+        "answer": "simple",
+        "explanation": "'simple' means the same as 'easy'.",
+        "choices": [
+          "slow",
+          "simple",
+          "bad",
+          "stop"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'start'? (Gen 9)",
+        "answer": "begin",
+        "explanation": "'begin' means the same as 'start'.",
+        "choices": [
+          "bad",
+          "slow",
+          "begin",
+          "stop"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is a synonym for 'easy'? (Gen 10)",
+        "answer": "simple",
+        "explanation": "'simple' means the same as 'easy'.",
+        "choices": [
+          "slow",
+          "stop",
+          "simple",
+          "bad"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is a synonym for 'end'? (Gen 11)",
+        "answer": "finish",
+        "explanation": "'finish' means the same as 'end'.",
+        "choices": [
+          "stop",
+          "bad",
+          "slow",
+          "finish"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is a synonym for 'start'? (Gen 12)",
+        "answer": "begin",
+        "explanation": "'begin' means the same as 'start'.",
+        "choices": [
+          "stop",
+          "bad",
+          "slow",
+          "begin"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is a synonym for 'easy'? (Gen 13)",
+        "answer": "simple",
+        "explanation": "'simple' means the same as 'easy'.",
+        "choices": [
+          "slow",
+          "simple",
+          "stop",
+          "bad"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'start'? (Gen 14)",
+        "answer": "begin",
+        "explanation": "'begin' means the same as 'start'.",
+        "choices": [
+          "begin",
+          "stop",
+          "bad",
+          "slow"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is a synonym for 'hard'? (Gen 15)",
+        "answer": "difficult",
+        "explanation": "'difficult' means the same as 'hard'.",
+        "choices": [
+          "stop",
+          "difficult",
+          "slow",
+          "bad"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'hard'? (Gen 16)",
+        "answer": "difficult",
+        "explanation": "'difficult' means the same as 'hard'.",
+        "choices": [
+          "slow",
+          "difficult",
+          "bad",
+          "stop"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'easy'? (Gen 17)",
+        "answer": "simple",
+        "explanation": "'simple' means the same as 'easy'.",
+        "choices": [
+          "slow",
+          "simple",
+          "bad",
+          "stop"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'hard'? (Gen 18)",
+        "answer": "difficult",
+        "explanation": "'difficult' means the same as 'hard'.",
+        "choices": [
+          "stop",
+          "difficult",
+          "bad",
+          "slow"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'hard'? (Gen 19)",
+        "answer": "difficult",
+        "explanation": "'difficult' means the same as 'hard'.",
+        "choices": [
+          "difficult",
+          "stop",
+          "slow",
+          "bad"
+        ],
+        "correctIndex": 0
       }
     ],
     "Year 6": [
@@ -1448,6 +2168,246 @@
           "None of the above"
         ],
         "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: She ___ a letter to her friend. (Gen 0)",
+        "answer": "wrote",
+        "explanation": "The correct verb form is 'wrote'.",
+        "choices": [
+          "written",
+          "wrote",
+          "jumping",
+          "write"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 1)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "jumping",
+          "jumped",
+          "write",
+          "written"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 2)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "written",
+          "jumped",
+          "jumping",
+          "write"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 3)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "written",
+          "jumping",
+          "jumped",
+          "write"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 4)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "write",
+          "written",
+          "jumping",
+          "jumped"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 5)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "jumping",
+          "jumped",
+          "written",
+          "write"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 6)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "jumping",
+          "written",
+          "write",
+          "jumped"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 7)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "written",
+          "jumped",
+          "jumping",
+          "write"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 8)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "write",
+          "jumped",
+          "jumping",
+          "written"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 9)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "jumping",
+          "write",
+          "jumped",
+          "written"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 10)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "written",
+          "write",
+          "jumping",
+          "jumped"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 11)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "written",
+          "write",
+          "jumped",
+          "jumping"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Fill in the blank: She ___ a letter to her friend. (Gen 12)",
+        "answer": "wrote",
+        "explanation": "The correct verb form is 'wrote'.",
+        "choices": [
+          "written",
+          "write",
+          "wrote",
+          "jumping"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 13)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "write",
+          "written",
+          "jumping",
+          "jumped"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Fill in the blank: She ___ a letter to her friend. (Gen 14)",
+        "answer": "wrote",
+        "explanation": "The correct verb form is 'wrote'.",
+        "choices": [
+          "written",
+          "jumping",
+          "wrote",
+          "write"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 15)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "jumped",
+          "written",
+          "jumping",
+          "write"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Fill in the blank: She ___ a letter to her friend. (Gen 16)",
+        "answer": "wrote",
+        "explanation": "The correct verb form is 'wrote'.",
+        "choices": [
+          "written",
+          "write",
+          "jumping",
+          "wrote"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 17)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "jumping",
+          "jumped",
+          "written",
+          "write"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Fill in the blank: She ___ a letter to her friend. (Gen 18)",
+        "answer": "wrote",
+        "explanation": "The correct verb form is 'wrote'.",
+        "choices": [
+          "write",
+          "jumping",
+          "wrote",
+          "written"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Fill in the blank: The cat ___ over the fence. (Gen 19)",
+        "answer": "jumped",
+        "explanation": "The correct verb form is 'jumped'.",
+        "choices": [
+          "jumping",
+          "written",
+          "write",
+          "jumped"
+        ],
+        "correctIndex": 3
       }
     ]
   },
@@ -1812,6 +2772,246 @@
           "None of the above"
         ],
         "correctIndex": 0
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 0)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Leaf",
+          "Water",
+          "Sun",
+          "Rock"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 1)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Sun",
+          "Leaf",
+          "Rock",
+          "Water"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 2)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Sun",
+          "Leaf",
+          "Rock",
+          "Water"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 3)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Leaf",
+          "Rock",
+          "Water",
+          "Sun"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 4)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Rock",
+          "Sun",
+          "Water",
+          "Leaf"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 5)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Water",
+          "Leaf",
+          "Rock",
+          "Sun"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 6)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Sun",
+          "Leaf",
+          "Water",
+          "Rock"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 7)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Rock",
+          "Water",
+          "Leaf",
+          "Sun"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 8)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Sun",
+          "Rock",
+          "Leaf",
+          "Water"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 9)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Water",
+          "Rock",
+          "Leaf",
+          "Sun"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 10)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Leaf",
+          "Sun",
+          "Water",
+          "Rock"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 11)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Rock",
+          "Leaf",
+          "Sun",
+          "Water"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 12)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Leaf",
+          "Sun",
+          "Rock",
+          "Water"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 13)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Water",
+          "Rock",
+          "Leaf",
+          "Sun"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 14)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Water",
+          "Sun",
+          "Leaf",
+          "Rock"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 15)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Rock",
+          "Leaf",
+          "Water",
+          "Sun"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 16)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Water",
+          "Leaf",
+          "Sun",
+          "Rock"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 17)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Leaf",
+          "Sun",
+          "Rock",
+          "Water"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 18)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Leaf",
+          "Sun",
+          "Water",
+          "Rock"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which of these is a plant part? (Gen 19)",
+        "answer": "Leaf",
+        "explanation": "Leaf is a part of a plant.",
+        "choices": [
+          "Water",
+          "Sun",
+          "Leaf",
+          "Rock"
+        ],
+        "correctIndex": 2
       }
     ],
     "Year 6": [
@@ -2174,6 +3374,246 @@
           "B"
         ],
         "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 0)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Venus",
+          "Jupiter",
+          "Mars",
+          "Earth"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 1)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Earth",
+          "Venus",
+          "Jupiter"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 2)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Jupiter",
+          "Venus",
+          "Earth"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 3)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Earth",
+          "Jupiter",
+          "Venus",
+          "Mars"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 4)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Jupiter",
+          "Venus",
+          "Earth"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 5)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Jupiter",
+          "Mars",
+          "Venus",
+          "Earth"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 6)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Jupiter",
+          "Mars",
+          "Earth",
+          "Venus"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 7)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Earth",
+          "Mars",
+          "Venus",
+          "Jupiter"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 8)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Venus",
+          "Earth",
+          "Jupiter"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 9)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Earth",
+          "Jupiter",
+          "Venus"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 10)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Earth",
+          "Mars",
+          "Venus",
+          "Jupiter"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 11)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Venus",
+          "Jupiter",
+          "Earth",
+          "Mars"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 12)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Venus",
+          "Earth",
+          "Jupiter"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 13)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Earth",
+          "Venus",
+          "Jupiter"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 14)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Jupiter",
+          "Venus",
+          "Earth"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 15)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Venus",
+          "Jupiter",
+          "Earth",
+          "Mars"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 16)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Venus",
+          "Mars",
+          "Jupiter",
+          "Earth"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 17)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Earth",
+          "Venus",
+          "Jupiter",
+          "Mars"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 18)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Mars",
+          "Jupiter",
+          "Earth",
+          "Venus"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What planet is known as the Red Planet? (Gen 19)",
+        "answer": "Mars",
+        "explanation": "Mars appears red due to iron oxide.",
+        "choices": [
+          "Earth",
+          "Mars",
+          "Jupiter",
+          "Venus"
+        ],
+        "correctIndex": 1
       }
     ]
   },
@@ -2538,6 +3978,246 @@
           "None of the above"
         ],
         "correctIndex": 1
+      },
+      {
+        "question": "What does '大' mean? (Gen 0)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Good",
+          "Bad",
+          "Big"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What does '大' mean? (Gen 1)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Bad",
+          "Good",
+          "Small",
+          "Big"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What does '大' mean? (Gen 2)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Bad",
+          "Small",
+          "Good",
+          "Big"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What does '大' mean? (Gen 3)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Big",
+          "Small",
+          "Good",
+          "Bad"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What does '大' mean? (Gen 4)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Big",
+          "Good",
+          "Small",
+          "Bad"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What does '大' mean? (Gen 5)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Big",
+          "Good",
+          "Bad"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What does '大' mean? (Gen 6)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Good",
+          "Small",
+          "Bad",
+          "Big"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What does '大' mean? (Gen 7)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Good",
+          "Big",
+          "Bad",
+          "Small"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What does '大' mean? (Gen 8)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Big",
+          "Bad",
+          "Small",
+          "Good"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What does '大' mean? (Gen 9)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Good",
+          "Big",
+          "Bad"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What does '大' mean? (Gen 10)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Big",
+          "Small",
+          "Good",
+          "Bad"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What does '大' mean? (Gen 11)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Good",
+          "Small",
+          "Big",
+          "Bad"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What does '大' mean? (Gen 12)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Good",
+          "Big",
+          "Bad"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What does '大' mean? (Gen 13)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Big",
+          "Small",
+          "Bad",
+          "Good"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What does '大' mean? (Gen 14)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Big",
+          "Good",
+          "Small",
+          "Bad"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "What does '大' mean? (Gen 15)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Good",
+          "Bad",
+          "Big",
+          "Small"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "What does '大' mean? (Gen 16)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Bad",
+          "Good",
+          "Big"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What does '大' mean? (Gen 17)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Big",
+          "Good",
+          "Bad"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "What does '大' mean? (Gen 18)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Bad",
+          "Good",
+          "Big"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "What does '大' mean? (Gen 19)",
+        "answer": "Big",
+        "explanation": "'大' means big.",
+        "choices": [
+          "Small",
+          "Big",
+          "Bad",
+          "Good"
+        ],
+        "correctIndex": 1
       }
     ],
     "Year 6": [
@@ -2900,6 +4580,246 @@
           "None of the above"
         ],
         "correctIndex": 2
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 0)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "画蛇添足",
+          "守株待兔",
+          "半途而废",
+          "狐假虎威"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 1)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "半途而废",
+          "守株待兔",
+          "狐假虎威",
+          "画蛇添足"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 2)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "狐假虎威",
+          "守株待兔",
+          "半途而废",
+          "画蛇添足"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 3)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "狐假虎威",
+          "守株待兔",
+          "半途而废",
+          "画蛇添足"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 4)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "守株待兔",
+          "画蛇添足",
+          "狐假虎威",
+          "半途而废"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 5)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "守株待兔",
+          "狐假虎威",
+          "画蛇添足",
+          "半途而废"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 6)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "半途而废",
+          "守株待兔",
+          "狐假虎威",
+          "画蛇添足"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 7)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "守株待兔",
+          "画蛇添足",
+          "狐假虎威",
+          "半途而废"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 8)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "画蛇添足",
+          "狐假虎威",
+          "半途而废",
+          "守株待兔"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 9)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "守株待兔",
+          "半途而废",
+          "画蛇添足",
+          "狐假虎威"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 10)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "半途而废",
+          "狐假虎威",
+          "画蛇添足",
+          "守株待兔"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 11)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "狐假虎威",
+          "守株待兔",
+          "画蛇添足",
+          "半途而废"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 12)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "半途而废",
+          "画蛇添足",
+          "狐假虎威",
+          "守株待兔"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 13)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "守株待兔",
+          "半途而废",
+          "画蛇添足",
+          "狐假虎威"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 14)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "半途而废",
+          "狐假虎威",
+          "画蛇添足",
+          "守株待兔"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 15)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "守株待兔",
+          "狐假虎威",
+          "画蛇添足",
+          "半途而废"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 16)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "半途而废",
+          "守株待兔",
+          "狐假虎威",
+          "画蛇添足"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 17)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "守株待兔",
+          "画蛇添足",
+          "狐假虎威",
+          "半途而废"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 18)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "画蛇添足",
+          "半途而废",
+          "狐假虎威",
+          "守株待兔"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which idiom means 'to give up halfway'? (Gen 19)",
+        "answer": "半途而废",
+        "explanation": "半途而废 means giving up halfway.",
+        "choices": [
+          "半途而废",
+          "狐假虎威",
+          "画蛇添足",
+          "守株待兔"
+        ],
+        "correctIndex": 0
       }
     ]
   },
@@ -3264,6 +5184,246 @@
           "EPH"
         ],
         "correctIndex": 3
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 0)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Car",
+          "Bus",
+          "Train",
+          "Apple"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 1)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Apple",
+          "Train",
+          "Bus",
+          "Car"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 2)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Bus",
+          "Train",
+          "Car",
+          "Apple"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 3)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Apple",
+          "Bus",
+          "Train",
+          "Car"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 4)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Bus",
+          "Apple",
+          "Train",
+          "Car"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 5)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Bus",
+          "Car",
+          "Apple",
+          "Train"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 6)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Bus",
+          "Apple",
+          "Car",
+          "Train"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 7)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Train",
+          "Apple",
+          "Car",
+          "Bus"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 8)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Bus",
+          "Train",
+          "Car",
+          "Apple"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 9)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Car",
+          "Apple",
+          "Bus",
+          "Train"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 10)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Train",
+          "Bus",
+          "Apple",
+          "Car"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 11)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Car",
+          "Bus",
+          "Apple",
+          "Train"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 12)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Car",
+          "Apple",
+          "Bus",
+          "Train"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 13)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Train",
+          "Car",
+          "Bus",
+          "Apple"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 14)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Apple",
+          "Bus",
+          "Train",
+          "Car"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 15)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Car",
+          "Bus",
+          "Apple",
+          "Train"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 16)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Apple",
+          "Train",
+          "Bus",
+          "Car"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 17)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Car",
+          "Train",
+          "Bus",
+          "Apple"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 18)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Apple",
+          "Car",
+          "Bus",
+          "Train"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is the odd one out? (Gen 19)",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, others are vehicles.",
+        "choices": [
+          "Car",
+          "Bus",
+          "Train",
+          "Apple"
+        ],
+        "correctIndex": 3
       }
     ],
     "English & Maths": [
@@ -3320,9 +5480,9 @@
         "answer": "36cm²",
         "explanation": "Side length = 24 ÷ 4 = 6cm. Area = 6 × 6 = 36.",
         "choices": [
-          "C",
-          "A",
-          "B",
+          "12cm²",
+          "48cm²",
+          "20cm²",
           "36cm²"
         ],
         "correctIndex": 3
@@ -3452,9 +5612,9 @@
         "answer": "36cm²",
         "explanation": "Side length = 24 ÷ 4 = 6cm. Area = 6 × 6 = 36.",
         "choices": [
-          "C",
-          "A",
-          "B",
+          "12cm²",
+          "48cm²",
+          "20cm²",
           "36cm²"
         ],
         "correctIndex": 3
@@ -3584,9 +5744,9 @@
         "answer": "36cm²",
         "explanation": "Side length = 24 ÷ 4 = 6cm. Area = 6 × 6 = 36.",
         "choices": [
-          "C",
-          "A",
-          "B",
+          "12cm²",
+          "48cm²",
+          "20cm²",
           "36cm²"
         ],
         "correctIndex": 3
@@ -3626,6 +5786,246 @@
           "C"
         ],
         "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 0)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "11:00",
+          "13:00",
+          "14:00",
+          "12:00"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 1)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "11:00",
+          "13:00",
+          "12:00",
+          "14:00"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 2)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "13:00",
+          "14:00",
+          "11:00",
+          "12:00"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 3)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "13:00",
+          "11:00",
+          "14:00",
+          "12:00"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 4)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "14:00",
+          "11:00",
+          "13:00",
+          "12:00"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 5)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "12:00",
+          "13:00",
+          "14:00",
+          "11:00"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 6)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "14:00",
+          "12:00",
+          "11:00",
+          "13:00"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 7)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "14:00",
+          "12:00",
+          "13:00",
+          "11:00"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 8)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "11:00",
+          "13:00",
+          "14:00",
+          "12:00"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 9)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "14:00",
+          "12:00",
+          "13:00",
+          "11:00"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 10)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "12:00",
+          "11:00",
+          "14:00",
+          "13:00"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 11)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "11:00",
+          "13:00",
+          "12:00",
+          "14:00"
+        ],
+        "correctIndex": 2
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 12)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "12:00",
+          "13:00",
+          "14:00",
+          "11:00"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 13)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "11:00",
+          "13:00",
+          "14:00",
+          "12:00"
+        ],
+        "correctIndex": 3
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 14)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "12:00",
+          "11:00",
+          "13:00",
+          "14:00"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 15)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "14:00",
+          "12:00",
+          "11:00",
+          "13:00"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 16)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "12:00",
+          "11:00",
+          "14:00",
+          "13:00"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 17)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "12:00",
+          "14:00",
+          "13:00",
+          "11:00"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 18)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "12:00",
+          "13:00",
+          "14:00",
+          "11:00"
+        ],
+        "correctIndex": 0
+      },
+      {
+        "question": "If a train leaves at 10:00 and travels for 2 hours, what time does it arrive? (Gen 19)",
+        "answer": "12:00",
+        "explanation": "10:00 + 2 hours is 12:00.",
+        "choices": [
+          "11:00",
+          "12:00",
+          "14:00",
+          "13:00"
+        ],
+        "correctIndex": 1
       }
     ]
   }
