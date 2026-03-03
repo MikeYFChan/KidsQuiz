@@ -119,7 +119,7 @@ function renderAdminUsers() {
         tr.innerHTML = `
             <td><strong>${user.name}</strong></td>
             <td>${user.grade}</td>
-            <td><input type="number" class="admin-input" id="lvl-${user.id}" value="${rewards.level}" min="1"></td>
+            <td><input type="number" class="admin-input level-input" id="lvl-${user.id}" value="${rewards.level}" min="1"></td>
             <td><input type="number" class="admin-input" id="stars-${user.id}" value="${rewards.stars}" min="0"></td>
             <td><input type="number" class="admin-input" id="streak-${user.id}" value="${rewards.streak}" min="0"></td>
             <td><input type="number" class="admin-input" id="xp-${user.id}" value="${rewards.xp}" min="0" step="10"></td>
