@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Admin Dashboard - Smart Kids Quiz</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="Quiz.css">
+    <style>
+        .admin-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .dark-mode .admin-container {
+            background: var(--surface-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .admin-tab {
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            background: var(--bg-color);
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .admin-tab.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .admin-section {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .admin-section.active {
+            display: block;
+        }
+
+        /* User Table Styles */
+        .users-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-mode .users-table {
+            background: var(--surface-dark);
+        }
+
+        .users-table th,
+        .users-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .users-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+
+        .users-table tr:hover {
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .admin-input {
+            width: 80px;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .admin-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            background: var(--secondary-color);
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .admin-btn.danger {
+            background: var(--danger-color);
+        }
+
+        /* JSON Editor Styles */
+        .json-editor-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .json-textarea {
+            width: 100%;
+            height: 500px;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            font-family: monospace;
+            font-size: 14px;
+            resize: vertical;
+            background: #f8fafc;
+            color: #1e293b;
+            tab-size: 2;
+        }
+
+        .json-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .dark-mode .json-textarea {
+            background: #1e293b;
+            color: #f8fafc;
+            border-color: #334155;
+        }
+
+        .admin-footer-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+    <div id="toast-container" class="toast-container"></div>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>⚙️ Admin Dashboard</h1>
+            <a href="index.html" class="nav-item">
+                <div class="nav-icon">🏠</div>
+                <span>Back to App</span>
+            </a>
+        </div>
+
+        <!-- Password Modal overlay -->
+        <div id="admin-password-modal"
+            style="position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+            <div
+                style="background: white; padding: 2rem; border-radius: 12px; text-align: center; max-width: 400px; width: 90%;">
+                <h2 style="margin-bottom: 1rem; color: #1e293b;">Admin Access</h2>
+                <p style="margin-bottom: 1rem; color: #64748b;">Please enter the password to continue.</p>
+                <input type="password" id="admin-password-input" class="admin-input"
+                    style="width: 100%; margin-bottom: 1rem;" placeholder="Password">
+                <div id="admin-password-error" style="color: var(--danger-color); margin-bottom: 1rem; display: none;">
+                    Incorrect password</div>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <button class="btn btn-primary" id="admin-password-submit">Submit</button>
+                    <a href="index.html" class="admin-btn" style="text-decoration: none;">Cancel</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="admin-tabs">
+            <div class="admin-tab active" data-target="users-section">👤 User Management</div>
+            <div class="admin-tab" data-target="questions-section">📝 Question Editor</div>
+        </div>
+
+        <!-- Users Section -->
+        <div id="users-section" class="admin-section active">
+            <h2>Student Profiles</h2>
+            <p class="text-muted">Changes made here are saved to the browser instantly.</p>
+            <table class="users-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Grade</th>
+                        <th>Level</th>
+                        <th>⭐ Stars</th>
+                        <th>🔥 Streak</th>
+                        <th>XP</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-tbody">
+                    <!-- Populated by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Questions Section -->
+        <div id="questions-section" class="admin-section">
+            <h2>Edit questions-data.js</h2>
+            <div class="json-editor-container">
+                <p>Modify the JSON object below. When done, download the file and place it in the <code>js/</code>
+                    folder to overwrite <code>questions-data.js</code>.</p>
+                <textarea id="json-editor" class="json-textarea"></textarea>
+                <div class="admin-footer-actions">
+                    <button class="admin-btn danger" id="reset-json-btn">Reset to Current</button>
+                    <button class="admin-btn" id="format-json-btn">Format JSON</button>
+                    <button class="btn btn-primary" id="download-json-btn">
+                        <span>📥</span> Download questions-data.js
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Need to load state + questions before admin.js -->
+    <!-- The user data might come from localStorage straight away -->
+    <script src="js/state.js"></script>
+    <script src="js/questions-data.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
