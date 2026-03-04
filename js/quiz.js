@@ -748,6 +748,14 @@ function updateSmartScore(isCorrect) {
 
     updateMasteryRing(state.smartScore);
 
+    // Mastery fanfare trigger
+    if (state.smartScore === 100 && score < 100) {
+        sounds.mastery();
+        if (scoreEl) {
+            showFloatingText(scoreEl, 'Mastered! 🌟');
+        }
+    }
+
     // Persist mastery level
     if (state.currentUser) {
         saveSkillScore(state.currentUser.id, state.currentSubject, state.currentYear, state.currentSkill, state.smartScore);
@@ -783,6 +791,12 @@ function submitQuiz() {
     } else {
         sounds.incorrect();
         updateSmartScore(false);
+        const questionContainer = document.querySelector('.question-container');
+        if (questionContainer) {
+            questionContainer.classList.remove('shake-animation');
+            void questionContainer.offsetWidth; // trigger reflow
+            questionContainer.classList.add('shake-animation');
+        }
         showExplanation(question, userAnswer);
     }
 
@@ -964,16 +978,14 @@ function showLevelUpFeedback() {
 
     if (typeof confetti === 'function') {
         confetti({
-            particleCount: 200,
-            spread: 90,
+            particleCount: 300,
+            spread: 120,
             origin: { y: 0.5 },
-            colors: ['#ff9500', '#ffcc00', '#34c759', '#0066cc']
+            colors: ['#ff9500', '#ffcc00', '#34c759', '#0066cc', '#ff2d55']
         });
     }
 
-    // Play a special sound? (Placeholder)
-    sounds.correct();
-    setTimeout(() => sounds.correct(), 200);
+    sounds.levelUp();
 }
 
 function checkStreak() {
@@ -996,6 +1008,11 @@ function checkStreak() {
             // Consecutive day!
             state.rewards.streak++;
             showToast(`${state.rewards.streak} Day Streak! 🔥`, 'success');
+            sounds.streak();
+            const streakEl = getElement('sidebar-streak-count');
+            if (streakEl) {
+                showFloatingText(streakEl.parentElement, '+1 🔥', '#ff9500');
+            }
         } else if (diffDays > 1) {
             // Streak broken
             state.rewards.streak = 1;

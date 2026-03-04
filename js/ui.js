@@ -70,8 +70,40 @@ const sounds = {
     },
     incorrect() {
         this.play([220, 196], 'triangle', 0.3); // A3, G3
+    },
+    streak() {
+        this.play([261.63, 329.63, 392.00, 523.25], 'sine', 0.4); // C4, E4, G4, C5 (Rising Arpeggio)
+    },
+    levelUp() {
+        this.play([523.25, 587.33, 659.25, 698.46, 783.99], 'square', 0.6); // C5, D5, E5, F5, G5 (Jingle)
+    },
+    mastery() {
+        this.play([392.00, 493.88, 587.33, 783.99, 987.77], 'sine', 0.8); // G4, B4, D5, G5, B5 (Major chord fanfare)
     }
 };
+
+function showFloatingText(element, text, color = 'var(--accent)') {
+    if (!element) return;
+    const rect = element.getBoundingClientRect();
+    const floatEl = document.createElement('div');
+    floatEl.className = 'floating-text';
+    floatEl.textContent = text;
+    floatEl.style.color = color;
+    
+    // Position near the center of the element, slightly above
+    floatEl.style.left = `${rect.left + rect.width / 2}px`;
+    floatEl.style.top = `${rect.top}px`;
+    // Offset to roughly center the text horizontally based on width
+    floatEl.style.transform = 'translate(-50%, -50%)';
+    floatEl.style.textShadow = '0 2px 4px rgba(0,0,0,0.3)';
+    
+    document.body.appendChild(floatEl);
+    
+    // Remove after animation completes
+    setTimeout(() => {
+        if (floatEl.parentNode) floatEl.parentNode.removeChild(floatEl);
+    }, 1000);
+}
 
 function createElement(tag, className = '', innerHTML = '') {
     const el = document.createElement(tag);
