@@ -434,7 +434,9 @@ async function selectSubject(subject) {
         'english': 'English',
         'chinese': 'Chinese',
         'science': 'Science',
-        '11+': '11+'
+        '11+': '11+',
+        'sats': 'SATs Prep',
+        'sats prep': 'SATs Prep'
     };
 
     // Try to find an exact case-insensitive match from our keys
@@ -501,6 +503,8 @@ async function selectSubject(subject) {
                     'English & Maths': '➕',
                     'Year 3': '🥉',
                     'Year 6': '🥇',
+                    'KS2 Maths': '➗',
+                    'KS2 English': '📖',
                     'Default': '📝'
                 };
 
