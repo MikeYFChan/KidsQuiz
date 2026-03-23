@@ -6029,5 +6029,59 @@
         "correctIndex": 1
       }
     ]
+  },
+  "SATs Prep": {
+    "KS2 Maths": [
+      {
+        "question": "What is 3/4 as a percentage?",
+        "answer": "75%",
+        "explanation": "3/4 is equivalent to 75/100, which is 75%.",
+        "choices": [
+          "50%",
+          "75%",
+          "25%",
+          "80%"
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Calculate: 15% of 400",
+        "answer": "60",
+        "explanation": "10% of 400 is 40. 5% is 20. 40 + 20 = 60.",
+        "choices": [
+          "60",
+          "40",
+          "15",
+          "45"
+        ],
+        "correctIndex": 0
+      }
+    ],
+    "KS2 English": [
+      {
+        "question": "Which sentence is punctuated correctly?",
+        "answer": "The dog, which was very tired, fell asleep.",
+        "explanation": "Commas are used accurately to enclose the relative clause.",
+        "choices": [
+          "The dog which was very tired fell asleep.",
+          "The dog, which was very tired, fell asleep.",
+          "The dog which was very tired, fell asleep.",
+          "The dog, which was very tired fell asleep."
+        ],
+        "correctIndex": 1
+      },
+      {
+        "question": "Identify the adjective in the sentence: The clever fox jumped.",
+        "answer": "clever",
+        "explanation": "'Clever' describes the noun 'fox'.",
+        "choices": [
+          "fox",
+          "jumped",
+          "The",
+          "clever"
+        ],
+        "correctIndex": 3
+      }
+    ]
   }
 }
