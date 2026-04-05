@@ -266,7 +266,7 @@ function updateQuestProgress(type, value, increment = 1) {
 }
 
 function awardQuestReward(quest) {
-    addXP(quest.reward);
+    awardXP(quest.reward);
     state.rewards.stars += 5; // Bonus stars
     saveUsersToStorage();
     showToast(`Quest Completed: ${quest.title}! +${quest.reward} XP & 5 Stars! 🎁`, 'success');
@@ -401,5 +401,23 @@ function showLoadingIndicator(show) {
         }
     } else {
         if (existing) existing.remove();
+    }
+}
+
+// ============================================
+// Mascot UI Helper
+// ============================================
+function setMascotState(state, text) {
+    const mascot = getElement('mascot-emote');
+    const bubble = getElement('mascot-speech');
+    if (!mascot || !bubble) return;
+    
+    mascot.className = 'mascot-character ' + state;
+    if (text) {
+        bubble.textContent = text;
+        bubble.style.opacity = '1';
+        setTimeout(() => { bubble.style.opacity = '0'; }, 3000);
+    } else {
+        bubble.style.opacity = '0';
     }
 }

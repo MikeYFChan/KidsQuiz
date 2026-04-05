@@ -151,6 +151,36 @@
                     </div>
                 </div>
 
+                <div id="shop-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="shop-modal-title">
+                    <div class="modal-content shop-content">
+                        <div class="shop-header">
+                            <h2 id="shop-modal-title">Rewards Shop 🛒</h2>
+                            <div class="shop-balance">
+                                <span>Balance: </span>
+                                <span class="star-icon">⭐</span>
+                                <span id="shop-star-count">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="shop-tabs">
+                            <button type="button" class="shop-tab active" data-target="shop-avatars">Avatars</button>
+                            <button type="button" class="shop-tab" data-target="shop-themes">Themes</button>
+                        </div>
+
+                        <div id="shop-avatars" class="shop-grid active">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <div id="shop-themes" class="shop-grid" style="display: none;">
+                            <!-- Injected by JS -->
+                        </div>
+
+                        <div class="modal-buttons" style="margin-top: 2rem;">
+                            <button type="button" id="close-shop-btn" class="nav-button">Close Shop</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Dashboard Screen (IXL Recommendations Style) -->
                 <div id="dashboard-screen" class="screen active">
                     <div class="dashboard-hero">
@@ -191,7 +221,7 @@
                         </div>
                     </div>
 
-                    <div class="dashboard-quests" id="dashboard-quests-section" style="display: none;">
+                    <div class="dashboard-quests" id="dashboard-quests-section">
                         <h3>Today's Quests ✨</h3>
                         <div id="quests-list" class="quests-list">
                             <!-- Quests injected by JS -->
@@ -199,7 +229,10 @@
                     </div>
 
                     <div class="dashboard-rewards" id="dashboard-rewards-section">
-                        <h3>My Rewards 🏆</h3>
+                        <div class="rewards-header-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+                            <h3>My Rewards 🏆</h3>
+                            <button id="open-shop-btn" class="submit-button" style="padding: 0.5rem 1rem; border-radius: 9999px;">Shop 🛒</button>
+                        </div>
                         <div class="rewards-summary">
                             <div class="reward-stat">
                                 <span class="stat-label">Total Stars</span>
@@ -341,6 +374,10 @@
                     </header>
 
                     <form id="quiz-form">
+                        <div class="mascot-wrapper" id="quiz-mascot">
+                            <div class="mascot-bubble" id="mascot-speech" style="opacity: 0;">You can do it!</div>
+                            <div class="mascot-character" id="mascot-emote">🦉</div>
+                        </div>
                         <div class="question-container">
                             <label class="question-label" id="question-text">Loading...</label>
                             <button type="button" id="speak-btn" class="tts-button" aria-label="Speak">🔊</button>
