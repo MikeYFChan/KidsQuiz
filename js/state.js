@@ -25,8 +25,12 @@ const state = {
         xp: 0,
         level: 1,
         streak: 0,
-        lastActiveDate: null
-    }
+        lastActiveDate: null,
+        unlockedAvatars: ['👤'],
+        unlockedThemes: ['default'],
+        currentTheme: 'default'
+    },
+    sessionStreak: 0
 };
 
 // ============================================
@@ -74,9 +78,16 @@ function setCurrentUser(user) {
                     xp: 0,
                     level: 1,
                     streak: 0,
-                    lastActiveDate: null
+                    lastActiveDate: null,
+                    unlockedAvatars: ['👤'],
+                    unlockedThemes: ['default'],
+                    currentTheme: 'default'
                 };
             }
+            // Ensure legacy users have the new fields
+            if (!latestUser.rewards.unlockedAvatars) latestUser.rewards.unlockedAvatars = ['👤'];
+            if (!latestUser.rewards.unlockedThemes) latestUser.rewards.unlockedThemes = ['default'];
+            if (!latestUser.rewards.currentTheme) latestUser.rewards.currentTheme = 'default';
             state.rewards = latestUser.rewards;
             state.currentUser = latestUser;
             checkStreak(); // Check streak when user is set
@@ -88,7 +99,10 @@ function setCurrentUser(user) {
                 xp: 0,
                 level: 1,
                 streak: 0,
-                lastActiveDate: null
+                lastActiveDate: null,
+                unlockedAvatars: ['👤'],
+                unlockedThemes: ['default'],
+                currentTheme: 'default'
             };
             state.rewards = user.rewards;
         }

@@ -279,6 +279,7 @@ function startQuiz() {
     state.currentQuestions = shuffledQuestions.slice(0, 5);
     state.currentQuestionIndex = 0;
     state.userAnswers = [];
+    state.sessionStreak = 0;
     stopTimer();
 
     const quizTitle = getElement('quiz-title');
@@ -758,6 +759,8 @@ function updateSmartScore(isCorrect) {
         if (scoreEl) {
             showFloatingText(scoreEl, 'Mastered! 🌟');
         }
+        // Update Quest Progress
+        updateQuestProgress('score', 100);
     }
 
     // Persist mastery level
@@ -791,10 +794,34 @@ function submitQuiz() {
         sounds.correct();
         updateSmartScore(true);
         speakEncouragement(); // Add verbal encouragement
+        
+        // Mascot reaction
+        setMascotState('happy', 'Awesome! Correct!');
+        
+        // Update Session Streak
+        state.sessionStreak++;
+        if (state.sessionStreak === 3) {
+            showFloatingText(getElement('question-text'), '3-IN-A-ROW! 🔥', '#ff9500');
+            sounds.streak();
+        } else if (state.sessionStreak === 5) {
+            showFloatingText(getElement('question-text'), 'UNSTOPPABLE! 💎', '#fbbf24');
+            confetti({ particleCount: 50, spread: 60, origin: { y: 0.7 } });
+        }
+        
+        // Update Quest Progress
+        updateQuestProgress('subject', state.currentSubject);
+        
         nextQuestion(); // Automatic move on correct
     } else {
         sounds.incorrect();
         updateSmartScore(false);
+        
+        // Reset Session Streak
+        state.sessionStreak = 0;
+        
+        // Mascot reaction
+        setMascotState('sad', 'Oops! Try again!');
+        
         const questionContainer = document.querySelector('.question-container');
         if (questionContainer) {
             questionContainer.classList.remove('shake-animation');
@@ -824,11 +851,16 @@ function closeExplanation() {
 }
 
 function nextQuestion() {
+    // Reset mascot to neutral for next question
+    setTimeout(() => setMascotState('neutral', ''), 2000);
+    
     if (state.currentQuestionIndex < state.currentQuestions.length - 1) {
         state.currentQuestionIndex++;
         loadQuestion(state.currentQuestionIndex);
     } else {
         showResults();
+        // Update Quest Progress for completing a quiz
+        updateQuestProgress('quizzes', 1);
     }
 }
 

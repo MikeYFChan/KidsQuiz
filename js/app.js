@@ -142,10 +142,22 @@ function setupEventListeners() {
         };
     }
 
-    // Export/Import Listeners
-    if (getElement('export-data-btn')) getElement('export-data-btn').onclick = exportUserData;
     if (getElement('import-data-btn')) getElement('import-data-btn').onclick = () => getElement('import-input').click();
     if (getElement('import-input')) getElement('import-input').onchange = importUserData;
+
+    // Shop Listeners
+    if (getElement('open-shop-btn')) getElement('open-shop-btn').onclick = openShop;
+    if (getElement('close-shop-btn')) getElement('close-shop-btn').onclick = closeShop;
+    document.querySelectorAll('.shop-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            document.querySelectorAll('.shop-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const target = tab.dataset.target;
+            document.querySelectorAll('.shop-grid').forEach(g => {
+                g.style.display = (g.id === target) ? 'flex' : 'none';
+            });
+        });
+    });
 }
 
 // ============================================
@@ -161,6 +173,134 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupEventListeners();
     await loadQuestions();
     if (state.questionsLoaded) showScreen('dashboard');
+    applyGlobalTheme();
 });
+
+// ============================================
+// Shop Logic
+// ============================================
+const SHOP_ITEMS = {
+    avatars: [
+        { id: 'robot', name: 'Cool Robot', icon: '🤖', price: 10 },
+        { id: 'ninja', name: 'Swift Ninja', icon: '🥷', price: 15 },
+        { id: 'astronaut', name: 'Astronaut', icon: '🧑‍🚀', price: 20 },
+        { id: 'dragon', name: 'Magic Dragon', icon: '🐲', price: 25 },
+        { id: 'alien', name: 'Outer Space', icon: '👽', price: 15 }
+    ],
+    themes: [
+        { id: 'default', name: 'Standard Blue', icon: '🟦', price: 0 },
+        { id: 'space', name: 'Outer Space', icon: '🌌', price: 20 },
+        { id: 'jungle', name: 'Wild Jungle', icon: '🌿', price: 20 }
+    ]
+};
+
+function openShop() {
+    if (!state.currentUser) {
+        showToast('Please select a student to use the shop!', 'info');
+        return;
+    }
+    const modal = getElement('shop-modal');
+    if (modal) {
+        renderShop();
+        modal.classList.add('active');
+    }
+}
+
+function closeShop() {
+    const modal = getElement('shop-modal');
+    if (modal) modal.classList.remove('active');
+}
+
+function renderShop() {
+    const starCount = getElement('shop-star-count');
+    if (starCount) starCount.textContent = state.rewards.stars || 0;
+
+    const avatarGrid = getElement('shop-avatars');
+    const themeGrid = getElement('shop-themes');
+    if (!avatarGrid || !themeGrid) return;
+
+    avatarGrid.innerHTML = '';
+    SHOP_ITEMS.avatars.forEach(item => {
+        const isUnlocked = state.rewards.unlockedAvatars.includes(item.icon);
+        const isEquipped = state.currentUser.avatar === item.icon;
+        
+        const card = document.createElement('div');
+        card.className = `shop-item ${isEquipped ? 'equipped' : ''}`;
+        card.innerHTML = `
+            <div class="shop-item-preview">${item.icon}</div>
+            <div class="shop-item-name">${item.name}</div>
+            <div class="shop-item-price">${isUnlocked ? 'Owned' : '⭐ ' + item.price}</div>
+        `;
+        card.onclick = () => handleShopAction('avatar', item);
+        avatarGrid.appendChild(card);
+    });
+
+    themeGrid.innerHTML = '';
+    SHOP_ITEMS.themes.forEach(item => {
+        const isUnlocked = state.rewards.unlockedThemes.includes(item.id);
+        const isEquipped = state.rewards.currentTheme === item.id;
+        
+        const card = document.createElement('div');
+        card.className = `shop-item ${isEquipped ? 'equipped' : ''}`;
+        card.innerHTML = `
+            <div class="shop-item-preview">${item.icon}</div>
+            <div class="shop-item-name">${item.name}</div>
+            <div class="shop-item-price">${isUnlocked ? 'Owned' : '⭐ ' + item.price}</div>
+        `;
+        card.onclick = () => handleShopAction('theme', item);
+        themeGrid.appendChild(card);
+    });
+}
+
+function handleShopAction(type, item) {
+    const rewards = state.rewards;
+    if (type === 'avatar') {
+        if (rewards.unlockedAvatars.includes(item.icon)) {
+            // Equip
+            state.currentUser.avatar = item.icon;
+            showToast(`Equipped ${item.name}!`, 'success');
+        } else {
+            // Buy
+            if (rewards.stars >= item.price) {
+                rewards.stars -= item.price;
+                rewards.unlockedAvatars.push(item.icon);
+                state.currentUser.avatar = item.icon;
+                showToast(`Bought ${item.name}!`, 'success');
+            } else {
+                showToast("Not enough stars! Keep practicing!", 'warning');
+                return;
+            }
+        }
+    } else if (type === 'theme') {
+        if (rewards.unlockedThemes.includes(item.id)) {
+            rewards.currentTheme = item.id;
+            applyGlobalTheme();
+            showToast(`Applied ${item.name} theme!`, 'success');
+        } else {
+            if (rewards.stars >= item.price) {
+                rewards.stars -= item.price;
+                rewards.unlockedThemes.push(item.id);
+                rewards.currentTheme = item.id;
+                applyGlobalTheme();
+                showToast(`Bought ${item.name} theme!`, 'success');
+            } else {
+                showToast("Not enough stars!", 'warning');
+                return;
+            }
+        }
+    }
+    
+    saveUsersToStorage();
+    updateUserUI();
+    renderShop();
+}
+
+function applyGlobalTheme() {
+    const theme = state.rewards?.currentTheme || 'default';
+    document.body.classList.remove('theme-space', 'theme-jungle');
+    if (theme !== 'default') {
+        document.body.classList.add(`theme-${theme}`);
+    }
+}
 
 console.log('Kids Quiz loaded successfully!');
