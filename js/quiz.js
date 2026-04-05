@@ -455,15 +455,48 @@ async function selectSubject(subject) {
     state.currentSubject = normalizedSubject;
     const currentUser = state.currentUser;
 
-    // Check if we have data for this subject
-    if (!state.questionsData[normalizedSubject]) {
+    // Check if we have data for this subject (Top-level or Nested)
+    let subjectData = state.questionsData[normalizedSubject];
+    let parentCategory = null;
+
+    if (!subjectData) {
+        console.log(`Subject ${normalizedSubject} not found at top level. Searching nested categories...`);
+        for (const parentKey of Object.keys(state.questionsData)) {
+            const parentObj = state.questionsData[parentKey];
+            if (parentObj && typeof parentObj === 'object' && !Array.isArray(parentObj)) {
+                // Check if this parent has the subject as a sub-key
+                if (parentObj[normalizedSubject]) {
+                    subjectData = parentObj[normalizedSubject];
+                    parentCategory = parentKey;
+                    console.log(`Found ${normalizedSubject} nested under ${parentKey}`);
+                    break;
+                }
+                
+                // Also check for case-insensitive matches in child keys
+                const childMatch = Object.keys(parentObj).find(k => k.toLowerCase() === lowerSubject);
+                if (childMatch) {
+                    subjectData = parentObj[childMatch];
+                    normalizedSubject = childMatch;
+                    parentCategory = parentKey;
+                    console.log(`Found case-insensitive match ${childMatch} nested under ${parentKey}`);
+                    break;
+                }
+            }
+        }
+    }
+
+    if (!subjectData) {
         console.error(`ERROR: No data found for normalized subject: ${normalizedSubject}`);
         console.log('Debugging state.questionsData:', state.questionsData);
         showToast(`Questions for ${normalizedSubject} are coming soon!`, 'info');
         return;
     }
 
-    if (currentUser && currentUser.grade && state.questionsData[normalizedSubject]?.[currentUser.grade]) {
+    // Update state with our findings
+    state.currentSubject = normalizedSubject;
+    const finalData = subjectData; // This is the Year/Topic map
+
+    if (currentUser && currentUser.grade && finalData[currentUser.grade]) {
         console.log('Auto-selecting year based on user grade:', currentUser.grade);
         state.currentYear = currentUser.grade;
         showSkillTree(normalizedSubject, state.currentYear);
@@ -490,7 +523,7 @@ async function selectSubject(subject) {
         const yearSelectionEl = getElement('year-selection');
         if (yearSelectionEl) {
             yearSelectionEl.innerHTML = '';
-            const yearData = state.questionsData[normalizedSubject] || {};
+            const yearData = finalData || {};
             const categories = Object.keys(yearData);
             console.log('Available years for subject:', categories);
 

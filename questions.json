@@ -197,6 +197,100 @@
       }
     ]
   },
+  "English": {
+    "Year 3": [
+      {
+        "question": "Which of these is a noun?",
+        "answer": "table",
+        "explanation": "A noun is a naming word for a person, place, or thing.",
+        "choices": ["run", "table", "happily", "blue"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the past tense of 'jump'?",
+        "answer": "jumped",
+        "explanation": "Regular verbs usually add 'ed' to form the past tense.",
+        "choices": ["jumping", "jumps", "jumped", "jump"],
+        "correctIndex": 2
+      }
+    ],
+    "Year 6": [
+      {
+        "question": "Identify the conjunction: 'I like tea, but I hate coffee.'",
+        "answer": "but",
+        "explanation": "A conjunction is a word that connects words, phrases, or clauses.",
+        "choices": ["like", "tea", "but", "hate"],
+        "correctIndex": 2
+      }
+    ]
+  },
+  "Chinese": {
+    "Year 3": [
+      {
+        "question": "「山」個字點寫？",
+        "answer": "山",
+        "explanation": "「山」係象形文字，睇落好似幾座山峰咁。",
+        "choices": ["水", "木", "山", "火"],
+        "correctIndex": 2
+      },
+      {
+        "question": "「一、二、( )、四」，括號入面應該填咩？",
+        "answer": "三",
+        "explanation": "數字順序係一、二、三、四。",
+        "choices": ["五", "三", "六", "七"],
+        "correctIndex": 1
+      }
+    ],
+    "Year 6": [
+      {
+        "question": "「守株待兔」係咩意思？",
+        "answer": "希望不勞而獲",
+        "explanation": "「守株待兔」比喻只想靠好運，唔肯努力。",
+        "choices": ["認真工作", "希望不勞而獲", "關心動物", "速度好快"],
+        "correctIndex": 1
+      }
+    ]
+  },
+  "Science": {
+    "Year 3": [
+      {
+        "question": "Which of these is a solid?",
+        "answer": "Ice",
+        "explanation": "Ice is frozen water and has a fixed shape.",
+        "choices": ["Water", "Steam", "Ice", "Air"],
+        "correctIndex": 2
+      }
+    ],
+    "Year 6": [
+      {
+        "question": "Which organ pumps blood around the body?",
+        "answer": "Heart",
+        "explanation": "The heart is a muscular organ that pumps blood through the circulatory system.",
+        "choices": ["Lungs", "Brain", "Heart", "Stomach"],
+        "correctIndex": 2
+      }
+    ]
+  },
+  "11+": {
+    "Verbal Reasoning": [
+      {
+        "question": "Which word is the odd one out?",
+        "answer": "Apple",
+        "explanation": "Apple is a fruit, while the others are vegetables.",
+        "choices": ["Carrot", "Potato", "Broccoli", "Apple"],
+        "correctIndex": 3
+      }
+    ],
+    "Non-Verbal Reasoning": [
+      {
+        "question": "Which shape comes next in the sequence: Square, Circle, Square, Circle...?",
+        "answer": "Square",
+        "explanation": "The pattern alternates between a square and a circle.",
+        "choices": ["Triangle", "Square", "Hexagon", "Circle"],
+        "correctIndex": 1
+      }
+    ]
+  },
   "SATs Prep": {
     "KS2 Maths": [
       {
