@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const passwordError = document.getElementById('admin-password-error');
 
     function checkPassword() {
-        if (passwordInput.value === '1234') {
+        if (passwordInput.value === '92746058') {
             passwordModal.style.display = 'none';
         } else {
             passwordError.style.display = 'block';
