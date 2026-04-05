@@ -345,6 +345,9 @@ function updateUserUI() {
         const avatarEl = getElement('sidebar-avatar');
         if (avatarEl) avatarEl.textContent = state.currentUser.avatar || '👤';
 
+        const headerMascotEl = getElement('header-mascot-sprite');
+        if (headerMascotEl) headerMascotEl.textContent = state.currentUser.avatar || '🦉';
+
         // Update reward indicators in sidebar if they exist
         const starCountEl = getElement('sidebar-star-count');
         if (starCountEl) {
@@ -936,8 +939,20 @@ function submitQuiz() {
         updateSmartScore(true);
         speakEncouragement(); // Add verbal encouragement
         
-        // Mascot reaction
-        setMascotState('happy', 'Awesome! Correct!');
+        // Mascot reaction and small celebratory burst
+        const praises = ['Awesome! Correct!', 'You got it!', 'Brilliant!', 'Keep it up!', 'Great job!', 'Amazing!'];
+        const randomPraise = praises[Math.floor(Math.random() * praises.length)];
+        setMascotState('happy', randomPraise);
+        
+        // Small festive burst on every correct answer
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 20,
+                spread: 30,
+                origin: { y: 0.8 },
+                colors: ['#37af65', '#4ade80', '#ffffff']
+            });
+        }
         
         // Update Session Streak
         state.sessionStreak++;

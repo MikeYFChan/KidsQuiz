@@ -404,20 +404,53 @@ function showLoadingIndicator(show) {
     }
 }
 
-// ============================================
 // Mascot UI Helper
 // ============================================
-function setMascotState(state, text) {
+function setMascotState(mascotState, text) {
     const mascot = getElement('mascot-emote');
     const bubble = getElement('mascot-speech');
-    if (!mascot || !bubble) return;
-    
-    mascot.className = 'mascot-character ' + state;
+    const headerMascot = getElement('header-mascot-sprite');
+    const headerBubble = getElement('header-mascot-bubble');
+
+    // Update Quiz Mascot
+    if (mascot) {
+        mascot.className = 'mascot-character ' + mascotState;
+        if (mascotState === 'happy') mascot.textContent = '🎉';
+        else if (mascotState === 'sad') mascot.textContent = '😢';
+        else mascot.textContent = (state && state.currentUser) ? state.currentUser.avatar : '🦉';
+    }
+
+    // Update Header Mascot
+    if (headerMascot) {
+        headerMascot.className = 'header-mascot-sprite ' + mascotState;
+        if (mascotState === 'happy') headerMascot.textContent = '🎉';
+        else if (mascotState === 'sad') headerMascot.textContent = '😢';
+        else headerMascot.textContent = (state && state.currentUser) ? state.currentUser.avatar : '🦉';
+    }
+
     if (text) {
-        bubble.textContent = text;
-        bubble.style.opacity = '1';
-        setTimeout(() => { bubble.style.opacity = '0'; }, 3000);
+        if (bubble) {
+            bubble.textContent = text;
+            bubble.style.opacity = '1';
+        }
+        if (headerBubble) {
+            headerBubble.textContent = text;
+            headerBubble.style.opacity = '1';
+            headerBubble.style.transform = 'translateY(0)';
+        }
+        
+        setTimeout(() => { 
+            if (bubble) bubble.style.opacity = '0';
+            if (headerBubble) {
+                headerBubble.style.opacity = '0';
+                headerBubble.style.transform = 'translateY(-10px)';
+            }
+        }, 3000);
     } else {
-        bubble.style.opacity = '0';
+        if (bubble) bubble.style.opacity = '0';
+        if (headerBubble) {
+            headerBubble.style.opacity = '0';
+            headerBubble.style.transform = 'translateY(-10px)';
+        }
     }
 }
