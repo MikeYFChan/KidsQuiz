@@ -35,6 +35,27 @@
         "explanation": "If a number multiplied by 8 is 64, we can divide 64 by 8 to find the answer: 64 \u00f7 8 = 8.",
         "choices": ["7", "8", "9", "56"],
         "correctIndex": 1
+      },
+      {
+        "question": "What is half of 48?",
+        "answer": "24",
+        "explanation": "To find half, divide by 2. 48 \u00f7 2 = 24.",
+        "choices": ["22", "24", "26", "96"],
+        "correctIndex": 1
+      },
+      {
+        "question": "How many minutes are in 1 hour and 15 minutes?",
+        "answer": "75",
+        "explanation": "1 hour = 60 minutes. 60 + 15 = 75 minutes.",
+        "choices": ["60", "70", "75", "115"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which shape has 3 sides?",
+        "answer": "Triangle",
+        "explanation": "Triangles always have exactly three sides.",
+        "choices": ["Square", "Circle", "Triangle", "Pentagon"],
+        "correctIndex": 2
       }
     ],
     "Year 4": [
@@ -51,6 +72,41 @@
         "explanation": "Since 52 is 50 or more, we round up to the next hundred.",
         "choices": ["400", "450", "500", "460"],
         "correctIndex": 2
+      },
+      {
+        "question": "What is 1,000 less than 6,432?",
+        "answer": "5,432",
+        "explanation": "Subtract 1,000 from the thousands place: 6,432 - 1,000 = 5,432.",
+        "choices": ["6,332", "5,432", "7,432", "6,422"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Convert 2.5 kilograms to grams.",
+        "answer": "2500g",
+        "explanation": "There are 1,000 grams in a kilogram. 2.5 \u00d7 1,000 = 2,500.",
+        "choices": ["250g", "25g", "2500g", "2005g"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is 12 \u00d7 11?",
+        "answer": "132",
+        "explanation": "12 \u00d7 10 = 120, plus one more 12 equals 132.",
+        "choices": ["121", "132", "144", "122"],
+        "correctIndex": 1
+      },
+      {
+        "question": "How many millimeters are in 5 centimeters?",
+        "answer": "50mm",
+        "explanation": "1cm = 10mm. 5 \u00d7 10 = 50.",
+        "choices": ["5mm", "50mm", "500mm", "0.5mm"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the Roman numeral for 9?",
+        "answer": "IX",
+        "explanation": "X is 10, and I before X means 10 minus 1.",
+        "choices": ["VII", "XI", "IX", "IV"],
+        "correctIndex": 2
       }
     ],
     "Year 5": [
@@ -59,6 +115,41 @@
         "answer": "9",
         "explanation": "9 \u00d7 9 = 81, so the square root is 9.",
         "choices": ["8", "9", "7", "10"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 1/5 as a decimal?",
+        "answer": "0.2",
+        "explanation": "1 divided by 5 equals 0.2.",
+        "choices": ["0.1", "0.5", "0.2", "0.25"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Calculate: 125 \u00d7 4",
+        "answer": "500",
+        "explanation": "125 + 125 = 250. 250 + 250 = 500.",
+        "choices": ["450", "500", "550", "600"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the perimeter of a square with side length 6cm?",
+        "answer": "24cm",
+        "explanation": "Perimeter = 4 \u00d7 side length. 4 \u00d7 6 = 24.",
+        "choices": ["36cm", "24cm", "12cm", "18cm"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Round 3.456 to two decimal places.",
+        "answer": "3.46",
+        "explanation": "The third decimal place is 6, so we round up the second place.",
+        "choices": ["3.45", "3.46", "3.40", "3.50"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 10 squared?",
+        "answer": "100",
+        "explanation": "10 \u00d7 10 = 100.",
+        "choices": ["20", "100", "1000", "10"],
         "correctIndex": 1
       }
     ],
@@ -75,6 +166,41 @@
         "answer": "6",
         "explanation": "24 divided by 4 is 6.",
         "choices": ["5", "6", "20", "28"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the volume of a cube with 3cm sides?",
+        "answer": "27cm\u00b3",
+        "explanation": "Volume = side \u00d7 side \u00d7 side. 3 \u00d7 3 \u00d7 3 = 27.",
+        "choices": ["9cm\u00b3", "12cm\u00b3", "27cm\u00b3", "18cm\u00b3"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Convert 0.75 to a fraction in its simplest form.",
+        "answer": "3/4",
+        "explanation": "0.75 is 75/100, which simplifies to 3/4.",
+        "choices": ["1/2", "3/4", "2/3", "4/5"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is 20% of 150?",
+        "answer": "30",
+        "explanation": "10% of 150 is 15. So 20% is 30.",
+        "choices": ["15", "25", "30", "45"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Find the mean of 5, 10, and 15.",
+        "answer": "10",
+        "explanation": "Mean = (5 + 10 + 15) \u00f7 3 = 30 \u00f7 3 = 10.",
+        "choices": ["5", "10", "15", "30"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the sum of the interior angles of a triangle?",
+        "answer": "180 degrees",
+        "explanation": "All triangles have angles that sum to 180 degrees.",
+        "choices": ["90 degrees", "180 degrees", "360 degrees", "270 degrees"],
         "correctIndex": 1
       }
     ]
@@ -101,6 +227,34 @@
         "explanation": "An adjective describes a noun (dog).",
         "choices": ["barked", "dog", "big", "The"],
         "correctIndex": 2
+      },
+      {
+        "question": "Which word needs a capital letter: 'i like pizza.'",
+        "answer": "i",
+        "explanation": "The word 'I' and the first word of a sentence always need a capital letter.",
+        "choices": ["like", "pizza", "i", "none"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is the opposite of 'hot'?",
+        "answer": "cold",
+        "explanation": "Antonyms are words with opposite meanings.",
+        "choices": ["warm", "cold", "sunny", "boiling"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which sentence is a question?",
+        "answer": "Where is my hat?",
+        "explanation": "Questions ask something and usually end with a question mark.",
+        "choices": ["I have a hat.", "Go get my hat.", "Where is my hat?", "My hat is red."],
+        "correctIndex": 2
+      },
+      {
+        "question": "Choose the correct spelling:",
+        "answer": "because",
+        "explanation": "The common spelling for this conjunction is 'because'.",
+        "choices": ["becoz", "beacuse", "because", "becasue"],
+        "correctIndex": 2
       }
     ],
     "Year 4": [
@@ -110,6 +264,85 @@
         "explanation": "Synonyms are words with similar meanings.",
         "choices": ["sad", "joyful", "angry", "tired"],
         "correctIndex": 1
+      },
+      {
+        "question": "Find the adverb: 'He ran quickly.'",
+        "answer": "quickly",
+        "explanation": "An adverb describes how an action is done.",
+        "choices": ["He", "ran", "quickly", "none"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is the plural of 'child'?",
+        "answer": "children",
+        "explanation": "'Child' is an irregular plural noun.",
+        "choices": ["childs", "children", "childes", "childrens"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which conjunction fits best: 'I stayed inside ( ) it was raining.'",
+        "answer": "because",
+        "explanation": "'Because' explains the reason why something happened.",
+        "choices": ["but", "and", "because", "or"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Identify the pronoun: 'She went to the park.'",
+        "answer": "She",
+        "explanation": "A pronoun replaces a person's name.",
+        "choices": ["She", "went", "park", "the"],
+        "correctIndex": 0
+      },
+      {
+        "question": "Which word is spelled correctly?",
+        "answer": "separate",
+        "explanation": "A common mistake is 'seperate', but it is spelled 'separate'.",
+        "choices": ["seperate", "seperet", "separate", "seperat"],
+        "correctIndex": 2
+      }
+    ],
+    "Year 5": [
+      {
+        "question": "Which of these is a relative pronoun?",
+        "answer": "who",
+        "explanation": "Relative pronouns like who, which, and that introduce relative clauses.",
+        "choices": ["he", "she", "who", "it"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Identify the modal verb: 'I might go to the party.'",
+        "answer": "might",
+        "explanation": "Modal verbs like might, could, and should show possibility.",
+        "choices": ["go", "might", "party", "I"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the prefix in 'disagree'?",
+        "answer": "dis-",
+        "explanation": "A prefix is added to the beginning of a word to change its meaning.",
+        "choices": ["-agree", "dis-", "disa-", "diag-"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which word is a synonym for 'enormous'?",
+        "answer": "gigantic",
+        "explanation": "Both words mean very large.",
+        "choices": ["tiny", "small", "gigantic", "heavy"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Find the preposition: 'The cat sat on the mat.'",
+        "answer": "on",
+        "explanation": "Prepositions show the position or relationship of things.",
+        "choices": ["cat", "sat", "on", "mat"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which sentence uses an apostrophe for possession?",
+        "answer": "The boy's dog is brown.",
+        "explanation": "Apostrophes show that something belongs to someone.",
+        "choices": ["It's raining.", "The boys are here.", "The boy's dog is brown.", "You're late."],
+        "correctIndex": 2
       }
     ],
     "Year 6": [
@@ -125,6 +358,41 @@
         "answer": "The ball was kicked by the boy.",
         "explanation": "In passive voice, the subject receives the action.",
         "choices": ["The boy kicked the ball.", "The ball was kicked by the boy.", "The boy is kicking.", "Kick the ball!"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the antonym of 'ancient'?",
+        "answer": "modern",
+        "explanation": "Antonyms are words with opposite meanings.",
+        "choices": ["old", "historical", "modern", "dusty"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which word is a determiner: 'Those apples look tasty.'",
+        "answer": "Those",
+        "explanation": "Determiners like 'those', 'the', and 'a' introduce nouns.",
+        "choices": ["apples", "look", "Those", "tasty"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Identify the subordinate clause: 'Since it was late, we went home.'",
+        "answer": "Since it was late",
+        "explanation": "A subordinate clause cannot stand alone as a sentence.",
+        "choices": ["we went home", "Since it was late", "went home", "late"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which sentence is correctly punctuated with a colon?",
+        "answer": "I have three pets: a cat, a dog, and a fish.",
+        "explanation": "Colons can be used to introduce a list.",
+        "choices": ["I have: three pets", "I have three pets: a cat, a dog, and a fish.", "I have three pets; a cat, a dog, and a fish.", "I have three pets, a cat: a dog, and a fish."],
+        "correctIndex": 1
+      },
+      {
+        "question": "What does the root 'tele' mean in 'telephone'?",
+        "answer": "far",
+        "explanation": "The Greek root 'tele' means distant or far.",
+        "choices": ["speak", "far", "sound", "light"],
         "correctIndex": 1
       }
     ]
@@ -144,6 +412,122 @@
         "explanation": "數字順序係一、二、三、四。",
         "choices": ["五", "三", "六", "七"],
         "correctIndex": 1
+      },
+      {
+        "question": "下列邊個字同「月亮」有關？",
+        "answer": "明",
+        "explanation": "「明」由「日」同「月」組成，代表光明。",
+        "choices": ["星", "明", "陽", "陰"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「老師」嘅相反詞係咩？",
+        "answer": "學生",
+        "explanation": "老師教書，學生讀書。",
+        "choices": ["朋友", "家長", "學生", "校長"],
+        "correctIndex": 2
+      },
+      {
+        "question": "「( )色」代表天空嘅顏色。",
+        "answer": "藍",
+        "explanation": "天空通常係藍色嘅。",
+        "choices": ["紅", "綠", "藍", "黃"],
+        "correctIndex": 2
+      },
+      {
+        "question": "部首「氵」通常同咩有關？",
+        "answer": "水",
+        "explanation": "「三點水」部首嘅字多數同水有關，例如：流、海、河。",
+        "choices": ["火", "木", "水", "土"],
+        "correctIndex": 2
+      }
+    ],
+    "Year 4": [
+      {
+        "question": "下列邊個字嘅部首係「亻」？",
+        "answer": "他",
+        "explanation": "「他」嘅部首係單人旁「亻」。",
+        "choices": ["地", "他", "她", "它"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「春、( )、秋、冬」，括號入面應該填咩？",
+        "answer": "夏",
+        "explanation": "四季嘅順序係春夏秋冬。",
+        "choices": ["雨", "風", "夏", "熱"],
+        "correctIndex": 2
+      },
+      {
+        "question": "意思相近嘅詞語叫咩？",
+        "answer": "近義詞",
+        "explanation": "意思相近嘅詞語稱為近義詞。",
+        "choices": ["反義詞", "近義詞", "成語", "俗語"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「我( )去公園玩。」括號應填入：",
+        "answer": "想",
+        "explanation": "「想」表示願望。",
+        "choices": ["心", "想", "相", "香"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「漂亮」嘅近義詞係咩？",
+        "answer": "美麗",
+        "explanation": "漂亮同美麗意思相近。",
+        "choices": ["醜陋", "美麗", "可愛", "大方"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「人、口、手」中，邊個字係指說話嘅器官？",
+        "answer": "口",
+        "explanation": "「口」指嘴巴。",
+        "choices": ["人", "口", "手", "耳"],
+        "correctIndex": 1
+      }
+    ],
+    "Year 5": [
+      {
+        "question": "「畫蛇添足」比喻咩？",
+        "answer": "多此一舉",
+        "explanation": "「畫蛇添足」比喻做咗多餘嘅事，反而將事情整衰。",
+        "choices": ["畫畫好叻", "多此一舉", "鍾意蛇", "動作好快"],
+        "correctIndex": 1
+      },
+      {
+        "question": "下列邊個字包含「目」字旁？",
+        "answer": "眼",
+        "explanation": "「眼」同眼睛有關，所以用「目」字旁。",
+        "choices": ["手", "眼", "耳", "口"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「快( )」嘅反義詞係：",
+        "answer": "痛苦",
+        "explanation": "快樂同痛苦係相反詞。",
+        "choices": ["開心", "難過", "痛苦", "憂慮"],
+        "correctIndex": 2
+      },
+      {
+        "question": "「名落孫山」係指咩意思？",
+        "answer": "考唔到試",
+        "explanation": "「名落孫山」指考試成績唔理想，榜上無名。",
+        "choices": ["爬山好慢", "考唔到試", "名字好特別", "住喺山上"],
+        "correctIndex": 1
+      },
+      {
+        "question": "下列邊個詞語形容說話非常有道理？",
+        "answer": "口若懸河",
+        "explanation": "「口若懸河」形容能言善辩，說話滔滔不絕。",
+        "choices": ["口若懸河", "支支吾吾", "無話可說", "一言九鼎"],
+        "correctIndex": 0
+      },
+      {
+        "question": "標點符號中，表示語氣停頓較長嘅係：",
+        "answer": "句號",
+        "explanation": "句號表示一個完整句子嘅結束。",
+        "choices": ["逗號", "句號", "感嘆號", "問號"],
+        "correctIndex": 1
       }
     ],
     "Year 6": [
@@ -152,6 +536,48 @@
         "answer": "希望不勞而獲",
         "explanation": "「守株待兔」比喻只想靠好運，唔肯努力。",
         "choices": ["認真工作", "希望不勞而獲", "關心動物", "速度好快"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「胸有成竹」形容咩？",
+        "answer": "有把握",
+        "explanation": "「胸有成竹」形容做事前已經有充分嘅準備同把握。",
+        "choices": ["心中有竹", "有把握", "身體強壯", "喜歡植物"],
+        "correctIndex": 1
+      },
+      {
+        "question": "下列邊個係「慷慨」嘅反義詞？",
+        "answer": "吝嗇",
+        "explanation": "「慷慨」係大方，「吝嗇」係孤寒。",
+        "choices": ["大方", "吝嗇", "熱情", "冷漠"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「半途而廢」比喻咩？",
+        "answer": "無恒心",
+        "explanation": "「半途而廢」指做事做咗一半就唔做，無恒心。",
+        "choices": ["做得好快", "無恒心", "非常有把握", "非常懶散"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「塞翁失馬，( )」下一句係：",
+        "answer": "焉知非福",
+        "explanation": "「塞翁失馬，焉知非福」比喻壞事可能變成好事。",
+        "choices": ["焉知非福", "後悔莫及", "得不償失", "再接再厲"],
+        "correctIndex": 0
+      },
+      {
+        "question": "下列邊個係描寫風景嘅成語？",
+        "answer": "明媚風光",
+        "explanation": "「明媚風光」用嚟形容景色優美。",
+        "choices": ["一馬當先", "明媚風光", "出口成章", "學富五車"],
+        "correctIndex": 1
+      },
+      {
+        "question": "「紙上談兵」比喻咩？",
+        "answer": "只有理論",
+        "explanation": "「紙上談兵」比喻空談理論，唔能夠解決實際問題。",
+        "choices": ["鍾意寫字", "只有理論", "非常勇敢", "非常有謀略"],
         "correctIndex": 1
       }
     ]
@@ -171,6 +597,34 @@
         "explanation": "Plants grow in soil to get nutrients.",
         "choices": ["juice", "soil", "ink", "sand"],
         "correctIndex": 1
+      },
+      {
+        "question": "How many legs does an insect have?",
+        "answer": "6",
+        "explanation": "All insects have exactly six legs.",
+        "choices": ["4", "6", "8", "10"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which sense do you use to hear a bell?",
+        "answer": "Hearing",
+        "explanation": "Hearing is the sense used to detect sound.",
+        "choices": ["Sight", "Smell", "Hearing", "Touch"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is the force that pulls objects towards the Earth?",
+        "answer": "Gravity",
+        "explanation": "Gravity is the invisible force that pulls everything down.",
+        "choices": ["Magnetism", "Gravity", "Friction", "Wind"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which of these is a source of light?",
+        "answer": "The Sun",
+        "explanation": "The Sun produces its own light.",
+        "choices": ["The Moon", "A mirror", "The Sun", "A rock"],
+        "correctIndex": 2
       }
     ],
     "Year 4": [
@@ -180,6 +634,85 @@
         "explanation": "Evaporation is when liquid turns into gas.",
         "choices": ["Freezing", "Melting", "Evaporation", "Condensation"],
         "correctIndex": 2
+      },
+      {
+        "question": "Which type of animal has a backbone?",
+        "answer": "Vertebrate",
+        "explanation": "Animals with backbones are called vertebrates.",
+        "choices": ["Invertebrate", "Vertebrate", "Insect", "Mollusk"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What part of a plant absorbs water from the soil?",
+        "answer": "Roots",
+        "explanation": "Roots anchors the plant and absorb water and nutrients.",
+        "choices": ["Leaves", "Stem", "Flowers", "Roots"],
+        "correctIndex": 3
+      },
+      {
+        "question": "Which of these materials is a good conductor of electricity?",
+        "answer": "Copper",
+        "explanation": "Metals like copper allow electricity to flow through them easily.",
+        "choices": ["Plastic", "Wood", "Copper", "Rubber"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What kind of teeth do humans use for grinding food?",
+        "answer": "Molars",
+        "explanation": "Molars are large, flat teeth at the back of the mouth used for grinding.",
+        "choices": ["Incisors", "Canines", "Molars", "Tusks"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What forms when water vapor condenses in the sky?",
+        "answer": "Clouds",
+        "explanation": "Clouds are made of tiny water droplets or ice crystals.",
+        "choices": ["Rain", "Wind", "Clouds", "Snow"],
+        "correctIndex": 2
+      }
+    ],
+    "Year 5": [
+      {
+        "question": "How long does it take for the Earth to orbit the Sun?",
+        "answer": "365 days",
+        "explanation": "It takes approximately one year (365 days) for the Earth to complete one orbit.",
+        "choices": ["24 hours", "30 days", "365 days", "100 days"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which planet is known as the Red Planet?",
+        "answer": "Mars",
+        "explanation": "Mars has a reddish appearance due to iron oxide on its surface.",
+        "choices": ["Venus", "Jupiter", "Mars", "Saturn"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is the boiling point of water?",
+        "answer": "100 degrees Celsius",
+        "explanation": "Pure water boils at 100\u00b0C at sea level.",
+        "choices": ["0 degrees Celsius", "50 degrees Celsius", "100 degrees Celsius", "200 degrees Celsius"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which state of matter has a fixed volume but no fixed shape?",
+        "answer": "Liquid",
+        "explanation": "Liquids take the shape of their container but maintain their volume.",
+        "choices": ["Solid", "Liquid", "Gas", "Plasma"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What force acts against motion when two surfaces rub together?",
+        "answer": "Friction",
+        "explanation": "Friction is the resistance that one surface or object encounters when moving over another.",
+        "choices": ["Gravity", "Friction", "Magnetism", "Air resistance"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What do we call animals that only eat plants?",
+        "answer": "Herbivores",
+        "explanation": "Herbivores are animals whose primary food source is plant-based.",
+        "choices": ["Carnivores", "Omnivores", "Herbivores", "Insectivores"],
+        "correctIndex": 2
       }
     ],
     "Year 6": [
@@ -188,6 +721,48 @@
         "answer": "Heart",
         "explanation": "The heart is a muscular organ that pumps blood through the circulatory system.",
         "choices": ["Lungs", "Brain", "Heart", "Stomach"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What is the process by which plants make their own food?",
+        "answer": "Photosynthesis",
+        "explanation": "Plants use sunlight, water, and carbon dioxide to create energy (glucose).",
+        "choices": ["Respiration", "Digestion", "Photosynthesis", "Circulation"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Who developed the theory of evolution by natural selection?",
+        "answer": "Charles Darwin",
+        "explanation": "Charles Darwin's work laid the foundation for modern evolutionary biology.",
+        "choices": ["Isaac Newton", "Charles Darwin", "Albert Einstein", "Thomas Edison"],
+        "correctIndex": 1
+      },
+      {
+        "question": "Which unit is used to measure electrical current?",
+        "answer": "Amperes",
+        "explanation": "Amperes (Amps) measure the rate of flow of electricity.",
+        "choices": ["Volts", "Watts", "Amperes", "Ohms"],
+        "correctIndex": 2
+      },
+      {
+        "question": "What type of lens is thicker in the middle than at the edges?",
+        "answer": "Convex",
+        "explanation": "Convex lenses converge light rays and are thicker in the middle.",
+        "choices": ["Concave", "Convex", "Flat", "Cylindrical"],
+        "correctIndex": 1
+      },
+      {
+        "question": "What is the smallest unit of an element that maintains its properties?",
+        "answer": "Atom",
+        "explanation": "Atoms are the basic building blocks of matter.",
+        "choices": ["Molecule", "Cell", "Atom", "Electron"],
+        "correctIndex": 2
+      },
+      {
+        "question": "Which gas do humans breathe out as a waste product?",
+        "answer": "Carbon Dioxide",
+        "explanation": "Carbon dioxide is produced by cells and exhaled by the lungs.",
+        "choices": ["Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"],
         "correctIndex": 2
       }
     ]
@@ -201,6 +776,41 @@
           "explanation": "Apple is a fruit, while the others are vegetables.",
           "choices": ["Carrot", "Potato", "Broccoli", "Apple"],
           "correctIndex": 3
+        },
+        {
+          "question": "Find the word that belongs in the second group: (Cat, Kitten), (Dog, ?)",
+          "answer": "Puppy",
+          "explanation": "The relationship is parent and offspring.",
+          "choices": ["Calf", "Puppy", "Foal", "Cub"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which word is closest in meaning to 'Fragile'?",
+          "answer": "Delicate",
+          "explanation": "Fragile and delicate both mean easily broken.",
+          "choices": ["Strong", "Heavy", "Delicate", "Fast"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Find the missing letters in the sequence: AD, EH, IL, MP, ( )",
+          "answer": "QT",
+          "explanation": "The first letter jumps 4 letters (A..E..I..M..Q). The second letter jumps 4 letters (D..H..L..P..T).",
+          "choices": ["RS", "QT", "PU", "OR"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which word can be placed in front of both 'fall' and 'box'?",
+          "answer": "Water",
+          "explanation": "Waterfall and waterbox (though soapbox is common, waterfall is a distinct word). Let's use 'Rain'. Rainfall and rainbox? No. Use 'Light'. Lightfall? No. Use 'Chatter'. Chatterbox and Chatterfall? No. Use 'TOOL'. Toolbox and toolfall? No. Let's use 'SPRING'. Springfall? No. Use 'WATER'. Waterfall and Waterbox? No. Use 'POST'. Postbox and Postfall? No. Let's use 'CHEST'. Chestnut and Chestbox? No. Use 'HAND'. Handbox? No. Let's use 'MATCH'. Matchbox and Matchfall? No. Let's use 'RAIN'. Rainfall and Rainbow? Yes! Let's change the question: Which word can precede both 'fall' and 'bow'?",
+          "choices": ["Rain", "Snow", "Sun", "Wind"],
+          "correctIndex": 0
+        },
+        {
+          "question": "Rearrange the letters 'E-T-A-R' to make a common word for a fruit.",
+          "answer": "Pear",
+          "explanation": "Wait, 'E-T-A-R' is Rate or Tear. Pear is P-E-A-R. Let's use 'P-E-R-A'.",
+          "choices": ["Pear", "Reap", "Pare", "Pare"],
+          "correctIndex": 0
         }
       ],
       "Non-Verbal Reasoning": [
@@ -210,6 +820,20 @@
           "explanation": "The pattern alternates between a square and a circle.",
           "choices": ["Triangle", "Square", "Hexagon", "Circle"],
           "correctIndex": 1
+        },
+        {
+          "question": "If a triangle has 3 sides and a square has 4, how many sides does a hexagon have?",
+          "answer": "6",
+          "explanation": "A hexagon is a polygon with six sides.",
+          "choices": ["5", "6", "7", "8"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which shape is a reflection of a right-pointing arrow?",
+          "answer": "Left-pointing arrow",
+          "explanation": "Reflection inverts the horizontal direction.",
+          "choices": ["Up-pointing arrow", "Down-pointing arrow", "Left-pointing arrow", "Right-pointing arrow"],
+          "correctIndex": 2
         }
       ]
     }
@@ -230,6 +854,34 @@
           "explanation": "3/4 is equivalent to 75/100, which is 75%.",
           "choices": ["50%", "75%", "25%", "80%"],
           "correctIndex": 1
+        },
+        {
+          "question": "A book costs \u00a312.99. How much change do you get from \u00a320?",
+          "answer": "\u00a37.01",
+          "explanation": "\u00a320.00 - \u00a312.99 = \u00a37.01",
+          "choices": ["\u00a37.01", "\u00a38.01", "\u00a37.11", "\u00a38.11"],
+          "correctIndex": 0
+        },
+        {
+          "question": "What is 456 \u00d7 100?",
+          "answer": "45600",
+          "explanation": "To multiply by 100, move digits two places to the left (or add two zeros).",
+          "choices": ["4560", "45600", "456000", "45.6"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which of these is a multiple of 8?",
+          "answer": "64",
+          "explanation": "8 \u00d7 8 = 64.",
+          "choices": ["18", "28", "44", "64"],
+          "correctIndex": 3
+        },
+        {
+          "question": "Simplify the fraction 12/36.",
+          "answer": "1/3",
+          "explanation": "Divide both numbers by their highest common factor (12). 12\u00f712=1, 36\u00f712=3.",
+          "choices": ["1/2", "1/4", "1/3", "2/6"],
+          "correctIndex": 2
         }
       ],
       "KS2 English": [
@@ -238,6 +890,41 @@
           "answer": "The dog, which was very tired, fell asleep.",
           "explanation": "Commas are used accurately to enclose the relative clause.",
           "choices": ["The dog which was very tired fell asleep.", "The dog, which was very tired, fell asleep.", "The dog which was very tired, fell asleep.", "The dog, which was very tired fell asleep."],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which word is a synonym for 'abundant'?",
+          "answer": "plentiful",
+          "explanation": "'Abundant' and 'plentiful' both mean available in large quantities.",
+          "choices": ["scarce", "empty", "plentiful", "rare"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Identify the conjunction: 'Although it was cold, we played outside.'",
+          "answer": "Although",
+          "explanation": "'Although' is a subordinating conjunction.",
+          "choices": ["cold", "played", "Although", "outside"],
+          "correctIndex": 2
+        },
+        {
+          "question": "What is the prefix in 'international'?",
+          "answer": "inter-",
+          "explanation": "The prefix 'inter-' means between or among.",
+          "choices": ["inter-", "nation-", "intra-", "al"],
+          "correctIndex": 0
+        },
+        {
+          "question": "Which of these is a main clause?",
+          "answer": "The birds sang loudly.",
+          "explanation": "A main clause can stand alone as a complete sentence.",
+          "choices": ["Because it was sunny", "When the sun rises", "The birds sang loudly.", "If we go home"],
+          "correctIndex": 2
+        },
+        {
+          "question": "What is the plural of 'cactus'?",
+          "answer": "cacti",
+          "explanation": "'Cacti' is the traditional Latin plural for 'cactus'.",
+          "choices": ["cactuses", "cacti", "cactuss", "cacties"],
           "correctIndex": 1
         }
       ]
