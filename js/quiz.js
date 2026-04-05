@@ -269,12 +269,20 @@ function startQuiz() {
         return;
     }
 
-    if (!state.questionsData[state.currentSubject] || !state.questionsData[state.currentSubject][state.currentYear]) {
-        showToast(`No questions available for ${state.currentSubject} - ${state.currentYear}`, 'error');
+    let allQuestions = state.questionsData[state.currentSubject][state.currentYear];
+    
+    // Handle sub-topics (e.g. KS2 Maths under SATs Prep Year 6)
+    if (state.currentTopic && allQuestions && typeof allQuestions === 'object' && !Array.isArray(allQuestions)) {
+        if (allQuestions[state.currentTopic]) {
+            allQuestions = allQuestions[state.currentTopic];
+        }
+    }
+
+    if (!allQuestions || !Array.isArray(allQuestions) || allQuestions.length === 0) {
+        showToast(`No questions found for ${state.currentTopic || state.currentSubject}`, 'error');
         return;
     }
 
-    const allQuestions = state.questionsData[state.currentSubject][state.currentYear];
     const shuffledQuestions = shuffleArray(allQuestions);
     state.currentQuestions = shuffledQuestions.slice(0, 5);
     state.currentQuestionIndex = 0;
@@ -403,7 +411,7 @@ function updateTimerDisplay() {
     }
 }
 
-async function selectSubject(subject) {
+async function selectSubject(subject, forceYearSelection = false) {
     console.log('--- SUBJECT SELECTION START ---');
     console.log('Requested subject:', subject);
     console.log('Current questionsLoaded state:', state.questionsLoaded);
@@ -453,6 +461,7 @@ async function selectSubject(subject) {
 
     console.log('Final normalized subject:', normalizedSubject);
     state.currentSubject = normalizedSubject;
+    state.currentTopic = null; // Clear any previously selected topic
     const currentUser = state.currentUser;
 
     // Check if we have data for this subject (Top-level or Nested)
@@ -464,21 +473,18 @@ async function selectSubject(subject) {
         for (const parentKey of Object.keys(state.questionsData)) {
             const parentObj = state.questionsData[parentKey];
             if (parentObj && typeof parentObj === 'object' && !Array.isArray(parentObj)) {
-                // Check if this parent has the subject as a sub-key
-                if (parentObj[normalizedSubject]) {
-                    subjectData = parentObj[normalizedSubject];
-                    parentCategory = parentKey;
-                    console.log(`Found ${normalizedSubject} nested under ${parentKey}`);
-                    break;
-                }
+                // Also check for partial matches in child keys (e.g. "English" matching "KS2 English")
+                const childMatch = Object.keys(parentObj).find(k => 
+                    k.toLowerCase() === lowerSubject || 
+                    k.toLowerCase().includes(lowerSubject) ||
+                    lowerSubject.includes(k.toLowerCase())
+                );
                 
-                // Also check for case-insensitive matches in child keys
-                const childMatch = Object.keys(parentObj).find(k => k.toLowerCase() === lowerSubject);
                 if (childMatch) {
                     subjectData = parentObj[childMatch];
                     normalizedSubject = childMatch;
                     parentCategory = parentKey;
-                    console.log(`Found case-insensitive match ${childMatch} nested under ${parentKey}`);
+                    console.log(`Found match ${childMatch} nested under ${parentKey}`);
                     break;
                 }
             }
@@ -486,8 +492,7 @@ async function selectSubject(subject) {
     }
 
     if (!subjectData) {
-        console.error(`ERROR: No data found for normalized subject: ${normalizedSubject}`);
-        console.log('Debugging state.questionsData:', state.questionsData);
+        console.error(`ERROR: No data found for subject: ${normalizedSubject}`);
         showToast(`Questions for ${normalizedSubject} are coming soon!`, 'info');
         return;
     }
@@ -496,12 +501,13 @@ async function selectSubject(subject) {
     state.currentSubject = normalizedSubject;
     const finalData = subjectData; // This is the Year/Topic map
 
-    if (currentUser && currentUser.grade && finalData[currentUser.grade]) {
+    // Check if the current user's grade exists in this subject's data
+    if (!forceYearSelection && currentUser && currentUser.grade && finalData[currentUser.grade]) {
         console.log('Auto-selecting year based on user grade:', currentUser.grade);
         state.currentYear = currentUser.grade;
         showSkillTree(normalizedSubject, state.currentYear);
     } else {
-        console.log('No user grade match or guest user. Showing year selection.');
+        console.log('Showing year selection.');
         const titleEl = getElement('selected-subject-title');
         const backBtn = getElement('back-to-subjects');
 
@@ -515,7 +521,6 @@ async function selectSubject(subject) {
                 backBtn.textContent = '← Subjects';
                 backBtn.onclick = backToSubjects;
             } else {
-                // For Guests, hide the back button because sidebar keeps subjects available
                 backBtn.style.display = 'none';
             }
         }
@@ -525,17 +530,24 @@ async function selectSubject(subject) {
             yearSelectionEl.innerHTML = '';
             const yearData = finalData || {};
             const categories = Object.keys(yearData);
-            console.log('Available years for subject:', categories);
-
+            
             if (categories.length === 0) {
-                console.warn('Subject exists but has NO year categories.');
-                yearSelectionEl.innerHTML = '<p class="text-center" style="padding: 2rem; width: 100%;">No topics available yet for this subject.</p>';
+                yearSelectionEl.innerHTML = `
+                    <div class="no-data-premium">
+                        <div class="no-data-icon">⌛</div>
+                        <h4>Coming Soon!</h4>
+                        <p>Questions for ${normalizedSubject} are being prepared. Check back shortly!</p>
+                        <button onclick="backToSubjects()" class="primary-btn" style="margin-top: 1rem">Back to Subjects</button>
+                    </div>
+                `;
             } else {
                 // Map common topics to icons for a premium feel
                 const topicIcons = {
                     'Verbal Reasoning': '🧠',
                     'English & Maths': '➕',
                     'Year 3': '🥉',
+                    'Year 4': '🍀',
+                    'Year 5': '🛡️',
                     'Year 6': '🥇',
                     'KS2 Maths': '➗',
                     'KS2 English': '📖',
@@ -543,80 +555,176 @@ async function selectSubject(subject) {
                 };
 
                 categories.forEach(cat => {
-                    const btn = document.createElement('button');
-                    btn.type = 'button';
-                    btn.className = 'year-button';
-
-                    const icon = topicIcons[cat] || topicIcons['Default'];
+                    const btn = document.createElement('div');
+                    btn.className = 'year-card';
                     btn.innerHTML = `
-                        <span class="subject-icon">${icon}</span>
-                        <span class="subject-name">${cat}</span>
+                        <div class="year-icon">${topicIcons[cat] || topicIcons['Default']}</div>
+                        <h3>${cat}</h3>
+                        <p>Practice essential skills for ${cat}.</p>
                     `;
-
-                    btn.onclick = () => selectYear(cat);
+                    btn.onclick = () => {
+                        state.currentYear = cat;
+                        showSkillTree(normalizedSubject, cat);
+                    };
                     yearSelectionEl.appendChild(btn);
                 });
             }
         }
         showScreen('year');
     }
-    console.log('--- SUBJECT SELECTION END ---');
 }
 
-function selectYear(year) {
-    state.currentYear = year;
-    showSkillTree(state.currentSubject, year);
-}
+/**
+ * Shows the skill tree for a specific subject and year
+ */
+function showSkillTree(subject, year, parentSubject = null) {
+    console.log(`Showing skill tree for ${subject} (${year}) (Parent: ${parentSubject})`);
+    
+    // Resolve the data
+    let yearData = null;
+    if (parentSubject && state.questionsData[parentSubject] && state.questionsData[parentSubject][year]) {
+        // Topic level: Parent -> Year -> Subject (Topic)
+        yearData = state.questionsData[parentSubject][year][subject];
+    } else if (state.questionsData[subject]) {
+        // Standard level: Subject -> Year
+        yearData = state.questionsData[subject][year];
+    } else {
+        // Deep search fallback
+        for (const pKey of Object.keys(state.questionsData)) {
+            const pObj = state.questionsData[pKey];
+            if (pObj && typeof pObj === 'object' && !Array.isArray(pObj)) {
+                if (pObj[subject]) { // Parent -> Subject -> Year
+                    yearData = pObj[subject][year];
+                    break;
+                }
+                // Check Parent -> Year -> Subject (Topic)
+                if (pObj[year] && pObj[year][subject]) {
+                    yearData = pObj[year][subject];
+                    parentSubject = pKey;
+                    break;
+                }
+            }
+        }
+    }
 
-function showSkillTree(subject, year) {
-    const skillListEl = getElement('skill-list');
+    if (!yearData || (Array.isArray(yearData) && yearData.length === 0)) {
+        console.warn('No questions found for:', subject, year);
+        const yearSelectionEl = getElement('year-selection');
+        if (yearSelectionEl) {
+            yearSelectionEl.innerHTML = `
+                <div class="no-data-premium">
+                    <div class="no-data-icon">🏗️</div>
+                    <h4>Working on it!</h4>
+                    <p>Questions for ${subject} ${year} are coming soon!</p>
+                    <button onclick="selectSubject('${parentSubject || subject}')" class="primary-btn" style="margin-top: 1rem">Back to ${parentSubject || 'Subject'}</button>
+                </div>
+            `;
+            showScreen('year');
+        }
+        return;
+    }
+
     const titleEl = getElement('skill-subject-title');
     const subtitleEl = getElement('skill-year-subtitle');
+    const skillListEl = getElement('skill-list');
 
-    if (titleEl) titleEl.textContent = state.currentUser ? subject : 'Practice Skills';
-    if (subtitleEl) subtitleEl.textContent = year;
+    // Add "Change" buttons
+    if (subtitleEl) {
+        subtitleEl.innerHTML = year; // Reset
+        
+        const changeYearBtn = document.createElement('button');
+        changeYearBtn.className = 'text-btn';
+        changeYearBtn.style.fontSize = '0.75rem';
+        changeYearBtn.style.marginLeft = '1rem';
+        changeYearBtn.textContent = '(Change Year)';
+        changeYearBtn.onclick = () => selectSubject(parentSubject || subject, true);
+        subtitleEl.appendChild(changeYearBtn);
 
-    if (skillListEl) {
-        skillListEl.innerHTML = '';
-
-        // Synthesize skills from questions for now (Mocking IXL categories)
-        // In a real app, questions.json would have SkillIDs
-        const categories = {
-            'A': 'Basics & Identity',
-            'B': 'Advanced Concepts',
-            'C': 'Problem Solving'
-        };
-
-        Object.entries(categories).forEach(([code, name]) => {
-            const categorySection = document.createElement('div');
-            categorySection.className = 'skill-category';
-            categorySection.innerHTML = `<h2>${code}. ${name}</h2>`;
-
-            const itemsGrid = document.createElement('div');
-            itemsGrid.className = 'skill-items';
-
-            // Just split questions into 5 arbitrary skills for demo
-            for (let i = 1; i <= 5; i++) {
-                const skillId = `${code}.${i}`;
-                const mastery = state.currentUser ? getSkillScore(state.currentUser.id, subject, year, skillId) : 0;
-
-                const skillItem = document.createElement('div');
-                skillItem.className = 'skill-item';
-                skillItem.innerHTML = `
-                    <span class="skill-id">${skillId}</span>
-                    <span class="skill-name">Practice Set ${i}</span>
-                    <span class="skill-score" style="background: ${mastery === 100 ? 'var(--accent)' : 'var(--success)'}">${mastery}</span>
-                `;
-                skillItem.onclick = () => startPractice(skillId);
-                itemsGrid.appendChild(skillItem);
-            }
-            categorySection.appendChild(itemsGrid);
-            skillListEl.appendChild(categorySection);
-        });
+        if (parentSubject) {
+            const changeTopicBtn = document.createElement('button');
+            changeTopicBtn.className = 'text-btn';
+            changeTopicBtn.style.fontSize = '0.75rem';
+            changeTopicBtn.style.marginLeft = '0.5rem';
+            changeTopicBtn.textContent = '(Change Topic)';
+            changeTopicBtn.onclick = () => showSkillTree(parentSubject, year);
+            subtitleEl.appendChild(changeTopicBtn);
+        }
     }
+
+    if (titleEl) titleEl.textContent = subject;
+    if (skillListEl) skillListEl.innerHTML = '';
+
+    // Handle Sub-Topics
+    if (yearData && typeof yearData === 'object' && !Array.isArray(yearData)) {
+        console.log('Sub-topics detected:', Object.keys(yearData));
+        const subTopics = Object.keys(yearData);
+        
+        const categorySection = document.createElement('div');
+        categorySection.className = 'skill-category';
+        categorySection.innerHTML = `<h2>Select Topic</h2>`;
+        
+        const itemsGrid = document.createElement('div');
+        itemsGrid.className = 'skill-items';
+        
+        subTopics.forEach(topic => {
+            const topicItem = document.createElement('div');
+            topicItem.className = 'skill-item accent-item';
+            topicItem.innerHTML = `
+                <span class="skill-id">📘</span>
+                <span class="skill-name">${topic}</span>
+                <span class="skill-score">GO</span>
+            `;
+            topicItem.onclick = () => {
+                state.currentSubject = subject;
+                state.currentTopic = topic; // NEW: Set currentTopic
+                showSkillTree(topic, year, subject); 
+            };
+            itemsGrid.appendChild(topicItem);
+        });
+        
+        categorySection.appendChild(itemsGrid);
+        if (skillListEl) skillListEl.appendChild(categorySection);
+        showScreen('skill');
+        return;
+    }
+    // Synthesize skills from questions
+    const categories = {
+        'A': 'Basics & Identity',
+        'B': 'Advanced Concepts',
+        'C': 'Problem Solving'
+    };
+
+    Object.entries(categories).forEach(([code, name]) => {
+        const categorySection = document.createElement('div');
+        categorySection.className = 'skill-category';
+        categorySection.innerHTML = `<h2>${code}. ${name}</h2>`;
+
+        const itemsGrid = document.createElement('div');
+        itemsGrid.className = 'skill-items';
+
+        // Calculate num sets based on questions
+        const numSets = Math.max(1, Math.ceil(yearData.length / 5));
+
+        for (let i = 1; i <= Math.min(numSets, 5); i++) {
+            const skillId = `${code}.${i}`;
+            const mastery = state.currentUser ? (getSkillScore(state.currentUser.id, subject, year, skillId) || 0) : 0;
+
+            const skillItem = document.createElement('div');
+            skillItem.className = 'skill-item';
+            skillItem.innerHTML = `
+                <span class="skill-id">${skillId}</span>
+                <span class="skill-name">Practice Set ${i}</span>
+                <span class="skill-score" style="background: ${mastery === 100 ? 'var(--accent)' : 'var(--success)'}">${mastery}</span>
+            `;
+            skillItem.onclick = () => startPractice(skillId);
+            itemsGrid.appendChild(skillItem);
+        }
+        categorySection.appendChild(itemsGrid);
+        if (skillListEl) skillListEl.appendChild(categorySection);
+    });
+
     showScreen('skill');
 }
-
 function startPractice(skillId) {
     state.currentSkill = skillId;
     state.smartScore = 0;
