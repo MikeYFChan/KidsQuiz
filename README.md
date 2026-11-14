@@ -22,6 +22,8 @@ Year → Subject → Topic → Questions
 
 Each question needs a `question`, four `choices`, an `answer`, and an `explanation`. New questions can also specify a `difficulty` of `foundation`, `core`, or `stretch`. Existing questions without a difficulty tag are treated as `core`; `Mixed practice` includes questions at every level.
 
+The bank now contains 238 questions across both year groups. The [GL Assessment familiarisation materials](https://11plus.gl-assessment.co.uk/pages/free-materials) informed the broad question areas and multiple-choice practice format; questions added for this update are original and have not been copied from its materials. 11+ tests and their timings vary by area, so check the relevant local admissions authority for the test your child will take. Science is supplementary practice, not one of the four GL Assessment practice-paper areas.
+
 ## Run locally
 
 Use any static web server from the project folder, for example:
