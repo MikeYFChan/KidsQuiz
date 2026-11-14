@@ -1,467 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="white">
-    <link rel="manifest" href="manifest.json">
-    <title>KidsQuiz | Interactive Learning</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Quiz.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2457d6">
+  <link rel="stylesheet" href="Quiz.css">
+  <title>Study Steps</title>
 </head>
-
 <body>
-    <div class="app-layout">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <span class="logo-icon">🎓</span>
-                <span class="logo-text">KidsQuiz</span>
-            </div>
-
-            <div class="player-stats-sidebar">
-                <div class="stats-top">
-                    <span id="sidebar-level" class="level-badge">Lvl 1</span>
-                    <div class="streak-badge" style="display: none;">
-                        <span class="streak-icon">🔥</span>
-                        <span id="sidebar-streak-count">0</span>
-                    </div>
-                    <div class="user-rewards-badge" id="sidebar-rewards" style="display: none;">
-                        <span class="star-icon">⭐</span>
-                        <span id="sidebar-star-count">0</span>
-                    </div>
-                </div>
-                <div class="xp-bar-container">
-                    <div class="xp-progress">
-                        <div id="sidebar-xp-fill" class="xp-fill"></div>
-                    </div>
-                    <span id="sidebar-xp-text" class="xp-text">0 / 100 XP</span>
-                </div>
-            </div>
-            <nav class="sidebar-nav">
-                <button class="nav-item active" data-view="dashboard">
-                    <span class="nav-icon">🏠</span>
-                    <span class="nav-label">Dashboard</span>
-                </button>
-                <div id="sidebar-subjects-section">
-                    <div class="nav-divider">Subjects</div>
-                    <button class="nav-item" data-subject="Maths">
-                        <span class="nav-icon">🔢</span>
-                        <span class="nav-label">Maths</span>
-                    </button>
-                    <button class="nav-item" data-subject="English">
-                        <span class="nav-icon">📚</span>
-                        <span class="nav-label">English</span>
-                    </button>
-                    <button class="nav-item" data-subject="Chinese">
-                        <span class="nav-icon">🏮</span>
-                        <span class="nav-label">Chinese</span>
-                    </button>
-                    <button class="nav-item" data-subject="Science">
-                        <span class="nav-icon">🔬</span>
-                        <span class="nav-label">Science</span>
-                    </button>
-                    <button class="nav-item" data-subject="11+">
-                        <span class="nav-icon">🎯</span>
-                        <span class="nav-label">11+ Prep</span>
-                    </button>
-                    <button class="nav-item" data-subject="SATs Prep">
-                        <span class="nav-icon">📝</span>
-                        <span class="nav-label">SATs Prep</span>
-                    </button>
-                </div>
-                <div class="nav-divider">Progress</div>
-                <button class="nav-item" id="sidebar-history">
-                    <span class="nav-icon">📈</span>
-                    <span class="nav-label">History</span>
-                </button>
-                <button class="nav-item accent" id="open-report-btn">
-                    <span class="nav-icon">📊</span>
-                    <span class="nav-label">Progress Report</span>
-                </button>
-                <a href="admin.html" class="nav-item"
-                    style="text-decoration: none; color: inherit; display: flex; width: 100%;">
-                    <span class="nav-icon">⚙️</span>
-                    <span class="nav-label">Admin</span>
-                </a>
-            </nav>
-            <div class="sidebar-footer">
-                <div id="user-footer" class="user-footer-side">
-                    <div id="sidebar-avatar" class="sidebar-avatar">👤</div>
-                    <select id="user-select" class="user-select">
-                        <option value="guest">Guest (No Tracking)</option>
-                    </select>
-                    <button id="open-user-modal-footer" class="nav-icon-button" aria-label="Add User"
-                        title="Add User">➕</button>
-                </div>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <header class="top-bar">
-                <button id="toggle-sidebar" class="icon-button">☰</button>
-                <div class="search-container">
-                    <input type="text" id="skill-search" placeholder="Search for skills (e.g. addition)...">
-                </div>
-                <div class="user-actions">
-                    <div id="header-mascot" class="header-mascot-wrapper" title="My Mascot">
-                        <div id="header-mascot-sprite" class="header-mascot-sprite">🦉</div>
-                        <div id="header-mascot-bubble" class="header-mascot-bubble">Hello!</div>
-                    </div>
-                    <button id="theme-toggle" class="icon-button" aria-label="Toggle Dark Mode"
-                        title="Toggle Dark Mode">🌙</button>
-                    <!-- User properties moved to sidebar -->
-                </div>
-            </header>
-
-            <div class="content-body">
-                <div id="user-modal" class="modal-overlay" aria-hidden="true" role="dialog"
-                    aria-labelledby="user-modal-title">
-                    <div class="modal-content">
-                        <h2 id="user-modal-title">Add User</h2>
-                        <form id="user-form" novalidate>
-                            <div class="form-group">
-                                <label for="user-name">Name</label>
-                                <input type="text" id="user-name" name="user-name" required
-                                    placeholder="Enter your name" minlength="2" maxlength="50" />
-                                <span class="error-message" id="user-name-error"></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="user-grade">Grade</label>
-                                <select id="user-grade" name="user-grade" required>
-                                    <option value="">Select your grade</option>
-                                    <option value="Year 3">Year 3</option>
-                                    <option value="Year 6">Year 6</option>
-                                </select>
-                                <span class="error-message" id="user-grade-error"></span>
-                            </div>
-                            <div class="form-group">
-                                <label>Choose your Avatar</label>
-                                <div id="avatar-grid" class="avatar-grid">
-                                    <!-- Avatars injected by JS -->
-                                </div>
-                                <input type="hidden" id="user-avatar-input" name="user-avatar" value="👤" />
-                            </div>
-                            <div class="modal-buttons">
-                                <button type="submit" class="submit-button" id="save-user-btn">Save</button>
-                                <button type="button" id="close-user-modal" class="nav-button">Cancel</button>
-                            </div>
-                            <div class="form-success" id="user-form-success"></div>
-                        </form>
-                    </div>
-                </div>
-
-                <div id="shop-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="shop-modal-title">
-                    <div class="modal-content shop-content">
-                        <div class="shop-header">
-                            <h2 id="shop-modal-title">Rewards Shop 🛒</h2>
-                            <div class="shop-balance">
-                                <span>Balance: </span>
-                                <span class="star-icon">⭐</span>
-                                <span id="shop-star-count">0</span>
-                            </div>
-                        </div>
-                        
-                        <div class="shop-tabs">
-                            <button type="button" class="shop-tab active" data-target="shop-avatars">Avatars</button>
-                            <button type="button" class="shop-tab" data-target="shop-themes">Themes</button>
-                        </div>
-
-                        <div id="shop-avatars" class="shop-grid active">
-                            <!-- Injected by JS -->
-                        </div>
-
-                        <div id="shop-themes" class="shop-grid" style="display: none;">
-                            <!-- Injected by JS -->
-                        </div>
-
-                        <div class="modal-buttons" style="margin-top: 2rem;">
-                            <button type="button" id="close-shop-btn" class="nav-button">Close Shop</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Dashboard Screen (IXL Recommendations Style) -->
-                <div id="dashboard-screen" class="screen active">
-                    <div class="dashboard-hero">
-                        <h2>Welcome back, <span id="welcome-name">Learner</span>!</h2>
-                        <p>Ready to master some new skills today? Practice makes perfect, and every question gets you
-                            closer to your goals!</p>
-                    </div>
-                    <div class="recommendations-grid">
-                        <div class="recommendation-card" data-subject="Maths">
-                            <span class="card-icon">🔢</span>
-                            <h3>Daily Math Challenge</h3>
-                            <p>Test your logic and problem-solving skills with today's top picks.</p>
-                            <button class="start-card-btn">Go</button>
-                        </div>
-                        <div class="recommendation-card" data-subject="English">
-                            <span class="card-icon">📚</span>
-                            <h3>Grammar Mastery</h3>
-                            <p>Build better sentences and expand your vocabulary through play.</p>
-                            <button class="start-card-btn">Go</button>
-                        </div>
-                        <div class="recommendation-card" data-subject="SATs Prep">
-                            <span class="card-icon">📝</span>
-                            <h3>SATs Practice</h3>
-                            <p>Prepare for your SATs with these essential KS2 practice questions.</p>
-                            <button class="start-card-btn">Go</button>
-                        </div>
-                        <div class="recommendation-card" id="resume-skill-card">
-                            <span class="card-icon">🎯</span>
-                            <h3>Keep Going</h3>
-                            <p id="resume-skill-name">Continue your journey where you left off!</p>
-                            <button class="start-card-btn">Resume</button>
-                        </div>
-                        <div class="recommendation-card accent-card" id="dash-report-card">
-                            <span class="card-icon">📊</span>
-                            <h3>Learning Report</h3>
-                            <p>View your mastery trends and identify areas to grow.</p>
-                            <button class="start-card-btn">See Progress</button>
-                        </div>
-                    </div>
-
-                    <div class="dashboard-quests" id="dashboard-quests-section">
-                        <h3>Today's Quests ✨</h3>
-                        <div id="quests-list" class="quests-list">
-                            <!-- Quests injected by JS -->
-                        </div>
-                    </div>
-
-                    <div class="dashboard-rewards" id="dashboard-rewards-section">
-                        <div class="rewards-header-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
-                            <h3>My Rewards 🏆</h3>
-                            <button id="open-shop-btn" class="submit-button" style="padding: 0.5rem 1rem; border-radius: 9999px;">Shop 🛒</button>
-                        </div>
-                        <div class="rewards-summary">
-                            <div class="reward-stat">
-                                <span class="stat-label">Total Stars</span>
-                                <span id="dash-total-stars" class="stat-value">0</span>
-                            </div>
-                            <div class="reward-stat">
-                                <span class="stat-label">Badges Earned</span>
-                                <span id="dash-total-badges" class="stat-value">0</span>
-                            </div>
-                        </div>
-                        <div id="badges-grid" class="badges-grid">
-                            <p class="empty-rewards-msg">Keep practicing to earn your first star! ⭐</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill Tree Screen -->
-                <div id="skill-screen" class="screen">
-                    <header class="header">
-                        <h1 id="skill-subject-title">Maths</h1>
-                        <p id="skill-year-subtitle">Year 3</p>
-                    </header>
-                    <div id="skill-list" class="skill-list">
-                        <!-- Categories and Skills will be injected here -->
-                    </div>
-                </div>
-
-                <!-- Welcome Screen - Subject Selection (Legacy/Alternative) -->
-                <div id="subject-screen" class="screen">
-                    <header class="header">
-                        <h1 id="title" class="text-center">Subjects</h1>
-                    </header>
-                    <div class="subject-selection">
-                        <button type="button" class="subject-button" data-subject="Maths">
-                            <span class="subject-icon">🔢</span>
-                            <span class="subject-name">Maths</span>
-                        </button>
-                        <button type="button" class="subject-button" data-subject="English">
-                            <span class="subject-icon">📚</span>
-                            <span class="subject-name">English</span>
-                        </button>
-                        <button type="button" class="subject-button" data-subject="Chinese">
-                            <span class="subject-icon">🏮</span>
-                            <span class="subject-name">Chinese</span>
-                        </button>
-                        <button type="button" class="subject-button" data-subject="Science">
-                            <span class="subject-icon">🔬</span>
-                            <span class="subject-name">Science</span>
-                        </button>
-                        <button type="button" class="subject-button" data-subject="11+">
-                            <span class="subject-icon">🎯</span>
-                            <span class="subject-name">11+ Prep</span>
-                        </button>
-                        <button type="button" class="subject-button" data-subject="SATs Prep">
-                            <span class="subject-icon">📝</span>
-                            <span class="subject-name">SATs Prep</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Year Selection Screen -->
-                <div id="year-screen" class="screen">
-                    <header class="header">
-                        <h1 id="selected-subject-title" class="text-center"></h1>
-                    </header>
-                    <div class="year-selection" id="year-selection">
-                        <!-- Year buttons will be dynamically injected here -->
-                    </div>
-                    <div class="button-group" style="justify-content: center; margin-top: 2rem;">
-                        <button type="button" class="back-button" id="back-to-subjects">← Subjects</button>
-                    </div>
-                </div>
-
-                <!-- Progress Report Screen -->
-                <div id="report-screen" class="screen">
-                    <header class="header report-top-header">
-                        <button id="report-back-btn" class="back-button">← Dashboard</button>
-                        <div class="header-main">
-                            <h1>📊 Learning Progress</h1>
-                            <p>Insights for Parents & Teachers</p>
-                        </div>
-                        <button onclick="window.print()" class="secondary-btn print-btn-premium">🖨️ Print
-                            Report</button>
-                        <button id="export-data-btn" class="secondary-btn">💾 Export Data</button>
-                        <button id="import-data-btn" class="secondary-btn">📥 Import Data</button>
-                        <input type="file" id="import-input" style="display: none;" accept=".json" />
-                    </header>
-                    <div id="report-content-full" class="report-content-container">
-                        <!-- Content injected by JS -->
-                    </div>
-                </div>
-
-                <!-- Explanation Overlay (IXL Style) -->
-                <div id="explanation-overlay" class="modal-overlay">
-                    <div class="modal-content explanation-content">
-                        <div class="explanation-type error-text">Sorry, that's not right.</div>
-                        <div class="explanation-body">
-                            <div class="exp-section">
-                                <span class="exp-label">The question:</span>
-                                <div id="exp-question" class="exp-value"></div>
-                            </div>
-                            <div class="exp-section">
-                                <span class="exp-label">You answered:</span>
-                                <div id="exp-user-answer" class="exp-value incorrect-text"></div>
-                            </div>
-                            <div class="exp-section">
-                                <span class="exp-label">The correct answer:</span>
-                                <div id="exp-correct-answer" class="exp-value correct-text"></div>
-                            </div>
-                            <div class="exp-section master-exp">
-                                <span class="exp-label">Explanation:</span>
-                                <div id="exp-detail" class="exp-value"></div>
-                            </div>
-                        </div>
-                        <button type="button" id="close-explanation" class="submit-button">Got it</button>
-                    </div>
-                </div>
-                <!-- Question Screen -->
-                <div id="question-screen" class="screen">
-                    <header class="header quiz-top-header">
-                        <div class="quiz-status">
-                            <div class="score-display-mini">
-                                <span class="label">SmartScore</span>
-                                <div class="mastery-ring-container">
-                                    <svg class="mastery-ring" width="60" height="60">
-                                        <circle class="ring-bg" cx="30" cy="30" r="26"></circle>
-                                        <circle id="mastery-fill" class="ring-fill" cx="30" cy="30" r="26"></circle>
-                                    </svg>
-                                    <span id="smart-score" class="value">0</span>
-                                </div>
-                            </div>
-                            <div class="counter-display">
-                                <span id="timer-display" class="timer-display">00:00</span>
-                            </div>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="progress-fill"></div>
-                        </div>
-                    </header>
-
-                    <form id="quiz-form">
-                        <div class="mascot-wrapper" id="quiz-mascot">
-                            <div class="mascot-bubble" id="mascot-speech" style="opacity: 0;">You can do it!</div>
-                            <div class="mascot-character" id="mascot-emote">🦉</div>
-                        </div>
-                        <div class="question-container">
-                            <label class="question-label" id="question-text">Loading...</label>
-                            <button type="button" id="speak-btn" class="tts-button" aria-label="Speak">🔊</button>
-                            <div id="choices-container" class="choices-container"></div>
-                            <input type="text" id="answer-input" class="form-control" autocomplete="off" />
-                            <div id="quiz-answer-error" class="quiz-answer-error"></div>
-                        </div>
-
-                        <div class="button-group">
-                            <button type="button" class="back-to-start-btn" id="back-to-start">Exit</button>
-                            <button type="submit" id="next-btn" class="submit-button">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Results Screen -->
-            <div id="results-screen" class="screen">
-                <header class="header">
-                    <h1>Excellent Work!</h1>
-                </header>
-
-                <div class="results-container">
-                    <div class="score-summary">
-                        <div class="stat">
-                            <span class="stat-value" id="score-text">0/5</span>
-                            <span class="stat-label">Correct</span>
-                        </div>
-                        <div class="stat highlight">
-                            <span class="stat-value" id="percentage-text">0%</span>
-                            <span class="stat-label">Score</span>
-                        </div>
-                    </div>
-                    <div id="score-message"></div>
-
-                    <div class="answers-review">
-                        <h3>Review</h3>
-                        <div id="answers-list"></div>
-                    </div>
-
-                    <div class="button-group">
-                        <button type="button" id="results-dashboard-btn" class="nav-button secondary">Dashboard</button>
-                        <button type="button" id="restart-btn" class="submit-button">Practice More</button>
-                        <button type="button" id="new-quiz-btn" class="nav-button">Other Skills</button>
-                    </div>
-                </div>
-            </div>
-    </div>
-    </main>
-    </div>
-
-    <div id="history-modal" class="modal-overlay history-modal" aria-hidden="true" role="dialog"
-        aria-labelledby="history-modal-title">
-        <div class="modal-content">
-            <h2 id="history-modal-title">History</h2>
-            <div id="history-list">No history</div>
-            <div class="modal-buttons">
-                <button id="close-history-btn" class="nav-button">Close</button>
-                <button id="clear-history-btn" class="nav-button">Clear History</button>
-            </div>
+  <header class="site-header">
+    <a class="brand" href="#" data-action="home"><span>S</span> Study Steps</a>
+    <nav aria-label="Main navigation"><button class="text-button" data-action="home">Study</button><button class="text-button" data-action="rewards">Buddy &amp; gifts</button><button class="text-button" data-action="progress">Progress</button><button class="text-button" data-action="parents">For parents</button></nav>
+  </header>
+  <main class="container">
+    <section id="home-view" class="view active">
+      <div class="dashboard-hero">
+        <div class="hero-copy">
+          <p class="eyebrow">STUDY STEPS · 11+ PREPARATION</p>
+          <h1>Build confidence,<br>one skill at a time.</h1>
+          <p>Focused practice and clear explanations to help you prepare for your next step.</p>
+          <div class="hero-actions"><a class="primary-button" href="#subject-section">Explore subjects <span aria-hidden="true">↓</span></a><span class="availability-note">Practice for Year 4 and Year 7</span></div>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-        <script src="js/questions-data.js?v=1.1.0"></script>
-        <script src="js/state.js"></script>
-        <script src="js/ui.js"></script>
-        <script src="js/quiz.js"></script>
-        <script src="js/features.js"></script>
-        <script src="js/app.js"></script>
-        <script>
-            if ('serviceWorker' in navigator) {
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/sw.js').then((registration) => {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    }, (err) => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-                });
-            }
-        </script>
+        <aside class="dashboard-card" aria-label="Your learning snapshot">
+          <p class="eyebrow">YOUR LEARNING SNAPSHOT</p>
+          <h2 id="dashboard-greeting">Welcome to your study space.</h2>
+          <div class="dashboard-stats" aria-live="polite">
+            <div><strong id="dashboard-sets">0</strong><span>practice sets</span></div>
+            <div><strong id="dashboard-questions">0</strong><span>questions answered</span></div>
+            <div><strong id="dashboard-accuracy">0%</strong><span>average accuracy</span></div>
+          </div>
+          <button class="text-button" data-action="progress">View detailed progress <span aria-hidden="true">→</span></button>
+        </aside>
+      </div>
+      <section id="rewards-section" class="rewards-section">
+        <div class="section-heading"><div><p class="eyebrow">LEARN · EARN · CELEBRATE</p><h2>Meet your study buddy</h2></div><span class="section-note">Every answer helps you grow</span></div>
+        <div class="rewards-layout">
+          <article class="companion-card">
+            <div class="companion-showcase">
+              <div class="buddy-avatar-wrap"><span id="buddy-avatar" class="buddy-avatar" role="img" aria-label="Your study buddy">🐼</span><span id="buddy-gift" class="buddy-gift hidden" aria-hidden="true"></span></div>
+              <div><p class="eyebrow">YOUR BUDDY</p><h3 id="buddy-greeting">Ready for an adventure?</h3><p class="buddy-caption">Practise together and collect little treats.</p></div>
+              <div class="star-wallet" aria-label="Your star balance"><span aria-hidden="true">⭐</span><strong id="star-balance">0</strong><span>stars</span></div>
+            </div>
+            <div class="buddy-customise"><h3>Choose your buddy</h3><div id="character-options" class="character-options" aria-label="Choose a study buddy"></div></div>
+            <div class="gift-collection"><h3>Your buddy's gifts</h3><div id="gift-collection" class="gift-collection-items"></div></div>
+          </article>
+          <aside class="gift-shop">
+            <p class="eyebrow">THE LITTLE GIFT SHOP</p><h3>Pick a treat</h3><p class="shop-intro">Earn 1 star for every correct answer and 3 bonus stars when you finish a set.</p>
+            <div id="gift-shop-items" class="gift-shop-items"></div>
+          </aside>
+        </div>
+      </section>
+      <section class="panel setup-panel">
+        <div class="profile-copy"><p class="eyebrow">YOUR STUDY PROFILE</p><h2>Make this space yours</h2><p>Choose a year group to see the practice available to you.</p></div>
+        <div class="field-row">
+          <label><span>Your name <span class="optional-label">Optional</span></span><input id="student-name" maxlength="30" placeholder="For example: Jamie" autocomplete="given-name"></label>
+          <label><span>Year group</span><select id="year-select"><option value="Year 4">Year 4</option><option value="Year 7">Year 7</option></select></label>
+          <label><span>Question level</span><select id="difficulty-select"><option value="mixed">Mixed practice</option><option value="foundation">Foundation</option><option value="core">Core</option><option value="stretch">Stretch</option></select></label>
+        </div>
+        <p class="hint">Your name and progress are stored only in this browser on this device.</p>
+      </section>
+      <section class="recommendation-card" aria-live="polite">
+        <div><p class="eyebrow">YOUR NEXT STEP</p><h2 id="recommendation-title">Choose a subject to get started</h2><p id="recommendation-copy">Your next recommendation will reflect your practice history.</p></div>
+        <button id="recommend-button" class="secondary-button" data-action="recommend" disabled>Choose a subject</button>
+      </section>
+      <section class="mock-card">
+        <div class="mock-copy"><p class="eyebrow">PRACTISE UNDER PRESSURE</p><h2>Timed mock exam</h2><p>10 mixed-difficulty questions · 10 minutes · answers reviewed at the end.</p></div>
+        <div class="mock-controls"><label for="mock-subject-select">Choose a subject<select id="mock-subject-select"></select></label><button id="start-mock-button" class="primary-button">Start mock</button></div>
+      </section>
+      <section id="subject-section" class="subject-section">
+        <div class="section-heading"><div><p class="eyebrow">YOUR 11+ STUDY PATH</p><h2>Choose a subject to begin</h2></div><span class="section-note">Short, focused practice</span></div>
+        <div id="subject-grid" class="subject-grid"></div>
+        <div class="section-heading additional-heading"><div><p class="eyebrow">MORE TO EXPLORE</p><h2>Additional practice</h2></div></div>
+        <div id="additional-grid" class="additional-grid"></div>
+      </section>
+      <section id="topic-section" class="topics hidden" aria-live="polite"><div class="section-heading"><div><p class="eyebrow">CHOOSE A TOPIC</p><h2 id="topic-title">Choose a topic</h2></div></div><div id="topic-grid" class="topic-grid"></div></section>
+    </section>
+    <section id="quiz-view" class="view" aria-live="polite"><button class="back-button" data-action="home">← Back to choices</button><div class="quiz-meta"><span id="quiz-label"></span><span id="quiz-difficulty"></span><span id="question-count"></span><span id="timer-display" class="timer-display hidden" aria-live="off"></span></div><div class="progress-track"><div id="progress-fill"></div></div><article class="question-card"><p class="question-number" id="question-number"></p><h1 id="question-text"></h1><div id="answers" class="answers"></div><p id="feedback" class="feedback" role="status"></p><div class="question-actions"><button id="skip-button" class="secondary-button hidden">Skip question</button><button id="next-button" class="primary-button hidden">Next question</button></div></article></section>
+    <section id="results-view" class="view"><article class="result-card"><p class="eyebrow">PRACTICE COMPLETE</p><h1>Well done, <span id="result-name">learner</span>.</h1><p class="score"><strong id="score-number"></strong><span id="score-copy"></span></p><p id="result-message"></p><p id="earned-stars" class="earned-stars" role="status"></p><div class="result-actions"><button class="primary-button" data-action="retry">Try again</button><button id="retry-missed-button" class="secondary-button hidden" data-action="retry-missed">Practise missed questions</button><button class="secondary-button" data-action="progress">View progress</button></div></article><section class="review-section"><h2>Answer review</h2><div id="review-list"></div></section></section>
+    <section id="progress-view" class="view"><button class="back-button" data-action="home">← Back to practice</button><div class="section-heading"><div><p class="eyebrow">YOUR LEARNING</p><h1>Your progress</h1></div><button id="clear-progress" class="text-button danger">Clear local progress</button></div><div id="progress-summary" class="summary-grid"></div><section class="history-panel"><h2>Recent practice</h2><div id="history-list"></div><button class="secondary-button parent-link" data-action="parents">Open parent overview</button></section></section>
+    <section id="parent-view" class="view"><button class="back-button" data-action="home">← Back to study</button><div class="section-heading parent-heading"><div><p class="eyebrow">FAMILY OVERVIEW</p><h1>Parent dashboard</h1><p class="privacy-note">Learning activity is saved only in this browser on this device.</p></div><label class="year-filter-label">Filter year group<select id="parent-year-filter"><option value="all">All years</option><option value="Year 4">Year 4</option><option value="Year 7">Year 7</option></select></label></div><div id="parent-summary" class="summary-grid"></div><div class="parent-analytics-grid"><section class="history-panel"><h2>Progress by subject</h2><div id="subject-analysis"></div></section><section class="history-panel"><h2>Topics to review</h2><div id="topic-analysis"></div></section></div><section class="history-panel parent-recent"><h2>Recent learning activity</h2><div id="parent-history-list"></div></section></section>
+  </main>
+  <footer>Study Steps · Independent 11+ practice</footer><script src="js/app.js"></script>
 </body>
-
 </html>
